@@ -57,7 +57,7 @@ cSetting::cSetting(const std::string & tmpKeyword, bool(*tmpFuncPtr)(cQueuedComm
 	: keyword(tmpKeyword), set(tmpFuncPtr), description(tmpDescript)
 {}
 
-cCommandController* myInstance = 0;
+cCommandController* cCommandController::myInstance = 0;
 
 cCommandController* cCommandController::get() {
 	if (!myInstance) create(); 

@@ -353,13 +353,13 @@ std::vector<std::string> splitCommandLineFast(const std::string & line) {
 	return tokens;
 }
 
-//bool fileExists(const std::string & fileName) {
-//	// Check if the file exists and if it does, ask whether to overwrite or not
-//	if (boost::filesystem::exists(fileName)) {
-//		return true;
-//	}
-//	return false;
-//}
+bool fileExists(const std::string & fileName) {
+	// Check if the file exists and if it does, ask whether to overwrite or not
+	if (boost::filesystem::exists(fileName)) {
+		return true;
+	}
+	return false;
+}
 
 // Checks if a filename exists and if the file can be opened for output
 void ensureSafeFilenameOverwrite(std::string & fileName) {
