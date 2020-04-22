@@ -1,4 +1,4 @@
-// Copyright 2017-18 The Curators of the University of Missouri
+// Copyright 2017-20 Eric Fedosejevs
 //
 
 #include "Utilogeny/source/precomp.h"

@@ -1,4 +1,4 @@
-// Copyright 2017-18 The Curators of the University of Missouri
+// Copyright 2017-20 Eric Fedosejevs
 //
 
 
@@ -60,21 +60,26 @@ cSetting::cSetting(const std::string & tmpKeyword, bool(*tmpFuncPtr)(cQueuedComm
 cCommandController* cCommandController::myInstance = 0;
 
 cCommandController* cCommandController::get() {
-	if (!myInstance) create(); 
+	if (!myInstance) throw_line("Command controller not initialized");
 	return myInstance;
 }
 
-void cCommandController::create() {
-	myInstance = new cCommandController;
-}
+//void cCommandController::create() {
+//	myInstance = new cCommandController;
+//}
 
-cCommandController::cCommandController()
-	:	scriptrecursiondepth(0) , commandConsoleLoopThread(0), commandProcessLoopThread(0)
+
+
+cCommandController::cCommandController(std::mutex* _cmdControllerTermMutex, void (*tmpSignalSettingFailurePtr)(cQueuedCommand&), void (*tmpSignalCommandFailurePtr)(cQueuedCommand&))
+	: scriptrecursiondepth(0), commandConsoleLoopThread(0), commandProcessLoopThread(0), cmdControllerTerminationMutex(_cmdControllerTermMutex),
+	signalSettingFailurePtr(tmpSignalSettingFailurePtr), signalCommandFailurePtr(tmpSignalCommandFailurePtr)
 {
 
-	//// If you try to load more than one command controller, throw
-	//if (globals::commandControllerPtr) throw_line("Tried to load multiple command controllers");
-	//globals::commandControllerPtr = this;
+	if (!cmdControllerTerminationMutex) throw_line("Termination mutex not supplied by main application");
+
+	// If you try to load more than one command controller, throw
+	if (myInstance) throw_line("Tried to load multiple command controllers");
+	myInstance = this;
 
 	// If you already have a command controller thread, something has gone wrong; throw
 	if (commandConsoleLoopThread) {
@@ -99,6 +104,10 @@ cCommandController::cCommandController()
 	while (!procLoopRunning) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
+}
+
+void cCommandController::terminate() {
+	keepRunning = false;
 }
 
 cCommandController::~cCommandController() {
@@ -331,7 +340,7 @@ inline void cCommandController::commandConsoleStep() {
 void cCommandController::commandProcLoop() {
 
 	// Lock the termination mutex to indicate that you are not terminated
-	cmdControllerTerminationMutex.lock();
+	cmdControllerTerminationMutex->lock();
 
 	procLoopRunning = true;
 
@@ -347,7 +356,7 @@ void cCommandController::commandProcLoop() {
 	}
 
 	// Lock the termination mutex to indicate that you are not terminated
-	cmdControllerTerminationMutex.unlock();
+	cmdControllerTerminationMutex->unlock();
 }
 
 void cCommandController::setDependentCompletion(const tCommandNum & delayedCmd, const tCommandNum & delayingCmd) {
@@ -400,9 +409,7 @@ void cCommandController::procLine(cQueuedCommand & cmd) {
 				}
 
 				// Pop-up in GUI
-				//if (globals::guiSignallerPtr) globals::guiSignallerPtr->sig_exceptOccurred();
-				signalCommandFailurePtr(cmd);
-
+				if (signalCommandFailurePtr) signalCommandFailurePtr(cmd);
 			}
 		}
 		else {

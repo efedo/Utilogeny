@@ -1,4 +1,4 @@
-// Copyright 2017-18 The Curators of the University of Missouri
+// Copyright 2017-20 Eric Fedosejevs
 //
 
 #include "Utilogeny/source/precomp.h"
@@ -98,12 +98,12 @@ bool cCommandQueue::isCommandComplete(const tCommandNum & tmpCmd) const {
 		const_cast<std::mutex *>(&cmdQmutex)->lock();
 
 		const bool isQueued = queuedCmds.count(tmpCmd);
-		const bool isRunning = runningCmds.count(tmpCmd);
+		const bool _isRunning = runningCmds.count(tmpCmd);
 		const bool isDeferredBool = isDeferred(tmpCmd);
 
 		const_cast<std::mutex *>(&cmdQmutex)->unlock();
 
-		if (isQueued || isRunning || isDeferredBool) {
+		if (isQueued || _isRunning || isDeferredBool) {
 			return false;
 		}
 		else {

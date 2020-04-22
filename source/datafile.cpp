@@ -1,4 +1,4 @@
-// Copyright 2017-18 The Curators of the University of Missouri
+// Copyright 2017-20 Eric Fedosejevs
 //
 
 #include "Utilogeny/source/precomp.h"
@@ -141,7 +141,7 @@ void cDataFile::procStrFLen(std::string & var, const std::size_t & fileCStrSize)
 			procCStr(tmpCStr, fileCStrSize);
 		}
 		catch (...) {
-			rethrow_line("Failed to load C-string from file");
+			RETHROW_LINE("Failed to load C-string from file");
 		}
 
 		// Check if the returned string is null terminated; if not, null-terminate it and warn the user

@@ -1,4 +1,4 @@
-// Copyright 2017-18 The Curators of the University of Missouri
+// Copyright 2017-20 Eric Fedosejevs
 //
 
 #pragma once
@@ -41,13 +41,10 @@ class cCommandController {
 public:
 
 	static cCommandController* get();
+	void terminate();
 
-	// For RNA-see, need to attach signals for command setting, failure, success
-	///
-	///
-	//
-	///
-	//cCommandController(std::mutex* _cmdControllerTermMutex, void (*tmpSignalSettingFailurePtr)(cQueuedCommand&), void (*tmpSignalCommandFailurePtr)(cQueuedCommand&));
+	cCommandController(std::mutex* _cmdControllerTermMutex, void (*tmpSignalSettingFailurePtr)(cQueuedCommand&), void (*tmpSignalCommandFailurePtr)(cQueuedCommand&));
+	~cCommandController();
 
 	void (*signalSettingFailurePtr)(cQueuedCommand&) = 0;
 	void (*signalCommandFailurePtr)(cQueuedCommand&) = 0;
@@ -75,10 +72,10 @@ public:
 private:
 	friend class cGUIUpdater;
 
-	cCommandController();
-	static void create();
+	//cCommandController();
+	//static void create();
 
-	std::mutex cmdControllerTerminationMutex;
+	std::mutex * cmdControllerTerminationMutex = 0;
 	bool keepRunning = true;
 	std::atomic<bool> procLoopRunning = false;
 
@@ -108,7 +105,6 @@ private:
 
 	cCommandQueue queuedCmds;
 
-	~cCommandController();
 };
 
 //Test

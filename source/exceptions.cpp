@@ -1,4 +1,4 @@
-// Copyright 2017-18 The Curators of the University of Missouri
+// Copyright 2017-20 Eric Fedosejevs
 //
 
 #include "Utilogeny/source/precomp.h"
@@ -7,7 +7,30 @@
 
 std::recursive_mutex* cException::consoleOutMutex = 0;
 
-cException::cException(const std::string & tmpDesc, const char *tmpFile, int tmpLine, std::thread::id tmpID, cException* tmpNestedPtr)
+cException::cException(const cException* const exceptionPtr)
+	: description(), file(exceptionPtr->file), line(exceptionPtr->line), threadID(exceptionPtr->threadID)
+{
+	if (exceptionPtr) {
+		description = exceptionPtr->description;
+		file = exceptionPtr->file;
+		line = exceptionPtr->line;
+		threadID = exceptionPtr->threadID;
+		if (exceptionPtr->nestedExceptionPtr) {
+			nestedExceptionPtr = new cException(exceptionPtr->nestedExceptionPtr);
+		}
+	}
+}
+
+cException::cException(const cException& exception)
+	: cException(&exception)
+{}
+
+// needs to create a new exception object with nested exception based on std::exception
+cException::cException()
+	: description("Unknown exception")
+{}
+
+cException::cException(const std::string & tmpDesc, const std::string & tmpFile, int tmpLine, std::thread::id tmpID, const cException * const tmpNestedPtr)
 	: description(tmpDesc), file(tmpFile), line(tmpLine), threadID(tmpID) 
 {
 	if (tmpNestedPtr) {
@@ -15,31 +38,61 @@ cException::cException(const std::string & tmpDesc, const char *tmpFile, int tmp
 	}
 }
 
-cException::cException(const std::string& tmpDesc, const char* tmpFile, int tmpLine, std::thread::id tmpID, const cException& tmpNestedPtr)
+cException::cException(const char * const tmpDesc, const char* const tmpFile, int tmpLine, std::thread::id tmpID, const cException * const tmpNestedPtr)
+	: cException(std::string(tmpDesc), tmpFile, tmpLine, tmpID, tmpNestedPtr)
+{}
+
+cException::cException(const std::string & tmpDesc, const std::string & tmpFile, int tmpLine, std::thread::id tmpID, const cException & tmpNestedPtr)
 	: cException(tmpDesc, tmpFile, tmpLine, tmpID, (cException *)(&tmpNestedPtr))
 {}
 
-cException::cException(const cException* exceptionPtr)
-	: description(exceptionPtr->description), file(exceptionPtr->file), line(exceptionPtr->line), threadID(exceptionPtr->threadID)
+cException::cException(const char * const tmpDesc, const char * const tmpFile, int tmpLine, std::thread::id tmpID, const cException & tmpNestedPtr)
+	: cException(std::string(tmpDesc), tmpFile, tmpLine, tmpID, tmpNestedPtr)
+{}
+
+cException::cException(const std::string & tmpDesc, const cException * const tmpNestedPtr) 
+: description(tmpDesc)
 {
-	if (exceptionPtr->nestedExceptionPtr) {
-		nestedExceptionPtr = new cException(exceptionPtr->nestedExceptionPtr);
+	if (tmpNestedPtr) {
+		nestedExceptionPtr = new cException(tmpNestedPtr);
 	}
 }
 
-// needs to create a new exception object with nested exception based on std::exception
-cException::cException(const std::exception & e)
-	: description(e.what()), file(""), line(0), threadID(), nestedExceptionPtr(0)
+cException::cException(const std::string & tmpDesc, const cException & tmpNestedPtr)
+	: cException(tmpDesc, (cException*)&tmpNestedPtr)
 {}
 
-// needs to create a new exception object with nested exception based on std::exception
-cException::cException()
-	: description("Unknown exception"), file(""), line(0), threadID(), nestedExceptionPtr(0)
+cException::cException(const char * const tmpDesc, const cException * const tmpNestedPtr)
+: cException(std::string(tmpDesc), tmpNestedPtr)
 {}
+
+cException::cException(const char * const tmpDesc, const cException & tmpNestedPtr)
+: cException(tmpDesc, (cException*)&tmpNestedPtr)
+{}
+
+//cException::cException(const std::string& tmpDesc, const char* tmpFile, int tmpLine, std::thread::id tmpID, const cException& tmpNestedPtr)
+//	: cException(tmpDesc, tmpFile, tmpLine, tmpID, (cException *)(&tmpNestedPtr))
+//{}
+
+
+// needs to create a new exception object with nested exception based on std::exception
+cException::cException(const std::exception & e)
+	: description(e.what()), nestedExceptionPtr(0)
+{}
+
+cException::cException(const std::string & tmpStr, const std::exception& e)
+	: description(e.what()), nestedExceptionPtr(&cException(e))
+{}
+
+cException::cException(const char * const tmpStrPtr, const std::exception& e)
+	: cException(std::string(tmpStrPtr), e)
+{}
+
 
 // needs to delete all nested exceptions
 cException::~cException() {
 	if (nestedExceptionPtr) {
+		//std::cout << "Delete nested pointer: " << nestedExceptionPtr << " (parent: " << this << ")\n";
 		delete nestedExceptionPtr;
 		nestedExceptionPtr = 0;
 	}
@@ -53,20 +106,20 @@ void print_exception(const cException & internalE, unsigned int level)
 		lockGuardPtr.reset(new std::lock_guard<std::recursive_mutex>(*(cException::consoleOutMutex)));
 	}
 
-	// Head level
-	if (!level) {
-		// If it is at the head level, print exception trace
-		std::cerr << "Exception caught in thread " << std::this_thread::get_id() << ". Trace:\n";
-		// Get a console output lock (necessary for multi-threaded cases)
-	}
+	//// Head level
+	//if (!level) {
+	//	// If it is at the head level, print exception trace
+	//	std::cerr << "Exception caught in thread " << std::this_thread::get_id() << ". Trace:\n";
+	//	// Get a console output lock (necessary for multi-threaded cases)
+	//}
 
 	// Indent according to exception level
-	std::cerr << "\t" << std::string(level, ' ');
+	std::cerr << std::string(level + 1, ' ');
 
 	// If it's an RNA-see exception, provide extra information
 	//const cException * internalE = dynamic_cast<const cException *>(&e);
 	//if (internalE) {
-		std::cerr << "RNA-see @ " << internalE.getFile() << ":" << internalE.getLine();
+		std::cerr << &internalE << " @ " << internalE.getFile() << ":" << internalE.getLine();
 		std::cerr << " (thread " << internalE.getThreadID() << ") - \"";
 		std::cerr << internalE.getDescription() << "\"\n";
 	//}

@@ -1,4 +1,4 @@
-// Copyright 2017-18 The Curators of the University of Missouri
+// Copyright 2017-20 Eric Fedosejevs
 //
 
 //#include "source/core/stdafx.h"
@@ -67,6 +67,12 @@ bool isAllNum(const std::string & tmpString) {
 	return true;
 }
 
+bool strContains(const std::string & tmpString, const char tmpChar) {
+	return (tmpString.find(tmpChar) != std::string::npos);
+}
+
+
+
 std::string doubleToString(const double & tmpDouble, const unsigned int & decPrecision) {
 
 	// Screen out nans and infs
@@ -75,6 +81,11 @@ std::string doubleToString(const double & tmpDouble, const unsigned int & decPre
 	std::stringstream stream;
 	stream << std::fixed << std::setprecision(decPrecision) << tmpDouble;
 	return stream.str();
+}
+
+std::string boolToString(const bool tmpBool) {
+	if (tmpBool) return "Yes";
+	else return "No";
 }
 
 unsigned int charToInt(char & tmpChar) {

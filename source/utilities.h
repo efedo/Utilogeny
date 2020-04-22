@@ -1,4 +1,4 @@
-// Copyright 2017-18 The Curators of the University of Missouri
+// Copyright 2017-20 Eric Fedosejevs
 //
 
 #pragma once
@@ -9,6 +9,7 @@
 bool checkFixRegexString(std::string &);
 bool isAllAlphanum(const std::string &);
 bool isAllNum(const std::string &);
+bool strContains(const std::string &, const char);
 
 // String utility commands
 void replaceUnderscoresAndTrimSpaces(std::string &);
@@ -27,6 +28,7 @@ unsigned int charToInt(char &);
 
 // Number to string conversions
 std::string doubleToString(const double &, const unsigned int &);
+std::string boolToString(const bool);
 
 // Line split commands
 void splitLineOnTabs(const std::string &, std::vector<std::string> &, const size_t & = 10);

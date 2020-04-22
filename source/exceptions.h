@@ -1,31 +1,59 @@
-// Copyright 2017-18 The Curators of the University of Missouri
+// Copyright 2017-20 Eric Fedosejevs
 //
 
 #pragma once
 #include "Utilogeny/source/precomp.h"
 #include "Utilogeny/source/Utilogeny.h"
 
+class cException;
+
+void print_exception(const cException&, unsigned int level = 0);
+
 //class cException : public std::exception {
 class cException {
 public:
-	cException(const std::string&, const char* file, int line, std::thread::id, const cException & tmpNestedPtr);
-	cException(const std::string &, const char *file, int line, std::thread::id, cException* tmpNestedPtr = 0);
-	cException(const std::exception &); // needs to create a new exception object with nested exception based on std::exception
-	cException(const cException*);
+
+	// Creates copies of exceptions
+	cException(const cException * const);
+	cException(const cException&);
+
+	// Create new exceptions without nested
 	cException();
+	cException(const std::exception&);
+
+	// Create new exceptions with nested
+
+	cException(const std::string &, const std::string &, int, std::thread::id, const cException * const = 0);
+	cException(const char * const, const char * const, int, std::thread::id, const cException * const = 0);
+	cException(const std::string &, const std::string &, int, std::thread::id, const cException &);
+	cException(const char * const, const char * const, int, std::thread::id, const cException &);
+
+	cException(const std::string &, const cException * const = 0);
+	cException(const std::string &, const cException &);
+
+	cException(const char* const, const cException * const = 0);
+	cException(const char* const, const cException &);
+
+	cException(const std::string &, const std::exception &);
+	cException(const char * const, const std::exception &);
+
+	// Destructor
 	~cException(); // needs to delete all nested exceptions
+
+	// Member access functions
 	const std::string getDescription() const { return description; };
 	const std::string getFile() const { return std::string(file); };
 	const std::string getLine() const { return std::to_string(line); };
 	const std::thread::id getThreadID() const { return threadID; };
 	static void setConsoleOutMutex(std::recursive_mutex* tmpMtx) { consoleOutMutex = tmpMtx; };
+	void print() { print_exception(*this); }
 private:
 	cException* nestedExceptionPtr = 0;
 	friend void print_exception(const cException &, unsigned int);
-	const std::string description;
-	const char *file;
-	const int line;
-	const std::thread::id threadID;
+	std::string description = "";
+	std::string file = "";
+	int line = 0;
+	std::thread::id threadID;
 	static std::recursive_mutex* consoleOutMutex;
 };
 
@@ -33,19 +61,18 @@ private:
 #define throw_line_overridden throw_line("Virtual member should have been overridden")
 #define throw_line_not_implemented throw_line("Not yet implemented")
 #define throw_line_deprecated throw_line("Deprecated code")
-//#define rethrow_line(arg) std::throw_with_nested(cException(arg, __FILE__, __LINE__, std::this_thread::get_id()));
 
-#define rethrow_line_packaged(arg, exc) throw cException(arg, __FILE__, __LINE__, std::this_thread::get_id(), exc);
-#define rethrow_line(arg) try { throw; } catch (const std::exception & e) { rethrow_line_packaged(arg, cException(e)); } catch (const cException & e) { rethrow_line_packaged(arg, e); } catch (...) { rethrow_line_packaged(arg, cException()); }
-
-void print_exception(const cException &, unsigned int level = 0);
-
-// rethrow needs to include exception object
+#define _NEST(arg, exc) cException(arg, __FILE__, __LINE__, std::this_thread::get_id(), &exc)
+#define _NEST_RETHROW(arg, exc) throw _NEST(arg, exc);
+#define _PRINT_EXCEPTION(exc) std::lock_guard<std::recursive_mutex> lock(Utilogeny::consoleOutMutex); std::cerr << "\nException caught by " << __FILE__ << ":" << __LINE__ << " (thread " << std::this_thread::get_id() << ")\n";	print_exception(exc); std::cerr << "\n";
 
 #define TRY_CODE try{
-#define CODE_FAILED_VOCAL_RETHROW(arg) } catch (...) { std::lock_guard<std::recursive_mutex> lock(Utilogeny::consoleOutMutex); std::cerr << "Exception: " << arg; std::cerr << "Exception caught by " << __FILE__ << ":" << __LINE__ << "\n";	std::cerr << "\n"; rethrow_line(arg); }
-#define CODE_FAILED_SILENT_RETHROW(arg) } catch (...) { rethrow_line(arg); }
-#define CODE_FAILED_VOCAL_CATCH(arg) } catch (const std::exception & e) { try { std::lock_guard<std::recursive_mutex> lock(Utilogeny::consoleOutMutex); std::cerr << "Exception: " << arg; std::cerr << "Exception caught by " << __FILE__ << ":" << __LINE__ << "\n"; print_exception(cException(e)); std::cerr << "\n"; } catch (...) { /* extra catch to make no_except */ } } catch (const cException & e) { try { std::lock_guard<std::recursive_mutex> lock(Utilogeny::consoleOutMutex); std::cerr << "Exception: " << arg; std::cerr << "Exception caught by " << __FILE__ << ":" << __LINE__ << "\n"; print_exception(e); std::cerr << "\n"; } catch (...) { try { std::lock_guard<std::recursive_mutex> lock(Utilogeny::consoleOutMutex); std::cerr << "Exception: " << arg; std::cerr << "Exception caught by " << __FILE__ << ":" << __LINE__ << "\n"; std::cerr << "\n"; } catch (...) { /* extra catch to make no_except */ } } }
+#define RETHROW_LINE(arg)                                     try { throw; } catch (const std::exception& e) { _NEST_RETHROW(arg, cException(e)) } catch (const cException& e) { _NEST_RETHROW(arg, e) } catch (...) { _NEST_RETHROW(arg, cException()) }
+#define CODE_FAILED_VOCAL_RETHROW(arg)  } catch (...) { try { try { throw; } catch (const std::exception& e) { _NEST_RETHROW(arg, cException(e)) } catch (const cException& e) { _NEST_RETHROW(arg, e) } catch (...) { _NEST_RETHROW(arg, cException()) } } catch (const cException& e) { _PRINT_EXCEPTION(e); throw e; } catch (...) { } }
+#define CODE_FAILED_SILENT_RETHROW(arg) } catch (...) { try { try { throw; } catch (const std::exception& e) { _NEST_RETHROW(arg, cException(e)) } catch (const cException& e) { _NEST_RETHROW(arg, e) } catch (...) { _NEST_RETHROW(arg, cException()) } } catch (const cException& e) {                      throw e; } catch (...) { } }
+#define CODE_FAILED_VOCAL_CATCH(arg)    } catch (...) { try { try { throw; } catch (const std::exception& e) { _NEST_RETHROW(arg, cException(e)) } catch (const cException& e) { _NEST_RETHROW(arg, e) } catch (...) { _NEST_RETHROW(arg, cException()) } } catch (const cException& e) { _PRINT_EXCEPTION(e);        } catch (...) { } }
+
+
 
 class cExceptionRemoveBadRuns {
 public:
