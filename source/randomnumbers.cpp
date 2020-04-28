@@ -9,7 +9,7 @@ cMersenneTwister globals::mersenneTwister;
 // Random number generation
 cMersenneTwister::cMersenneTwister() {
 // Create a Mersenne twister random number generator seeded from the high-res clock
-	rng = std::mt19937_64(std::chrono::high_resolution_clock::now().time_since_epoch().count());
+	setSeed(std::chrono::high_resolution_clock::now().time_since_epoch().count());
 }
 
 std::string cMersenneTwister::randomHexString(const unsigned int len) {
@@ -31,6 +31,11 @@ std::string cMersenneTwister::randomHexString(const unsigned int len) {
 int cMersenneTwister::randomCheapInt(const int & min, const int & max) {
 	std::uniform_int_distribution<int> distribution(min, max);
 	return distribution(cheaprng);
+}
+
+unsigned int cMersenneTwister::randomUInt(const unsigned int& min, const unsigned int& max) {
+	std::uniform_int_distribution<unsigned int> distribution(min, max);
+	return distribution(rng);
 }
 
 float cMersenneTwister::randomFloat(const float & min, const float & max)

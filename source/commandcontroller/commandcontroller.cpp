@@ -398,12 +398,15 @@ void cCommandController::procLine(cQueuedCommand & cmd) {
 			catch (...) {
 				std::cerr << "\nException in command:\n"
 					<< "\tCommand num: " << cmd.getCommandNumber() << "\n"
-					<< "\tCommand string: " << cmd.commandText << "\n";
+					<< "\tCommand string: " << cmd.commandText << "\n\n";
 				try {
-					std::rethrow_exception(std::current_exception());
+					throw;
+				}
+				catch (const cException & e) {
+					_print_exception_func(e);
 				}
 				catch (const std::exception& e) {
-					print_exception(e);
+					_print_exception_func(cException("Uncaught standard library exception", e));
 				} catch (...) {
 					std::cerr << "Exception was not traceable.\n";
 				}

@@ -7,7 +7,7 @@
 
 class cException;
 
-void print_exception(const cException&, unsigned int level = 0);
+void _print_exception_func(const cException&, unsigned int level = 0);
 
 //class cException : public std::exception {
 class cException {
@@ -46,10 +46,10 @@ public:
 	const std::string getLine() const { return std::to_string(line); };
 	const std::thread::id getThreadID() const { return threadID; };
 	static void setConsoleOutMutex(std::recursive_mutex* tmpMtx) { consoleOutMutex = tmpMtx; };
-	void print() { print_exception(*this); }
+	void print() { _print_exception_func(*this); }
 private:
 	cException* nestedExceptionPtr = 0;
-	friend void print_exception(const cException &, unsigned int);
+	friend void _print_exception_func(const cException &, unsigned int);
 	std::string description = "";
 	std::string file = "";
 	int line = 0;
@@ -64,7 +64,7 @@ private:
 
 #define _NEST(arg, exc) cException(arg, __FILE__, __LINE__, std::this_thread::get_id(), &exc)
 #define _NEST_RETHROW(arg, exc) throw _NEST(arg, exc);
-#define _PRINT_EXCEPTION(exc) std::lock_guard<std::recursive_mutex> lock(Utilogeny::consoleOutMutex); std::cerr << "\nException caught by " << __FILE__ << ":" << __LINE__ << " (thread " << std::this_thread::get_id() << ")\n";	print_exception(exc); std::cerr << "\n";
+#define _PRINT_EXCEPTION(exc) std::lock_guard<std::recursive_mutex> lock(Utilogeny::consoleOutMutex); std::cerr << "\nException caught by " << __FILE__ << ":" << __LINE__ << " (thread " << std::this_thread::get_id() << ")\n\n";	_print_exception_func(exc); std::cerr << "\n";
 
 #define TRY_CODE try{
 #define RETHROW_LINE(arg)                                     try { throw; } catch (const std::exception& e) { _NEST_RETHROW(arg, cException(e)) } catch (const cException& e) { _NEST_RETHROW(arg, e) } catch (...) { _NEST_RETHROW(arg, cException()) }

@@ -99,7 +99,7 @@ cException::~cException() {
 }
 
 // Recursively describes nested exceptions
-void print_exception(const cException & internalE, unsigned int level)
+void _print_exception_func(const cException & internalE, unsigned int level)
 {
 	std::unique_ptr<std::lock_guard<std::recursive_mutex>> lockGuardPtr;
 	if (cException::consoleOutMutex) {
@@ -107,11 +107,10 @@ void print_exception(const cException & internalE, unsigned int level)
 	}
 
 	//// Head level
-	//if (!level) {
+	if (!level) {
 	//	// If it is at the head level, print exception trace
-	//	std::cerr << "Exception caught in thread " << std::this_thread::get_id() << ". Trace:\n";
-	//	// Get a console output lock (necessary for multi-threaded cases)
-	//}
+		std::cerr << "Exception trace:\n";
+	}
 
 	// Indent according to exception level
 	std::cerr << std::string(level + 1, ' ');
@@ -119,7 +118,8 @@ void print_exception(const cException & internalE, unsigned int level)
 	// If it's an RNA-see exception, provide extra information
 	//const cException * internalE = dynamic_cast<const cException *>(&e);
 	//if (internalE) {
-		std::cerr << &internalE << " @ " << internalE.getFile() << ":" << internalE.getLine();
+		//std::cerr << &internalE << " @ "; // Prints exception pointer (for exception handler troubleshooting)
+		std::cerr << internalE.getFile() << ":" << internalE.getLine();
 		std::cerr << " (thread " << internalE.getThreadID() << ") - \"";
 		std::cerr << internalE.getDescription() << "\"\n";
 	//}
@@ -130,7 +130,7 @@ void print_exception(const cException & internalE, unsigned int level)
 
 	// See if it's a nested exception
 	if (internalE.nestedExceptionPtr) {
-		print_exception(internalE.nestedExceptionPtr, level + 1);
+		_print_exception_func(internalE.nestedExceptionPtr, level + 1);
 	}
 
 	//try {
