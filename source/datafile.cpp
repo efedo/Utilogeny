@@ -121,11 +121,11 @@ void cDataFile::procStrFLen(std::string & var, const std::size_t & fileCStrSize)
 		char * tmpCStr = &var[0];// new char[fileCStrSize];
 
 		// Process the c string string
-		TRY_CODE
+		TRY
 
 		procCStr(tmpCStr, fileCStrSize);
 
-		CODE_FAILED_SILENT_RETHROW("Failed to output C-string to file")
+		CATCH_RETHROW("Failed to output C-string to file")
 
 	}
 	else {
@@ -141,7 +141,7 @@ void cDataFile::procStrFLen(std::string & var, const std::size_t & fileCStrSize)
 			procCStr(tmpCStr, fileCStrSize);
 		}
 		catch (...) {
-			RETHROW_LINE("Failed to load C-string from file");
+			RETHROW("Failed to load C-string from file");
 		}
 
 		// Check if the returned string is null terminated; if not, null-terminate it and warn the user

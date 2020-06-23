@@ -1,7 +1,6 @@
 // Copyright 2017-20 Eric Fedosejevs
 //
 
-
 //#include "source/core/stdafx.h"
 #include "Utilogeny/source/precomp.h"
 #include "Utilogeny/source/Utilogeny.h"
@@ -64,22 +63,37 @@ cCommandController* cCommandController::get() {
 	return myInstance;
 }
 
-//void cCommandController::create() {
-//	myInstance = new cCommandController;
-//}
+void cCommandController::init() {
+	//std::mutex cmdControllerTerminationMutex;
+	myInstance = new cCommandController(0, 0);
+}
 
+void cCommandController::terminate() {
+	if (myInstance) {
+		myInstance->keepRunning = false;
+	}
+}
 
+void cCommandController::wait_for_termination() {
+	if (myInstance) {
+		// Shutdown procedure begins once you have a lock on the termination mutex
+		myInstance->cmdControllerTerminationMutex.lock();
+		myInstance->cmdControllerTerminationMutex.unlock();
+		delete myInstance;
+	}
+}
 
-cCommandController::cCommandController(std::mutex* _cmdControllerTermMutex, void (*tmpSignalSettingFailurePtr)(cQueuedCommand&), void (*tmpSignalCommandFailurePtr)(cQueuedCommand&))
-	: scriptrecursiondepth(0), commandConsoleLoopThread(0), commandProcessLoopThread(0), cmdControllerTerminationMutex(_cmdControllerTermMutex),
+cCommandController::cCommandController(void (*tmpSignalSettingFailurePtr)(cQueuedCommand&), void (*tmpSignalCommandFailurePtr)(cQueuedCommand&))
+	: scriptrecursiondepth(0), commandConsoleLoopThread(0), commandProcessLoopThread(0),
 	signalSettingFailurePtr(tmpSignalSettingFailurePtr), signalCommandFailurePtr(tmpSignalCommandFailurePtr)
 {
 
-	if (!cmdControllerTerminationMutex) throw_line("Termination mutex not supplied by main application");
+	std::cout << "What is happening!\n";
+
+	//if (!cmdControllerTerminationMutex) throw_line("Termination mutex not supplied by main application");
 
 	// If you try to load more than one command controller, throw
 	if (myInstance) throw_line("Tried to load multiple command controllers");
-	myInstance = this;
 
 	// If you already have a command controller thread, something has gone wrong; throw
 	if (commandConsoleLoopThread) {
@@ -106,16 +120,13 @@ cCommandController::cCommandController(std::mutex* _cmdControllerTermMutex, void
 	}
 }
 
-void cCommandController::terminate() {
-	keepRunning = false;
-}
-
 cCommandController::~cCommandController() {
 
 	keepRunning = false;
 
 	if (commandConsoleLoopThread) {
-		commandConsoleLoopThread->join(); // Note that this will never happen unless you trigger cin
+		//commandConsoleLoopThread->join(); // Note that this will never happen unless you trigger cin
+		commandConsoleLoopThread->detach(); // Throw it into the abyss
 		delete commandConsoleLoopThread;
 	}
 
@@ -323,8 +334,8 @@ void cCommandController::printSettings() {
 
 // User command loop
 void cCommandController::commandConsoleLoop() {
-	std::cout << "\n>";
 	while (keepRunning) {
+		std::cout << "\n>";
 		commandConsoleStep();
 	}
 }
@@ -340,7 +351,7 @@ inline void cCommandController::commandConsoleStep() {
 void cCommandController::commandProcLoop() {
 
 	// Lock the termination mutex to indicate that you are not terminated
-	cmdControllerTerminationMutex->lock();
+	cmdControllerTerminationMutex.lock();
 
 	procLoopRunning = true;
 
@@ -356,7 +367,7 @@ void cCommandController::commandProcLoop() {
 	}
 
 	// Lock the termination mutex to indicate that you are not terminated
-	cmdControllerTerminationMutex->unlock();
+	cmdControllerTerminationMutex.unlock();
 }
 
 void cCommandController::setDependentCompletion(const tCommandNum & delayedCmd, const tCommandNum & delayingCmd) {
@@ -364,7 +375,7 @@ void cCommandController::setDependentCompletion(const tCommandNum & delayedCmd, 
 }
 
 // Add GUI command to command queue
-tCommandNum cCommandController::_queueGUICommand(const std::string & line) {
+tCommandNum cCommandController::queueGUICommand(const std::string & line) {
 	return queuedCmds.addGUICmdToQueue(line);
 }
 

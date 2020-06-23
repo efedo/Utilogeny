@@ -7,15 +7,6 @@
 #include "Utilogeny/source/exceptions.h"
 #include "Utilogeny/source/utilities.h"
 
-
-
-
-
-
-
-
-
-
 cQueuedCommand::cQueuedCommand(std::string tmpCmdStr, tCommandSource tmpCmdSource, const tCommandNum & tmpCommandNumber)
 	: cQueuedCommand(tmpCmdStr, tmpCmdSource)
 {
@@ -73,8 +64,14 @@ tCommandNum cCommandQueue::addGUICmdToQueue(const std::string & tmpStr) {
 tCommandNum cCommandQueue::addCmdToQueue(const std::string & tmpStr, const tCommandSource & tmpSource) {
 	cmdQmutex.lock();
 	tCommandNum tmpCmdNum = _nextCommandNumber;
-	queuedCmds.emplace(_nextCommandNumber, new cQueuedCommand(tmpStr, tmpSource, _nextCommandNumber));
+	cQueuedCommand* const newCmd = new cQueuedCommand(tmpStr, tmpSource, _nextCommandNumber);
+	queuedCmds.emplace(_nextCommandNumber, newCmd);
 	++_nextCommandNumber;
+
+	//if (newCmd->keyword == "exit") {
+	//	exitTriggered = true; // Once the exit keyword has been triggered
+	//}
+
 	cmdQmutex.unlock();
 	return tmpCmdNum;
 }
@@ -114,6 +111,22 @@ bool cCommandQueue::isCommandComplete(const tCommandNum & tmpCmd) const {
 		return false;
 	}
 }
+
+//bool cCommandQueue::isCommandExit(const tCommandNum& tmpCmd) const {
+//	if (tmpCmd <= _lastCompletedCommand) {
+//
+//
+//
+//
+//
+//
+//
+//
+//	}
+//	else {
+//		return false;
+//	}
+//}
 
 /// Checks if a command is waiting on another
 bool cCommandQueue::isDeferred(const tCommandNum & tmpCmd) const {

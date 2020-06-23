@@ -119,9 +119,9 @@ void _print_exception_func(const cException & internalE, unsigned int level)
 	//const cException * internalE = dynamic_cast<const cException *>(&e);
 	//if (internalE) {
 		//std::cerr << &internalE << " @ "; // Prints exception pointer (for exception handler troubleshooting)
+		std::cerr << "Thread " << internalE.getThreadID() << ": ";
 		std::cerr << internalE.getFile() << ":" << internalE.getLine();
-		std::cerr << " (thread " << internalE.getThreadID() << ") - \"";
-		std::cerr << internalE.getDescription() << "\"\n";
+		std::cerr << " - " << internalE.getDescription() << "\n";
 	//}
 	//else {
 	//	std::cerr << "STL - \"";

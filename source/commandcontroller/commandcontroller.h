@@ -41,9 +41,11 @@ class cCommandController {
 public:
 
 	static cCommandController* get();
-	void terminate();
 
-	cCommandController(std::mutex* _cmdControllerTermMutex, void (*tmpSignalSettingFailurePtr)(cQueuedCommand&), void (*tmpSignalCommandFailurePtr)(cQueuedCommand&));
+	static void init();
+	static void terminate();
+	static void wait_for_termination();
+
 	~cCommandController();
 
 	void (*signalSettingFailurePtr)(cQueuedCommand&) = 0;
@@ -64,18 +66,21 @@ public:
 	void printSettings(); // Prints a list of commands
 	void changeSetting(cQueuedCommand &); // Proc setting
 
+	// Queue commands
 	tCommandNum queueConsoleCommand(const std::string &); // Add console command to command queue
 	tCommandNum queueScriptCommand(const std::string &); // Add run command to command queue
+	tCommandNum queueGUICommand(const std::string&); // Add GUI command to command queue
+
+	// Determine if command is complete, set dependencies
 	bool isCommandComplete(const tCommandNum &) const; // Asks command queue whether a command has completed
 	void setDependentCompletion(const tCommandNum &, const tCommandNum &);
 
 private:
 	friend class cGUIUpdater;
 
-	//cCommandController();
-	//static void create();
+	cCommandController(void (*tmpSignalSettingFailurePtr)(cQueuedCommand&), void (*tmpSignalCommandFailurePtr)(cQueuedCommand&));
 
-	std::mutex * cmdControllerTerminationMutex = 0;
+	std::mutex cmdControllerTerminationMutex;
 	bool keepRunning = true;
 	std::atomic<bool> procLoopRunning = false;
 
@@ -90,8 +95,6 @@ private:
 
 	void commandConsoleLoop(); // User command loop
 	void commandProcLoop(); // Command processing loop
-
-	tCommandNum _queueGUICommand(const std::string &); // Add GUI command to command queue
 
 	void procLine(cQueuedCommand &); // Proc command line
 	void commandConsoleStep(); // User command loop

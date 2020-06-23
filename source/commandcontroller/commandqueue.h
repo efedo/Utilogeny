@@ -39,6 +39,7 @@ public:
 	tCommandNum addGUICmdToQueue(const std::string &);
 	bool getNextCmd(cQueuedCommand &);
 	bool isCommandComplete(const tCommandNum &) const;
+	//bool isCommandExit(const tCommandNum&) const;
 	void completeCommand(cQueuedCommand &);
 	void setDefCompletion(const tCommandNum &, const tCommandNum &); // First command does not complete until another queued command completes
 	/// Checks if a command is waiting on another
@@ -48,6 +49,7 @@ private:
 	friend class cCommandController;
 	tCommandNum _lastCompletedCommand = 0;
 	tCommandNum addCmdToQueue(const std::string &, const tCommandSource &);
+	//bool exitTriggered = false;
 	void removeDelayingCmdHold(const tCommandNum &);
 	std::map<tCommandNum, cQueuedCommand *> queuedCmds;
 	std::map<tCommandNum, cQueuedCommand *> runningCmds;
