@@ -116,7 +116,6 @@ void _print_exception_func(const cException & internalE, unsigned int level)
 	std::cerr << std::string(level + 1, ' ');
 
 	// If it's an RNA-see exception, provide extra information
-	//const cException * internalE = dynamic_cast<const cException *>(&e);
 	//if (internalE) {
 		//std::cerr << &internalE << " @ "; // Prints exception pointer (for exception handler troubleshooting)
 		std::cerr << "Thread " << internalE.getThreadID() << ": ";

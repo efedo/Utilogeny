@@ -25,8 +25,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="source\zip\compile_Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\besthitmap.h" />
     <ClInclude Include="source\commandcontroller\commandcontroller.h" />
     <ClInclude Include="source\commandcontroller\commandqueue.h" />
     <ClInclude Include="source\commandcontroller\consolecontroller.h" />
@@ -38,9 +40,16 @@
     <ClInclude Include="source\precomp.h" />
     <ClInclude Include="source\randomnumbers.h" />
     <ClInclude Include="source\smarttimer.h" />
+    <ClInclude Include="source\threading.h" />
     <ClInclude Include="source\utilities.h" />
     <ClInclude Include="source\utilogeny.h" />
     <ClInclude Include="source\version.h" />
+    <ClInclude Include="source\constable.h" />
+    <ClInclude Include="source\zip\helpers.h" />
+    <ClInclude Include="source\zip\zipiter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="source\zip\LICENSE.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

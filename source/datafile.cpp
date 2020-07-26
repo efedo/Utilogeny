@@ -7,83 +7,99 @@
 
 // Section labels
 
-void cDataFile::procLabel(const std::string & labelString) {
+void cDataFile::checkStr(const std::string & labelString, const std::string & err) {
 
 	// Make a modifiable string
 	std::string tmpLabelString = labelString;
 
 	// Print or get string
-	procStrVLen(tmpLabelString);
+	procStr(tmpLabelString);
 
 	// Check if it matched
-	if (!_isSaving) {
+	if (!_isWriting) {
 
 		// Check if equivalent
 		if (tmpLabelString != labelString) {
-			std::string errStr = "File label (\"" + labelString + "\") not in correct position. Instead read: \"";
+			std::string errStr = err + "\n" + "Expected: \"" + labelString + "\". Instead read: \"";
 			errStr = errStr + tmpLabelString + "\"";
 			throw_line(errStr);
 		}
 	}
-
 }
 
-void cDataFile::_procVar(char * varPtr, const std::size_t & size) {
-	if (_isSaving) {
-		_printVar(varPtr, size);
+void cDataFile::_procBytes(char * varPtr, const std::size_t & size) {
+	if (_isWriting) {
+		_printBytes(varPtr, size);
 	}
 	else {
-		_getVar(varPtr, size);
+		_getBytes(varPtr, size);
 	}
 }
 
 
-void cDataFile::_getVar(char * varPtr, const std::size_t & size) {
+void cDataFile::_getBytes(char * varPtr, const std::size_t & size) {
 	fstreamPtr->read(varPtr, size);
 }
 
 // Print variable
-void cDataFile::_printVar(const char * varPtr, const std::size_t & size) {
+void cDataFile::_printBytes(const char * varPtr, const std::size_t & size) {
 	fstreamPtr->write(varPtr, size);
 }
 
-// File load and save
-bool cDataFile::loadFile(const std::string & fileName) {
-	_isSaving = false;
-	const unsigned long bufSize = 10485760; // Set file buffer size to 10 mb
-	std::unique_ptr<char []> fileBufferPtr(new char[bufSize]);
-	fstreamPtr = new std::fstream(fileName, std::ios::binary | std::ios::in); // Create an input file stream
+bool cDataFileMonolithic::_openFileRead(const std::string& fileName) {
+	return openFile(fileName, std::ios::binary | std::ios::in);
+}
+
+bool cDataFileMonolithic::_newFileWrite(const std::string& fileName) {
+	return openFile(fileName, std::ios::binary | std::ios::out | std::ios::trunc);
+}
+
+bool cDataFileRandomAccess::openFileReadWrite(const std::string& fileName) {
+	return openFile(fileName, std::fstream::binary | std::fstream::in | std::fstream::out);
+}
+
+bool cDataFileRandomAccess::newFileReadWrite(const std::string& fileName) {
+	return openFile(fileName, std::fstream::binary | std::fstream::trunc);
+}
+
+bool cDataFile::openFile(const std::string& fileName, std::ios::openmode mode) {
+	const unsigned long bufSize = 1048576; // Set file buffer size to 1 mb
+	fileBufferPtr.reset(new char[bufSize]);
+	fstreamPtr.reset(new std::fstream(fileName, mode));
 	fstreamPtr->rdbuf()->pubsetbuf(fileBufferPtr.get(), bufSize);
 	if (fstreamPtr->fail()) { // Throw if the file fails to open
 		std::cerr << "Could not open file: " << fileName << std::endl;
 		return false;
 	}
-	_procFile();
+	_fileOpen = true;
+}
+
+bool cDataFile::closeFile() {
 	fstreamPtr->close();
-	delete fstreamPtr;
-	_isSaving = false;
+	_isWriting = false;
+	_fileOpen = false;
 	return true;
 }
 
-bool cDataFile::saveFile(const std::string & fileName) {
-	_isSaving = true;
-	const unsigned long bufSize = 10485760; // Set file buffer size to 10 mb
-	std::unique_ptr<char[]> fileBufferPtr(new char[bufSize]);
-	fstreamPtr = new std::fstream(fileName, std::ios::binary | std::ios::out | std::ios::trunc); // Create an input file stream
-	fstreamPtr->rdbuf()->pubsetbuf(fileBufferPtr.get(), bufSize);
-	if (fstreamPtr->fail()) { // Throw if the file fails to open
-		std::cerr << "Could not open file: " << fileName << std::endl;
-		return false;
-	}
+std::fstream* cDataFile::deprecatedGetfstreamPtr() { 
+	return fstreamPtr.get(); 
+} // To make it easy to transition correl cache file to new format
+
+// File load and save
+bool cDataFileMonolithic::loadFile(const std::string & fileName) {
+	if (!_openFileRead(fileName)) throw_line("Could not load file");
 	_procFile();
-	fstreamPtr->close();
-	delete fstreamPtr;
-	_isSaving = false;
-	return true;
+	return closeFile();
+}
+
+bool cDataFileMonolithic::saveFile(const std::string & fileName) {
+	if (!_newFileWrite(fileName)) throw_line("Could not create file");
+	_procFile();
+	return closeFile();
 }
 
 // Process file
-void cDataFile::_procFile() {
+void cDataFileMonolithic::_procFile() {
 	throw_line_overridden;
 }
 
@@ -95,18 +111,18 @@ void cDataFile::procCStr(char * var, const std::size_t & fileCStrSize) {
 		std::string tmpErr = "Tried to write a non-null-terminated C-str: " + fileCStrSize;
 		throw_line(tmpErr);
 	}
-	_procVar(var, fileCStrSize);
+	_procBytes(var, fileCStrSize);
 };
 
 // Handles writing of std strings to file and vice versa
-void cDataFile::procStrFLen(std::string & var, const std::size_t & fileCStrSize) {
+void cDataFile::_procStrFLen(std::string & var, const std::size_t & fileCStrSize) {
 
 	if (!fileCStrSize) throw_line("Cannot output C-str of 0 length!");
 	
 	const std::size_t convertedStrSize = var.size() + 1;
 	std::size_t lengthToCopy = 0;
 
-	if (_isSaving) {
+	if (_isWriting) {
 
 		// If string is over max length, let user know that it is being truncated
 		if (convertedStrSize > fileCStrSize) {
@@ -153,9 +169,9 @@ void cDataFile::procStrFLen(std::string & var, const std::size_t & fileCStrSize)
 }
 
 /// Writes variable-length strings; saves space at the cost of save file resilience
-void cDataFile::procStrVLen(std::string & var) {
+void cDataFile::procStr(std::string & var) {
 
-	if (_isSaving) {
+	if (_isWriting) {
 
 		// Get the length of the string
 		uint16_t cStrLen = static_cast<uint16_t>(var.size() + 1);
@@ -163,7 +179,6 @@ void cDataFile::procStrVLen(std::string & var) {
 		// Makes sure it is not of a craaaaazy length
 		const unsigned int maxLen = 10000;
 		if (cStrLen > maxLen) {
-
 			std::cerr << "Warning: length of string being output to file was greater than " << maxLen << "\n";
 		}
 
@@ -171,7 +186,7 @@ void cDataFile::procStrVLen(std::string & var) {
 		procVar(cStrLen);
 
 		// Output cstr of required length
-		procStrFLen(var, cStrLen);
+		_procStrFLen(var, cStrLen);
 	}
 	else {
 
@@ -187,7 +202,7 @@ void cDataFile::procStrVLen(std::string & var) {
 		}
 
 		// Get cstr
-		procStrFLen(var, cStrLen);
+		_procStrFLen(var, cStrLen);
 	}
 }
 

@@ -5,3 +5,9 @@
 /.vs/Utilogeny
 /build/x64/Debug
 /build/x64
+/test/UtilogenyTest/x64/Debug/vc142.pdb
+/test/UtilogenyTest/x64/Debug/UtilogenyTest.pch
+/test/UtilogenyTest/x64/Debug/UtilogenyTest.log
+/test/UtilogenyTest/x64/Debug/test.obj
+/test/UtilogenyTest/x64/Debug/pch.obj
+/test/UtilogenyTest/x64/Debug/UtilogenyTest.tlog

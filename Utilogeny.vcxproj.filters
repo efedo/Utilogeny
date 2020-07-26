@@ -48,6 +48,9 @@
     <ClCompile Include="source\utilogeny.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\zip\compile_Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\commandcontroller\commandcontroller.h">
@@ -92,5 +95,23 @@
     <ClInclude Include="source\utilogeny.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\threading.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\besthitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\zip\helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\zip\zipiter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\constable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="source\zip\LICENSE.txt" />
   </ItemGroup>
 </Project>

@@ -88,8 +88,6 @@ cCommandController::cCommandController(void (*tmpSignalSettingFailurePtr)(cQueue
 	signalSettingFailurePtr(tmpSignalSettingFailurePtr), signalCommandFailurePtr(tmpSignalCommandFailurePtr)
 {
 
-	std::cout << "What is happening!\n";
-
 	//if (!cmdControllerTerminationMutex) throw_line("Termination mutex not supplied by main application");
 
 	// If you try to load more than one command controller, throw

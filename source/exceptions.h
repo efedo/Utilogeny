@@ -61,6 +61,7 @@ private:
 #define throw_line_overridden			throw_line("Virtual member should have been overridden")
 #define throw_line_not_implemented		throw_line("Not yet implemented")
 #define throw_line_deprecated			throw_line("Deprecated code")
+#define throw_ifnull(arg)				if (!arg) throw_line("Pointer was null")
 
 #define _NEST(arg, exc)					cException(arg, __FILE__, __LINE__, std::this_thread::get_id(), &exc)
 #define _NEST_RETHROW(arg, exc)			throw _NEST(arg, exc);
@@ -71,6 +72,8 @@ private:
 #define CATCH_VOCAL_RETHROW(arg)		} catch (...) { try { RETHROW(arg) } catch (const cException& e) { _PRINT_EXCEPTION(e); throw e; } catch (...) { } }
 #define CATCH_RETHROW(arg)				} catch (...) { try { RETHROW(arg) } catch (const cException& e) {                      throw e; } catch (...) { } }
 #define CATCH_VOCAL(arg)				} catch (...) { try { RETHROW(arg) } catch (const cException& e) { _PRINT_EXCEPTION(e);		     } catch (...) { } }
+
+#define terminate_line(arg)				try{ throw_line(arg); CATCH_VOCAL("Terminating due to exception in destructor.\n"); terminate();
 
 class cExceptionRemoveBadRuns {
 public:
