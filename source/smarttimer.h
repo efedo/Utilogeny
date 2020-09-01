@@ -15,7 +15,19 @@ public:
 	void stop() {
 		end = std::chrono::steady_clock::now();
 		diff = end - start;
-		std::cout << "Timer (" << myName << ") duration: " << std::chrono::duration<double, std::micro>(diff).count() << " us" << std::endl;
+		GTEST_INFOMSG;
+		double micro = std::chrono::duration<double, std::micro>(diff).count();
+
+		std::cout << "Timer (" << myName << ") duration: ";
+		if (micro > 1000000.0) {
+			std::cout << micro / 1000000 << " s\n";
+		}
+		else if (micro > micro > 10000.0) {
+			std::cout << micro / 1000 << " ms\n";
+		}
+		else {
+			std::cout << micro << " us\n";
+		}
 		stopped = true;
 	}
 

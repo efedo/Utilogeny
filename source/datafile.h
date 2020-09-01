@@ -74,8 +74,9 @@ class cDataFileRandomAccess : public cDataFile {
 public:
 	bool newFileReadWrite(const std::string&);
 	bool openFileReadWrite(const std::string&);
-	void setRead() { _isWriting = true; }
-	void setWrite() { _isWriting = false; }
+	void setRead() { _isWriting = false; }
+	void setWrite() { _isWriting = true; }
+	void flush() { fstreamPtr->flush(); }
 	void seek(const size_t pos) {
 		if (_isWriting) fstreamPtr->seekp(pos);
 		else fstreamPtr->seekg(pos);

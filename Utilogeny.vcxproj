@@ -20,12 +20,33 @@
     <ClCompile Include="source\md5.cpp" />
     <ClCompile Include="source\precomp.cpp" />
     <ClCompile Include="source\randomnumbers.cpp" />
+    <ClCompile Include="source\re2\re2\bitstate.cc" />
+    <ClCompile Include="source\re2\re2\compile.cc" />
+    <ClCompile Include="source\re2\re2\dfa.cc" />
+    <ClCompile Include="source\re2\re2\filtered_re2.cc" />
+    <ClCompile Include="source\re2\re2\mimics_pcre.cc" />
+    <ClCompile Include="source\re2\re2\nfa.cc" />
+    <ClCompile Include="source\re2\re2\onepass.cc" />
+    <ClCompile Include="source\re2\re2\parse.cc" />
+    <ClCompile Include="source\re2\re2\perl_groups.cc" />
+    <ClCompile Include="source\re2\re2\prefilter.cc" />
+    <ClCompile Include="source\re2\re2\prefilter_tree.cc" />
+    <ClCompile Include="source\re2\re2\prog.cc" />
+    <ClCompile Include="source\re2\re2\re2.cc" />
+    <ClCompile Include="source\re2\re2\regexp.cc" />
+    <ClCompile Include="source\re2\re2\set.cc" />
+    <ClCompile Include="source\re2\re2\simplify.cc" />
+    <ClCompile Include="source\re2\re2\stringpiece.cc" />
+    <ClCompile Include="source\re2\re2\tostring.cc" />
+    <ClCompile Include="source\re2\re2\unicode_casefold.cc" />
+    <ClCompile Include="source\re2\re2\unicode_groups.cc" />
+    <ClCompile Include="source\re2\util\rune.cc" />
+    <ClCompile Include="source\re2\util\strutil.cc" />
     <ClCompile Include="source\utilities.cpp" />
     <ClCompile Include="source\utilogeny.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="source\zip\compile_Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\besthitmap.h" />
@@ -39,17 +60,41 @@
     <ClInclude Include="source\md5.h" />
     <ClInclude Include="source\precomp.h" />
     <ClInclude Include="source\randomnumbers.h" />
+    <ClInclude Include="source\re2\re2\bitmap256.h" />
+    <ClInclude Include="source\re2\re2\filtered_re2.h" />
+    <ClInclude Include="source\re2\re2\pod_array.h" />
+    <ClInclude Include="source\re2\re2\prefilter.h" />
+    <ClInclude Include="source\re2\re2\prefilter_tree.h" />
+    <ClInclude Include="source\re2\re2\prog.h" />
+    <ClInclude Include="source\re2\re2\re2.h" />
+    <ClInclude Include="source\re2\re2\regexp.h" />
+    <ClInclude Include="source\re2\re2\set.h" />
+    <ClInclude Include="source\re2\re2\sparse_array.h" />
+    <ClInclude Include="source\re2\re2\sparse_set.h" />
+    <ClInclude Include="source\re2\re2\stringpiece.h" />
+    <ClInclude Include="source\re2\re2\unicode_casefold.h" />
+    <ClInclude Include="source\re2\re2\unicode_groups.h" />
+    <ClInclude Include="source\re2\re2\walker-inl.h" />
+    <ClInclude Include="source\re2\util\logging.h" />
+    <ClInclude Include="source\re2\util\mix.h" />
+    <ClInclude Include="source\re2\util\mutex.h" />
+    <ClInclude Include="source\re2\util\strutil.h" />
+    <ClInclude Include="source\re2\util\utf.h" />
+    <ClInclude Include="source\re2\util\util.h" />
     <ClInclude Include="source\smarttimer.h" />
     <ClInclude Include="source\threading.h" />
     <ClInclude Include="source\utilities.h" />
     <ClInclude Include="source\utilogeny.h" />
     <ClInclude Include="source\version.h" />
     <ClInclude Include="source\constable.h" />
-    <ClInclude Include="source\zip\helpers.h" />
-    <ClInclude Include="source\zip\zipiter.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="source\zip\LICENSE.txt" />
+    <Text Include="source\re2\Version.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source\re2\AUTHORS" />
+    <None Include="source\re2\CONTRIBUTORS" />
+    <None Include="source\re2\LICENSE" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -444,7 +444,7 @@ void cCommandController::procLine(cQueuedCommand & cmd) {
 // Proc setting
 void cCommandController::changeSetting(cQueuedCommand & cmd) {
 	std::string settingKeyword = cmd.splitCommand.at(1);
-	toLower(settingKeyword);
+	to_lower(settingKeyword);
 	if (_settings.count(settingKeyword)) {
 		if (cmd.splitCommand.size() > 2) {
 			if (!_settings.at(settingKeyword).set(cmd, true)) {

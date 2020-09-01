@@ -9,7 +9,7 @@
 class cVersion {
 public:
 	std::string getVersionString() const { 
-		return (std::to_string(_majorVersion) + '.' + std::to_string(_minorVersion) + '.' + _revision);
+		return (std::to_string(_majorVersion) + '.' + std::to_string(_minorVersion) + '.' + std::to_string(_revision));
 	};
 
 	cVersion(const uint16_t & tmpMajor, const uint16_t & tmpMinor, const char & tmpRev)

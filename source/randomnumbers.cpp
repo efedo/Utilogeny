@@ -28,7 +28,7 @@ std::string cMersenneTwister::randomHexString(const unsigned int len) {
 	return tmpString;
 }
 
-int cMersenneTwister::randomCheapInt(const int & min, const int & max) {
+int cMersenneTwister::randomCheaperInt(const int & min, const int & max) {
 	std::uniform_int_distribution<int> distribution(min, max);
 	return distribution(cheaprng);
 }
@@ -47,6 +47,13 @@ float cMersenneTwister::randomFloat(const float & min, const float & max)
 double cMersenneTwister::randomDouble(const double & min, const double & max)
 {
 	std::uniform_real_distribution<double> distribution(min, max);
+	return distribution(rng);
+}
+
+// mean, stdev
+float cMersenneTwister::randomFloatNormalDist(const float& mean, const float& stdev)
+{
+	std::normal_distribution<float> distribution(mean, stdev);
 	return distribution(rng);
 }
 

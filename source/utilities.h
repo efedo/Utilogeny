@@ -7,14 +7,16 @@
 
 // String check commands; mostly for regex verification purposes
 bool checkFixRegexString(std::string &);
-bool isAllAlphanum(const std::string &);
-bool isAllNum(const std::string &);
-bool strContains(const std::string &, const char);
+bool all_alphanumeric(const std::string &);
+bool all_numeric(const std::string &);
+bool contains(const std::string &, const char, bool case_specific = false);
+bool contains(const std::string &, const std::string&, bool case_specific = false);
+bool ends_with(const std::string&, const std::string&, bool case_specific = false);
 
 // String utility commands
 void replaceUnderscoresAndTrimSpaces(std::string &);
-void toUpper(std::string &); // Converts string to upper case
-void toLower(std::string &); // Converts string to upper case
+void to_upper(std::string &); // Converts string to upper case
+void to_lower(std::string &); // Converts string to upper case
 
 // String/char to number conversions
 float strToFloat(const std::string &);
@@ -38,7 +40,7 @@ std::vector<std::string> splitCommandLineFast(const std::string &);
 // File utilities
 bool fileExists(const std::string &);
 void ensureSafeFilenameOverwrite(std::string &);
-void checkOutputFilename(std::string &);
+void fix_relative_filename(std::string &);
 
 
 //// Thread utilities

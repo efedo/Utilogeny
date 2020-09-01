@@ -53,25 +53,59 @@ bool checkFixRegexString(std::string & oldString) {
 }
 
 // Determines if all characters in the string are alpha-numeric
-bool isAllAlphanum(const std::string & tmpString) {
+bool all_alphanumeric(const std::string & tmpString) {
 	for (std::string::const_iterator it = tmpString.begin(); it != tmpString.end(); ++it) {
 		if (!std::isalnum(*it)) return false;
 	}
 	return true;
 }
 
-bool isAllNum(const std::string & tmpString) {
+bool all_numeric(const std::string & tmpString) {
 	for (std::string::const_iterator it = tmpString.begin(); it != tmpString.end(); ++it) {
 		if (!std::isdigit(*it)) return false;
 	}
 	return true;
 }
 
-bool strContains(const std::string & tmpString, const char tmpChar) {
-	return (tmpString.find(tmpChar) != std::string::npos);
+bool contains(const std::string & string, const char query, bool case_specific) {
+	if (case_specific) {
+		return (string.find(query) != std::string::npos);
+	}
+	else {
+		std::string string_up = string;
+		to_upper(string_up);
+		char query_up = std::toupper(query);
+		return (string.find(query_up) != std::string::npos);
+	}
 }
 
+bool contains(const std::string& string, const std::string & query, bool case_specific) {
+	if (case_specific) {
+		return (string.find(query) != std::string::npos);
+	}
+	else {
+		std::string string_up = string;
+		to_upper(string_up);
+		std::string query_up = query;
+		to_upper(query_up);
+		return (string.find(query_up) != std::string::npos);
+	}
+}
 
+bool ends_with(const std::string& string, const std::string& query, bool case_specific) {
+	if (case_specific) {
+		size_t hitpos = string.find(query);
+		return (hitpos == (string.size() - query.length()));
+	}
+	else {
+		std::string string_up = string;
+		to_upper(string_up);
+		std::string query_up = query;
+		to_upper(query_up);
+		size_t hitpos = string.find(query);
+		return (hitpos == (string.size() - query.length()));
+	}
+}
 
 std::string doubleToString(const double & tmpDouble, const unsigned int & decPrecision) {
 
@@ -410,7 +444,7 @@ void ensureSafeFilenameOverwrite(std::string & fileName) {
 	}
 }
 
-//void checkOutputFilename(std::string & outFile) {
+//void fix_relative_filename(std::string & outFile) {
 //	// Checks if it is relative or absolute... if relative, add to project output directory
 //	std::filesystem::path tmpPath(outFile);
 //
@@ -542,7 +576,7 @@ void replaceUnderscoresAndTrimSpaces(std::string & line) {
 }
 
 // Converts string to upper case
-void toUpper(std::string & str) {
+void to_upper(std::string & str) {
 	std::locale loc;
 	const std::string::size_type max = str.length();
 	for (std::string::size_type i = 0; i < max; ++i) {
@@ -551,7 +585,7 @@ void toUpper(std::string & str) {
 }
 
 // Converts string to lower case
-void toLower(std::string & str) {
+void to_lower(std::string & str) {
 	std::locale loc;
 	const std::string::size_type max = str.length();
 	for (std::string::size_type i = 0; i < max; ++i) {

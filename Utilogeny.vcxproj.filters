@@ -48,7 +48,70 @@
     <ClCompile Include="source\utilogeny.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\zip\compile_Test.cpp">
+    <ClCompile Include="source\re2\util\rune.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\util\strutil.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\compile.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\dfa.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\filtered_re2.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\mimics_pcre.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\nfa.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\onepass.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\parse.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\perl_groups.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\prefilter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\prefilter_tree.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\prog.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\re2.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\regexp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\set.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\simplify.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\stringpiece.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\tostring.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\unicode_casefold.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\unicode_groups.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\re2\re2\bitstate.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,17 +164,79 @@
     <ClInclude Include="source\besthitmap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\zip\helpers.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\zip\zipiter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\constable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\util\strutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\filtered_re2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\pod_array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\prefilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\prefilter_tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\prog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\re2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\regexp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\set.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\sparse_array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\sparse_set.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\stringpiece.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\unicode_casefold.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\unicode_groups.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\util\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\util\logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\util\utf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\util\mutex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\util\mix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\bitmap256.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\re2\re2\walker-inl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="source\zip\LICENSE.txt" />
+    <Text Include="source\re2\Version.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source\re2\AUTHORS" />
+    <None Include="source\re2\CONTRIBUTORS" />
+    <None Include="source\re2\LICENSE" />
   </ItemGroup>
 </Project>

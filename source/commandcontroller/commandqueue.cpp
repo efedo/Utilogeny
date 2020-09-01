@@ -19,7 +19,7 @@ cQueuedCommand::cQueuedCommand(std::string tmpCmdStr, tCommandSource tmpCmdSourc
 	splitCommand = splitCommandLineFast(commandText);
 	if (splitCommand.size() > 0) {
 		keyword = splitCommand.at(0);
-		toLower(keyword);
+		to_lower(keyword);
 	}
 }
 
@@ -38,10 +38,9 @@ void cQueuedCommand::setCommandNumber(const tCommandNum & tmpCmdNumber) {
 // Check if you need to refresh this setting in the GUI
 // (if it was a successful console command or a failed GUI command)
 bool cQueuedCommand::needGUIrefresh() {
-	throw_line("Needs to be fixed!")
-	//return (globals::guiSignallerPtr &&
-	//	(settingSuccess && ((cmdSource == tCommandSource::console)||(cmdSource == tCommandSource::script)) ||
-	//	(!settingSuccess && (cmdSource == tCommandSource::GUI))));
+	//throw_line("Needs to be fixed!")
+	return ((settingSuccess && ((cmdSource == tCommandSource::console)||(cmdSource == tCommandSource::script)) ||
+		(!settingSuccess && (cmdSource == tCommandSource::GUI))));
 }
 
 cCommandQueue::cCommandQueue() 

@@ -10,6 +10,7 @@
 void cDataFile::checkStr(const std::string & labelString, const std::string & err) {
 
 	// Make a modifiable string
+
 	std::string tmpLabelString = labelString;
 
 	// Print or get string
@@ -20,8 +21,7 @@ void cDataFile::checkStr(const std::string & labelString, const std::string & er
 
 		// Check if equivalent
 		if (tmpLabelString != labelString) {
-			std::string errStr = err + "\n" + "Expected: \"" + labelString + "\". Instead read: \"";
-			errStr = errStr + tmpLabelString + "\"";
+			std::string errStr = err + "\n" + "Expected: \"" + labelString + "\". Instead read: \"" + tmpLabelString + "\"";
 			throw_line(errStr);
 		}
 	}
@@ -39,11 +39,13 @@ void cDataFile::_procBytes(char * varPtr, const std::size_t & size) {
 
 void cDataFile::_getBytes(char * varPtr, const std::size_t & size) {
 	fstreamPtr->read(varPtr, size);
+	if (fstreamPtr->fail()) throw_line("File read failed");
 }
 
 // Print variable
 void cDataFile::_printBytes(const char * varPtr, const std::size_t & size) {
 	fstreamPtr->write(varPtr, size);
+	if (fstreamPtr->fail()) throw_line("File write failed");
 }
 
 bool cDataFileMonolithic::_openFileRead(const std::string& fileName) {
@@ -59,7 +61,7 @@ bool cDataFileRandomAccess::openFileReadWrite(const std::string& fileName) {
 }
 
 bool cDataFileRandomAccess::newFileReadWrite(const std::string& fileName) {
-	return openFile(fileName, std::fstream::binary | std::fstream::trunc);
+	return openFile(fileName, std::fstream::binary | std::fstream::in | std::fstream::out | std::fstream::trunc);
 }
 
 bool cDataFile::openFile(const std::string& fileName, std::ios::openmode mode) {
@@ -72,6 +74,7 @@ bool cDataFile::openFile(const std::string& fileName, std::ios::openmode mode) {
 		return false;
 	}
 	_fileOpen = true;
+	return true;
 }
 
 bool cDataFile::closeFile() {
@@ -88,12 +91,14 @@ std::fstream* cDataFile::deprecatedGetfstreamPtr() {
 // File load and save
 bool cDataFileMonolithic::loadFile(const std::string & fileName) {
 	if (!_openFileRead(fileName)) throw_line("Could not load file");
+	_isWriting = false;
 	_procFile();
 	return closeFile();
 }
 
 bool cDataFileMonolithic::saveFile(const std::string & fileName) {
 	if (!_newFileWrite(fileName)) throw_line("Could not create file");
+	_isWriting = true;
 	_procFile();
 	return closeFile();
 }
@@ -173,6 +178,10 @@ void cDataFile::procStr(std::string & var) {
 
 	if (_isWriting) {
 
+		//if (var == "</queries>") {
+		//	std::cerr << "Break!";
+		//}
+
 		// Get the length of the string
 		uint16_t cStrLen = static_cast<uint16_t>(var.size() + 1);
 
@@ -190,7 +199,11 @@ void cDataFile::procStr(std::string & var) {
 	}
 	else {
 
-		uint16_t cStrLen;
+		//if (var == "</queries>") {
+		//	std::cerr << "Break!";
+		//}
+
+		uint16_t cStrLen = 0;
 
 		// Get the length of the string
 		procVar(cStrLen);
