@@ -88,7 +88,7 @@
 //
 // A moved-from SparseArray will be empty.
 
-#include "Utilogeny/source/precomp.h"
+#include "Utilogeny/source/core/precomp.h"
 
 // Doing this simplifies the logic below.
 #ifndef __has_feature
@@ -99,7 +99,7 @@
 #include <sanitizer/msan_interface.h>
 #endif
 
-#include "Utilogeny/source/re2/re2/pod_array.h"
+#include "Utilogeny/source/core/re2/re2/pod_array.h"
 
 namespace re2 {
 

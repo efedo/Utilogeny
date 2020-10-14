@@ -22,11 +22,11 @@
 //
 // Regexp::MimicsPCRE checks for any of these conditions.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/re2/regexp.h"
-#include "Utilogeny/source/re2/re2/walker-inl.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/re2/regexp.h"
+#include "Utilogeny/source/core/re2/re2/walker-inl.h"
 
 namespace re2 {
 

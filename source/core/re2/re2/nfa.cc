@@ -24,14 +24,14 @@
 // Like Thompson's original machine and like the DFA implementation, this
 // implementation notices a match only once it is one byte past it.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/util/strutil.h"
-#include "Utilogeny/source/re2/re2/pod_array.h"
-#include "Utilogeny/source/re2/re2/prog.h"
-#include "Utilogeny/source/re2/re2/regexp.h"
-#include "Utilogeny/source/re2/re2/sparse_array.h"
-#include "Utilogeny/source/re2/re2/sparse_set.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/util/strutil.h"
+#include "Utilogeny/source/core/re2/re2/pod_array.h"
+#include "Utilogeny/source/core/re2/re2/prog.h"
+#include "Utilogeny/source/core/re2/re2/regexp.h"
+#include "Utilogeny/source/core/re2/re2/sparse_array.h"
+#include "Utilogeny/source/core/re2/re2/sparse_set.h"
 
 namespace re2 {
 

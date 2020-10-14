@@ -31,8 +31,8 @@ documentation and/or software.
 */
 
 /* interface header */
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/md5.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/md5.h"
 
 /* system implementation headers */
 // Moved to precomp header

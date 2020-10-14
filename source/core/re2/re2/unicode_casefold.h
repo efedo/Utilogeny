@@ -39,9 +39,9 @@
 // The grouped form also allows for efficient fold range calculations
 // rather than looping one character at a time.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/utf.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/utf.h"
 
 namespace re2 {
 

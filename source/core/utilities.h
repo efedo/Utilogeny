@@ -2,7 +2,7 @@
 //
 
 #pragma once
-#include "Utilogeny/source/precomp.h"
+#include "Utilogeny/source/core/precomp.h"
 //#include "source/core/typedefs.h"
 
 // String check commands; mostly for regex verification purposes

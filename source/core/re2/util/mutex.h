@@ -5,7 +5,7 @@
 #ifndef UTIL_MUTEX_H_
 #define UTIL_MUTEX_H_
 
-#include "Utilogeny/source/precomp.h"
+#include "Utilogeny/source/core/precomp.h"
 
 /*
  * A simple mutex wrapper, supporting locks and read-write locks.

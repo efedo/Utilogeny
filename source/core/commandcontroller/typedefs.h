@@ -2,7 +2,7 @@
 //
 
 #pragma once
-#include "Utilogeny/source/precomp.h"
+#include "Utilogeny/source/core/precomp.h"
 //#include "source/core/globals.h"
 
 typedef uint32_t tCommandNum; // Note also needs to be defined in 

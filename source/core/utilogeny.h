@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/commandcontroller/typedefs.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/commandcontroller/typedefs.h"
 
 // Log file stuff
 namespace Utilogeny {

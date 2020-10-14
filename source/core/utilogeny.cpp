@@ -1,9 +1,9 @@
 // Utilogeny.cpp : Defines the functions for the static library.
 //
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/Utilogeny.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/Utilogeny.h"
 
-	// Log file stuff
+// Log file stuff
 namespace Utilogeny {
 	namespace log {
 		std::ostream ostreamCacheCout(std::cout.rdbuf());

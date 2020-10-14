@@ -7,15 +7,15 @@
 // Originally the PCRE C++ wrapper, but adapted to use
 // the new automata-based regular expression engines.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/re2/re2.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/util/strutil.h"
-#include "Utilogeny/source/re2/util/utf.h"
-#include "Utilogeny/source/re2/re2/prog.h"
-#include "Utilogeny/source/re2/re2/regexp.h"
-#include "Utilogeny/source/re2/re2/sparse_array.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/re2/re2.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/util/strutil.h"
+#include "Utilogeny/source/core/re2/util/utf.h"
+#include "Utilogeny/source/core/re2/re2/prog.h"
+#include "Utilogeny/source/core/re2/re2/regexp.h"
+#include "Utilogeny/source/core/re2/re2/sparse_array.h"
 
 namespace re2 {
 

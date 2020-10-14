@@ -1,8 +1,8 @@
 // Copyright 2017-20 Eric Fedosejevs
 //
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/exceptions.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/exceptions.h"
 //#include "source/core/globals.h"
 
 std::recursive_mutex* cException::consoleOutMutex = 0;

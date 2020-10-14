@@ -7,8 +7,8 @@
 
 // Simplified version of Google's logging.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
 
 // Debug-only checking.
 #define DCHECK(condition) assert(condition)

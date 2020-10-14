@@ -9,13 +9,13 @@
 // See regexp.h for the Regexp class, which represents a regular
 // expression symbolically.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/re2/pod_array.h"
-#include "Utilogeny/source/re2/re2/re2.h"
-#include "Utilogeny/source/re2/re2/sparse_array.h"
-#include "Utilogeny/source/re2/re2/sparse_set.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/re2/pod_array.h"
+#include "Utilogeny/source/core/re2/re2/re2.h"
+#include "Utilogeny/source/core/re2/re2/sparse_array.h"
+#include "Utilogeny/source/core/re2/re2/sparse_set.h"
 
 namespace re2 {
 

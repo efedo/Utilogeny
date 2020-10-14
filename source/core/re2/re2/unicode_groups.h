@@ -18,9 +18,9 @@
 // to 16.5 kB of data but make the data harder to use;
 // we don't bother.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/utf.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/utf.h"
 
 namespace re2 {
 

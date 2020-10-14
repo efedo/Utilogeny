@@ -2,9 +2,9 @@
 //
 
 #pragma once
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/Utilogeny.h"
-#include "Utilogeny/source/commandcontroller/consolecontroller.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/Utilogeny.h"
+#include "Utilogeny/source/core/commandcontroller/consolecontroller.h"
 
 // Log utilities
 void prepTeeStream() {

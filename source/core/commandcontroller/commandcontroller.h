@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include "Utilogeny/source/precomp.h"
+#include "Utilogeny/source/core/precomp.h"
 //#include "source/core/globals.h"
-#include "Utilogeny/source/commandcontroller/commandqueue.h"
+#include "Utilogeny/source/core/commandcontroller/commandqueue.h"
 
 //namespace nn {
 //	class cNNCommandManager;

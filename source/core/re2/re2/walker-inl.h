@@ -13,9 +13,9 @@
 // Not quite the Visitor pattern, because (among other things)
 // the Visitor pattern is recursive.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/re2/regexp.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/re2/regexp.h"
 
 namespace re2 {
 

@@ -9,9 +9,9 @@
 // Rather than using Prefilter class directly, use FilteredRE2.
 // See filtered_re2.h
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/logging.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
 
 namespace re2 {
 

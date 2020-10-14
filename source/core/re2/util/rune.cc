@@ -12,8 +12,8 @@
  * OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
  */
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/utf.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/utf.h"
 
 namespace re2 {
 

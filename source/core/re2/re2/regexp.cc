@@ -5,15 +5,15 @@
 // Regular expression representation.
 // Tested by parse_test.cc
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/re2/regexp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/util/mutex.h"
-#include "Utilogeny/source/re2/util/utf.h"
-#include "Utilogeny/source/re2/re2/pod_array.h"
-#include "Utilogeny/source/re2/re2/stringpiece.h"
-#include "Utilogeny/source/re2/re2/walker-inl.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/re2/regexp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/util/mutex.h"
+#include "Utilogeny/source/core/re2/util/utf.h"
+#include "Utilogeny/source/core/re2/re2/pod_array.h"
+#include "Utilogeny/source/core/re2/re2/stringpiece.h"
+#include "Utilogeny/source/core/re2/re2/walker-inl.h"
 
 namespace re2 {
 

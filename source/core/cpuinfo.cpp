@@ -1,7 +1,7 @@
 // Copyright 2017-20 Eric Fedosejevs
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/cpuinfo.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/cpuinfo.h"
 
 
 // Initialize static member data

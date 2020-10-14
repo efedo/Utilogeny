@@ -3,9 +3,9 @@
 
 //#include "source/core/stdafx.h"
 //#include "source/core/globals.h"
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/utilities.h"
-#include "Utilogeny/source/exceptions.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/utilities.h"
+#include "Utilogeny/source/core/exceptions.h"
 //#include "source/core/project/project.h"
 
 /// Checks a search string for characters that are not allowed and fixes it

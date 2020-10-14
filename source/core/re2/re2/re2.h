@@ -202,13 +202,13 @@
 //         RE2::Octal(&a), RE2::Hex(&b), RE2::CRadix(&c), RE2::CRadix(&d));
 // will leave 64 in a, b, c, and d.
 
-#include "Utilogeny/source/precomp.h"
+#include "Utilogeny/source/core/precomp.h"
 
 #if defined(__APPLE__)
 #include <TargetConditionals.h>
 #endif
 
-#include "Utilogeny/source/re2/re2/stringpiece.h"
+#include "Utilogeny/source/core/re2/re2/stringpiece.h"
 
 namespace re2 {
 class Prog;

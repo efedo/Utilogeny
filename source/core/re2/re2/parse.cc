@@ -16,17 +16,17 @@
 // and recognizes the Perl escape sequences \d, \s, \w, \D, \S, and \W.
 // See regexp.h for rationale.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/util/strutil.h"
-#include "Utilogeny/source/re2/util/utf.h"
-#include "Utilogeny/source/re2/re2/pod_array.h"
-#include "Utilogeny/source/re2/re2/regexp.h"
-#include "Utilogeny/source/re2/re2/stringpiece.h"
-#include "Utilogeny/source/re2/re2/unicode_casefold.h"
-#include "Utilogeny/source/re2/re2/unicode_groups.h"
-#include "Utilogeny/source/re2/re2/walker-inl.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/util/strutil.h"
+#include "Utilogeny/source/core/re2/util/utf.h"
+#include "Utilogeny/source/core/re2/re2/pod_array.h"
+#include "Utilogeny/source/core/re2/re2/regexp.h"
+#include "Utilogeny/source/core/re2/re2/stringpiece.h"
+#include "Utilogeny/source/core/re2/re2/unicode_casefold.h"
+#include "Utilogeny/source/core/re2/re2/unicode_groups.h"
+#include "Utilogeny/source/core/re2/re2/walker-inl.h"
 
 #if defined(RE2_USE_ICU)
 #include "unicode/uniset.h"

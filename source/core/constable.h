@@ -2,7 +2,7 @@
 //
 
 #pragma once
-#include "Utilogeny/source/precomp.h"
+#include "Utilogeny/source/core/precomp.h"
 
 // Helper class to make run-time pseudoconsts ("constables")
 // (for variables that are rarely set and that you do not want to accidentally re-assign)

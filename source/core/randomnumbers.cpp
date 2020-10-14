@@ -1,8 +1,8 @@
 // Copyright 2017-20 Eric Fedosejevs
 //
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/randomnumbers.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/randomnumbers.h"
 
 cMersenneTwister globals::mersenneTwister;
 

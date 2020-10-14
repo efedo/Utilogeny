@@ -1,11 +1,11 @@
 // Copyright 2017-20 Eric Fedosejevs
 //
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/commandcontroller/commandqueue.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/commandcontroller/commandqueue.h"
 //#include "source/core/utils/utilities.h"
-#include "Utilogeny/source/exceptions.h"
-#include "Utilogeny/source/utilities.h"
+#include "Utilogeny/source/core/exceptions.h"
+#include "Utilogeny/source/core/utilities.h"
 
 cQueuedCommand::cQueuedCommand(std::string tmpCmdStr, tCommandSource tmpCmdSource, const tCommandNum & tmpCommandNumber)
 	: cQueuedCommand(tmpCmdStr, tmpCmdSource)

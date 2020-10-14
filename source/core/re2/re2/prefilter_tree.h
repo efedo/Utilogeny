@@ -16,10 +16,10 @@
 // atoms) that the user of this class should use to do the string
 // matching.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/re2/prefilter.h"
-#include "Utilogeny/source/re2/re2/sparse_array.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/re2/prefilter.h"
+#include "Utilogeny/source/core/re2/re2/sparse_array.h"
 
 namespace re2 {
 

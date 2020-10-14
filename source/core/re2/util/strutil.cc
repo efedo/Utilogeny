@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/strutil.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/strutil.h"
 
 #ifdef _WIN32
 #define snprintf _snprintf

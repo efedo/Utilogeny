@@ -50,15 +50,15 @@
 // See also Anne Brüggemann-Klein and Derick Wood,
 // "One-unambiguous regular languages", Information and Computation 142(2).
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/util/strutil.h"
-#include "Utilogeny/source/re2/util/utf.h"
-#include "Utilogeny/source/re2/re2/pod_array.h"
-#include "Utilogeny/source/re2/re2/prog.h"
-#include "Utilogeny/source/re2/re2/sparse_set.h"
-#include "Utilogeny/source/re2/re2/stringpiece.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/util/strutil.h"
+#include "Utilogeny/source/core/re2/util/utf.h"
+#include "Utilogeny/source/core/re2/re2/pod_array.h"
+#include "Utilogeny/source/core/re2/re2/prog.h"
+#include "Utilogeny/source/core/re2/re2/sparse_set.h"
+#include "Utilogeny/source/core/re2/re2/stringpiece.h"
 
 // Silence "zero-sized array in struct/union" warning for OneState::action.
 #ifdef _MSC_VER

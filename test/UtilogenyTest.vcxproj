@@ -81,7 +81,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\;$(SolutionDir);$(SolutionDir)lib\;$(SolutionDir)lib\range-v3-0.10.0\include;$(SolutionDir)lib\OpenBLAS-0.3.7-x64\include;.;.\resources;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;$(AF_PATH)/include;$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -114,7 +114,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\;$(SolutionDir);$(SolutionDir)lib\;$(SolutionDir)lib\range-v3-0.10.0\include;$(SolutionDir)lib\OpenBLAS-0.3.7-x64\include;.;.\resources;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;$(AF_PATH)/include;$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

@@ -5,13 +5,13 @@
 // Compiled regular expression representation.
 // Tested by compile_test.cc
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/re2/prog.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/util/strutil.h"
-#include "Utilogeny/source/re2/re2/bitmap256.h"
-#include "Utilogeny/source/re2/re2/stringpiece.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/re2/prog.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/util/strutil.h"
+#include "Utilogeny/source/core/re2/re2/bitmap256.h"
+#include "Utilogeny/source/core/re2/re2/stringpiece.h"
 
 namespace re2 {
 

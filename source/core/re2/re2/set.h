@@ -5,8 +5,8 @@
 #ifndef RE2_SET_H_
 #define RE2_SET_H_
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/re2/re2.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/re2/re2.h"
 
 namespace re2 {
 class Prog;

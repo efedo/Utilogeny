@@ -86,11 +86,11 @@
 // form accessible to clients, so that client code can analyze the
 // parsed regular expressions.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/util/utf.h"
-#include "Utilogeny/source/re2/re2/stringpiece.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/util/utf.h"
+#include "Utilogeny/source/core/re2/re2/stringpiece.h"
 
 namespace re2 {
 

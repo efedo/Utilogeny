@@ -36,7 +36,7 @@ documentation and/or software.
 //#include <cstring>
 //#include <iostream>
 
-#include "Utilogeny/source/precomp.h"
+#include "Utilogeny/source/core/precomp.h"
 
 // a small class for calculating MD5 hashes of strings or byte arrays
 // it is not meant to be fast or secure

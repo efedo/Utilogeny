@@ -5,9 +5,9 @@
 #ifndef UTIL_STRUTIL_H_
 #define UTIL_STRUTIL_H_
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/re2/stringpiece.h"
-#include "Utilogeny/source/re2/util/util.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/re2/stringpiece.h"
+#include "Utilogeny/source/core/re2/util/util.h"
 
 namespace re2 {
 

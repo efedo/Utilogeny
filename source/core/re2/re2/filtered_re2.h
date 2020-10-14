@@ -21,8 +21,8 @@
 // or AllMatches with a vector of indices of strings that were found
 // in the text to get the actual regexp matches.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/re2/re2.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/re2/re2.h"
 
 namespace re2 {
 

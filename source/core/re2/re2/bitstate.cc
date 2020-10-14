@@ -17,11 +17,11 @@
 // SearchBitState is a fast replacement for the NFA code on small
 // regexps and texts when SearchOnePass cannot be used.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/re2/pod_array.h"
-#include "Utilogeny/source/re2/re2/prog.h"
-#include "Utilogeny/source/re2/re2/regexp.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/re2/pod_array.h"
+#include "Utilogeny/source/core/re2/re2/prog.h"
+#include "Utilogeny/source/core/re2/re2/regexp.h"
 
 namespace re2 {
 

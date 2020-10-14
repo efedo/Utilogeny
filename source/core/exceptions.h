@@ -2,8 +2,8 @@
 //
 
 #pragma once
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/Utilogeny.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/Utilogeny.h"
 
 class cException;
 

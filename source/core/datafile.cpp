@@ -1,9 +1,9 @@
 // Copyright 2017-20 Eric Fedosejevs
 //
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/datafile.h"
-#include "Utilogeny/source/exceptions.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/datafile.h"
+#include "Utilogeny/source/core/exceptions.h"
 
 // Section labels
 
