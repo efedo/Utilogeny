@@ -1,7 +1,0 @@
-Re2 branch from 2020-08-01
-
-- Among run-time regex parsing libraries, Re2 is slower than Intel's Hyperscan parser, but it is safe AND easy to compile (Hyperscan is a dog)
-- Note that Boost::Spirit and CTRE are compile-time
-	- https://www.reddit.com/r/cpp/comments/e16s1m/what_is_wrong_with_stdregex/f94g2ny/
-	- https://gist.github.com/qis/3d9f5a73d9622847c8b7da68af7e19d4
-	- https://github.com/intel/hyperscan
