@@ -38,7 +38,7 @@ void cQueuedCommand::setCommandNumber(const tCommandNum & tmpCmdNumber) {
 // Check if you need to refresh this setting in the GUI
 // (if it was a successful console command or a failed GUI command)
 bool cQueuedCommand::needGUIrefresh() {
-	//throw_line("Needs to be fixed!")
+	//throwl("Needs to be fixed!")
 	return ((settingSuccess && ((cmdSource == tCommandSource::console)||(cmdSource == tCommandSource::script)) ||
 		(!settingSuccess && (cmdSource == tCommandSource::GUI))));
 }
@@ -197,7 +197,7 @@ void cCommandQueue::removeDelayingCmdHold(const tCommandNum & delayingCmd) {
 /// First command does not complete until another queued command completes
 void cCommandQueue::setDefCompletion(const tCommandNum & waitingCmd, const tCommandNum & delayingCmd) {
 #ifdef DEBUG
-	if (waitingCmd > _nextCommandNumber) throw_line("Tried to delay a command that has not yet been queued");
+	if (waitingCmd > _nextCommandNumber) throwl("Tried to delay a command that has not yet been queued");
 #endif //DEBUG
 	if (isCommandComplete(delayingCmd)) return;
 	cmdQmutex.lock();

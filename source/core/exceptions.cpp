@@ -81,7 +81,7 @@ cException::cException(const std::exception & e)
 {}
 
 cException::cException(const std::string & tmpStr, const std::exception& e)
-	: description(e.what()), nestedExceptionPtr(&cException(e))
+	: description(e.what()), nestedExceptionPtr(new cException(e))
 {}
 
 cException::cException(const char * const tmpStrPtr, const std::exception& e)

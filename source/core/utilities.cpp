@@ -6,7 +6,6 @@
 #include "Utilogeny/source/core/precomp.h"
 #include "Utilogeny/source/core/utilities.h"
 #include "Utilogeny/source/core/exceptions.h"
-//#include "source/core/project/project.h"
 
 /// Checks a search string for characters that are not allowed and fixes it
 bool checkFixRegexString(std::string & oldString) {
@@ -177,7 +176,7 @@ double strToDoub(const std::string & tmpString) {
 		}
 		catch (...) {
 			std::cerr << "Invalid character found in text string during conversion to double. Safe conversion function also failed." << std::endl;
-			throw_line("Invalid character found in text string during conversion to double"); // Invalid character
+			throwl("Invalid character found in text string during conversion to double"); // Invalid character
 		}
 	}
 	if (neg) {
@@ -209,7 +208,7 @@ float strToFloat(const std::string & tmpString) {
 			++p;
 			++n;
 		}
-		r += f / std::pow(10.0f, n);
+		r += f / float(std::pow(10.0f, n));
 	}
 	if (*p != 0) {
 		try {
@@ -217,7 +216,7 @@ float strToFloat(const std::string & tmpString) {
 		}
 		catch (...) {
 			std::cerr << "Invalid character found in text string during conversion to double. Safe conversion function also failed." << std::endl;
-			throw_line("Invalid character found in text string during conversion to double"); // Invalid character
+			throwl("Invalid character found in text string during conversion to double"); // Invalid character
 		}
 	}
 	if (neg) {
@@ -253,7 +252,7 @@ unsigned long strToULongFast(const std::string & tmpString) {
 	}
 
 	if (*p != 0) {
-		throw_line("Invalid character found in text string during conversion to unsigned long."); // Invalid character
+		throwl("Invalid character found in text string during conversion to unsigned long."); // Invalid character
 	}
 
 	return r;
@@ -282,7 +281,7 @@ bool strToBool(const std::string & tmpString) {
 	}
 	else {
 		std::cerr << "Invalid boolean value supplied.\n";
-		throw_line("Invalid boolean value supplied");
+		throwl("Invalid boolean value supplied");
 	}
 }
 
@@ -449,7 +448,7 @@ void ensureSafeFilenameOverwrite(std::string & fileName) {
 //	std::filesystem::path tmpPath(outFile);
 //
 //	if (tmpPath.is_relative()) {
-//		if (!globals::projectPtr) throw_line("Project not loaded; cannot deduce project output path");
+//		if (!globals::projectPtr) throwl("Project not loaded; cannot deduce project output path");
 //		outFile = globals::projectPtr->getOutputDirectory() + outFile;
 //	}
 //}
@@ -596,7 +595,7 @@ void to_lower(std::string & str) {
 
 std::vector<std::pair<unsigned long, unsigned long>> splitGroupIntoBins(const unsigned long groupSize, const unsigned int numBins) {
 
-	if (!numBins) throw_line("Tried to divide a group into 0 bins (probably for thread distribution)");
+	if (!numBins) throwl("Tried to divide a group into 0 bins (probably for thread distribution)");
 
 	binBoundaryPairVector tmpPairVec;
 

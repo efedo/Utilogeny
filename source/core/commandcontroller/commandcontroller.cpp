@@ -59,7 +59,7 @@ cSetting::cSetting(const std::string & tmpKeyword, bool(*tmpFuncPtr)(cQueuedComm
 cCommandController* cCommandController::myInstance = 0;
 
 cCommandController* cCommandController::get() {
-	if (!myInstance) throw_line("Command controller not initialized");
+	if (!myInstance) throwl("Command controller not initialized");
 	return myInstance;
 }
 
@@ -88,15 +88,15 @@ cCommandController::cCommandController(void (*tmpSignalSettingFailurePtr)(cQueue
 	signalSettingFailurePtr(tmpSignalSettingFailurePtr), signalCommandFailurePtr(tmpSignalCommandFailurePtr)
 {
 
-	//if (!cmdControllerTerminationMutex) throw_line("Termination mutex not supplied by main application");
+	//if (!cmdControllerTerminationMutex) throwl("Termination mutex not supplied by main application");
 
 	// If you try to load more than one command controller, throw
-	if (myInstance) throw_line("Tried to load multiple command controllers");
+	if (myInstance) throwl("Tried to load multiple command controllers");
 
 	// If you already have a command controller thread, something has gone wrong; throw
 	if (commandConsoleLoopThread) {
 		std::cerr << "Already have a command console thread!\n";
-		throw_line("Bad thread flow!\n");
+		throwl("Bad thread flow!\n");
 	}
 
 	std::cout << "Initializing console.\n";
@@ -106,7 +106,7 @@ cCommandController::cCommandController(void (*tmpSignalSettingFailurePtr)(cQueue
 
 	if (commandProcessLoopThread) {
 		std::cerr << "Already have a command processing thread!\n";
-		throw_line("Bad thread flow!\n");
+		throwl("Bad thread flow!\n");
 	}
 
 	// Make a new command processing loop thread
@@ -455,14 +455,14 @@ void cCommandController::changeSetting(cQueuedCommand & cmd) {
 					//}
 					signalSettingFailurePtr(cmd);
 					//else {
-					//	throw_line("GUI updater pointer missing."); // If it was a GUI command but you don't have a GUI updater pointer
+					//	throwl("GUI updater pointer missing."); // If it was a GUI command but you don't have a GUI updater pointer
 					//	// something went horribly wrong
 					//}
 				}
 			}
 		}
 		else {
-			if (cmd.cmdSource == tCommandSource::GUI) throw_line("GUI should not be asking to output settings to console"); // GUI should not need to ask for settings to display
+			if (cmd.cmdSource == tCommandSource::GUI) throwl("GUI should not be asking to output settings to console"); // GUI should not need to ask for settings to display
 			_settings.at(cmd.splitCommand.at(1)).set(cmd, false);
 		}
 	}

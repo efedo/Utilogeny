@@ -7,5 +7,3 @@
 
 typedef uint32_t tCommandNum; // Note also needs to be defined in 
 enum class tCommandSource : uint8_t { GUI = 1, console = 2, script = 3 };
-typedef boost::iostreams::tee_device<std::ostream, std::ofstream> tTeeDevice;
-typedef boost::iostreams::stream<tTeeDevice> tTeeStream;

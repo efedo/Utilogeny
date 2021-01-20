@@ -22,7 +22,7 @@ void cDataFile::checkStr(const std::string & labelString, const std::string & er
 		// Check if equivalent
 		if (tmpLabelString != labelString) {
 			std::string errStr = err + "\n" + "Expected: \"" + labelString + "\". Instead read: \"" + tmpLabelString + "\"";
-			throw_line(errStr);
+			throwl(errStr);
 		}
 	}
 }
@@ -39,13 +39,13 @@ void cDataFile::_procBytes(char * varPtr, const std::size_t & size) {
 
 void cDataFile::_getBytes(char * varPtr, const std::size_t & size) {
 	fstreamPtr->read(varPtr, size);
-	if (fstreamPtr->fail()) throw_line("File read failed");
+	if (fstreamPtr->fail()) throwl("File read failed");
 }
 
 // Print variable
 void cDataFile::_printBytes(const char * varPtr, const std::size_t & size) {
 	fstreamPtr->write(varPtr, size);
-	if (fstreamPtr->fail()) throw_line("File write failed");
+	if (fstreamPtr->fail()) throwl("File write failed");
 }
 
 bool cDataFileMonolithic::_openFileRead(const std::string& fileName) {
@@ -90,14 +90,14 @@ std::fstream* cDataFile::deprecatedGetfstreamPtr() {
 
 // File load and save
 bool cDataFileMonolithic::loadFile(const std::string & fileName) {
-	if (!_openFileRead(fileName)) throw_line("Could not load file");
+	if (!_openFileRead(fileName)) throwl("Could not load file");
 	_isWriting = false;
 	_procFile();
 	return closeFile();
 }
 
 bool cDataFileMonolithic::saveFile(const std::string & fileName) {
-	if (!_newFileWrite(fileName)) throw_line("Could not create file");
+	if (!_newFileWrite(fileName)) throwl("Could not create file");
 	_isWriting = true;
 	_procFile();
 	return closeFile();
@@ -105,7 +105,7 @@ bool cDataFileMonolithic::saveFile(const std::string & fileName) {
 
 // Process file
 void cDataFileMonolithic::_procFile() {
-	throw_line_overridden;
+	throwl_overridden;
 }
 
 void cDataFile::procCStr(char * var, const std::size_t & fileCStrSize) {
@@ -114,7 +114,7 @@ void cDataFile::procCStr(char * var, const std::size_t & fileCStrSize) {
 	if (var[fileCStrSize - 1]) {
 		var[fileCStrSize - 1] = 0;
 		std::string tmpErr = "Tried to write a non-null-terminated C-str: " + fileCStrSize;
-		throw_line(tmpErr);
+		throwl(tmpErr);
 	}
 	_procBytes(var, fileCStrSize);
 };
@@ -122,7 +122,7 @@ void cDataFile::procCStr(char * var, const std::size_t & fileCStrSize) {
 // Handles writing of std strings to file and vice versa
 void cDataFile::_procStrFLen(std::string & var, const std::size_t & fileCStrSize) {
 
-	if (!fileCStrSize) throw_line("Cannot output C-str of 0 length!");
+	if (!fileCStrSize) throwl("Cannot output C-str of 0 length!");
 	
 	const std::size_t convertedStrSize = var.size() + 1;
 	std::size_t lengthToCopy = 0;

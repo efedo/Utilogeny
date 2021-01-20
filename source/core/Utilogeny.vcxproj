@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="besthitmap.h" />
+    <ClInclude Include="boost\boost_includes.h" />
+    <ClInclude Include="boost\filesystem\windows_file_codecvt.hpp" />
     <ClInclude Include="commandcontroller\commandcontroller.h" />
     <ClInclude Include="commandcontroller\commandqueue.h" />
     <ClInclude Include="commandcontroller\consolecontroller.h" />
@@ -89,9 +91,11 @@
     <ClInclude Include="constable.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="boost\LICENSE_1_0.txt" />
     <Text Include="re2\Version.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="boost\VERSION" />
     <None Include="re2\AUTHORS" />
     <None Include="re2\CONTRIBUTORS" />
     <None Include="re2\LICENSE" />
@@ -139,6 +143,12 @@
     <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\lib\</OutDir>
     <IntDir>$(SolutionDir)build\$(Platform)\$(Configuration)\intermediate\$(ProjectName)\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgEnabled>false</VcpkgEnabled>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgEnabled>false</VcpkgEnabled>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -148,10 +158,11 @@
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>Utilogeny/source/core/precomp.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\;$(SolutionDir)..\lib\boost_1_71_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\;C:\Programming\lib\boost_1_71_0\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -169,7 +180,7 @@
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>Utilogeny/source/core/precomp.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\;$(SolutionDir)..\lib\boost_1_71_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\;C:\Programming\lib\boost_1_71_0\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
@@ -178,6 +189,7 @@
       <FloatingPointExceptions>false</FloatingPointExceptions>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

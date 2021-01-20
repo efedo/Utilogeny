@@ -3,6 +3,7 @@
 
 #pragma once
 #include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/exceptions.h"
 
 template <class T>
 class cFastArray;
@@ -30,7 +31,8 @@ public:
 		procVar(read_var);
 		if (read_var != read_var) {
 			std::string errStr = err + "\n" + "Expected: \"" + std::to_string(var) + "\". Instead read: \"" + std::to_string(read_var) + "\"";
-			throw_line(errStr);
+			//throwl(errStr); // compiler error
+			throw cException(errStr, __FILE__, __LINE__, std::this_thread::get_id());
 		}
 	}
 	void checkStr(const std::string &, const std::string & = "");

@@ -2,10 +2,10 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/benchmark.h"
-#include "Utilogeny/source/re2/util/flags.h"
-#include "Utilogeny/source/re2/re2/re2.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/benchmark.h"
+#include "Utilogeny/source/core/re2/util/flags.h"
+#include "Utilogeny/source/core/re2/re2/re2.h"
 
 #ifdef _WIN32
 #define snprintf _snprintf

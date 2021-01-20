@@ -6,14 +6,28 @@
 #include "Utilogeny/source/core/Utilogeny.h"
 #include "Utilogeny/source/core/commandcontroller/consolecontroller.h"
 
+typedef boost::iostreams::tee_device<std::ostream, std::ofstream> TeeDeviceInternal;
+typedef boost::iostreams::stream<TeeDeviceInternal> TeeStreamInternal;
+
+class TeeDevice {
+public:
+	TeeDeviceInternal device;
+};
+
+class TeeStream {
+public:
+	TeeStreamInternal stream;
+};
+
+
 // Log utilities
 void prepTeeStream() {
 
 	// Copy over old streams
-	tTeeDevice* oldOutputDeviceCout = Utilogeny::log::outputDeviceCout;
-	tTeeDevice* oldOutputDeviceCerr = Utilogeny::log::outputDeviceCerr;
-	tTeeStream* oldLoggerCout = Utilogeny::log::loggerCout;
-	tTeeStream* oldLoggerCerr = Utilogeny::log::loggerCerr;
+	TeeDevice* oldOutputDeviceCout = Utilogeny::log::outputDeviceCout;
+	TeeDevice* oldOutputDeviceCerr = Utilogeny::log::outputDeviceCerr;
+	TeeStream* oldLoggerCout = Utilogeny::log::loggerCout;
+	TeeStream* oldLoggerCerr = Utilogeny::log::loggerCerr;
 
 	bool teeUpdateRequired = (Utilogeny::log::logFile != Utilogeny::log::teedLogFile);
 
@@ -22,10 +36,10 @@ void prepTeeStream() {
 
 		if (teeUpdateRequired) {
 			// Prep new tee streams
-			Utilogeny::log::outputDeviceCerr = new tTeeDevice(Utilogeny::log::ostreamCacheCerr, *Utilogeny::log::logFile);
-			Utilogeny::log::loggerCerr = new tTeeStream(*Utilogeny::log::outputDeviceCerr);
-			Utilogeny::log::outputDeviceCout = new tTeeDevice(Utilogeny::log::ostreamCacheCout, *Utilogeny::log::logFile);
-			Utilogeny::log::loggerCout = new tTeeStream(*Utilogeny::log::outputDeviceCout);
+			Utilogeny::log::outputDeviceCerr = new TeeDevice{ TeeDeviceInternal(Utilogeny::log::ostreamCacheCerr, *Utilogeny::log::logFile) };
+			Utilogeny::log::loggerCerr = new TeeStream{ TeeStreamInternal(Utilogeny::log::outputDeviceCerr->device) };
+			Utilogeny::log::outputDeviceCout = new TeeDevice{ TeeDeviceInternal(Utilogeny::log::ostreamCacheCout, *Utilogeny::log::logFile) };
+			Utilogeny::log::loggerCout = new TeeStream{ TeeStreamInternal(Utilogeny::log::outputDeviceCout->device) };
 
 			// Update teed log file
 			Utilogeny::log::teedLogFile = Utilogeny::log::logFile;
@@ -34,7 +48,7 @@ void prepTeeStream() {
 		// If also outputting to console
 		if (!(Utilogeny::log::muteConsole)) {
 			// Prep new cout tee stream
-			std::cout.rdbuf(Utilogeny::log::loggerCout->rdbuf());
+			std::cout.rdbuf(Utilogeny::log::loggerCout->stream.rdbuf());
 		}
 		// If outputting to log file only
 		else {
@@ -42,7 +56,7 @@ void prepTeeStream() {
 		}
 
 		// Prep new cerr tee stream
-		std::cerr.rdbuf(Utilogeny::log::loggerCerr->rdbuf());
+		std::cerr.rdbuf(Utilogeny::log::loggerCerr->stream.rdbuf());
 	}
 
 	// If outputting to console only (and not log file)

@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/test.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/test.h"
 
 namespace testing {
 std::string TempDir() { return "/tmp/"; }

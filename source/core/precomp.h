@@ -53,10 +53,11 @@
 #include <utility>
 #include <vector>
 
-// Boost
+// Boost includes
 #include <boost/filesystem.hpp>
 #include <boost/iostreams/stream.hpp>
 #include <boost/iostreams/tee.hpp>
+#include <boost/multiprecision/cpp_bin_float.hpp>
 
 // Macros and headers required by re2
 #ifndef WINVER

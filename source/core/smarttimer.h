@@ -22,7 +22,7 @@ public:
 		if (micro > 1000000.0) {
 			std::cout << micro / 1000000 << " s\n";
 		}
-		else if (micro > micro > 10000.0) {
+		else if (micro > 10000.0) {
 			std::cout << micro / 1000 << " ms\n";
 		}
 		else {

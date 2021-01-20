@@ -5,9 +5,9 @@
 #ifndef UTIL_TEST_H_
 #define UTIL_TEST_H_
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/logging.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
 
 namespace testing {
 std::string TempDir();

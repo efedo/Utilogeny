@@ -5,7 +5,7 @@
 #ifndef UTIL_PCRE_H_
 #define UTIL_PCRE_H_
 
-#include "Utilogeny/source/precomp.h"
+#include "Utilogeny/source/core/precomp.h"
 
 // This is a variant of PCRE's pcrecpp.h, originally written at Google.
 // The main changes are the addition of the HitLimit method and
@@ -163,8 +163,8 @@
 //         Octal(&a), Hex(&b), CRadix(&c), CRadix(&d));
 // will leave 64 in a, b, c, and d.
 
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/re2/stringpiece.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/re2/stringpiece.h"
 
 #ifdef USEPCRE
 #include <pcre.h>

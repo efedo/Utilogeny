@@ -6,12 +6,12 @@
 // The main changes are the addition of the HitLimit method and
 // compilation as PCRE in namespace re2.
 
-#include "Utilogeny/source/precomp.h"
-#include "Utilogeny/source/re2/util/util.h"
-#include "Utilogeny/source/re2/util/flags.h"
-#include "Utilogeny/source/re2/util/logging.h"
-#include "Utilogeny/source/re2/util/pcre.h"
-#include "Utilogeny/source/re2/util/strutil.h"
+#include "Utilogeny/source/core/precomp.h"
+#include "Utilogeny/source/core/re2/util/util.h"
+#include "Utilogeny/source/core/re2/util/flags.h"
+#include "Utilogeny/source/core/re2/util/logging.h"
+#include "Utilogeny/source/core/re2/util/pcre.h"
+#include "Utilogeny/source/core/re2/util/strutil.h"
 
 // Silence warnings about the wacky formatting in the operator() functions.
 #if !defined(__clang__) && defined(__GNUC__) && __GNUC__ >= 6

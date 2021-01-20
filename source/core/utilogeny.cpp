@@ -10,10 +10,10 @@ namespace Utilogeny {
 		std::ostream ostreamCacheCerr(std::cerr.rdbuf());
 		std::streambuf* strmBufCacheCout = std::cout.rdbuf();
 		std::streambuf* strmBufCacheCerr = std::cerr.rdbuf();
-		tTeeDevice* outputDeviceCout = 0;
-		tTeeDevice* outputDeviceCerr = 0;
-		tTeeStream* loggerCout = 0;
-		tTeeStream* loggerCerr = 0;
+		TeeDevice* outputDeviceCout = 0;
+		TeeDevice* outputDeviceCerr = 0;
+		TeeStream* loggerCout = 0;
+		TeeStream* loggerCerr = 0;
 		std::ofstream* logFile = 0;
 		std::ofstream* teedLogFile = 0;
 		bool muteConsole = false;
