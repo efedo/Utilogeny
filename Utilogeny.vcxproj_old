@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+  <Import Project="$(SolutionDir)shared.targets" />
+
+
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4AC2EDBC-1F6B-46A2-B15E-A5DB27E2C829}</ProjectGuid>
+    <RootNamespace>Utilogeny</RootNamespace>
+	<ProjectName>Utilogeny</ProjectName>
+	<PrimaryOutput>Utilogeny</PrimaryOutput>
+	<ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>  
+  
+  
+  <ItemDefinitionGroup>
+    <ClCompile>
+	  <PrecompiledHeaderFile>Utilogeny/source/core/precomp.h</PrecompiledHeaderFile>  
+    </ClCompile>
+  </ItemDefinitionGroup>
+  
+  
+  <ItemGroup>
+    <ClCompile Include="commandcontroller\commandcontroller.cpp" />
+    <ClCompile Include="commandcontroller\commandqueue.cpp" />
+    <ClCompile Include="commandcontroller\consolecontroller.cpp" />
+    <ClCompile Include="cpuinfo.cpp" />
+    <ClCompile Include="datafile.cpp" />
+    <ClCompile Include="exceptions.cpp" />
+    <ClCompile Include="md5.cpp" />
+    <ClCompile Include="precomp.cpp" />
+    <ClCompile Include="randomnumbers.cpp" />
+    <ClCompile Include="re2\re2\bitstate.cc" />
+    <ClCompile Include="re2\re2\compile.cc" />
+    <ClCompile Include="re2\re2\dfa.cc" />
+    <ClCompile Include="re2\re2\filtered_re2.cc" />
+    <ClCompile Include="re2\re2\mimics_pcre.cc" />
+    <ClCompile Include="re2\re2\nfa.cc" />
+    <ClCompile Include="re2\re2\onepass.cc" />
+    <ClCompile Include="re2\re2\parse.cc" />
+    <ClCompile Include="re2\re2\perl_groups.cc" />
+    <ClCompile Include="re2\re2\prefilter.cc" />
+    <ClCompile Include="re2\re2\prefilter_tree.cc" />
+    <ClCompile Include="re2\re2\prog.cc" />
+    <ClCompile Include="re2\re2\re2.cc" />
+    <ClCompile Include="re2\re2\regexp.cc" />
+    <ClCompile Include="re2\re2\set.cc" />
+    <ClCompile Include="re2\re2\simplify.cc" />
+    <ClCompile Include="re2\re2\stringpiece.cc" />
+    <ClCompile Include="re2\re2\tostring.cc" />
+    <ClCompile Include="re2\re2\unicode_casefold.cc" />
+    <ClCompile Include="re2\re2\unicode_groups.cc" />
+    <ClCompile Include="re2\util\rune.cc" />
+    <ClCompile Include="re2\util\strutil.cc" />
+    <ClCompile Include="utilities.cpp" />
+    <ClCompile Include="utilogeny.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  
+  
+  <ItemGroup>
+    <ClInclude Include="besthitmap.h" />
+    <ClInclude Include="boost\boost_includes.h" />
+    <ClInclude Include="boost\filesystem\windows_file_codecvt.hpp" />
+    <ClInclude Include="commandcontroller\commandcontroller.h" />
+    <ClInclude Include="commandcontroller\commandqueue.h" />
+    <ClInclude Include="commandcontroller\consolecontroller.h" />
+    <ClInclude Include="commandcontroller\typedefs.h" />
+    <ClInclude Include="cpuinfo.h" />
+    <ClInclude Include="datafile.h" />
+    <ClInclude Include="exceptions.h" />
+    <ClInclude Include="md5.h" />
+    <ClInclude Include="precomp.h" />
+    <ClInclude Include="randomnumbers.h" />
+    <ClInclude Include="re2\re2\bitmap256.h" />
+    <ClInclude Include="re2\re2\filtered_re2.h" />
+    <ClInclude Include="re2\re2\pod_array.h" />
+    <ClInclude Include="re2\re2\prefilter.h" />
+    <ClInclude Include="re2\re2\prefilter_tree.h" />
+    <ClInclude Include="re2\re2\prog.h" />
+    <ClInclude Include="re2\re2\re2.h" />
+    <ClInclude Include="re2\re2\regexp.h" />
+    <ClInclude Include="re2\re2\set.h" />
+    <ClInclude Include="re2\re2\sparse_array.h" />
+    <ClInclude Include="re2\re2\sparse_set.h" />
+    <ClInclude Include="re2\re2\stringpiece.h" />
+    <ClInclude Include="re2\re2\unicode_casefold.h" />
+    <ClInclude Include="re2\re2\unicode_groups.h" />
+    <ClInclude Include="re2\re2\walker-inl.h" />
+    <ClInclude Include="re2\util\logging.h" />
+    <ClInclude Include="re2\util\mix.h" />
+    <ClInclude Include="re2\util\mutex.h" />
+    <ClInclude Include="re2\util\strutil.h" />
+    <ClInclude Include="re2\util\utf.h" />
+    <ClInclude Include="re2\util\util.h" />
+    <ClInclude Include="smarttimer.h" />
+    <ClInclude Include="threading.h" />
+    <ClInclude Include="utilities.h" />
+    <ClInclude Include="utilogeny.h" />
+    <ClInclude Include="version.h" />
+    <ClInclude Include="constable.h" />
+  </ItemGroup>
+  
+  
+  <ItemGroup>
+    <Text Include="boost\LICENSE_1_0.txt" />
+    <Text Include="re2\Version.txt" />
+  </ItemGroup>
+  
+  
+  <ItemGroup>
+    <None Include="boost\VERSION" />
+    <None Include="re2\AUTHORS" />
+    <None Include="re2\CONTRIBUTORS" />
+    <None Include="re2\LICENSE" />
+  </ItemGroup>
+  
+  
+</Project>

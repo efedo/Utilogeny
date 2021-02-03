@@ -11,3 +11,5 @@
 /test/UtilogenyTest/x64/Debug/test.obj
 /test/UtilogenyTest/x64/Debug/pch.obj
 /test/UtilogenyTest/x64/Debug/UtilogenyTest.tlog
+/out/build
+/.vs

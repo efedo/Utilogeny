@@ -399,7 +399,8 @@ std::vector<std::string> splitCommandLineFast(const std::string & line) {
 
 bool fileExists(const std::string & fileName) {
 	// Check if the file exists and if it does, ask whether to overwrite or not
-	if (boost::filesystem::exists(fileName)) {
+
+	if (std::filesystem::exists(fileName)) {
 		return true;
 	}
 	return false;

@@ -15,6 +15,7 @@
 #include <ctype.h>
 #include <deque>
 #include <errno.h>
+#include <filesystem>
 #include <fstream>
 #include <functional>
 #include <initializer_list>
@@ -54,10 +55,13 @@
 #include <vector>
 
 // Boost includes
-#include <boost/filesystem.hpp>
-#include <boost/iostreams/stream.hpp>
-#include <boost/iostreams/tee.hpp>
-#include <boost/multiprecision/cpp_bin_float.hpp>
+
+#include "lib/boost_1_75_0/boost/algorithm/string.hpp"
+#include "lib/boost_1_75_0/boost/iostreams/stream.hpp"
+#include "lib/boost_1_75_0/boost/iostreams/tee.hpp"
+#include "lib/boost_1_75_0/boost/math/distributions/fisher_f.hpp"
+#include "lib/boost_1_75_0/boost/math/distributions/students_t.hpp"
+#include "lib/boost_1_75_0/boost/multiprecision/cpp_bin_float.hpp"
 
 // Macros and headers required by re2
 #ifndef WINVER
