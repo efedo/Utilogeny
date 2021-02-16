@@ -1,0 +1,2 @@
+docker build -t efedo/testqt:20210216
+docker push efedo/testqt:20210216
