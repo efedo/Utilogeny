@@ -3,7 +3,7 @@ build-job:
   image: efedo/testqt:20210216
   script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
-    - cd /builds/efedo/RNA-see/
+    - cd /builds/efedo/Utilogeny/
     - ls -l
     - mkdir build
     - cd build
