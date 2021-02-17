@@ -1,36 +1,11 @@
 option(FORCE_TBB_COMPILE "Forces compilation of TBB from source" ON)
 
 if(NOT TBB_FOUND)
-
-	set(TBB_USR_ROOT "${UTILOGENY_DIR}/lib/oneTBB-2021.1.1")
-
-	# if(NOT FORCE_TBB_COMPILE)
-		# message(WARNING "Warning, TBB dynamic libraries are very fussy about compiler settings of linked binary. YMMV.")
-
-		# if(OS_REALLY_WINDOWS)
-			# set(TBB_BIN_ROOT "${TBB_USR_ROOT}/bin/windows")
-		# elseif(OS_REALLY_APPLE)
-			# set(TBB_BIN_ROOT "${TBB_USR_ROOT}/bin/macos")
-		# elseif(OS_REALLY_LINUX)
-			# set(TBB_BIN_ROOT "${TBB_USR_ROOT}/bin/linux")
-		# endif()
-
-		# if(TBB_BIN_ROOT)
-			# set(TBB_DIR "${TBB_BIN_ROOT}/lib/cmake/tbb")
-			# find_package(TBB CONFIG)
-		# endif()
-	# endif()
-	
-	# if(TBB_FOUND)
-		# message(STATUS "Found packaged TBB library (version ${TBB_VERSION}) at: ${TBB_BIN_ROOT}")
-		# set(TBB_INCLUDE_DIR ${TBB_BIN_ROOT}/include)
-	# else()
-		message(STATUS "Will build TBB.")
-		set(TBB_TEST OFF)
-		add_subdirectory(${TBB_USR_ROOT}/src bin)
-		set(TBB_FOUND TRUE)
-		set(TBB_INCLUDE_DIR ${TBB_USR_ROOT}/src/include)
-	# endif()
+	message(STATUS "Will build TBB.")
+	set(TBB_TEST OFF)
+	add_subdirectory(${UTILOGENY_DIR}/lib/tbb ${CMAKE_BINARY_DIR}/lib/tbb)
+	set(TBB_FOUND TRUE)
+	set(TBB_INCLUDE_DIR ${UTILOGENY_DIR}/lib/tbb/include)
 endif()
 
 function(target_include_tbb target)
