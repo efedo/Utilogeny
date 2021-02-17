@@ -1,7 +1,7 @@
 // Utilogeny.cpp : Defines the functions for the static library.
 //
 #include "Utilogeny/source/core/precomp.h"
-#include "Utilogeny/source/core/Utilogeny.h"
+#include "Utilogeny/source/core/utilogeny.h"
 
 // Log file stuff
 namespace Utilogeny {
