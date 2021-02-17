@@ -7,10 +7,9 @@ build-job:
     - ls -l
     - mkdir build
     - cd build
-    - /usr/bin/cmake --help
+    - gcc -v
     - /usr/bin/cmake -S ../ -B . -G Ninja
     - /usr/bin/ninja
-    - /usr/bin/ninja --help
 
 test-job1:
   stage: test
