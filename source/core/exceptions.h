@@ -3,7 +3,7 @@
 
 #pragma once
 #include "Utilogeny/source/core/precomp.h"
-#include "Utilogeny/source/core/Utilogeny.h"
+#include "Utilogeny/source/core/utilogeny.h"
 
 class cException;
 
