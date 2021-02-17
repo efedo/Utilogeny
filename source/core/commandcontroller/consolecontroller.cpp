@@ -1,9 +1,8 @@
 // Copyright 2017-20 Eric Fedosejevs
 //
 
-#pragma once
 #include "Utilogeny/source/core/precomp.h"
-#include "Utilogeny/source/core/Utilogeny.h"
+#include "Utilogeny/source/core/utilogeny.h"
 #include "Utilogeny/source/core/commandcontroller/consolecontroller.h"
 
 typedef boost::iostreams::tee_device<std::ostream, std::ofstream> TeeDeviceInternal;

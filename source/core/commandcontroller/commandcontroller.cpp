@@ -3,7 +3,7 @@
 
 //#include "source/core/stdafx.h"
 #include "Utilogeny/source/core/precomp.h"
-#include "Utilogeny/source/core/Utilogeny.h"
+#include "Utilogeny/source/core/utilogeny.h"
 #include "Utilogeny/source/core/exceptions.h"
 #include "Utilogeny/source/core/utilities.h"
 #include "Utilogeny/source/core/commandcontroller/commandqueue.h"
