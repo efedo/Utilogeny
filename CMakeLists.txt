@@ -1,8 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Policies must be defined before project
+# Defaults must be set as well to be inherited by subdirectories
 cmake_policy(SET CMP0077 NEW)
-set(CMAKE_POLICY_DEFAULT_CMP0077 NEW) # Required for policy to be inherited by subdirectories
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
+cmake_policy(SET CMP0069 NEW)
+set(CMAKE_POLICY_DEFAULT_CMP0069 NEW)
 
 set(OVERRIDE_CXX_STANDARD 17)
 

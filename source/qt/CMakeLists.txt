@@ -6,7 +6,7 @@ add_library(Qtilogeny STATIC
 )
 
 target_precompile_headers(Qtilogeny
-	PRIVATE pch.h)
+	PRIVATE precomp.h)
 
 set_target_properties(Qtilogeny PROPERTIES
             CXX_STANDARD ${OVERRIDE_CXX_STANDARD}
