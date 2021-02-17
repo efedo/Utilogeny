@@ -62,6 +62,8 @@
 #include "Utilogeny/lib/boost/math/distributions/students_t.hpp"
 #include "Utilogeny/lib/boost/multiprecision/cpp_bin_float.hpp"
 
+#include "Utilogeny/source/core/platform.h"
+
 // Macros and headers required by re2
 #ifndef WINVER
 #define _WIN32_WINNT_WIN10 0x0A00 // Windows 10
@@ -78,6 +80,8 @@
 #include <immintrin.h> // For re2, requires AVX2
 #ifdef _MSC_VER
 #include <intrin.h> // For re2
+#else // GCC
+#include "cpuid.h"
 #endif
 
 #define GTEST_INFOMSG std::cerr << "\033[0;32m[----------] [ INFO ] \033[0m"

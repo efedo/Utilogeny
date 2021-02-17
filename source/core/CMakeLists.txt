@@ -72,7 +72,7 @@ add_library(UtilogenyCore STATIC
     utilogeny.cpp
     utilogeny.h
     version.h
-)
+ "platform.h")
 
 target_precompile_headers(UtilogenyCore
 	PRIVATE precomp.h)

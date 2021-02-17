@@ -7,7 +7,7 @@ set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 cmake_policy(SET CMP0069 NEW)
 set(CMAKE_POLICY_DEFAULT_CMP0069 NEW)
 
-set(OVERRIDE_CXX_STANDARD 17)
+set(OVERRIDE_CXX_STANDARD 20)
 
 project(Utilogeny VERSION 1.0
                   DESCRIPTION "Support library for RNA-see, Sirelphy, and Tenlaruen"
