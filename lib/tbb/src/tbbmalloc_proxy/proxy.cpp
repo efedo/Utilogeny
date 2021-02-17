@@ -24,15 +24,18 @@
 // of aligned_alloc as required by new C++ standard, this makes it hard to
 // redefine aligned_alloc here. However, running on systems with new libc
 // version, it still needs it to be redefined, thus tricking system headers
-#if defined(__GLIBC_PREREQ) && !__GLIBC_PREREQ(2, 16) && _GLIBCXX_HAVE_ALIGNED_ALLOC
-// tell <cstdlib> that there is no aligned_alloc
-#undef _GLIBCXX_HAVE_ALIGNED_ALLOC
-// trick <stdlib.h> to define another symbol instead
-#define aligned_alloc __hidden_redefined_aligned_alloc
-// Fix the state and undefine the trick
-#include <cstdlib>
-#undef aligned_alloc
-#endif // defined(__GLIBC_PREREQ)&&!__GLIBC_PREREQ(2, 16)&&_GLIBCXX_HAVE_ALIGNED_ALLOC
+
+// EF 2021-02-16: disabled, missing __GLIBC_PREREQ macro causes crash with CI GCC
+// have not investigated further
+//#if defined(__GLIBC_PREREQ) && !__GLIBC_PREREQ(2, 16) && _GLIBCXX_HAVE_ALIGNED_ALLOC
+//// tell <cstdlib> that there is no aligned_alloc
+//#undef _GLIBCXX_HAVE_ALIGNED_ALLOC
+//// trick <stdlib.h> to define another symbol instead
+//#define aligned_alloc __hidden_redefined_aligned_alloc
+//// Fix the state and undefine the trick
+//#include <cstdlib>
+//#undef aligned_alloc
+//#endif // defined(__GLIBC_PREREQ)&&!__GLIBC_PREREQ(2, 16)&&_GLIBCXX_HAVE_ALIGNED_ALLOC
 #endif // __linux__ && !__ANDROID__
 
 #include "proxy.h"
