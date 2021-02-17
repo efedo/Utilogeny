@@ -19,7 +19,6 @@
 #include <fstream>
 #include <functional>
 #include <initializer_list>
-#include <intrin.h>
 #include <iomanip>
 #include <iosfwd>
 #include <iostream>
@@ -70,9 +69,12 @@
 #endif //WINVER
 #undef __APPLE__
 #undef _POSIX_C_SOURCE
+
 #if defined(__APPLE__)
 #include <TargetConditionals.h> // Required by re2 for Apple support
 #endif
+
+// Intrinsics
 #include <immintrin.h> // For re2, requires AVX2
 #ifdef _MSC_VER
 #include <intrin.h> // For re2
