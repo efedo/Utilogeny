@@ -89,14 +89,6 @@ constexpr int ce_strcmp(const char* a, const char* b)
 #error "CMake expected MSVC compiler"
 #endif
 
-#if (defined _MSC_VER) && (!defined COMPILER_MSVC)
-#error "MSVC compiler was undetected by CMake"
-#endif
-
-#if (!defined _MSC_VER) && (defined COMPILER_MSVC)
-#error "CMake expected MSVC compiler"
-#endif
-
 // If apple_build_version flag is set, should be clang and AppleClang
 #if (defined __apple_build_version__) && (!defined COMPILER_CLANG)
 #error "__apple_build_version__ defined but not AppleClang?"

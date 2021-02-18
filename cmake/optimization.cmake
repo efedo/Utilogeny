@@ -57,6 +57,12 @@ else()
 	
 	# Maximize speed
 	add_flag_if_supported("/O2") #MSVC equivalent to /Og /Oi /Ot /Oy /Ob2 /GF /Gy
+	add_flag_if_supported("/Oi")
+	add_flag_if_supported("/Ot")
+	add_flag_if_supported("/Oy")
+	add_flag_if_supported("/Ob2")
+	add_flag_if_supported("/GF")
+	add_flag_if_supported("/Gy")
 	
 	# Disable SDL and GS buffer security checks
 	add_flag_if_supported("/sdl-") #MSVC

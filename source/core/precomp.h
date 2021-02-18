@@ -61,7 +61,6 @@
 #include "Utilogeny/lib/boost/math/distributions/fisher_f.hpp"
 #include "Utilogeny/lib/boost/math/distributions/students_t.hpp"
 #include "Utilogeny/lib/boost/multiprecision/cpp_bin_float.hpp"
-
 #include "Utilogeny/source/core/platform.h"
 
 // Macros and headers required by re2
@@ -69,19 +68,18 @@
 #define _WIN32_WINNT_WIN10 0x0A00 // Windows 10
 #define WINVER _WIN32_WINNT_WIN10 // Windows 10
 #endif //WINVER
-#undef __APPLE__
-#undef _POSIX_C_SOURCE
 
-#if defined(__APPLE__)
+#ifdef OS_MACOS
 #include <TargetConditionals.h> // Required by re2 for Apple support
 #endif
 
 // Intrinsics
 #include <immintrin.h> // For re2, requires AVX2
-#ifdef _MSC_VER
+#ifdef COMPILER_MSVC
 #include <intrin.h> // For re2
-#else // GCC
+#elif defined(COMPILER_GCC) || defined(COMPILER_CLANG) || defined(COMPILER_LLVM)
 #include "cpuid.h"
 #endif
 
+// Pretty formatting for info messages in Gtest
 #define GTEST_INFOMSG std::cerr << "\033[0;32m[----------] [ INFO ] \033[0m"

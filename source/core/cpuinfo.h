@@ -4,7 +4,7 @@
 #pragma once
 #include "Utilogeny/source/core/precomp.h"
 
-
+// Derived from CPUID example by Microsoft https://docs.microsoft.com/en-us/cpp/intrinsics/cpuid-cpuidex?view=msvc-160
 
 class InstructionSet
 {
@@ -94,6 +94,8 @@ private:
 			data_{},
 			extdata_{}
 		{
+			#ifdef COMPILER_MSVC
+
 			//int cpuInfo[4] = {-1};
 			std::array<int, 4> cpui;
 
@@ -167,6 +169,7 @@ private:
 				memcpy(brand + 32, extdata_[4].data(), sizeof(cpui));
 				brand_ = brand;
 			}
+			#endif // COMPILER_MSVC
 		};
 
 		int nIds_;
