@@ -4,9 +4,9 @@
 #ifndef BOOST_CONCEPT_DETAIL_HAS_CONSTRAINTS_DWA2006429_HPP
 # define BOOST_CONCEPT_DETAIL_HAS_CONSTRAINTS_DWA2006429_HPP
 
-# include <boost/type_traits/integral_constant.hpp>
-# include <boost/config/workaround.hpp>
-# include <boost/concept/detail/backward_compatibility.hpp>
+# include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+# include "Utilogeny/lib/boost/config/workaround.hpp"
+# include "Utilogeny/lib/boost/concept/detail/backward_compatibility.hpp"
 
 namespace boost { namespace concepts {
 

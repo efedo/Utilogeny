@@ -8,12 +8,12 @@
 #ifndef BOOST_IOSTREAMS_DETAIL_IS_ITERATOR_RANGE_HPP_INCLUDED
 #define BOOST_IOSTREAMS_DETAIL_IS_ITERATOR_RANGE_HPP_INCLUDED       
  
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
-#include <boost/iostreams/detail/bool_trait_def.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/bool_trait_def.hpp"
 
 // Must come last.
-#include <boost/iostreams/detail/config/disable_warnings.hpp>
+#include "Utilogeny/lib/boost/iostreams/detail/config/disable_warnings.hpp"
 
 namespace boost { 
 
@@ -29,6 +29,6 @@ BOOST_IOSTREAMS_BOOL_TRAIT_DEF(is_iterator_range, boost::iterator_range, 1)
 
 } // End namespace boost.
 
-#include <boost/iostreams/detail/config/enable_warnings.hpp>
+#include "Utilogeny/lib/boost/iostreams/detail/config/enable_warnings.hpp"
 
 #endif // #ifndef BOOST_IOSTREAMS_DETAIL_IS_ITERATOR_RANGE_HPP_INCLUDED

@@ -57,7 +57,7 @@
 #endif
 
 // boilerplate code:
-#include <boost/config/detail/posix_features.hpp>
+#include "Utilogeny/lib/boost/config/detail/posix_features.hpp"
 
 //
 // Cygwin lies about XSI conformance, there is no nl_types.h:

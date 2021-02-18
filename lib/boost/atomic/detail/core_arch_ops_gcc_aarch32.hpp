@@ -15,14 +15,14 @@
 #define BOOST_ATOMIC_DETAIL_CORE_ARCH_OPS_GCC_AARCH32_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/cstdint.hpp>
-#include <boost/memory_order.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/storage_traits.hpp>
-#include <boost/atomic/detail/core_arch_operations_fwd.hpp>
-#include <boost/atomic/detail/capabilities.hpp>
-#include <boost/atomic/detail/ops_gcc_aarch32_common.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/storage_traits.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/core_arch_operations_fwd.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/capabilities.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/ops_gcc_aarch32_common.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -1116,6 +1116,6 @@ struct core_arch_operations< 8u, Signed, Interprocess > :
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_CORE_ARCH_OPS_GCC_AARCH32_HPP_INCLUDED_

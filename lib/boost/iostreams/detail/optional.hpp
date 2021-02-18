@@ -18,14 +18,14 @@
 # pragma once
 #endif
 
-#include <boost/assert.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/type_traits/aligned_storage.hpp>
-#include <boost/type_traits/alignment_of.hpp>
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/mpl/int.hpp"
+#include "Utilogeny/lib/boost/type_traits/aligned_storage.hpp"
+#include "Utilogeny/lib/boost/type_traits/alignment_of.hpp"
 
 namespace boost { namespace iostreams { namespace detail {
 
-// Taken from <boost/optional.hpp>.
+// Taken from "Utilogeny/lib/boost/optional.hpp".
 template<class T>
 class aligned_storage
 {

@@ -7,18 +7,18 @@
 #define BOOST_MATH_BIG_NUM_BASE_HPP
 
 #include <limits>
-#include <boost/utility/enable_if.hpp>
-#include <boost/core/nvp.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/is_constructible.hpp>
-#include <boost/type_traits/decay.hpp>
-#include <boost/math/tools/complex.hpp>
-#include <boost/multiprecision/traits/transcendental_reduction_type.hpp>
+#include "Utilogeny/lib/boost/utility/enable_if.hpp"
+#include "Utilogeny/lib/boost/core/nvp.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_constructible.hpp"
+#include "Utilogeny/lib/boost/type_traits/decay.hpp"
+#include "Utilogeny/lib/boost/math/tools/complex.hpp"
+#include "Utilogeny/lib/boost/multiprecision/traits/transcendental_reduction_type.hpp"
 #ifdef BOOST_MSVC
 #pragma warning(push)
 #pragma warning(disable : 4307)
 #endif
-#include <boost/lexical_cast.hpp>
+#include "Utilogeny/lib/boost/lexical_cast.hpp"
 #ifdef BOOST_MSVC
 #pragma warning(pop)
 #endif

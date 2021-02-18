@@ -7,9 +7,9 @@
 //  Distributed under the Boost Software License, Version 1.0.
 //  http://www.boost.org/LICENSE_1_0.txt
 
-#include <boost/current_function.hpp>
-#include <boost/config.hpp>
-#include <boost/cstdint.hpp>
+#include "Utilogeny/lib/boost/current_function.hpp"
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/cstdint.hpp"
 #include <iosfwd>
 
 namespace boost

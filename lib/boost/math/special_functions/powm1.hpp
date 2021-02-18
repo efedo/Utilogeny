@@ -12,11 +12,11 @@
 #pragma warning(disable:4702) // Unreachable code (release mode only warning)
 #endif
 
-#include <boost/math/special_functions/math_fwd.hpp>
-#include <boost/math/special_functions/log1p.hpp>
-#include <boost/math/special_functions/expm1.hpp>
-#include <boost/math/special_functions/trunc.hpp>
-#include <boost/assert.hpp>
+#include "Utilogeny/lib/boost/math/special_functions/math_fwd.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/log1p.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/expm1.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/trunc.hpp"
+#include "Utilogeny/lib/boost/assert.hpp"
 
 namespace boost{ namespace math{ namespace detail{
 

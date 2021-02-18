@@ -15,14 +15,14 @@
 #define BOOST_ATOMIC_IPC_ATOMIC_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/static_assert.hpp>
-#include <boost/memory_order.hpp>
-#include <boost/atomic/capabilities.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/classify.hpp>
-#include <boost/atomic/detail/atomic_impl.hpp>
-#include <boost/atomic/detail/type_traits/is_trivially_copyable.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/capabilities.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/classify.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/atomic_impl.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/is_trivially_copyable.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -80,6 +80,6 @@ using atomics::ipc_atomic;
 
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_IPC_ATOMIC_HPP_INCLUDED_

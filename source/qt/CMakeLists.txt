@@ -7,6 +7,8 @@ add_library(Qtilogeny STATIC
 
 target_precompile_headers(Qtilogeny
 	PRIVATE precomp.h)
+	
+target_config_compiler(Qtilogeny)
 
 set_target_properties(Qtilogeny PROPERTIES
             CXX_STANDARD ${OVERRIDE_CXX_STANDARD}

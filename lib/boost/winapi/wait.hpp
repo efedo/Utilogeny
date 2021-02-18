@@ -10,9 +10,9 @@
 #ifndef BOOST_WINAPI_WAIT_HPP_INCLUDED_
 #define BOOST_WINAPI_WAIT_HPP_INCLUDED_
 
-#include <boost/winapi/basic_types.hpp>
-#include <boost/winapi/wait_constants.hpp>
-#include <boost/winapi/detail/header.hpp>
+#include "Utilogeny/lib/boost/winapi/basic_types.hpp"
+#include "Utilogeny/lib/boost/winapi/wait_constants.hpp"
+#include "Utilogeny/lib/boost/winapi/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -86,6 +86,6 @@ using ::WaitForSingleObject;
 }
 }
 
-#include <boost/winapi/detail/footer.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/footer.hpp"
 
 #endif // BOOST_WINAPI_WAIT_HPP_INCLUDED_

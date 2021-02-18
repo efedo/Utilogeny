@@ -10,8 +10,8 @@ or copy at http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_TT_IS_DETECTED_HPP_INCLUDED
 #define BOOST_TT_IS_DETECTED_HPP_INCLUDED
 
-#include <boost/type_traits/detail/detector.hpp>
-#include <boost/type_traits/nonesuch.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/detector.hpp"
+#include "Utilogeny/lib/boost/type_traits/nonesuch.hpp"
 
 namespace boost {
 

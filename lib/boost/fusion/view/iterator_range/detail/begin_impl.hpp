@@ -7,7 +7,7 @@
 #if !defined(FUSION_BEGIN_IMPL_05062005_1226)
 #define FUSION_BEGIN_IMPL_05062005_1226
 
-#include <boost/fusion/support/config.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
 
 namespace boost { namespace fusion
 {

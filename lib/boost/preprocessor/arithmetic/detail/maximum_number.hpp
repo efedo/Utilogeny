@@ -12,7 +12,7 @@
 # ifndef BOOST_PREPROCESSOR_ARITHMETIC_DETAIL_MAXIMUM_NUMBER_HPP
 # define BOOST_PREPROCESSOR_ARITHMETIC_DETAIL_MAXIMUM_NUMBER_HPP
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # define BOOST_PP_DETAIL_MAXIMUM_NUMBER BOOST_PP_LIMIT_MAG
 #

@@ -21,8 +21,8 @@
 // avoid ambiguity when swapping objects of a Boost type that does
 // not have its own boost::swap overload.
 
-#include <boost/core/enable_if.hpp>
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/core/enable_if.hpp"
+#include "Utilogeny/lib/boost/config.hpp"
 #if __cplusplus >= 201103L || defined(BOOST_DINKUMWARE_STDLIB)
 #include <utility> // for std::swap (C++11)
 #else

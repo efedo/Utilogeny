@@ -14,32 +14,32 @@
 #pragma once
 #endif
 
-#include <boost/config.hpp>
-#include <boost/math/tools/series.hpp>
-#include <boost/math/tools/fraction.hpp>
-#include <boost/math/tools/precision.hpp>
-#include <boost/math/tools/promotion.hpp>
-#include <boost/math/policies/error_handling.hpp>
-#include <boost/math/constants/constants.hpp>
-#include <boost/math/special_functions/math_fwd.hpp>
-#include <boost/math/special_functions/log1p.hpp>
-#include <boost/math/special_functions/trunc.hpp>
-#include <boost/math/special_functions/powm1.hpp>
-#include <boost/math/special_functions/sqrt1pm1.hpp>
-#include <boost/math/special_functions/lanczos.hpp>
-#include <boost/math/special_functions/fpclassify.hpp>
-#include <boost/math/special_functions/detail/igamma_large.hpp>
-#include <boost/math/special_functions/detail/unchecked_factorial.hpp>
-#include <boost/math/special_functions/detail/lgamma_small.hpp>
-#include <boost/math/special_functions/bernoulli.hpp>
-#include <boost/math/special_functions/polygamma.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/assert.hpp>
-#include <boost/mpl/greater.hpp>
-#include <boost/mpl/equal_to.hpp>
-#include <boost/mpl/greater.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/math/tools/series.hpp"
+#include "Utilogeny/lib/boost/math/tools/fraction.hpp"
+#include "Utilogeny/lib/boost/math/tools/precision.hpp"
+#include "Utilogeny/lib/boost/math/tools/promotion.hpp"
+#include "Utilogeny/lib/boost/math/policies/error_handling.hpp"
+#include "Utilogeny/lib/boost/math/constants/constants.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/math_fwd.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/log1p.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/trunc.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/powm1.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/sqrt1pm1.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/lanczos.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/fpclassify.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/detail/igamma_large.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/detail/unchecked_factorial.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/detail/lgamma_small.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/bernoulli.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/polygamma.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/mpl/greater.hpp"
+#include "Utilogeny/lib/boost/mpl/equal_to.hpp"
+#include "Utilogeny/lib/boost/mpl/greater.hpp"
 
-#include <boost/config/no_tr1/cmath.hpp>
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp"
 #include <algorithm>
 
 #ifdef BOOST_MSVC
@@ -2183,8 +2183,8 @@ inline typename tools::promote_args<T1, T2>::type
 # pragma warning(pop)
 #endif
 
-#include <boost/math/special_functions/detail/igamma_inverse.hpp>
-#include <boost/math/special_functions/detail/gamma_inva.hpp>
-#include <boost/math/special_functions/erf.hpp>
+#include "Utilogeny/lib/boost/math/special_functions/detail/igamma_inverse.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/detail/gamma_inva.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/erf.hpp"
 
 #endif // BOOST_MATH_SF_GAMMA_HPP

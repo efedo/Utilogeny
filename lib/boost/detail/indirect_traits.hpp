@@ -4,21 +4,21 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 #ifndef INDIRECT_TRAITS_DWA2002131_HPP
 # define INDIRECT_TRAITS_DWA2002131_HPP
-# include <boost/type_traits/integral_constant.hpp>
-# include <boost/type_traits/is_function.hpp>
-# include <boost/type_traits/is_reference.hpp>
-# include <boost/type_traits/is_pointer.hpp>
-# include <boost/type_traits/is_class.hpp>
-# include <boost/type_traits/is_const.hpp>
-# include <boost/type_traits/is_volatile.hpp>
-# include <boost/type_traits/is_member_function_pointer.hpp>
-# include <boost/type_traits/is_member_pointer.hpp>
-# include <boost/type_traits/remove_cv.hpp>
-# include <boost/type_traits/remove_reference.hpp>
-# include <boost/type_traits/remove_pointer.hpp>
+# include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+# include "Utilogeny/lib/boost/type_traits/is_function.hpp"
+# include "Utilogeny/lib/boost/type_traits/is_reference.hpp"
+# include "Utilogeny/lib/boost/type_traits/is_pointer.hpp"
+# include "Utilogeny/lib/boost/type_traits/is_class.hpp"
+# include "Utilogeny/lib/boost/type_traits/is_const.hpp"
+# include "Utilogeny/lib/boost/type_traits/is_volatile.hpp"
+# include "Utilogeny/lib/boost/type_traits/is_member_function_pointer.hpp"
+# include "Utilogeny/lib/boost/type_traits/is_member_pointer.hpp"
+# include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
+# include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
+# include "Utilogeny/lib/boost/type_traits/remove_pointer.hpp"
 
-# include <boost/detail/workaround.hpp>
-# include <boost/detail/select_type.hpp>
+# include "Utilogeny/lib/boost/detail/workaround.hpp"
+# include "Utilogeny/lib/boost/detail/select_type.hpp"
 
 
 namespace boost { namespace detail {

@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/preprocessor/default_params.hpp>
-#include <boost/mpl/aux_/na.hpp>
-#include <boost/mpl/aux_/arity_spec.hpp>
+#include "Utilogeny/lib/boost/mpl/aux_/preprocessor/default_params.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/na.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/arity_spec.hpp"
 
 namespace boost { namespace mpl {
 

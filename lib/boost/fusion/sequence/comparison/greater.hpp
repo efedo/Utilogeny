@@ -8,16 +8,16 @@
 #if !defined(FUSION_GREATER_05052005_0432)
 #define FUSION_GREATER_05052005_0432
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/sequence/intrinsic/begin.hpp>
-#include <boost/fusion/sequence/intrinsic/end.hpp>
-#include <boost/fusion/sequence/intrinsic/size.hpp>
-#include <boost/fusion/sequence/comparison/enable_comparison.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/begin.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/end.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/size.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/enable_comparison.hpp"
 
 #if defined(FUSION_DIRECT_OPERATOR_USAGE)
-#include <boost/fusion/sequence/comparison/detail/greater.hpp>
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/detail/greater.hpp"
 #else
-#include <boost/fusion/sequence/comparison/less.hpp>
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/less.hpp"
 #endif
 
 namespace boost { namespace fusion

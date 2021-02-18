@@ -5,16 +5,16 @@
 //
 //  See http://www.boost.org/libs/utility for most recent version including documentation.
 
-//  See boost/detail/call_traits.hpp
+//  See Utilogeny/lib/boost/detail/call_traits.hpp
 //  for full copyright notices.
 
 #ifndef BOOST_CALL_TRAITS_HPP
 #define BOOST_CALL_TRAITS_HPP
 
 #ifndef BOOST_CONFIG_HPP
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 #endif
 
-#include <boost/detail/call_traits.hpp>
+#include "Utilogeny/lib/boost/detail/call_traits.hpp"
 
 #endif // BOOST_CALL_TRAITS_HPP

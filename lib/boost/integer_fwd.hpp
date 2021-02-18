@@ -12,9 +12,9 @@
 #include <climits>  // for UCHAR_MAX, etc.
 #include <cstddef>  // for std::size_t
 
-#include <boost/config.hpp>  // for BOOST_NO_INTRINSIC_WCHAR_T
-#include <boost/limits.hpp>  // for std::numeric_limits
-#include <boost/cstdint.hpp>  // For intmax_t
+#include "Utilogeny/lib/boost/config.hpp"  // for BOOST_NO_INTRINSIC_WCHAR_T
+#include "Utilogeny/lib/boost/limits.hpp"  // for std::numeric_limits
+#include "Utilogeny/lib/boost/cstdint.hpp"  // For intmax_t
 
 
 namespace boost
@@ -32,12 +32,12 @@ namespace boost
      typedef int              static_log2_result_type;
 #endif
 
-//  From <boost/cstdint.hpp>  ------------------------------------------------//
+//  From "Utilogeny/lib/boost/cstdint.hpp"  ------------------------------------------------//
 
 // Only has typedefs or using statements, with #conditionals
 
 
-//  From <boost/integer_traits.hpp>  -----------------------------------------//
+//  From "Utilogeny/lib/boost/integer_traits.hpp"  -----------------------------------------//
 
 template < class T >
     class integer_traits;
@@ -92,7 +92,7 @@ class integer_traits<unsigned __int64>;
 #endif
 
 
-//  From <boost/integer.hpp>  ------------------------------------------------//
+//  From "Utilogeny/lib/boost/integer.hpp"  ------------------------------------------------//
 
 template < typename LeastInt >
     struct int_fast_t;
@@ -125,7 +125,7 @@ template< int Bits >
     struct uint_value_t;
 
 
-//  From <boost/integer/integer_mask.hpp>  -----------------------------------//
+//  From "Utilogeny/lib/boost/integer/integer_mask.hpp"  -----------------------------------//
 
 template < std::size_t Bit >
     struct high_bit_mask_t;
@@ -136,7 +136,7 @@ template < std::size_t Bits >
 template <  >
     struct low_bits_mask_t< ::std::numeric_limits<unsigned char>::digits >;
 
-//  From <boost/integer/static_log2.hpp>  ------------------------------------//
+//  From "Utilogeny/lib/boost/integer/static_log2.hpp"  ------------------------------------//
 
 template <static_log2_argument_type Value >
     struct static_log2;
@@ -144,7 +144,7 @@ template <static_log2_argument_type Value >
 template <> struct static_log2<0u>;
 
 
-//  From <boost/integer/static_min_max.hpp>  ---------------------------------//
+//  From "Utilogeny/lib/boost/integer/static_min_max.hpp"  ---------------------------------//
 
 template <static_min_max_signed_type Value1, static_min_max_signed_type Value2>
     struct static_signed_min;
@@ -161,7 +161,7 @@ template <static_min_max_unsigned_type Value1, static_min_max_unsigned_type Valu
 
 namespace integer
 {
-//  From <boost/integer/common_factor_ct.hpp>
+//  From "Utilogeny/lib/boost/integer/common_factor_ct.hpp"
 
 #ifdef BOOST_NO_INTEGRAL_INT64_T
      typedef unsigned long static_gcd_type;
@@ -175,7 +175,7 @@ template < static_gcd_type Value1, static_gcd_type Value2 >
     struct static_lcm;
 
 
-//  From <boost/integer/common_factor_rt.hpp>
+//  From "Utilogeny/lib/boost/integer/common_factor_rt.hpp"
 
 template < typename IntegerType >
     class gcd_evaluator;

@@ -31,7 +31,7 @@
 #ifndef BOOST_ARRAY_HPP
 #define BOOST_ARRAY_HPP
 
-#include <boost/detail/workaround.hpp>
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
 
 #if BOOST_WORKAROUND(BOOST_MSVC, >= 1400)  
 # pragma warning(push)  
@@ -43,15 +43,15 @@
 #include <cstddef>
 #include <iterator>
 #include <stdexcept>
-#include <boost/assert.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/swap.hpp>
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/swap.hpp"
 
-#include <boost/throw_exception.hpp>
+#include "Utilogeny/lib/boost/throw_exception.hpp"
 #include <algorithm>
 
 // FIXES for broken compilers
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 
 namespace boost {

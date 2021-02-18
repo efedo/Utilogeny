@@ -12,12 +12,12 @@
 #define BOOST_STRING_FORMATTER_DETAIL_HPP
 
 
-#include <boost/range/iterator_range_core.hpp>
-#include <boost/range/begin.hpp>
-#include <boost/range/end.hpp>
-#include <boost/range/const_iterator.hpp>
+#include "Utilogeny/lib/boost/range/iterator_range_core.hpp"
+#include "Utilogeny/lib/boost/range/begin.hpp"
+#include "Utilogeny/lib/boost/range/end.hpp"
+#include "Utilogeny/lib/boost/range/const_iterator.hpp"
 
-#include <boost/algorithm/string/detail/util.hpp>
+#include "Utilogeny/lib/boost/algorithm/string/detail/util.hpp"
 
 //  generic replace functors -----------------------------------------------//
 

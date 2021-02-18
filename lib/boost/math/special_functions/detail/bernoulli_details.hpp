@@ -7,12 +7,12 @@
 #ifndef BOOST_MATH_BERNOULLI_DETAIL_HPP
 #define BOOST_MATH_BERNOULLI_DETAIL_HPP
 
-#include <boost/config.hpp>
-#include <boost/detail/lightweight_mutex.hpp>
-#include <boost/math/tools/atomic.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/math/tools/toms748_solve.hpp>
-#include <boost/math/tools/cxx03_warn.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/detail/lightweight_mutex.hpp"
+#include "Utilogeny/lib/boost/math/tools/atomic.hpp"
+#include "Utilogeny/lib/boost/utility/enable_if.hpp"
+#include "Utilogeny/lib/boost/math/tools/toms748_solve.hpp"
+#include "Utilogeny/lib/boost/math/tools/cxx03_warn.hpp"
 #include <vector>
 
 namespace boost{ namespace math{ namespace detail{

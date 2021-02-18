@@ -15,14 +15,14 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/fold.hpp>
-#include <boost/mpl/reverse_fold.hpp>
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/mpl/protect.hpp>
-#include <boost/mpl/lambda.hpp>
-#include <boost/mpl/apply.hpp>
-#include <boost/mpl/aux_/inserter_algorithm.hpp>
+#include "Utilogeny/lib/boost/mpl/fold.hpp"
+#include "Utilogeny/lib/boost/mpl/reverse_fold.hpp"
+#include "Utilogeny/lib/boost/mpl/eval_if.hpp"
+#include "Utilogeny/lib/boost/mpl/identity.hpp"
+#include "Utilogeny/lib/boost/mpl/protect.hpp"
+#include "Utilogeny/lib/boost/mpl/lambda.hpp"
+#include "Utilogeny/lib/boost/mpl/apply.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/inserter_algorithm.hpp"
 
 namespace boost { namespace mpl {
 

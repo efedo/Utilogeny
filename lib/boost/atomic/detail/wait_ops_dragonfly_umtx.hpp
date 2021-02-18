@@ -16,10 +16,10 @@
 #define BOOST_ATOMIC_DETAIL_WAIT_OPS_DRAGONFLY_UMTX_HPP_INCLUDED_
 
 #include <unistd.h>
-#include <boost/memory_order.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/wait_operations_fwd.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/wait_operations_fwd.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -70,6 +70,6 @@ struct wait_operations< Base, sizeof(int), true, Interprocess > :
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_WAIT_OPS_DRAGONFLY_UMTX_HPP_INCLUDED_

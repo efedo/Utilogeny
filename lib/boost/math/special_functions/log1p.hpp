@@ -12,20 +12,20 @@
 #pragma warning(disable:4702) // Unreachable code (release mode only warning)
 #endif
 
-#include <boost/config/no_tr1/cmath.hpp>
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp"
 #include <math.h> // platform's ::log1p
-#include <boost/limits.hpp>
-#include <boost/math/tools/config.hpp>
-#include <boost/math/tools/series.hpp>
-#include <boost/math/tools/rational.hpp>
-#include <boost/math/tools/big_constant.hpp>
-#include <boost/math/policies/error_handling.hpp>
-#include <boost/math/special_functions/math_fwd.hpp>
+#include "Utilogeny/lib/boost/limits.hpp"
+#include "Utilogeny/lib/boost/math/tools/config.hpp"
+#include "Utilogeny/lib/boost/math/tools/series.hpp"
+#include "Utilogeny/lib/boost/math/tools/rational.hpp"
+#include "Utilogeny/lib/boost/math/tools/big_constant.hpp"
+#include "Utilogeny/lib/boost/math/policies/error_handling.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/math_fwd.hpp"
 
 #ifndef BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS
-#  include <boost/static_assert.hpp>
+#  include "Utilogeny/lib/boost/static_assert.hpp"
 #else
-#  include <boost/assert.hpp>
+#  include "Utilogeny/lib/boost/assert.hpp"
 #endif
 
 #if defined(__GNUC__) && defined(BOOST_MATH_USE_FLOAT128)

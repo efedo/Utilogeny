@@ -7,8 +7,8 @@
 #ifndef BOOST_ITERATOR_ADVANCE_HPP
 #define BOOST_ITERATOR_ADVANCE_HPP
 
-#include <boost/config.hpp>
-#include <boost/iterator/iterator_categories.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/iterator/iterator_categories.hpp"
 
 namespace boost {
 namespace iterators {

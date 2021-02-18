@@ -15,13 +15,13 @@
 # ifndef BOOST_PREPROCESSOR_TUPLE_TO_SEQ_HPP
 # define BOOST_PREPROCESSOR_TUPLE_TO_SEQ_HPP
 #
-# include <boost/preprocessor/cat.hpp>
-# include <boost/preprocessor/config/config.hpp>
-# include <boost/preprocessor/control/if.hpp>
-# include <boost/preprocessor/facilities/overload.hpp>
-# include <boost/preprocessor/tuple/size.hpp>
-# include <boost/preprocessor/variadic/size.hpp>
-# include <boost/preprocessor/variadic/has_opt.hpp>
+# include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
+# include "Utilogeny/lib/boost/preprocessor/control/if.hpp"
+# include "Utilogeny/lib/boost/preprocessor/facilities/overload.hpp"
+# include "Utilogeny/lib/boost/preprocessor/tuple/size.hpp"
+# include "Utilogeny/lib/boost/preprocessor/variadic/size.hpp"
+# include "Utilogeny/lib/boost/preprocessor/variadic/has_opt.hpp"
 #
 # /* BOOST_PP_TUPLE_TO_SEQ */
 #
@@ -113,17 +113,17 @@
 #
 # else
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # if BOOST_PP_LIMIT_TUPLE == 64
-# include <boost/preprocessor/tuple/limits/to_seq_64.hpp>
+# include "Utilogeny/lib/boost/preprocessor/tuple/limits/to_seq_64.hpp"
 # elif BOOST_PP_LIMIT_TUPLE == 128
-# include <boost/preprocessor/tuple/limits/to_seq_64.hpp>
-# include <boost/preprocessor/tuple/limits/to_seq_128.hpp>
+# include "Utilogeny/lib/boost/preprocessor/tuple/limits/to_seq_64.hpp"
+# include "Utilogeny/lib/boost/preprocessor/tuple/limits/to_seq_128.hpp"
 # elif BOOST_PP_LIMIT_TUPLE == 256
-# include <boost/preprocessor/tuple/limits/to_seq_64.hpp>
-# include <boost/preprocessor/tuple/limits/to_seq_128.hpp>
-# include <boost/preprocessor/tuple/limits/to_seq_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/tuple/limits/to_seq_64.hpp"
+# include "Utilogeny/lib/boost/preprocessor/tuple/limits/to_seq_128.hpp"
+# include "Utilogeny/lib/boost/preprocessor/tuple/limits/to_seq_256.hpp"
 # else
 # error Incorrect value for the BOOST_PP_LIMIT_TUPLE limit
 # endif

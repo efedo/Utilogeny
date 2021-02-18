@@ -12,14 +12,14 @@
 # pragma once
 #endif
 
-#include <boost/config.hpp> // BOOST_MSVC.
-#include <boost/detail/workaround.hpp>           
-#include <boost/iostreams/detail/template_params.hpp>
-#include <boost/iostreams/traits.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/preprocessor/punctuation/comma_if.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/static_assert.hpp>
+#include "Utilogeny/lib/boost/config.hpp" // BOOST_MSVC.
+#include "Utilogeny/lib/boost/detail/workaround.hpp"           
+#include "Utilogeny/lib/boost/iostreams/detail/template_params.hpp"
+#include "Utilogeny/lib/boost/iostreams/traits.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/preprocessor/punctuation/comma_if.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_params.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
 
 #define BOOST_IOSTREAMS_PIPABLE(filter, arity) \
     template< BOOST_PP_ENUM_PARAMS(arity, typename T) \

@@ -7,9 +7,9 @@
 #define BOOST_IS_BYTE_CONTAINER_HPP
 
 #include <iterator>
-#include <boost/mpl/has_xxx.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/remove_cv.hpp>
+#include "Utilogeny/lib/boost/mpl/has_xxx.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
 
 namespace boost { namespace multiprecision { namespace detail {
 

@@ -14,7 +14,7 @@
 #ifndef BOOST_ATOMIC_DETAIL_TYPE_TRAITS_IS_TRIVIALLY_COPYABLE_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_TYPE_TRAITS_IS_TRIVIALLY_COPYABLE_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
 #if !defined(BOOST_NO_CXX11_HDR_TYPE_TRAITS)
 #include <type_traits>
 #else

@@ -14,13 +14,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/iterator_tags.hpp>
-#include <boost/mpl/next_prior.hpp>
-#include <boost/mpl/deref.hpp>
-#include <boost/mpl/list/aux_/item.hpp>
-#include <boost/mpl/aux_/na.hpp>
-#include <boost/mpl/aux_/lambda_spec.hpp>
-#include <boost/mpl/aux_/config/ctps.hpp>
+#include "Utilogeny/lib/boost/mpl/iterator_tags.hpp"
+#include "Utilogeny/lib/boost/mpl/next_prior.hpp"
+#include "Utilogeny/lib/boost/mpl/deref.hpp"
+#include "Utilogeny/lib/boost/mpl/list/aux_/item.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/na.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/lambda_spec.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/ctps.hpp"
 
 namespace boost { namespace mpl {
 

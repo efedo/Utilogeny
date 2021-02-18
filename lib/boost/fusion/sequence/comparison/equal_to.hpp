@@ -8,13 +8,13 @@
 #if !defined(FUSION_EQUAL_TO_05052005_0431)
 #define FUSION_EQUAL_TO_05052005_0431
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/sequence/intrinsic/begin.hpp>
-#include <boost/fusion/sequence/intrinsic/end.hpp>
-#include <boost/fusion/sequence/intrinsic/size.hpp>
-#include <boost/fusion/sequence/comparison/detail/equal_to.hpp>
-#include <boost/fusion/sequence/comparison/enable_comparison.hpp>
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/begin.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/end.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/size.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/detail/equal_to.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/enable_comparison.hpp"
+#include "Utilogeny/lib/boost/config.hpp"
 
 #if defined (BOOST_MSVC)
 #  pragma warning(push)

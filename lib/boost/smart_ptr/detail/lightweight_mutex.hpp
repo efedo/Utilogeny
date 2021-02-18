@@ -8,7 +8,7 @@
 #endif
 
 //
-//  boost/detail/lightweight_mutex.hpp - lightweight mutex
+//  Utilogeny/lib/boost/detail/lightweight_mutex.hpp - lightweight mutex
 //
 //  Copyright (c) 2002, 2003 Peter Dimov and Multi Media Ltd.
 //
@@ -26,14 +26,14 @@
 //  It maps to a CRITICAL_SECTION on Windows or a pthread_mutex on POSIX.
 //
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 #if !defined(BOOST_NO_CXX11_HDR_MUTEX )
-#  include <boost/smart_ptr/detail/lwm_std_mutex.hpp>
+#  include "Utilogeny/lib/boost/smart_ptr/detail/lwm_std_mutex.hpp"
 #elif defined(_WIN32) || defined(__WIN32__) || defined(__CYGWIN__)
-#  include <boost/smart_ptr/detail/lwm_win32_cs.hpp>
+#  include "Utilogeny/lib/boost/smart_ptr/detail/lwm_win32_cs.hpp"
 #else
-#  include <boost/smart_ptr/detail/lwm_pthreads.hpp>
+#  include "Utilogeny/lib/boost/smart_ptr/detail/lwm_pthreads.hpp"
 #endif
 
 #endif // #ifndef BOOST_SMART_PTR_DETAIL_LIGHTWEIGHT_MUTEX_HPP_INCLUDED

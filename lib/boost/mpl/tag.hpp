@@ -14,10 +14,10 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/void.hpp>
-#include <boost/mpl/aux_/has_tag.hpp>
-#include <boost/mpl/aux_/config/eti.hpp>
+#include "Utilogeny/lib/boost/mpl/eval_if.hpp"
+#include "Utilogeny/lib/boost/mpl/void.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/has_tag.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/eti.hpp"
 
 namespace boost { namespace mpl {
 

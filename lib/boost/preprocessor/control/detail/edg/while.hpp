@@ -15,12 +15,12 @@
 # ifndef BOOST_PREPROCESSOR_CONTROL_DETAIL_EDG_WHILE_HPP
 # define BOOST_PREPROCESSOR_CONTROL_DETAIL_EDG_WHILE_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_STRICT()
 #
-# include <boost/preprocessor/control/if.hpp>
-# include <boost/preprocessor/tuple/eat.hpp>
+# include "Utilogeny/lib/boost/preprocessor/control/if.hpp"
+# include "Utilogeny/lib/boost/preprocessor/tuple/eat.hpp"
 #
 # define BOOST_PP_WHILE_1(p, o, s) BOOST_PP_WHILE_1_I(p, o, s)
 # define BOOST_PP_WHILE_2(p, o, s) BOOST_PP_WHILE_2_I(p, o, s)
@@ -538,20 +538,20 @@
 #
 # else
 #
-# include <boost/preprocessor/control/if.hpp>
-# include <boost/preprocessor/tuple/eat.hpp>
+# include "Utilogeny/lib/boost/preprocessor/control/if.hpp"
+# include "Utilogeny/lib/boost/preprocessor/tuple/eat.hpp"
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # if BOOST_PP_LIMIT_WHILE == 256
-# include <boost/preprocessor/control/detail/edg/limits/while_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/control/detail/edg/limits/while_256.hpp"
 # elif BOOST_PP_LIMIT_WHILE == 512
-# include <boost/preprocessor/control/detail/edg/limits/while_256.hpp>
-# include <boost/preprocessor/control/detail/edg/limits/while_512.hpp>
+# include "Utilogeny/lib/boost/preprocessor/control/detail/edg/limits/while_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/control/detail/edg/limits/while_512.hpp"
 # elif BOOST_PP_LIMIT_WHILE == 1024
-# include <boost/preprocessor/control/detail/edg/limits/while_256.hpp>
-# include <boost/preprocessor/control/detail/edg/limits/while_512.hpp>
-# include <boost/preprocessor/control/detail/edg/limits/while_1024.hpp>
+# include "Utilogeny/lib/boost/preprocessor/control/detail/edg/limits/while_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/control/detail/edg/limits/while_512.hpp"
+# include "Utilogeny/lib/boost/preprocessor/control/detail/edg/limits/while_1024.hpp"
 # else
 # error Incorrect value for the BOOST_PP_LIMIT_WHILE limit
 # endif

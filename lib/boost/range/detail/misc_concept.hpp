@@ -8,7 +8,7 @@
 #ifndef BOOST_RANGE_DETAIL_MISC_CONCEPT_HPP_INCLUDED
 #define BOOST_RANGE_DETAIL_MISC_CONCEPT_HPP_INCLUDED
 
-#include <boost/concept_check.hpp>
+#include "Utilogeny/lib/boost/concept_check.hpp"
 
 namespace boost
 {

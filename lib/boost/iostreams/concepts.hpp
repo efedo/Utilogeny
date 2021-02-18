@@ -12,14 +12,14 @@
 # pragma once
 #endif
 
-#include <boost/config.hpp>  // BOOST_MSVC
-#include <boost/detail/workaround.hpp>
-#include <boost/iostreams/categories.hpp>
-#include <boost/iostreams/detail/default_arg.hpp>
-#include <boost/iostreams/detail/ios.hpp>  // openmode.
-#include <boost/iostreams/positioning.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/type_traits/is_convertible.hpp>
+#include "Utilogeny/lib/boost/config.hpp"  // BOOST_MSVC
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/iostreams/categories.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/default_arg.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/ios.hpp"  // openmode.
+#include "Utilogeny/lib/boost/iostreams/positioning.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
 
 namespace boost { namespace iostreams {
 

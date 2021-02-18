@@ -11,15 +11,15 @@
 #ifndef BOOST_STRING_FINDER_DETAIL_HPP
 #define BOOST_STRING_FINDER_DETAIL_HPP
 
-#include <boost/algorithm/string/config.hpp>
-#include <boost/algorithm/string/constants.hpp>
+#include "Utilogeny/lib/boost/algorithm/string/config.hpp"
+#include "Utilogeny/lib/boost/algorithm/string/constants.hpp"
 #include <iterator>
 
-#include <boost/range/iterator_range_core.hpp>
-#include <boost/range/begin.hpp>
-#include <boost/range/end.hpp>
-#include <boost/range/empty.hpp>
-#include <boost/range/as_literal.hpp>
+#include "Utilogeny/lib/boost/range/iterator_range_core.hpp"
+#include "Utilogeny/lib/boost/range/begin.hpp"
+#include "Utilogeny/lib/boost/range/end.hpp"
+#include "Utilogeny/lib/boost/range/empty.hpp"
+#include "Utilogeny/lib/boost/range/as_literal.hpp"
 
 namespace boost {
     namespace algorithm {

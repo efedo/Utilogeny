@@ -11,8 +11,8 @@
 #ifndef BOOST_IOSTREAMS_DETAIL_CONFIG_WIDE_STREAMS_HPP_INCLUDED
 #define BOOST_IOSTREAMS_DETAIL_CONFIG_WIDE_STREAMS_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
 #include <cstddef>
 
 #if defined(_MSC_VER)
@@ -21,7 +21,7 @@
 
 //------------------Templated stream support----------------------------------//
 
-// From boost/dynamic_bitset.hpp; thanks to Matthias Troyer for cray patch.
+// From Utilogeny/lib/boost/dynamic_bitset.hpp; thanks to Matthias Troyer for cray patch.
 #ifndef BOOST_IOSTREAMS_NO_STREAM_TEMPLATES
 # if defined(__STL_CONFIG_H) && \
     !defined (__STL_USE_NEW_IOSTREAMS) && !defined(__crayx1) \

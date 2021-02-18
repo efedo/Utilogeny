@@ -9,21 +9,21 @@
 //  http://www.boost.org/LICENSE_1_0.txt
 //
 
-#include <boost/config.hpp>
-#include <boost/type_traits/decay.hpp>
-#include <boost/type_traits/declval.hpp>
-#include <boost/detail/workaround.hpp>
-#include <boost/type_traits/is_complete.hpp>
-#include <boost/type_traits/is_void.hpp>
-#include <boost/type_traits/is_array.hpp>
-#include <boost/static_assert.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/type_traits/decay.hpp"
+#include "Utilogeny/lib/boost/type_traits/declval.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_complete.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_void.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_array.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
 
 #if defined(BOOST_NO_CXX11_DECLTYPE)
-#include <boost/type_traits/detail/common_type_impl.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/common_type_impl.hpp"
 #endif
 
 #if !defined(BOOST_NO_CXX11_TEMPLATE_ALIASES) && !defined(BOOST_NO_CXX11_VARIADIC_TEMPLATES)
-#include <boost/type_traits/detail/mp_defer.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/mp_defer.hpp"
 #endif
 
 namespace boost

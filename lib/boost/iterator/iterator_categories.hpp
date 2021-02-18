@@ -6,19 +6,19 @@
 #ifndef BOOST_ITERATOR_CATEGORIES_HPP
 # define BOOST_ITERATOR_CATEGORIES_HPP
 
-# include <boost/config.hpp>
-# include <boost/iterator/detail/config_def.hpp>
+# include "Utilogeny/lib/boost/config.hpp"
+# include "Utilogeny/lib/boost/iterator/detail/config_def.hpp"
 
-# include <boost/detail/workaround.hpp>
+# include "Utilogeny/lib/boost/detail/workaround.hpp"
 
-# include <boost/mpl/eval_if.hpp>
-# include <boost/mpl/identity.hpp>
-# include <boost/mpl/placeholders.hpp>
-# include <boost/mpl/aux_/lambda_support.hpp>
+# include "Utilogeny/lib/boost/mpl/eval_if.hpp"
+# include "Utilogeny/lib/boost/mpl/identity.hpp"
+# include "Utilogeny/lib/boost/mpl/placeholders.hpp"
+# include "Utilogeny/lib/boost/mpl/aux_/lambda_support.hpp"
 
-# include <boost/type_traits/is_convertible.hpp>
+# include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
 
-# include <boost/static_assert.hpp>
+# include "Utilogeny/lib/boost/static_assert.hpp"
 
 #include <iterator>
 
@@ -203,7 +203,7 @@ using iterators::iterator_category_to_traversal;
 using iterators::iterator_traversal;
 
 // This import is needed for backward compatibility with Boost.Range:
-// boost/range/detail/demote_iterator_traversal_tag.hpp
+// Utilogeny/lib/boost/range/detail/demote_iterator_traversal_tag.hpp
 // It should be removed when that header is fixed.
 namespace detail {
 using iterators::pure_traversal_tag;
@@ -211,6 +211,6 @@ using iterators::pure_traversal_tag;
 
 } // namespace boost
 
-#include <boost/iterator/detail/config_undef.hpp>
+#include "Utilogeny/lib/boost/iterator/detail/config_undef.hpp"
 
 #endif // BOOST_ITERATOR_CATEGORIES_HPP

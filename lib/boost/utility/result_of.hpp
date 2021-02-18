@@ -9,25 +9,25 @@
 #ifndef BOOST_RESULT_OF_HPP
 #define BOOST_RESULT_OF_HPP
 
-#include <boost/config.hpp>
-#include <boost/preprocessor/cat.hpp>
-#include <boost/preprocessor/iteration/iterate.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/preprocessor/repetition/enum_trailing_params.hpp>
-#include <boost/preprocessor/repetition/enum_binary_params.hpp>
-#include <boost/preprocessor/repetition/enum_shifted_params.hpp>
-#include <boost/preprocessor/facilities/intercept.hpp>
-#include <boost/detail/workaround.hpp>
-#include <boost/type_traits/is_class.hpp>
-#include <boost/type_traits/is_pointer.hpp>
-#include <boost/type_traits/is_member_function_pointer.hpp>
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/remove_reference.hpp>
-#include <boost/type_traits/declval.hpp>
-#include <boost/type_traits/conditional.hpp>
-#include <boost/type_traits/type_identity.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/core/enable_if.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+#include "Utilogeny/lib/boost/preprocessor/iteration/iterate.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_params.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_trailing_params.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_binary_params.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_shifted_params.hpp"
+#include "Utilogeny/lib/boost/preprocessor/facilities/intercept.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_class.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_pointer.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_member_function_pointer.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
+#include "Utilogeny/lib/boost/type_traits/declval.hpp"
+#include "Utilogeny/lib/boost/type_traits/conditional.hpp"
+#include "Utilogeny/lib/boost/type_traits/type_identity.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/core/enable_if.hpp"
 
 #ifndef BOOST_RESULT_OF_NUM_ARGS
 #  define BOOST_RESULT_OF_NUM_ARGS 16
@@ -217,12 +217,12 @@ struct tr1_result_of_impl<F, FArgs, false>
 
 } // end namespace detail
 
-#define BOOST_PP_ITERATION_PARAMS_1 (3,(0,BOOST_RESULT_OF_NUM_ARGS,<boost/utility/detail/result_of_iterate.hpp>))
+#define BOOST_PP_ITERATION_PARAMS_1 (3,(0,BOOST_RESULT_OF_NUM_ARGS,"Utilogeny/lib/boost/utility/detail/result_of_iterate.hpp"))
 #include BOOST_PP_ITERATE()
 
 #if 0
 // inform dependency trackers, as they can't see through macro includes
-#include <boost/utility/detail/result_of_iterate.hpp>
+#include "Utilogeny/lib/boost/utility/detail/result_of_iterate.hpp"
 #endif
 
 #else

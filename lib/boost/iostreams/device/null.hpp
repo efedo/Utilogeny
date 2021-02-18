@@ -14,9 +14,9 @@
 # pragma once
 #endif
 
-#include <boost/iostreams/categories.hpp>
-#include <boost/iostreams/detail/ios.hpp> // openmode, streamsize.
-#include <boost/iostreams/positioning.hpp>
+#include "Utilogeny/lib/boost/iostreams/categories.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/ios.hpp" // openmode, streamsize.
+#include "Utilogeny/lib/boost/iostreams/positioning.hpp"
 
 namespace boost { namespace iostreams {
 

@@ -11,7 +11,7 @@
 #ifndef BOOST_TT_IS_FUNCTION_CXX_11_HPP_INCLUDED
 #define BOOST_TT_IS_FUNCTION_CXX_11_HPP_INCLUDED
 
-#include <boost/type_traits/integral_constant.hpp>
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
 
 namespace boost {
 

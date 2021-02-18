@@ -17,15 +17,15 @@
 #define BOOST_ATOMIC_DETAIL_CORE_ARCH_OPS_MSVC_ARM_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/memory_order.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/interlocked.hpp>
-#include <boost/atomic/detail/storage_traits.hpp>
-#include <boost/atomic/detail/core_arch_operations_fwd.hpp>
-#include <boost/atomic/detail/type_traits/make_signed.hpp>
-#include <boost/atomic/detail/ops_msvc_common.hpp>
-#include <boost/atomic/detail/fence_arch_operations.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/interlocked.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/storage_traits.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/core_arch_operations_fwd.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/make_signed.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/ops_msvc_common.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/fence_arch_operations.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -823,6 +823,6 @@ struct core_arch_operations< 8u, Signed, Interprocess > :
 #undef BOOST_ATOMIC_DETAIL_ARM_STORE32
 #undef BOOST_ATOMIC_DETAIL_ARM_STORE64
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_CORE_ARCH_OPS_MSVC_ARM_HPP_INCLUDED_

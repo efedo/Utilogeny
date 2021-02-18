@@ -15,14 +15,14 @@
 #ifndef BOOST_ATOMIC_DETAIL_ADDRESSOF_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_ADDRESSOF_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
 #endif
 
-// Detection logic is based on boost/core/addressof.hpp
+// Detection logic is based on Utilogeny/lib/boost/core/addressof.hpp
 #if defined(BOOST_MSVC_FULL_VER) && BOOST_MSVC_FULL_VER >= 190024215
 #define BOOST_ATOMIC_DETAIL_HAS_BUILTIN_ADDRESSOF
 #elif defined(BOOST_GCC) && BOOST_GCC >= 70000
@@ -56,6 +56,6 @@ BOOST_FORCEINLINE T* addressof(T& value) BOOST_NOEXCEPT
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_ADDRESSOF_HPP_INCLUDED_

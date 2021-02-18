@@ -8,8 +8,8 @@
 #ifndef BOOST_MP_CPP_INT_COMPARISON_HPP
 #define BOOST_MP_CPP_INT_COMPARISON_HPP
 
-#include <boost/type_traits/make_unsigned.hpp>
-#include <boost/multiprecision/detail/constexpr.hpp>
+#include "Utilogeny/lib/boost/type_traits/make_unsigned.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/constexpr.hpp"
 
 namespace boost { namespace multiprecision { namespace backends {
 

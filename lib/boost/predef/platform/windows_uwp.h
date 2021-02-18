@@ -8,9 +8,9 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_PLAT_WINDOWS_UWP_H
 #define BOOST_PREDEF_PLAT_WINDOWS_UWP_H
 
-#include <boost/predef/make.h>
-#include <boost/predef/os/windows.h>
-#include <boost/predef/version_number.h>
+#include "Utilogeny/lib/boost/predef/make.h"
+#include "Utilogeny/lib/boost/predef/os/windows.h"
+#include "Utilogeny/lib/boost/predef/version_number.h"
 
 /* tag::reference[]
 = `BOOST_PLAT_WINDOWS_UWP`
@@ -49,7 +49,7 @@ UWP development.
 
 #if BOOST_PLAT_WINDOWS_UWP
 #   define BOOST_PLAT_WINDOWS_UWP_AVAILABLE
-#   include <boost/predef/detail/platform_detected.h>
+#   include "Utilogeny/lib/boost/predef/detail/platform_detected.h"
 #   include <winapifamily.h>    // Windows SDK
 #endif
 
@@ -57,5 +57,5 @@ UWP development.
 
 #endif
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_PLAT_WINDOWS_UWP, BOOST_PLAT_WINDOWS_UWP_NAME)

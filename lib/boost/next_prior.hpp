@@ -16,14 +16,14 @@
 #define BOOST_NEXT_PRIOR_HPP_INCLUDED
 
 #include <iterator>
-#include <boost/config.hpp>
-#include <boost/core/enable_if.hpp>
-#include <boost/type_traits/has_plus.hpp>
-#include <boost/type_traits/has_plus_assign.hpp>
-#include <boost/type_traits/has_minus.hpp>
-#include <boost/type_traits/has_minus_assign.hpp>
-#include <boost/iterator/advance.hpp>
-#include <boost/iterator/reverse_iterator.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/core/enable_if.hpp"
+#include "Utilogeny/lib/boost/type_traits/has_plus.hpp"
+#include "Utilogeny/lib/boost/type_traits/has_plus_assign.hpp"
+#include "Utilogeny/lib/boost/type_traits/has_minus.hpp"
+#include "Utilogeny/lib/boost/type_traits/has_minus_assign.hpp"
+#include "Utilogeny/lib/boost/iterator/advance.hpp"
+#include "Utilogeny/lib/boost/iterator/reverse_iterator.hpp"
 
 namespace boost {
 

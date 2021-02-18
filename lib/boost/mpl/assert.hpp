@@ -14,29 +14,29 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/not.hpp>
-#include <boost/mpl/aux_/value_wknd.hpp>
-#include <boost/mpl/aux_/nested_type_wknd.hpp>
-#include <boost/mpl/aux_/yes_no.hpp>
-#include <boost/mpl/aux_/na.hpp>
-#include <boost/mpl/aux_/adl_barrier.hpp>
+#include "Utilogeny/lib/boost/mpl/not.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/value_wknd.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/nested_type_wknd.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/yes_no.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/na.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/adl_barrier.hpp"
 
-#include <boost/mpl/aux_/config/nttp.hpp>
-#include <boost/mpl/aux_/config/dtp.hpp>
-#include <boost/mpl/aux_/config/gcc.hpp>
-#include <boost/mpl/aux_/config/msvc.hpp>
-#include <boost/mpl/aux_/config/gpu.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
-#include <boost/mpl/aux_/config/pp_counter.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include "Utilogeny/lib/boost/mpl/aux_/config/nttp.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/dtp.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/gcc.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/msvc.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/gpu.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/static_constant.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/pp_counter.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/workaround.hpp"
 
-#include <boost/preprocessor/cat.hpp>
+#include "Utilogeny/lib/boost/preprocessor/cat.hpp"
 
-#include <boost/config.hpp> // make sure 'size_t' is placed into 'std'
+#include "Utilogeny/lib/boost/config.hpp" // make sure 'size_t' is placed into 'std'
 #include <cstddef>
 
 #if BOOST_WORKAROUND(BOOST_MSVC, == 1700)
-#include <boost/mpl/if.hpp>
+#include "Utilogeny/lib/boost/mpl/if.hpp"
 #endif
 
 #if BOOST_WORKAROUND(BOOST_BORLANDC, BOOST_TESTED_AT(0x610)) \
@@ -446,7 +446,7 @@ BOOST_MPL_AUX_ASSERT_CONSTANT( \
 #if 0
 // Work around BOOST_MPL_ASSERT_MSG_IMPL generating multiple definition linker errors on VC++8.
 // #if defined(BOOST_MSVC) && BOOST_MSVC < 1500
-#   include <boost/static_assert.hpp>
+#   include "Utilogeny/lib/boost/static_assert.hpp"
 #   define BOOST_MPL_ASSERT_MSG( c, msg, types_ ) \
 BOOST_STATIC_ASSERT_MSG( c, #msg ) \
 /**/

@@ -14,7 +14,7 @@
 #
 # /* BOOST_PP_DETAIL_IS_MINIMUM_NUMBER */
 #
-# include <boost/preprocessor/logical/not.hpp>
+# include "Utilogeny/lib/boost/preprocessor/logical/not.hpp"
 #
 # define BOOST_PP_DETAIL_IS_MINIMUM_NUMBER(x) BOOST_PP_NOT(x)
 #

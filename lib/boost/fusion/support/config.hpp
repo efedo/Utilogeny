@@ -8,8 +8,8 @@
 #if !defined(FUSION_SUPPORT_CONFIG_01092014_1718)
 #define FUSION_SUPPORT_CONFIG_01092014_1718
 
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
 #include <utility>
 
 #ifndef BOOST_FUSION_GPU_ENABLED
@@ -110,7 +110,7 @@ namespace boost { namespace fusion { namespace detail
 #   define BOOST_FUSION_DECLTYPE_N3031(parenthesized_expr) \
         boost::fusion::detail::type_alias_t<decltype parenthesized_expr>
 # else
-#   include <boost/mpl/identity.hpp>
+#   include "Utilogeny/lib/boost/mpl/identity.hpp"
 #   define BOOST_FUSION_DECLTYPE_N3031(parenthesized_expr) \
         boost::mpl::identity<decltype parenthesized_expr>::type
 # endif

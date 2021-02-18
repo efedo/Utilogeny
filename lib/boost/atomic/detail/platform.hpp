@@ -15,7 +15,7 @@
 #ifndef BOOST_ATOMIC_DETAIL_PLATFORM_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_PLATFORM_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -148,7 +148,7 @@
 
 #else // defined(BOOST_WINDOWS)
 
-#include <boost/atomic/detail/futex.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/futex.hpp"
 
 #if defined(BOOST_ATOMIC_DETAIL_HAS_FUTEX)
 #define BOOST_ATOMIC_DETAIL_WAIT_BACKEND futex

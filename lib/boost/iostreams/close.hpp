@@ -12,25 +12,25 @@
 # pragma once
 #endif
 
-#include <boost/config.hpp>  // DEDUCED_TYPENAME, MSVC.
-#include <boost/detail/workaround.hpp>
-#include <boost/iostreams/categories.hpp>
-#include <boost/iostreams/flush.hpp>
-#include <boost/iostreams/detail/adapter/non_blocking_adapter.hpp>
-#include <boost/iostreams/detail/ios.hpp> // BOOST_IOS
-#include <boost/iostreams/detail/select.hpp>
-#include <boost/iostreams/detail/wrap_unwrap.hpp>
-#include <boost/iostreams/operations_fwd.hpp>
-#include <boost/iostreams/traits.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/remove_reference.hpp>
+#include "Utilogeny/lib/boost/config.hpp"  // DEDUCED_TYPENAME, MSVC.
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/iostreams/categories.hpp"
+#include "Utilogeny/lib/boost/iostreams/flush.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/adapter/non_blocking_adapter.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/ios.hpp" // BOOST_IOS
+#include "Utilogeny/lib/boost/iostreams/detail/select.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/wrap_unwrap.hpp"
+#include "Utilogeny/lib/boost/iostreams/operations_fwd.hpp"
+#include "Utilogeny/lib/boost/iostreams/traits.hpp"
+#include "Utilogeny/lib/boost/mpl/identity.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
 
 // Must come last.
-#include <boost/iostreams/detail/config/disable_warnings.hpp>
+#include "Utilogeny/lib/boost/iostreams/detail/config/disable_warnings.hpp"
 
 namespace boost { namespace iostreams {
 
@@ -248,6 +248,6 @@ struct close_impl<two_sequence> {
 
 } } // End namespaces iostreams, boost.
 
-#include <boost/iostreams/detail/config/enable_warnings.hpp>
+#include "Utilogeny/lib/boost/iostreams/detail/config/enable_warnings.hpp"
 
 #endif // #ifndef BOOST_IOSTREAMS_CLOSE_HPP_INCLUDED

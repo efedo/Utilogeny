@@ -8,8 +8,8 @@
 
 #ifndef BOOST_TYPEOF_VECTOR_HPP_INCLUDED
 
-#include <boost/typeof/constant.hpp>
-#include <boost/preprocessor/iteration/self.hpp>
+#include "Utilogeny/lib/boost/typeof/constant.hpp"
+#include "Utilogeny/lib/boost/preprocessor/iteration/self.hpp"
 
 #ifndef BOOST_TYPEOF_LIMIT_SIZE
 #   define BOOST_TYPEOF_LIMIT_SIZE 50
@@ -27,23 +27,23 @@
 
 #elif !defined(BOOST_TYPEOF_PREPROCESSING_MODE) && !BOOST_PP_IS_SELFISH
 
-#   define BOOST_PP_INDIRECT_SELF <boost/typeof/vector.hpp>
+#   define BOOST_PP_INDIRECT_SELF "Utilogeny/lib/boost/typeof/vector.hpp"
 #   if   BOOST_TYPEOF_LIMIT_SIZE < 50
 #     include BOOST_PP_INCLUDE_SELF()
 #   elif BOOST_TYPEOF_LIMIT_SIZE < 100
-#     include <boost/typeof/vector50.hpp>
+#     include "Utilogeny/lib/boost/typeof/vector50.hpp"
 #     define  BOOST_TYPEOF_PP_START_SIZE 51
 #     include BOOST_PP_INCLUDE_SELF()
 #   elif BOOST_TYPEOF_LIMIT_SIZE < 150
-#     include <boost/typeof/vector100.hpp>
+#     include "Utilogeny/lib/boost/typeof/vector100.hpp"
 #     define  BOOST_TYPEOF_PP_START_SIZE 101
 #     include BOOST_PP_INCLUDE_SELF()
 #   elif BOOST_TYPEOF_LIMIT_SIZE < 200
-#     include <boost/typeof/vector150.hpp>
+#     include "Utilogeny/lib/boost/typeof/vector150.hpp"
 #     define  BOOST_TYPEOF_PP_START_SIZE 151
 #     include BOOST_PP_INCLUDE_SELF()
 #   elif BOOST_TYPEOF_LIMIT_SIZE <= 250
-#     include <boost/typeof/vector200.hpp>
+#     include "Utilogeny/lib/boost/typeof/vector200.hpp"
 #     define  BOOST_TYPEOF_PP_START_SIZE 201
 #     include BOOST_PP_INCLUDE_SELF()
 #   else
@@ -61,16 +61,16 @@
 
 #   if BOOST_TYPEOF_PP_START_SIZE <= BOOST_TYPEOF_LIMIT_SIZE
 
-#     include <boost/preprocessor/enum_params.hpp>
-#     include <boost/preprocessor/repeat.hpp>
-#     include <boost/preprocessor/repeat_from_to.hpp>
-#     include <boost/preprocessor/cat.hpp>
-#     include <boost/preprocessor/inc.hpp>
-#     include <boost/preprocessor/dec.hpp>
-#     include <boost/preprocessor/comma_if.hpp>
-#     include <boost/preprocessor/iteration/local.hpp>
-#     include <boost/preprocessor/control/expr_iif.hpp>
-#     include <boost/preprocessor/logical/not.hpp>
+#     include "Utilogeny/lib/boost/preprocessor/enum_params.hpp"
+#     include "Utilogeny/lib/boost/preprocessor/repeat.hpp"
+#     include "Utilogeny/lib/boost/preprocessor/repeat_from_to.hpp"
+#     include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+#     include "Utilogeny/lib/boost/preprocessor/inc.hpp"
+#     include "Utilogeny/lib/boost/preprocessor/dec.hpp"
+#     include "Utilogeny/lib/boost/preprocessor/comma_if.hpp"
+#     include "Utilogeny/lib/boost/preprocessor/iteration/local.hpp"
+#     include "Utilogeny/lib/boost/preprocessor/control/expr_iif.hpp"
+#     include "Utilogeny/lib/boost/preprocessor/logical/not.hpp"
 
 // iterator
 

@@ -15,9 +15,9 @@
 #define BOOST_ATOMIC_DETAIL_WAIT_CAPS_FREEBSD_UMTX_HPP_INCLUDED_
 
 #include <sys/umtx.h>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/int_sizes.hpp>
-#include <boost/atomic/detail/capabilities.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/int_sizes.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/capabilities.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once

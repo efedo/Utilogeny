@@ -16,17 +16,17 @@
 #define BOOST_ATOMIC_DETAIL_LOCK_POOL_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/link.hpp>
-#include <boost/atomic/detail/intptr.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/link.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/intptr.hpp"
 #if defined(BOOST_WINDOWS)
-#include <boost/winapi/thread.hpp>
+#include "Utilogeny/lib/boost/winapi/thread.hpp"
 #elif defined(BOOST_HAS_NANOSLEEP)
 #include <time.h>
 #else
 #include <unistd.h>
 #endif
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -146,6 +146,6 @@ public:
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_LOCK_POOL_HPP_INCLUDED_

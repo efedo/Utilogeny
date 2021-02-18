@@ -9,10 +9,10 @@
 #ifndef BOOST_IOSTREAMS_DETAIL_IS_DEREFERENCEABLE_HPP_INCLUDED
 #define BOOST_IOSTREAMS_DETAIL_IS_DEREFERENCEABLE_HPP_INCLUDED
 
-# include <boost/type_traits/remove_cv.hpp>
-# include <boost/mpl/aux_/lambda_support.hpp>
-# include <boost/mpl/bool.hpp>
-# include <boost/detail/workaround.hpp>
+# include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
+# include "Utilogeny/lib/boost/mpl/aux_/lambda_support.hpp"
+# include "Utilogeny/lib/boost/mpl/bool.hpp"
+# include "Utilogeny/lib/boost/detail/workaround.hpp"
 
 namespace boost { namespace iostreams { namespace detail { 
 

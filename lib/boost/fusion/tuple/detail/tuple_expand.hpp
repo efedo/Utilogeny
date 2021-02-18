@@ -8,12 +8,12 @@
 #if !defined(FUSION_TUPLE_EXPAND_10032005_0815)
 #define FUSION_TUPLE_EXPAND_10032005_0815
 
-#include <boost/preprocessor/iterate.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/preprocessor/repetition/enum_binary_params.hpp>
+#include "Utilogeny/lib/boost/preprocessor/iterate.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_params.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_binary_params.hpp"
 
 #define BOOST_PP_FILENAME_1 \
-    <boost/fusion/tuple/detail/tuple_expand.hpp>
+    "Utilogeny/lib/boost/fusion/tuple/detail/tuple_expand.hpp"
 #define BOOST_PP_ITERATION_LIMITS (1, FUSION_MAX_VECTOR_SIZE)
 #include BOOST_PP_ITERATE()
 

@@ -7,8 +7,8 @@
 #ifndef BOOST_FUSION_SUPPORT_AS_CONST_HPP
 #define BOOST_FUSION_SUPPORT_AS_CONST_HPP
 
-#include <boost/config.hpp>
-#include <boost/fusion/support/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
 
 namespace boost { namespace fusion { namespace extension
 {

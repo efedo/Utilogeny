@@ -11,7 +11,7 @@
 #
 # /* See http://www.boost.org for most recent version. */
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_STRICT()
 #
@@ -1303,17 +1303,17 @@
 #
 # else
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # if BOOST_PP_LIMIT_ITERATION == 256
-# include <boost/preprocessor/iteration/detail/iter/limits/reverse2_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/iteration/detail/iter/limits/reverse2_256.hpp"
 # elif BOOST_PP_LIMIT_ITERATION == 512
-# include <boost/preprocessor/iteration/detail/iter/limits/reverse2_512.hpp>
-# include <boost/preprocessor/iteration/detail/iter/limits/reverse2_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/iteration/detail/iter/limits/reverse2_512.hpp"
+# include "Utilogeny/lib/boost/preprocessor/iteration/detail/iter/limits/reverse2_256.hpp"
 # elif BOOST_PP_LIMIT_ITERATION == 1024
-# include <boost/preprocessor/iteration/detail/iter/limits/reverse2_1024.hpp>
-# include <boost/preprocessor/iteration/detail/iter/limits/reverse2_512.hpp>
-# include <boost/preprocessor/iteration/detail/iter/limits/reverse2_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/iteration/detail/iter/limits/reverse2_1024.hpp"
+# include "Utilogeny/lib/boost/preprocessor/iteration/detail/iter/limits/reverse2_512.hpp"
+# include "Utilogeny/lib/boost/preprocessor/iteration/detail/iter/limits/reverse2_256.hpp"
 # else
 # error Incorrect value for the BOOST_PP_LIMIT_ITERATION limit
 # endif

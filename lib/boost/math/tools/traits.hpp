@@ -25,8 +25,8 @@ as defined above, and has member functions "scale" and "location".
 #pragma once
 #endif
 
-#include <boost/mpl/has_xxx.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include "Utilogeny/lib/boost/mpl/has_xxx.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
 
 namespace boost{ namespace math{ namespace tools{
 

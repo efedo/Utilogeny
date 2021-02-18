@@ -15,12 +15,12 @@
 # ifndef BOOST_PREPROCESSOR_ARITHMETIC_MOD_HPP
 # define BOOST_PREPROCESSOR_ARITHMETIC_MOD_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_STRICT()
 #
-# include <boost/preprocessor/arithmetic/detail/div_base.hpp>
-# include <boost/preprocessor/tuple/elem.hpp>
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/detail/div_base.hpp"
+# include "Utilogeny/lib/boost/preprocessor/tuple/elem.hpp"
 #
 # /* BOOST_PP_MOD */
 #
@@ -42,11 +42,11 @@
 #
 # else
 #
-# include <boost/preprocessor/arithmetic/detail/div_base.hpp>
-# include <boost/preprocessor/control/iif.hpp>
-# include <boost/preprocessor/facilities/identity.hpp>
-# include <boost/preprocessor/tuple/elem.hpp>
-# include <boost/preprocessor/arithmetic/detail/is_1_number.hpp>
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/detail/div_base.hpp"
+# include "Utilogeny/lib/boost/preprocessor/control/iif.hpp"
+# include "Utilogeny/lib/boost/preprocessor/facilities/identity.hpp"
+# include "Utilogeny/lib/boost/preprocessor/tuple/elem.hpp"
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/detail/is_1_number.hpp"
 #
 # /* BOOST_PP_MOD */
 #

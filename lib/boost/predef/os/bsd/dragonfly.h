@@ -8,7 +8,7 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_OS_BSD_DRAGONFLY_H
 #define BOOST_PREDEF_OS_BSD_DRAGONFLY_H
 
-#include <boost/predef/os/bsd.h>
+#include "Utilogeny/lib/boost/predef/os/bsd.h"
 
 /* tag::reference[]
 = `BOOST_OS_BSD_DRAGONFLY`
@@ -40,12 +40,12 @@ http://en.wikipedia.org/wiki/DragonFly_BSD[DragonFly BSD] operating system.
 
 #if BOOST_OS_BSD_DRAGONFLY
 #   define BOOST_OS_BSD_DRAGONFLY_AVAILABLE
-#   include <boost/predef/detail/os_detected.h>
+#   include "Utilogeny/lib/boost/predef/detail/os_detected.h"
 #endif
 
 #define BOOST_OS_BSD_DRAGONFLY_NAME "DragonFly BSD"
 
 #endif
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_OS_BSD_DRAGONFLY,BOOST_OS_BSD_DRAGONFLY_NAME)

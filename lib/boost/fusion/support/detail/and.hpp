@@ -8,9 +8,9 @@
 #ifndef FUSION_AND_07152016_1625
 #define FUSION_AND_07152016_1625
 
-#include <boost/config.hpp>
-#include <boost/config/workaround.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/config/workaround.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
 
 #if defined(BOOST_NO_CXX11_VARIADIC_TEMPLATES)
 #error fusion::detail::and_ requires variadic templates

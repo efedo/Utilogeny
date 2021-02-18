@@ -15,11 +15,11 @@
 #define BOOST_ATOMIC_DETAIL_EXTENDING_CAS_BASED_ARITHMETIC_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/memory_order.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/storage_traits.hpp>
-#include <boost/atomic/detail/integral_conversions.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/storage_traits.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/integral_conversions.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -67,6 +67,6 @@ struct extending_cas_based_arithmetic :
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_EXTENDING_CAS_BASED_ARITHMETIC_HPP_INCLUDED_

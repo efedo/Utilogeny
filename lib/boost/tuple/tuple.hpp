@@ -20,12 +20,12 @@
 namespace boost { namespace python { class tuple; }}
 #endif
 
-#include <boost/config.hpp>
-#include <boost/static_assert.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
 
 // other compilers
-#include <boost/ref.hpp>
-#include <boost/tuple/detail/tuple_basic.hpp>
+#include "Utilogeny/lib/boost/ref.hpp"
+#include "Utilogeny/lib/boost/tuple/detail/tuple_basic.hpp"
 
 
 namespace boost {

@@ -6,27 +6,27 @@
 #ifndef BOOST_ITERATOR_CONCEPTS_HPP
 #define BOOST_ITERATOR_CONCEPTS_HPP
 
-#include <boost/concept_check.hpp>
-#include <boost/iterator/iterator_categories.hpp>
+#include "Utilogeny/lib/boost/concept_check.hpp"
+#include "Utilogeny/lib/boost/iterator/iterator_categories.hpp"
 
-#include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/is_integral.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_same.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
 
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/or.hpp>
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/and.hpp"
+#include "Utilogeny/lib/boost/mpl/or.hpp"
 
-#include <boost/static_assert.hpp>
+#include "Utilogeny/lib/boost/static_assert.hpp"
 
-// Use boost/limits to work around missing limits headers on some compilers
-#include <boost/limits.hpp>
-#include <boost/config.hpp>
+// Use Utilogeny/lib/boost/limits to work around missing limits headers on some compilers
+#include "Utilogeny/lib/boost/limits.hpp"
+#include "Utilogeny/lib/boost/config.hpp"
 
 #include <algorithm>
 #include <iterator>
 
-#include <boost/concept/detail/concept_def.hpp>
+#include "Utilogeny/lib/boost/concept/detail/concept_def.hpp"
 
 namespace boost_concepts
 {
@@ -268,6 +268,6 @@ namespace boost_concepts
 
 } // namespace boost_concepts
 
-#include <boost/concept/detail/concept_undef.hpp>
+#include "Utilogeny/lib/boost/concept/detail/concept_undef.hpp"
 
 #endif // BOOST_ITERATOR_CONCEPTS_HPP

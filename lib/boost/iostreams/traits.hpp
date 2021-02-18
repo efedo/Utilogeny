@@ -20,28 +20,28 @@
 #endif              
 
 #include <iosfwd>            // stream types, char_traits.
-#include <boost/config.hpp>  // partial spec, deduced typename.
-#include <boost/detail/workaround.hpp>
-#include <boost/iostreams/categories.hpp>
-#include <boost/iostreams/detail/bool_trait_def.hpp> 
-#include <boost/iostreams/detail/config/wide_streams.hpp>
-#include <boost/iostreams/detail/is_iterator_range.hpp>    
-#include <boost/iostreams/detail/select.hpp>        
-#include <boost/iostreams/detail/select_by_size.hpp>      
-#include <boost/iostreams/detail/wrap_unwrap.hpp>       
-#include <boost/iostreams/traits_fwd.hpp> 
-#include <boost/mpl/bool.hpp>   
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/identity.hpp>      
-#include <boost/mpl/int.hpp>  
-#include <boost/mpl/or.hpp>                 
-#include <boost/range/iterator_range.hpp>
-#include <boost/range/value_type.hpp>
-#include <boost/ref.hpp>
-#include <boost/type_traits/is_convertible.hpp>
+#include "Utilogeny/lib/boost/config.hpp"  // partial spec, deduced typename.
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/iostreams/categories.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/bool_trait_def.hpp" 
+#include "Utilogeny/lib/boost/iostreams/detail/config/wide_streams.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/is_iterator_range.hpp"    
+#include "Utilogeny/lib/boost/iostreams/detail/select.hpp"        
+#include "Utilogeny/lib/boost/iostreams/detail/select_by_size.hpp"      
+#include "Utilogeny/lib/boost/iostreams/detail/wrap_unwrap.hpp"       
+#include "Utilogeny/lib/boost/iostreams/traits_fwd.hpp" 
+#include "Utilogeny/lib/boost/mpl/bool.hpp"   
+#include "Utilogeny/lib/boost/mpl/eval_if.hpp"
+#include "Utilogeny/lib/boost/mpl/identity.hpp"      
+#include "Utilogeny/lib/boost/mpl/int.hpp"  
+#include "Utilogeny/lib/boost/mpl/or.hpp"                 
+#include "Utilogeny/lib/boost/range/iterator_range.hpp"
+#include "Utilogeny/lib/boost/range/value_type.hpp"
+#include "Utilogeny/lib/boost/ref.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
 
 // Must come last.
-#include <boost/iostreams/detail/config/disable_warnings.hpp>
+#include "Utilogeny/lib/boost/iostreams/detail/config/disable_warnings.hpp"
 
 namespace boost { namespace iostreams {
 
@@ -358,6 +358,6 @@ struct is_direct : detail::has_trait<T, direct_tag> { };
 
 } } // End namespaces iostreams, boost.
 
-#include <boost/iostreams/detail/config/enable_warnings.hpp>
+#include "Utilogeny/lib/boost/iostreams/detail/config/enable_warnings.hpp"
 
 #endif // #ifndef BOOST_IOSTREAMS_IO_TRAITS_HPP_INCLUDED

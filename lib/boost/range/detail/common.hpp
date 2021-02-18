@@ -15,11 +15,11 @@
 # pragma once
 #endif
 
-#include <boost/range/config.hpp>
-#include <boost/range/detail/sfinae.hpp>
-#include <boost/type_traits/is_void.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/int.hpp>
+#include "Utilogeny/lib/boost/range/config.hpp"
+#include "Utilogeny/lib/boost/range/detail/sfinae.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_void.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/int.hpp"
 #include <cstddef>
 
 //////////////////////////////////////////////////////////////////////////////

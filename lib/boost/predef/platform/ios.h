@@ -9,8 +9,8 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_PLAT_IOS_H
 #define BOOST_PREDEF_PLAT_IOS_H
 
-#include <boost/predef/os/ios.h> // BOOST_OS_IOS
-#include <boost/predef/version_number.h> // BOOST_VERSION_NUMBER_NOT_AVAILABLE
+#include "Utilogeny/lib/boost/predef/os/ios.h" // BOOST_OS_IOS
+#include "Utilogeny/lib/boost/predef/version_number.h" // BOOST_VERSION_NUMBER_NOT_AVAILABLE
 
 /* tag::reference[]
 = `BOOST_PLAT_IOS_DEVICE`
@@ -45,12 +45,12 @@ http://www.boost.org/LICENSE_1_0.txt)
 
 #if BOOST_PLAT_IOS_SIMULATOR
 #    define BOOST_PLAT_IOS_SIMULATOR_AVAILABLE
-#    include <boost/predef/detail/platform_detected.h>
+#    include "Utilogeny/lib/boost/predef/detail/platform_detected.h"
 #endif
 
 #if BOOST_PLAT_IOS_DEVICE
 #    define BOOST_PLAT_IOS_DEVICE_AVAILABLE
-#    include <boost/predef/detail/platform_detected.h>
+#    include "Utilogeny/lib/boost/predef/detail/platform_detected.h"
 #endif
 
 #define BOOST_PLAT_IOS_SIMULATOR_NAME "iOS Simulator"
@@ -58,6 +58,6 @@ http://www.boost.org/LICENSE_1_0.txt)
 
 #endif // BOOST_PREDEF_PLAT_IOS_H
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_PLAT_IOS_SIMULATOR,BOOST_PLAT_IOS_SIMULATOR_NAME)
 BOOST_PREDEF_DECLARE_TEST(BOOST_PLAT_IOS_DEVICE,BOOST_PLAT_IOS_DEVICE_NAME)

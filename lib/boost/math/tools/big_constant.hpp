@@ -7,13 +7,13 @@
 #ifndef BOOST_MATH_TOOLS_BIG_CONSTANT_HPP
 #define BOOST_MATH_TOOLS_BIG_CONSTANT_HPP
 
-#include <boost/math/tools/config.hpp>
+#include "Utilogeny/lib/boost/math/tools/config.hpp"
 #ifndef BOOST_MATH_NO_LEXICAL_CAST
-#include <boost/lexical_cast.hpp>
+#include "Utilogeny/lib/boost/lexical_cast.hpp"
 #endif
-#include <boost/type_traits/is_constructible.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/is_floating_point.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_constructible.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_floating_point.hpp"
 
 namespace boost{ namespace math{ 
 

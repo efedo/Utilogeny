@@ -9,8 +9,8 @@
 #ifndef BOOST_TT_IS_RVALUE_REFERENCE_HPP_INCLUDED
 #define BOOST_TT_IS_RVALUE_REFERENCE_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
 
 namespace boost {
 
@@ -22,7 +22,7 @@ template <class T> struct is_rvalue_reference<T&&> : public true_type {};
 } // namespace boost
 
 #if !defined(BOOST_NO_CXX11_RVALUE_REFERENCES) && defined(BOOST_MSVC) && BOOST_WORKAROUND(BOOST_MSVC, <= 1700)
-#include <boost/type_traits/detail/is_rvalue_reference_msvc10_fix.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/is_rvalue_reference_msvc10_fix.hpp"
 #endif
 
 #endif // BOOST_TT_IS_REFERENCE_HPP_INCLUDED

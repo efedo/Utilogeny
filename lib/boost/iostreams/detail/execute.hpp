@@ -4,7 +4,7 @@
  * 
  * See http://www.boost.org/libs/iostreams for documentation.
 
- * File:        boost/iostreams/detail/execute.hpp
+ * File:        Utilogeny/lib/boost/iostreams/detail/execute.hpp
  * Date:        Thu Dec 06 13:21:54 MST 2007
  * Copyright:   2007-2008 CodeRage, LLC
  * Author:      Jonathan Turkanis
@@ -32,16 +32,16 @@
 # pragma once
 #endif
 
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
-#include <boost/iostreams/detail/config/limits.hpp>   // MAX_EXECUTE_ARITY
-#include <boost/preprocessor/arithmetic/dec.hpp>
-#include <boost/preprocessor/cat.hpp>
-#include <boost/preprocessor/iteration/local.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/preprocessor/repetition/enum_binary_params.hpp>
-#include <boost/preprocessor/punctuation/comma_if.hpp>
-#include <boost/utility/result_of.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/config/limits.hpp"   // MAX_EXECUTE_ARITY
+#include "Utilogeny/lib/boost/preprocessor/arithmetic/dec.hpp"
+#include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+#include "Utilogeny/lib/boost/preprocessor/iteration/local.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_params.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_binary_params.hpp"
+#include "Utilogeny/lib/boost/preprocessor/punctuation/comma_if.hpp"
+#include "Utilogeny/lib/boost/utility/result_of.hpp"
 
 namespace boost { namespace iostreams { namespace detail {
 

@@ -12,10 +12,10 @@
 # pragma once
 #endif              
 
-#include <boost/config.hpp>                // BOOST_NO_SFINAE.
-#include <boost/config/workaround.hpp>
-#include <boost/utility/enable_if.hpp>                  
-#include <boost/iostreams/traits_fwd.hpp>  // is_std_io.
+#include "Utilogeny/lib/boost/config.hpp"                // BOOST_NO_SFINAE.
+#include "Utilogeny/lib/boost/config/workaround.hpp"
+#include "Utilogeny/lib/boost/utility/enable_if.hpp"                  
+#include "Utilogeny/lib/boost/iostreams/traits_fwd.hpp"  // is_std_io.
 
 #if !defined(BOOST_NO_SFINAE) && \
     !BOOST_WORKAROUND(BOOST_BORLANDC, BOOST_TESTED_AT(0x592))

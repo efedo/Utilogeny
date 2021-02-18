@@ -29,11 +29,11 @@
 # pragma once
 #endif                  
  
-#include <boost/type_traits/is_base_and_derived.hpp>
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/void.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_base_and_derived.hpp"
+#include "Utilogeny/lib/boost/mpl/eval_if.hpp"
+#include "Utilogeny/lib/boost/mpl/identity.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/void.hpp"
 
 namespace boost { namespace iostreams { 
 

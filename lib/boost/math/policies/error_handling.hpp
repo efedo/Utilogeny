@@ -14,16 +14,16 @@
 #include <cstring>
 #include <typeinfo>
 #include <cerrno>
-#include <boost/config/no_tr1/complex.hpp>
-#include <boost/config/no_tr1/cmath.hpp>
+#include "Utilogeny/lib/boost/config/no_tr1/complex.hpp"
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp"
 #include <stdexcept>
-#include <boost/math/tools/config.hpp>
-#include <boost/math/policies/policy.hpp>
-#include <boost/math/tools/precision.hpp>
-#include <boost/throw_exception.hpp>
-#include <boost/cstdint.hpp>
+#include "Utilogeny/lib/boost/math/tools/config.hpp"
+#include "Utilogeny/lib/boost/math/policies/policy.hpp"
+#include "Utilogeny/lib/boost/math/tools/precision.hpp"
+#include "Utilogeny/lib/boost/throw_exception.hpp"
+#include "Utilogeny/lib/boost/cstdint.hpp"
 #ifdef BOOST_MSVC
-#  pragma warning(push) // Quiet warnings in boost/format.hpp
+#  pragma warning(push) // Quiet warnings in Utilogeny/lib/boost/format.hpp
 #  pragma warning(disable: 4996) // _SCL_SECURE_NO_DEPRECATE
 #  pragma warning(disable: 4512) // assignment operator could not be generated.
 #  pragma warning(disable: 4127) // conditional expression is constant
@@ -841,7 +841,7 @@ std::pair<T, T> pair_from_single(const T& val) BOOST_MATH_NOEXCEPT(T)
 #  pragma warning(pop)
 #endif
 
-}} // namespaces boost/math
+}} // namespaces Utilogeny/lib/boost/math
 
 #endif // BOOST_MATH_POLICY_ERROR_HANDLING_HPP
 

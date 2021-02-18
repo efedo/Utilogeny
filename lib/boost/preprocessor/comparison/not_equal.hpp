@@ -15,12 +15,12 @@
 # ifndef BOOST_PREPROCESSOR_COMPARISON_NOT_EQUAL_HPP
 # define BOOST_PREPROCESSOR_COMPARISON_NOT_EQUAL_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_STRICT()
 #
-# include <boost/preprocessor/cat.hpp>
-# include <boost/preprocessor/control/iif.hpp>
+# include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+# include "Utilogeny/lib/boost/preprocessor/control/iif.hpp"
 #
 # /* BOOST_PP_NOT_EQUAL */
 #
@@ -817,8 +817,8 @@
 #
 # else
 #
-# include <boost/preprocessor/cat.hpp>
-# include <boost/preprocessor/control/iif.hpp>
+# include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+# include "Utilogeny/lib/boost/preprocessor/control/iif.hpp"
 #
 # /* BOOST_PP_NOT_EQUAL */
 #
@@ -837,17 +837,17 @@
 #
 # define BOOST_PP_NOT_EQUAL_CHECK_BOOST_PP_NIL 1
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # if BOOST_PP_LIMIT_MAG == 256
-# include <boost/preprocessor/comparison/limits/not_equal_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/comparison/limits/not_equal_256.hpp"
 # elif BOOST_PP_LIMIT_MAG == 512
-# include <boost/preprocessor/comparison/limits/not_equal_256.hpp>
-# include <boost/preprocessor/comparison/limits/not_equal_512.hpp>
+# include "Utilogeny/lib/boost/preprocessor/comparison/limits/not_equal_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/comparison/limits/not_equal_512.hpp"
 # elif BOOST_PP_LIMIT_MAG == 1024
-# include <boost/preprocessor/comparison/limits/not_equal_256.hpp>
-# include <boost/preprocessor/comparison/limits/not_equal_512.hpp>
-# include <boost/preprocessor/comparison/limits/not_equal_1024.hpp>
+# include "Utilogeny/lib/boost/preprocessor/comparison/limits/not_equal_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/comparison/limits/not_equal_512.hpp"
+# include "Utilogeny/lib/boost/preprocessor/comparison/limits/not_equal_1024.hpp"
 # else
 # error Incorrect value for the BOOST_PP_LIMIT_MAG limit
 # endif

@@ -14,13 +14,13 @@
 #ifndef BOOST_ATOMIC_DETAIL_INTEGRAL_CONVERSIONS_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_INTEGRAL_CONVERSIONS_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/bitwise_cast.hpp>
-#include <boost/atomic/detail/type_traits/integral_constant.hpp>
-#include <boost/atomic/detail/type_traits/is_signed.hpp>
-#include <boost/atomic/detail/type_traits/make_signed.hpp>
-#include <boost/atomic/detail/type_traits/make_unsigned.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/bitwise_cast.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/is_signed.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/make_signed.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/make_unsigned.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -103,6 +103,6 @@ BOOST_FORCEINLINE Output integral_extend(Input input) BOOST_NOEXCEPT
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_INTEGRAL_CONVERSIONS_HPP_INCLUDED_

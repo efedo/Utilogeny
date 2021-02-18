@@ -7,9 +7,9 @@
 #if !defined(FUSION_VECTOR_LIMITS_07072005_1246)
 #define FUSION_VECTOR_LIMITS_07072005_1246
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/support/detail/pp_round.hpp>
-#include <boost/preprocessor/stringize.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/support/detail/pp_round.hpp"
+#include "Utilogeny/lib/boost/preprocessor/stringize.hpp"
 
 #if !defined(FUSION_MAX_VECTOR_SIZE)
 # define FUSION_MAX_VECTOR_SIZE 10

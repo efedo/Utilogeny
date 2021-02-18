@@ -17,12 +17,12 @@
 #define BOOST_ATOMIC_DETAIL_STORAGE_TRAITS_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/cstdint.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/string_ops.hpp>
-#include <boost/atomic/detail/aligned_variable.hpp>
-#include <boost/atomic/detail/type_traits/alignment_of.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/string_ops.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/aligned_variable.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/alignment_of.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -182,6 +182,6 @@ struct storage_size_of
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_STORAGE_TRAITS_HPP_INCLUDED_

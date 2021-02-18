@@ -12,21 +12,21 @@
 # pragma once
 #endif                    
  
-#include <boost/config.hpp> // BOOST_MSVC.
-#include <boost/detail/workaround.hpp>
-#include <boost/iostreams/categories.hpp>
-#include <boost/iostreams/categories.hpp>
-#include <boost/iostreams/detail/adapter/range_adapter.hpp>
-#include <boost/iostreams/detail/config/wide_streams.hpp>
-#include <boost/iostreams/detail/enable_if_stream.hpp>   
-#include <boost/iostreams/pipeline.hpp>   
-#include <boost/iostreams/detail/push_params.hpp>   
-#include <boost/iostreams/detail/resolve.hpp>
-#include <boost/mpl/bool.hpp>   
-#include <boost/preprocessor/cat.hpp> 
-#include <boost/preprocessor/control/iif.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/type_traits/is_convertible.hpp>
+#include "Utilogeny/lib/boost/config.hpp" // BOOST_MSVC.
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/iostreams/categories.hpp"
+#include "Utilogeny/lib/boost/iostreams/categories.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/adapter/range_adapter.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/config/wide_streams.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/enable_if_stream.hpp"   
+#include "Utilogeny/lib/boost/iostreams/pipeline.hpp"   
+#include "Utilogeny/lib/boost/iostreams/detail/push_params.hpp"   
+#include "Utilogeny/lib/boost/iostreams/detail/resolve.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"   
+#include "Utilogeny/lib/boost/preprocessor/cat.hpp" 
+#include "Utilogeny/lib/boost/preprocessor/control/iif.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
 
 //
 // Macro: BOOST_IOSTREAMS_DEFINE_PUSH_CONSTRUCTOR(name, mode, ch, helper).

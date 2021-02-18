@@ -13,8 +13,8 @@
 #   error both typeof emulation and native mode requested
 #endif
 
-#include <boost/config.hpp>
-#include <boost/config/workaround.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/config/workaround.hpp"
 
 #if !BOOST_WORKAROUND(BOOST_MSVC, <= 1900) && !defined(BOOST_NO_CXX11_DECLTYPE) && !defined(BOOST_NO_CXX11_TEMPLATE_ALIASES) && !defined(BOOST_TYPEOF_EMULATION)
 #   define BOOST_TYPEOF_DECLTYPE
@@ -105,7 +105,7 @@
 #       ifndef BOOST_TYPEOF_NATIVE
 #           define BOOST_TYPEOF_NATIVE
 #       endif
-#       include <boost/typeof/dmc/typeof_impl.hpp>
+#       include "Utilogeny/lib/boost/typeof/dmc/typeof_impl.hpp"
 #       define MSVC_TYPEOF_HACK
 #   endif
 #elif defined(_MSC_VER)
@@ -120,7 +120,7 @@
 #           endif
 #       endif
 #       ifdef BOOST_TYPEOF_NATIVE
-#           include <boost/typeof/msvc/typeof_impl.hpp>
+#           include "Utilogeny/lib/boost/typeof/msvc/typeof_impl.hpp"
 #           define MSVC_TYPEOF_HACK
 #       endif
 #   endif
@@ -194,28 +194,28 @@
      BOOST_TYPEOF_REGISTRATION_GROUP * 0x10000 + __LINE__
 
 #define BOOST_TYPEOF_INCREMENT_REGISTRATION_GROUP()\
-     <boost/typeof/incr_registration_group.hpp>
+     "Utilogeny/lib/boost/typeof/incr_registration_group.hpp"
 
 #ifdef BOOST_TYPEOF_EMULATION_UNSUPPORTED
-#   include <boost/typeof/unsupported.hpp>
+#   include "Utilogeny/lib/boost/typeof/unsupported.hpp"
 #elif defined BOOST_TYPEOF_EMULATION
 #   define BOOST_TYPEOF_TEXT "using typeof emulation"
-#   include <boost/typeof/message.hpp>
-#   include <boost/typeof/typeof_impl.hpp>
-#   include <boost/typeof/type_encoding.hpp>
-#   include <boost/typeof/template_encoding.hpp>
-#   include <boost/typeof/modifiers.hpp>
-#   include <boost/typeof/pointers_data_members.hpp>
-#   include <boost/typeof/register_functions.hpp>
-#   include <boost/typeof/register_fundamental.hpp>
+#   include "Utilogeny/lib/boost/typeof/message.hpp"
+#   include "Utilogeny/lib/boost/typeof/typeof_impl.hpp"
+#   include "Utilogeny/lib/boost/typeof/type_encoding.hpp"
+#   include "Utilogeny/lib/boost/typeof/template_encoding.hpp"
+#   include "Utilogeny/lib/boost/typeof/modifiers.hpp"
+#   include "Utilogeny/lib/boost/typeof/pointers_data_members.hpp"
+#   include "Utilogeny/lib/boost/typeof/register_functions.hpp"
+#   include "Utilogeny/lib/boost/typeof/register_fundamental.hpp"
 
 #elif defined(BOOST_TYPEOF_NATIVE)
 #   define BOOST_TYPEOF_TEXT "using native typeof"
-#   include <boost/typeof/message.hpp>
+#   include "Utilogeny/lib/boost/typeof/message.hpp"
 #   ifdef BOOST_TYPEOF_DECLTYPE
-#       include <boost/typeof/decltype.hpp>
+#       include "Utilogeny/lib/boost/typeof/decltype.hpp"
 #   else
-#       include <boost/typeof/native.hpp>
+#       include "Utilogeny/lib/boost/typeof/native.hpp"
 #   endif
 #else
 #   error typeof configuration error

@@ -8,7 +8,7 @@ Distributed under the Boost Software License, Version 1.0.
 #ifndef BOOST_ALIGN_DETAIL_ALIGNMENT_OF_MSVC_HPP
 #define BOOST_ALIGN_DETAIL_ALIGNMENT_OF_MSVC_HPP
 
-#include <boost/align/detail/min_size.hpp>
+#include "Utilogeny/lib/boost/align/detail/min_size.hpp"
 
 namespace boost {
 namespace alignment {

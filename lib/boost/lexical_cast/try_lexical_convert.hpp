@@ -18,7 +18,7 @@
 #ifndef BOOST_LEXICAL_CAST_TRY_LEXICAL_CONVERT_HPP
 #define BOOST_LEXICAL_CAST_TRY_LEXICAL_CONVERT_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #   pragma once
 #endif
@@ -33,18 +33,18 @@
 
 
 #include <string>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/type_identity.hpp>
-#include <boost/type_traits/conditional.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/is_arithmetic.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
+#include "Utilogeny/lib/boost/type_traits/type_identity.hpp"
+#include "Utilogeny/lib/boost/type_traits/conditional.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_same.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_arithmetic.hpp"
 
-#include <boost/lexical_cast/detail/is_character.hpp>
-#include <boost/lexical_cast/detail/converter_numeric.hpp>
-#include <boost/lexical_cast/detail/converter_lexical.hpp>
+#include "Utilogeny/lib/boost/lexical_cast/detail/is_character.hpp"
+#include "Utilogeny/lib/boost/lexical_cast/detail/converter_numeric.hpp"
+#include "Utilogeny/lib/boost/lexical_cast/detail/converter_lexical.hpp"
 
-#include <boost/range/iterator_range_core.hpp>
-#include <boost/container/container_fwd.hpp>
+#include "Utilogeny/lib/boost/range/iterator_range_core.hpp"
+#include "Utilogeny/lib/boost/container/container_fwd.hpp"
 
 namespace boost {
     namespace detail

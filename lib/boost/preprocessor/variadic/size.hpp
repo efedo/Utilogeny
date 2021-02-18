@@ -15,10 +15,10 @@
 # ifndef BOOST_PREPROCESSOR_VARIADIC_SIZE_HPP
 # define BOOST_PREPROCESSOR_VARIADIC_SIZE_HPP
 #
-# include <boost/preprocessor/cat.hpp>
-# include <boost/preprocessor/config/config.hpp>
-# include <boost/preprocessor/control/iif.hpp>
-# include <boost/preprocessor/facilities/check_empty.hpp>
+# include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
+# include "Utilogeny/lib/boost/preprocessor/control/iif.hpp"
+# include "Utilogeny/lib/boost/preprocessor/facilities/check_empty.hpp"
 #
 # /* BOOST_PP_VARIADIC_SIZE */
 #
@@ -48,14 +48,14 @@
 #       define BOOST_PP_VARIADIC_SIZE(...) BOOST_PP_VARIADIC_DO_SIZE(__VA_ARGS__)
 #    endif
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # if BOOST_PP_LIMIT_VARIADIC == 64
-# include <boost/preprocessor/variadic/limits/size_64.hpp>
+# include "Utilogeny/lib/boost/preprocessor/variadic/limits/size_64.hpp"
 # elif BOOST_PP_LIMIT_VARIADIC == 128
-# include <boost/preprocessor/variadic/limits/size_128.hpp>
+# include "Utilogeny/lib/boost/preprocessor/variadic/limits/size_128.hpp"
 # elif BOOST_PP_LIMIT_VARIADIC == 256
-# include <boost/preprocessor/variadic/limits/size_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/variadic/limits/size_256.hpp"
 # else
 # error Incorrect value for the BOOST_PP_LIMIT_TUPLE limit
 # endif

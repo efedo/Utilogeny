@@ -18,7 +18,7 @@
 #ifndef BOOST_LEXICAL_CAST_DETAIL_CONVERTER_LEXICAL_HPP
 #define BOOST_LEXICAL_CAST_DETAIL_CONVERTER_LEXICAL_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #   pragma once
 #endif
@@ -29,29 +29,29 @@
 
 #include <cstddef>
 #include <string>
-#include <boost/limits.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/type_identity.hpp>
-#include <boost/type_traits/conditional.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/is_float.hpp>
-#include <boost/type_traits/has_left_shift.hpp>
-#include <boost/type_traits/has_right_shift.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/detail/lcast_precision.hpp>
+#include "Utilogeny/lib/boost/limits.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/type_traits/type_identity.hpp"
+#include "Utilogeny/lib/boost/type_traits/conditional.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_float.hpp"
+#include "Utilogeny/lib/boost/type_traits/has_left_shift.hpp"
+#include "Utilogeny/lib/boost/type_traits/has_right_shift.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/detail/lcast_precision.hpp"
 
-#include <boost/lexical_cast/detail/widest_char.hpp>
-#include <boost/lexical_cast/detail/is_character.hpp>
+#include "Utilogeny/lib/boost/lexical_cast/detail/widest_char.hpp"
+#include "Utilogeny/lib/boost/lexical_cast/detail/is_character.hpp"
 
 #ifndef BOOST_NO_CXX11_HDR_ARRAY
 #include <array>
 #endif
 
-#include <boost/array.hpp>
-#include <boost/range/iterator_range_core.hpp>
-#include <boost/container/container_fwd.hpp>
+#include "Utilogeny/lib/boost/array.hpp"
+#include "Utilogeny/lib/boost/range/iterator_range_core.hpp"
+#include "Utilogeny/lib/boost/container/container_fwd.hpp"
 
-#include <boost/lexical_cast/detail/converter_lexical_streams.hpp>
+#include "Utilogeny/lib/boost/lexical_cast/detail/converter_lexical_streams.hpp"
 
 namespace boost {
 
@@ -344,7 +344,7 @@ namespace boost {
         //
         // Constant is_specialized is used instead of constant 1
         // to prevent buffer overflow in a rare case when
-        // <boost/limits.hpp> doesn't add missing specialization for
+        // "Utilogeny/lib/boost/limits.hpp" doesn't add missing specialization for
         // numeric_limits<T> for some integral type T.
         // When is_specialized is false, the whole expression is 0.
         template <class Source>

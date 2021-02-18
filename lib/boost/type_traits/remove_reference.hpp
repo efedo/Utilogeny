@@ -9,8 +9,8 @@
 #ifndef BOOST_TT_REMOVE_REFERENCE_HPP_INCLUDED
 #define BOOST_TT_REMOVE_REFERENCE_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
 
 namespace boost {
 

@@ -10,10 +10,10 @@
 #ifndef BOOST_MP_CPP_INT_MISC_HPP
 #define BOOST_MP_CPP_INT_MISC_HPP
 
-#include <boost/multiprecision/detail/constexpr.hpp>
-#include <boost/multiprecision/detail/bitscan.hpp> // lsb etc
-#include <boost/integer/common_factor_rt.hpp>      // gcd/lcm
-#include <boost/functional/hash_fwd.hpp>
+#include "Utilogeny/lib/boost/multiprecision/detail/constexpr.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/bitscan.hpp" // lsb etc
+#include "Utilogeny/lib/boost/integer/common_factor_rt.hpp"      // gcd/lcm
+#include "Utilogeny/lib/boost/functional/hash_fwd.hpp"
 #include <numeric> // std::gcd
 
 #ifdef BOOST_MSVC

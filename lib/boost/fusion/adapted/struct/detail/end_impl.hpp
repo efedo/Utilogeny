@@ -10,8 +10,8 @@
 #ifndef BOOST_FUSION_ADAPTED_STRUCT_DETAIL_END_IMPL_HPP
 #define BOOST_FUSION_ADAPTED_STRUCT_DETAIL_END_IMPL_HPP
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/iterator/basic_iterator.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/basic_iterator.hpp"
 
 namespace boost { namespace fusion { namespace extension
 {

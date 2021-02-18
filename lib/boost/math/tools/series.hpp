@@ -10,10 +10,10 @@
 #pragma once
 #endif
 
-#include <boost/config/no_tr1/cmath.hpp>
-#include <boost/cstdint.hpp>
-#include <boost/limits.hpp>
-#include <boost/math/tools/config.hpp>
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp"
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/limits.hpp"
+#include "Utilogeny/lib/boost/math/tools/config.hpp"
 
 namespace boost{ namespace math{ namespace tools{
 

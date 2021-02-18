@@ -11,13 +11,13 @@
 #ifndef BOOST_TT_IS_FUNCTION_CXX_03_HPP_INCLUDED
 #define BOOST_TT_IS_FUNCTION_CXX_03_HPP_INCLUDED
 
-#include <boost/type_traits/is_reference.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_reference.hpp"
 
 #if !defined(BOOST_TT_TEST_MS_FUNC_SIGS)
-#   include <boost/type_traits/detail/is_function_ptr_helper.hpp>
+#   include "Utilogeny/lib/boost/type_traits/detail/is_function_ptr_helper.hpp"
 #else
-#   include <boost/type_traits/detail/is_function_ptr_tester.hpp>
-#   include <boost/type_traits/detail/yes_no_type.hpp>
+#   include "Utilogeny/lib/boost/type_traits/detail/is_function_ptr_tester.hpp"
+#   include "Utilogeny/lib/boost/type_traits/detail/yes_no_type.hpp"
 #endif
 
 // is a type a function?
@@ -102,7 +102,7 @@ template <class T> struct is_function<T&> : public false_type {};
 } // namespace boost
 
 #if !defined(BOOST_NO_CXX11_RVALUE_REFERENCES) && defined(BOOST_MSVC) && BOOST_WORKAROUND(BOOST_MSVC, <= 1700)
-#include <boost/type_traits/detail/is_function_msvc10_fix.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/is_function_msvc10_fix.hpp"
 #endif
 
 #endif // BOOST_TT_IS_FUNCTION_CXX_03_HPP_INCLUDED

@@ -14,12 +14,12 @@
 # ifndef BOOST_PREPROCESSOR_CONTROL_DEDUCE_D_HPP
 # define BOOST_PREPROCESSOR_CONTROL_DEDUCE_D_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_STRICT()
 #
-# include <boost/preprocessor/control/while.hpp>
-# include <boost/preprocessor/detail/auto_rec.hpp>
+# include "Utilogeny/lib/boost/preprocessor/control/while.hpp"
+# include "Utilogeny/lib/boost/preprocessor/detail/auto_rec.hpp"
 #
 # /* BOOST_PP_DEDUCE_D */
 #
@@ -27,10 +27,10 @@
 #
 # else
 #
-# include <boost/preprocessor/arithmetic/dec.hpp>
-# include <boost/preprocessor/control/while.hpp>
-# include <boost/preprocessor/detail/auto_rec.hpp>
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/dec.hpp"
+# include "Utilogeny/lib/boost/preprocessor/control/while.hpp"
+# include "Utilogeny/lib/boost/preprocessor/detail/auto_rec.hpp"
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # /* BOOST_PP_DEDUCE_D */
 #

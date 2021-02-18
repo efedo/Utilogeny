@@ -14,12 +14,12 @@
 #ifndef BOOST_ATOMIC_DETAIL_INTPTR_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_INTPTR_HPP_INCLUDED_
 
-#include <boost/cstdint.hpp>
+#include "Utilogeny/lib/boost/cstdint.hpp"
 #if defined(BOOST_HAS_INTPTR_T)
 #include <cstddef>
 #endif
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -41,6 +41,6 @@ typedef std::ptrdiff_t intptr_t;
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_INTPTR_HPP_INCLUDED_

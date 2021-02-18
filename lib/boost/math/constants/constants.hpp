@@ -7,11 +7,11 @@
 #ifndef BOOST_MATH_CONSTANTS_CONSTANTS_INCLUDED
 #define BOOST_MATH_CONSTANTS_CONSTANTS_INCLUDED
 
-#include <boost/math/tools/config.hpp>
-#include <boost/math/tools/cxx03_warn.hpp>
-#include <boost/math/policies/policy.hpp>
-#include <boost/math/tools/precision.hpp>
-#include <boost/math/tools/convert_from_string.hpp>
+#include "Utilogeny/lib/boost/math/tools/config.hpp"
+#include "Utilogeny/lib/boost/math/tools/cxx03_warn.hpp"
+#include "Utilogeny/lib/boost/math/policies/policy.hpp"
+#include "Utilogeny/lib/boost/math/tools/precision.hpp"
+#include "Utilogeny/lib/boost/math/tools/convert_from_string.hpp"
 #ifdef BOOST_MSVC
 #pragma warning(push)
 #pragma warning(disable: 4127 4701)
@@ -19,11 +19,11 @@
 #ifdef BOOST_MSVC
 #pragma warning(pop)
 #endif
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/utility/declval.hpp>
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/and.hpp"
+#include "Utilogeny/lib/boost/mpl/int.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/utility/declval.hpp"
 
 #if defined(__GNUC__) && defined(BOOST_MATH_USE_FLOAT128)
 //
@@ -338,7 +338,7 @@ namespace boost{ namespace math
 // We deliberately include this *after* all the declarations above,
 // that way the calculation routines can call on other constants above:
 //
-#include <boost/math/constants/calculate_constants.hpp>
+#include "Utilogeny/lib/boost/math/constants/calculate_constants.hpp"
 
 #endif // BOOST_MATH_CONSTANTS_CONSTANTS_INCLUDED
 

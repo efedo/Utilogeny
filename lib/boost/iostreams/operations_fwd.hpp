@@ -12,8 +12,8 @@
 # pragma once
 #endif
 
-#include <boost/mpl/not.hpp>
-#include <boost/type_traits/is_base_and_derived.hpp>
+#include "Utilogeny/lib/boost/mpl/not.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_base_and_derived.hpp"
 
 namespace boost { namespace iostreams {
 

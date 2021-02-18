@@ -17,14 +17,14 @@
    // __stdcall etc function types, where as the partial specialisation
    // version does not do so.
    //
-#   include <boost/type_traits/detail/is_mem_fun_pointer_impl.hpp>
-#   include <boost/type_traits/remove_cv.hpp>
-#   include <boost/type_traits/integral_constant.hpp>
+#   include "Utilogeny/lib/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp"
+#   include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
+#   include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
 #else
-#   include <boost/type_traits/is_reference.hpp>
-#   include <boost/type_traits/is_array.hpp>
-#   include <boost/type_traits/detail/yes_no_type.hpp>
-#   include <boost/type_traits/detail/is_mem_fun_pointer_tester.hpp>
+#   include "Utilogeny/lib/boost/type_traits/is_reference.hpp"
+#   include "Utilogeny/lib/boost/type_traits/is_array.hpp"
+#   include "Utilogeny/lib/boost/type_traits/detail/yes_no_type.hpp"
+#   include "Utilogeny/lib/boost/type_traits/detail/is_mem_fun_pointer_tester.hpp"
 #endif
 
 namespace boost {

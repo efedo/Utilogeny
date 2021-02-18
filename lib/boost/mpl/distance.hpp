@@ -14,18 +14,18 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/distance_fwd.hpp>
-#include <boost/mpl/iter_fold.hpp>
-#include <boost/mpl/iterator_range.hpp>
-#include <boost/mpl/long.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/mpl/tag.hpp>
-#include <boost/mpl/apply_wrap.hpp>
-#include <boost/mpl/aux_/msvc_eti_base.hpp>
-#include <boost/mpl/aux_/value_wknd.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/config/forwarding.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
+#include "Utilogeny/lib/boost/mpl/distance_fwd.hpp"
+#include "Utilogeny/lib/boost/mpl/iter_fold.hpp"
+#include "Utilogeny/lib/boost/mpl/iterator_range.hpp"
+#include "Utilogeny/lib/boost/mpl/long.hpp"
+#include "Utilogeny/lib/boost/mpl/next.hpp"
+#include "Utilogeny/lib/boost/mpl/tag.hpp"
+#include "Utilogeny/lib/boost/mpl/apply_wrap.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/msvc_eti_base.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/value_wknd.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/na_spec.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/forwarding.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/static_constant.hpp"
 
 
 namespace boost { namespace mpl {

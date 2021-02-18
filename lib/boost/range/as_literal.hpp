@@ -15,10 +15,10 @@
 # pragma once
 #endif
 
-#include <boost/range/iterator_range.hpp>
-#include <boost/range/detail/str_types.hpp>
+#include "Utilogeny/lib/boost/range/iterator_range.hpp"
+#include "Utilogeny/lib/boost/range/detail/str_types.hpp"
 
-#include <boost/detail/workaround.hpp>
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
 
 #include <cstring>
 

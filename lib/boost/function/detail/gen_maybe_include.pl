@@ -31,7 +31,7 @@ for($on_arg = 0; $on_arg <= $max_args; ++$on_arg) {
     print OUT "#  define BOOST_FUNCTION_MAX_ARGS_DEFINED $on_arg\n";
     print OUT "#  ifndef BOOST_FUNCTION_$on_arg\n";
     print OUT "#    define BOOST_FUNCTION_$on_arg\n";
-    print OUT "#    include <boost/function/function_template.hpp>\n";
+    print OUT "#    include "Utilogeny/lib/boost/function/function_template.hpp"\n";
     print OUT "#  endif\n";
 }
 print OUT "#else\n";

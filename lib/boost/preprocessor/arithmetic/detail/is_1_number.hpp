@@ -14,7 +14,7 @@
 #
 # /* BOOST_PP_DETAIL_IS_1_NUMBER */
 #
-# include <boost/preprocessor/comparison/equal.hpp>
+# include "Utilogeny/lib/boost/preprocessor/comparison/equal.hpp"
 #
 # define BOOST_PP_DETAIL_IS_1_NUMBER(x) BOOST_PP_EQUAL(x,1)
 #

@@ -6,20 +6,20 @@
 #ifndef BOOST_MATH_POLICY_HPP
 #define BOOST_MATH_POLICY_HPP
 
-#include <boost/mpl/list.hpp>
-#include <boost/mpl/contains.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/find_if.hpp>
-#include <boost/mpl/remove_if.hpp>
-#include <boost/mpl/vector.hpp>
-#include <boost/mpl/push_back.hpp>
-#include <boost/mpl/at.hpp>
-#include <boost/mpl/size.hpp>
-#include <boost/mpl/comparison.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/assert.hpp>
-#include <boost/math/tools/config.hpp>
+#include "Utilogeny/lib/boost/mpl/list.hpp"
+#include "Utilogeny/lib/boost/mpl/contains.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/find_if.hpp"
+#include "Utilogeny/lib/boost/mpl/remove_if.hpp"
+#include "Utilogeny/lib/boost/mpl/vector.hpp"
+#include "Utilogeny/lib/boost/mpl/push_back.hpp"
+#include "Utilogeny/lib/boost/mpl/at.hpp"
+#include "Utilogeny/lib/boost/mpl/size.hpp"
+#include "Utilogeny/lib/boost/mpl/comparison.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_same.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/math/tools/config.hpp"
 #include <limits>
 // Sadly we do need the .h versions of these to be sure of getting
 // FLT_MANT_DIG etc.

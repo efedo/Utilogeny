@@ -23,11 +23,11 @@ With these techniques, the code could be simplified.
 #include <cstring>
 #include <limits>
 
-#include <boost/assert.hpp>
-#include <boost/cstdint.hpp>
-#include <boost/predef/other/endian.h>
-#include <boost/static_assert.hpp>
-#include <boost/type_traits/is_floating_point.hpp>
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/predef/other/endian.h"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_floating_point.hpp"
 
 #ifdef BOOST_NO_STDC_NAMESPACE
   namespace std{ using ::memcpy; }

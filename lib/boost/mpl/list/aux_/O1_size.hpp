@@ -14,8 +14,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/O1_size_fwd.hpp>
-#include <boost/mpl/list/aux_/tag.hpp>
+#include "Utilogeny/lib/boost/mpl/O1_size_fwd.hpp"
+#include "Utilogeny/lib/boost/mpl/list/aux_/tag.hpp"
 
 namespace boost { namespace mpl {
 

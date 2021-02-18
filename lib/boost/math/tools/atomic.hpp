@@ -7,8 +7,8 @@
 #ifndef BOOST_MATH_ATOMIC_DETAIL_HPP
 #define BOOST_MATH_ATOMIC_DETAIL_HPP
 
-#include <boost/config.hpp>
-#include <boost/math/tools/cxx03_warn.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/math/tools/cxx03_warn.hpp"
 
 #ifdef BOOST_HAS_THREADS
 
@@ -49,7 +49,7 @@ namespace boost {
 // not need to link against a separate library:
 //
 #define BOOST_ATOMIC_NO_LIB
-#include <boost/atomic.hpp>
+#include "Utilogeny/lib/boost/atomic.hpp"
 #  define BOOST_MATH_ATOMIC_NS boost
 
 namespace boost{ namespace math{ namespace detail{

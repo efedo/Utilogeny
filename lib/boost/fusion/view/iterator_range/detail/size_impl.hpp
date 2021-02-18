@@ -8,8 +8,8 @@
 #if !defined(BOOST_FUSION_ITERATOR_RANGE_SIZE_IMPL_HPP_INCLUDED)
 #define BOOST_FUSION_ITERATOR_RANGE_SIZE_IMPL_HPP_INCLUDED
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/iterator/distance.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/distance.hpp"
 
 namespace boost { namespace fusion
 {

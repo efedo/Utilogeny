@@ -10,15 +10,15 @@
 
 // This header includes all Boost.Atomic public headers
 
-#include <boost/memory_order.hpp>
-#include <boost/atomic/capabilities.hpp>
-#include <boost/atomic/atomic.hpp>
-#include <boost/atomic/atomic_ref.hpp>
-#include <boost/atomic/atomic_flag.hpp>
-#include <boost/atomic/ipc_atomic.hpp>
-#include <boost/atomic/ipc_atomic_ref.hpp>
-#include <boost/atomic/ipc_atomic_flag.hpp>
-#include <boost/atomic/fences.hpp>
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/capabilities.hpp"
+#include "Utilogeny/lib/boost/atomic/atomic.hpp"
+#include "Utilogeny/lib/boost/atomic/atomic_ref.hpp"
+#include "Utilogeny/lib/boost/atomic/atomic_flag.hpp"
+#include "Utilogeny/lib/boost/atomic/ipc_atomic.hpp"
+#include "Utilogeny/lib/boost/atomic/ipc_atomic_ref.hpp"
+#include "Utilogeny/lib/boost/atomic/ipc_atomic_flag.hpp"
+#include "Utilogeny/lib/boost/atomic/fences.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once

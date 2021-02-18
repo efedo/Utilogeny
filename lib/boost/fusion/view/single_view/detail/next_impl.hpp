@@ -8,9 +8,9 @@
 #if !defined(BOOST_FUSION_SINGLE_VIEW_NEXT_IMPL_05052005_0331)
 #define BOOST_FUSION_SINGLE_VIEW_NEXT_IMPL_05052005_0331
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/static_assert.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/mpl/next.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
 
 namespace boost { namespace fusion
 {

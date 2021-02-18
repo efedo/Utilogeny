@@ -7,17 +7,17 @@
 #if !defined(FUSION_TAG_OF_09232005_0845)
 #define FUSION_TAG_OF_09232005_0845
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/type_traits/remove_const.hpp>
-#include <boost/fusion/support/tag_of_fwd.hpp>
-#include <boost/fusion/support/detail/is_mpl_sequence.hpp>
-#include <boost/mpl/has_xxx.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/mpl/assert.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/config/no_tr1/utility.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/utility/enable_if.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_const.hpp"
+#include "Utilogeny/lib/boost/fusion/support/tag_of_fwd.hpp"
+#include "Utilogeny/lib/boost/fusion/support/detail/is_mpl_sequence.hpp"
+#include "Utilogeny/lib/boost/mpl/has_xxx.hpp"
+#include "Utilogeny/lib/boost/mpl/identity.hpp"
+#include "Utilogeny/lib/boost/mpl/assert.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/config/no_tr1/utility.hpp"
 
 namespace boost
 {

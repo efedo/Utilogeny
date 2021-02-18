@@ -14,13 +14,13 @@
 #ifndef BOOST_ATOMIC_DETAIL_FENCE_OPERATIONS_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_FENCE_OPERATIONS_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/platform.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/platform.hpp"
 
 #if defined(BOOST_ATOMIC_DETAIL_CORE_BACKEND_HEADER)
-#include BOOST_ATOMIC_DETAIL_CORE_BACKEND_HEADER(boost/atomic/detail/fence_ops_)
+#include BOOST_ATOMIC_DETAIL_CORE_BACKEND_HEADER(Utilogeny/lib/boost/atomic/detail/fence_ops_)
 #else
-#include <boost/atomic/detail/fence_arch_operations.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/fence_arch_operations.hpp"
 
 namespace boost {
 namespace atomics {

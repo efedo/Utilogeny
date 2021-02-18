@@ -14,7 +14,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include "Utilogeny/lib/boost/mpl/aux_/config/workaround.hpp"
 
 #if BOOST_WORKAROUND(BOOST_BORLANDC, BOOST_TESTED_AT(0x561)) \
  || BOOST_WORKAROUND(__GNUC__, < 3) \

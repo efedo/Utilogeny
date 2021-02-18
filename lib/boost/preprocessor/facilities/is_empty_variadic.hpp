@@ -12,9 +12,9 @@
 # ifndef BOOST_PREPROCESSOR_FACILITIES_IS_EMPTY_VARIADIC_HPP
 # define BOOST_PREPROCESSOR_FACILITIES_IS_EMPTY_VARIADIC_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
-# include <boost/preprocessor/punctuation/is_begin_parens.hpp>
-# include <boost/preprocessor/facilities/detail/is_empty.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
+# include "Utilogeny/lib/boost/preprocessor/punctuation/is_begin_parens.hpp"
+# include "Utilogeny/lib/boost/preprocessor/facilities/detail/is_empty.hpp"
 #
 #if BOOST_PP_VARIADICS_MSVC && _MSC_VER <= 1400
 #
@@ -35,7 +35,7 @@
 #define BOOST_PP_IS_EMPTY_ZERO(param) 0
 # else
 # if defined(__cplusplus) && __cplusplus > 201703L
-# include <boost/preprocessor/variadic/has_opt.hpp>
+# include "Utilogeny/lib/boost/preprocessor/variadic/has_opt.hpp"
 #define BOOST_PP_IS_EMPTY(...) \
     BOOST_PP_DETAIL_IS_EMPTY_IIF \
       ( \

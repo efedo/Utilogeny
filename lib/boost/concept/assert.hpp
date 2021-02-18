@@ -4,8 +4,8 @@
 #ifndef BOOST_CONCEPT_ASSERT_DWA2006430_HPP
 # define BOOST_CONCEPT_ASSERT_DWA2006430_HPP
 
-# include <boost/config.hpp>
-# include <boost/config/workaround.hpp>
+# include "Utilogeny/lib/boost/config.hpp"
+# include "Utilogeny/lib/boost/config/workaround.hpp"
 
 // The old protocol used a constraints() member function in concept
 // checking classes.  If the compiler supports SFINAE, we can detect
@@ -28,11 +28,11 @@
 # endif
 
 # ifdef BOOST_MSVC
-#  include <boost/concept/detail/msvc.hpp>
+#  include "Utilogeny/lib/boost/concept/detail/msvc.hpp"
 # elif BOOST_WORKAROUND(BOOST_BORLANDC, BOOST_TESTED_AT(0x564))
-#  include <boost/concept/detail/borland.hpp>
+#  include "Utilogeny/lib/boost/concept/detail/borland.hpp"
 # else 
-#  include <boost/concept/detail/general.hpp>
+#  include "Utilogeny/lib/boost/concept/detail/general.hpp"
 # endif
 
   // Usage, in class or function context:

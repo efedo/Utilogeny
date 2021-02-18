@@ -10,9 +10,9 @@
 #ifndef BOOST_TT_IS_UNSIGNED_HPP_INCLUDED
 #define BOOST_TT_IS_UNSIGNED_HPP_INCLUDED
 
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/is_enum.hpp>
-#include <boost/type_traits/remove_cv.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_enum.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
 
 #include <climits>
 

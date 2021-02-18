@@ -9,14 +9,14 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
-#include <boost/cstdint.hpp>
-#include <boost/functional/hash_fwd.hpp>
-#include <boost/multiprecision/number.hpp>
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/functional/hash_fwd.hpp"
+#include "Utilogeny/lib/boost/multiprecision/number.hpp"
 #ifdef BOOST_MSVC
 #pragma warning(push)
 #pragma warning(disable : 4512 4127)
 #endif
-#include <boost/rational.hpp>
+#include "Utilogeny/lib/boost/rational.hpp"
 #ifdef BOOST_MSVC
 #pragma warning(pop)
 #endif

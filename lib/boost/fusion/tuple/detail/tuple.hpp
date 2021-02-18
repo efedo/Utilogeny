@@ -7,20 +7,20 @@
 #if !defined(FUSION_TUPLE_10032005_0810)
 #define FUSION_TUPLE_10032005_0810
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/tuple/detail/tuple_fwd.hpp>
-#include <boost/fusion/container/vector/vector.hpp>
-#include <boost/fusion/sequence/intrinsic/size.hpp>
-#include <boost/fusion/sequence/intrinsic/value_at.hpp>
-#include <boost/fusion/sequence/intrinsic/at.hpp>
-#include <boost/fusion/sequence/comparison.hpp>
-#include <boost/fusion/sequence/io.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/type_traits/is_const.hpp>
-#include <boost/config/no_tr1/utility.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/tuple/detail/tuple_fwd.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/vector.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/size.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/value_at.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/at.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/io.hpp"
+#include "Utilogeny/lib/boost/utility/enable_if.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_const.hpp"
+#include "Utilogeny/lib/boost/config/no_tr1/utility.hpp"
 
 #if !defined(BOOST_FUSION_DONT_USE_PREPROCESSED_FILES)
-#include <boost/fusion/tuple/detail/preprocessed/tuple.hpp>
+#include "Utilogeny/lib/boost/fusion/tuple/detail/preprocessed/tuple.hpp"
 #else
 #if defined(__WAVE__) && defined(BOOST_FUSION_CREATE_PREPROCESSED_FILES)
 #pragma wave option(preserve: 2, line: 0, output: "preprocessed/tuple" FUSION_MAX_VECTOR_SIZE_STR ".hpp")
@@ -59,7 +59,7 @@ namespace boost { namespace fusion
         tuple(std::pair<U1, U2> const& rhs)
             : base_type(rhs) {}
 
-        #include <boost/fusion/tuple/detail/tuple_expand.hpp>
+        #include "Utilogeny/lib/boost/fusion/tuple/detail/tuple_expand.hpp"
 
         template <typename T>
         BOOST_FUSION_GPU_ENABLED

@@ -2,7 +2,7 @@
  * Defines the class template boost::iostreams::detail::filter_adapter,
  * a convenience base class for filter adapters.
  *
- * File:        boost/iostreams/detail/adapter/filter_adapter.hpp
+ * File:        Utilogeny/lib/boost/iostreams/detail/adapter/filter_adapter.hpp
  * Date:        Mon Nov 26 14:35:48 MST 2007
  * Copyright:   2007-2008 CodeRage, LLC
  * Author:      Jonathan Turkanis
@@ -17,12 +17,12 @@
 #ifndef BOOST_IOSTREAMS_DETAIL_FILTER_ADAPTER_HPP_INCLUDED
 #define BOOST_IOSTREAMS_DETAIL_FILTER_ADAPTER_HPP_INCLUDED
 
-#include <boost/iostreams/categories.hpp>
-#include <boost/iostreams/detail/call_traits.hpp>
-#include <boost/iostreams/detail/ios.hpp>
-#include <boost/iostreams/operations.hpp>
-#include <boost/iostreams/traits.hpp>
-#include <boost/static_assert.hpp>
+#include "Utilogeny/lib/boost/iostreams/categories.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/call_traits.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/ios.hpp"
+#include "Utilogeny/lib/boost/iostreams/operations.hpp"
+#include "Utilogeny/lib/boost/iostreams/traits.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
 
 namespace boost { namespace iostreams { namespace detail {
 

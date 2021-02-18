@@ -6,12 +6,12 @@
 #ifndef BOOST_MP_CPP_INT_CORE_HPP
 #define BOOST_MP_CPP_INT_CORE_HPP
 
-#include <boost/integer.hpp>
-#include <boost/integer_traits.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/assert.hpp>
+#include "Utilogeny/lib/boost/integer.hpp"
+#include "Utilogeny/lib/boost/integer_traits.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/int.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/assert.hpp"
 
 namespace boost {
 namespace multiprecision {

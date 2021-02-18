@@ -7,8 +7,8 @@
 #if !defined(FUSION_SEQUENCE_IO_10032005_0836)
 #define FUSION_SEQUENCE_IO_10032005_0836
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/sequence/io/in.hpp>
-#include <boost/fusion/sequence/io/out.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/io/in.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/io/out.hpp"
 
 #endif

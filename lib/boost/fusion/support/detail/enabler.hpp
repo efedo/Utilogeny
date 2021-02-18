@@ -8,7 +8,7 @@
 #ifndef BOOST_FUSION_SUPPORT_DETAIL_ENABLER_12102015_0346
 #define BOOST_FUSION_SUPPORT_DETAIL_ENABLER_12102015_0346
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 namespace boost { namespace fusion { namespace detail
 {

@@ -14,15 +14,15 @@
 #ifndef BOOST_ATOMIC_DETAIL_WAIT_CAPABILITIES_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_WAIT_CAPABILITIES_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/platform.hpp>
-#include <boost/atomic/detail/int_sizes.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/platform.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/int_sizes.hpp"
 #if !defined(BOOST_ATOMIC_NO_FLOATING_POINT)
-#include <boost/atomic/detail/float_sizes.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/float_sizes.hpp"
 #endif
 
 #if !defined(BOOST_ATOMIC_EMULATED) && !defined(BOOST_ATOMIC_DETAIL_WAIT_BACKEND_GENERIC)
-#include BOOST_ATOMIC_DETAIL_WAIT_BACKEND_HEADER(boost/atomic/detail/wait_caps_)
+#include BOOST_ATOMIC_DETAIL_WAIT_BACKEND_HEADER(Utilogeny/lib/boost/atomic/detail/wait_caps_)
 #endif
 
 #ifdef BOOST_HAS_PRAGMA_ONCE

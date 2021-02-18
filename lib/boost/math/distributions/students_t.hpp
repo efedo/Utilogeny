@@ -12,12 +12,12 @@
 // http://en.wikipedia.org/wiki/Student%27s_t_distribution
 // http://www.itl.nist.gov/div898/handbook/eda/section3/eda3664.htm
 
-#include <boost/math/distributions/fwd.hpp>
-#include <boost/math/special_functions/beta.hpp> // for ibeta(a, b, x).
-#include <boost/math/special_functions/digamma.hpp>
-#include <boost/math/distributions/complement.hpp>
-#include <boost/math/distributions/detail/common_error_handling.hpp>
-#include <boost/math/distributions/normal.hpp> 
+#include "Utilogeny/lib/boost/math/distributions/fwd.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/beta.hpp" // for ibeta(a, b, x).
+#include "Utilogeny/lib/boost/math/special_functions/digamma.hpp"
+#include "Utilogeny/lib/boost/math/distributions/complement.hpp"
+#include "Utilogeny/lib/boost/math/distributions/detail/common_error_handling.hpp"
+#include "Utilogeny/lib/boost/math/distributions/normal.hpp" 
 
 #include <utility>
 
@@ -501,6 +501,6 @@ inline RealType entropy(const students_t_distribution<RealType, Policy>& dist)
 // This include must be at the end, *after* the accessors
 // for this distribution have been defined, in order to
 // keep compilers that support two-phase lookup happy.
-#include <boost/math/distributions/detail/derived_accessors.hpp>
+#include "Utilogeny/lib/boost/math/distributions/detail/derived_accessors.hpp"
 
 #endif // BOOST_STATS_STUDENTS_T_HPP

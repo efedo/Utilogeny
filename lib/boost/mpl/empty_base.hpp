@@ -14,13 +14,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/aux_/config/msvc.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/msvc.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/workaround.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/lambda_support.hpp"
 
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/is_empty.hpp>
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_empty.hpp"
 
 namespace boost { namespace mpl {
 

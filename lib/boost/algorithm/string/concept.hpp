@@ -11,10 +11,10 @@
 #ifndef BOOST_STRING_CONCEPT_HPP
 #define BOOST_STRING_CONCEPT_HPP
 
-#include <boost/concept_check.hpp>
-#include <boost/range/iterator_range_core.hpp>
-#include <boost/range/begin.hpp>
-#include <boost/range/end.hpp>
+#include "Utilogeny/lib/boost/concept_check.hpp"
+#include "Utilogeny/lib/boost/range/iterator_range_core.hpp"
+#include "Utilogeny/lib/boost/range/begin.hpp"
+#include "Utilogeny/lib/boost/range/end.hpp"
 
 /*! \file 
     Defines concepts used in string_algo library

@@ -9,8 +9,8 @@
 #ifndef BOOST_TT_HAS_MINUS_HPP_INCLUDED
 #define BOOST_TT_HAS_MINUS_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/type_traits/detail/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/type_traits/detail/config.hpp"
 
 // cannot include this header without getting warnings of the kind:
 // gcc:
@@ -36,13 +36,13 @@
 
 #if defined(BOOST_TT_HAS_ACCURATE_BINARY_OPERATOR_DETECTION)
 
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/make_void.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/is_void.hpp>
-#include <boost/type_traits/add_reference.hpp>
-#include <boost/type_traits/remove_pointer.hpp>
-#include <boost/type_traits/remove_reference.hpp>
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/type_traits/make_void.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_void.hpp"
+#include "Utilogeny/lib/boost/type_traits/add_reference.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_pointer.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
 #include <utility>
 
 namespace boost
@@ -143,7 +143,7 @@ namespace boost
 
 #define BOOST_TT_FORBIDDEN_IF_NEW (boost::is_void<typename remove_pointer<typename boost::remove_reference<T>::type>::type>::value || boost::is_void<typename remove_pointer<typename boost::remove_reference<U>::type>::type>::value)
 
-#include <boost/type_traits/detail/has_binary_operator.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/has_binary_operator.hpp"
 
 #undef BOOST_TT_TRAIT_NAME
 #undef BOOST_TT_TRAIT_OP

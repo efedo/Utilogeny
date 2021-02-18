@@ -6,7 +6,7 @@
 #ifndef BOOST_MP_CONSTEXPR_HPP
 #define BOOST_MP_CONSTEXPR_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 namespace boost {
 

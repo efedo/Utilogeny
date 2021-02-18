@@ -10,15 +10,15 @@
 #ifndef BOOST_RANGE_ITERATOR_RANGE_IO_HPP_INCLUDED
 #define BOOST_RANGE_ITERATOR_RANGE_IO_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
 
 #if BOOST_WORKAROUND(BOOST_MSVC, BOOST_TESTED_AT(1500))
     #pragma warning( push )
     #pragma warning( disable : 4996 )
 #endif
 
-// From boost/dynamic_bitset.hpp; thanks to Matthias Troyer for Cray X1 patch.
+// From Utilogeny/lib/boost/dynamic_bitset.hpp; thanks to Matthias Troyer for Cray X1 patch.
 #ifndef BOOST_OLD_IOSTREAMS 
 # if defined(__STL_CONFIG_H) && \
     !defined (__STL_USE_NEW_IOSTREAMS) && !defined(__crayx1) \
@@ -35,7 +35,7 @@
 # endif
 #endif // _STLP_NO_IOSTREAMS
 
-#include <boost/range/iterator_range_core.hpp>
+#include "Utilogeny/lib/boost/range/iterator_range_core.hpp"
 #include <iterator>
 #include <algorithm>
 #include <cstddef>

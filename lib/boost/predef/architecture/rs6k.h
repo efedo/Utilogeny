@@ -8,8 +8,8 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_ARCHITECTURE_RS6K_H
 #define BOOST_PREDEF_ARCHITECTURE_RS6K_H
 
-#include <boost/predef/version_number.h>
-#include <boost/predef/make.h>
+#include "Utilogeny/lib/boost/predef/version_number.h"
+#include "Utilogeny/lib/boost/predef/make.h"
 
 /* tag::reference[]
 = `BOOST_ARCH_RS6000`
@@ -53,5 +53,5 @@ http://en.wikipedia.org/wiki/RS/6000[RS/6000] architecture.
 
 #endif
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_ARCH_RS6000,BOOST_ARCH_RS6000_NAME)

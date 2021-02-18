@@ -9,8 +9,8 @@
 #if !defined(FUSION_MANIP_05052005_1200)
 #define FUSION_MANIP_05052005_1200
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/config.hpp"
 #include <string>
 #include <vector>
 #include <cctype>

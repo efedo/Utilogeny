@@ -15,19 +15,19 @@
 #pragma warning(disable: 4127 4701)
 #endif
 #ifndef BOOST_MATH_NO_LEXICAL_CAST
-#include <boost/lexical_cast.hpp>
+#include "Utilogeny/lib/boost/lexical_cast.hpp"
 #endif
 #ifdef BOOST_MSVC
 #pragma warning(pop)
 #endif
 #include <cmath>
-#include <boost/math/special_functions/math_fwd.hpp>
-#include <boost/math/tools/cxx03_warn.hpp>
+#include "Utilogeny/lib/boost/math/special_functions/math_fwd.hpp"
+#include "Utilogeny/lib/boost/math/tools/cxx03_warn.hpp"
 
 #ifdef BOOST_MATH_HAVE_CONSTEXPR_TABLES
 #include <array>
 #else
-#include <boost/array.hpp>
+#include "Utilogeny/lib/boost/array.hpp"
 #endif
 
 #if defined(__GNUC__) && defined(BOOST_MATH_USE_FLOAT128)

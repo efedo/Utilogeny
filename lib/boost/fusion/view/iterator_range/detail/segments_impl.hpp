@@ -7,11 +7,11 @@
 #if !defined(BOOST_FUSION_ITERATOR_RANGE_SEGMENTS_HPP_INCLUDED)
 #define BOOST_FUSION_ITERATOR_RANGE_SEGMENTS_HPP_INCLUDED
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/mpl/assert.hpp>
-#include <boost/fusion/sequence/intrinsic/segments.hpp>
-#include <boost/fusion/support/is_segmented.hpp>
-#include <boost/fusion/view/iterator_range/detail/segmented_iterator_range.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/mpl/assert.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/segments.hpp"
+#include "Utilogeny/lib/boost/fusion/support/is_segmented.hpp"
+#include "Utilogeny/lib/boost/fusion/view/iterator_range/detail/segmented_iterator_range.hpp"
 
 namespace boost { namespace fusion
 {

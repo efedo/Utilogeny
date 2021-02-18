@@ -8,12 +8,12 @@
 #ifndef BOOST_WINAPI_WAIT_ON_ADDRESS_HPP_INCLUDED_
 #define BOOST_WINAPI_WAIT_ON_ADDRESS_HPP_INCLUDED_
 
-#include <boost/winapi/config.hpp>
+#include "Utilogeny/lib/boost/winapi/config.hpp"
 
 #if BOOST_USE_WINAPI_VERSION >= BOOST_WINAPI_VERSION_WIN8 && (BOOST_WINAPI_PARTITION_APP || BOOST_WINAPI_PARTITION_SYSTEM)
 
-#include <boost/winapi/basic_types.hpp>
-#include <boost/winapi/detail/header.hpp>
+#include "Utilogeny/lib/boost/winapi/basic_types.hpp"
+#include "Utilogeny/lib/boost/winapi/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -49,7 +49,7 @@ using ::WakeByAddressAll;
 }
 }
 
-#include <boost/winapi/detail/footer.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/footer.hpp"
 
 #endif // BOOST_USE_WINAPI_VERSION >= BOOST_WINAPI_VERSION_WIN8 && (BOOST_WINAPI_PARTITION_APP || BOOST_WINAPI_PARTITION_SYSTEM)
 

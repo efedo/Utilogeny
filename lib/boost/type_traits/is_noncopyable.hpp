@@ -11,7 +11,7 @@
 //  is_noncopyable<T> returns whether T is derived from boost::noncopyable
 //
 
-#include <boost/type_traits/is_base_and_derived.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_base_and_derived.hpp"
 
 namespace boost
 {
@@ -21,7 +21,7 @@ namespace boost
 
 // boost::noncopyable derives from noncopyable_::base_token to enable us
 // to recognize it. The definition is macro-guarded so that we can replicate
-// it here without including boost/core/noncopyable.hpp, which is in Core.
+// it here without including Utilogeny/lib/boost/core/noncopyable.hpp, which is in Core.
 
 namespace noncopyable_
 {

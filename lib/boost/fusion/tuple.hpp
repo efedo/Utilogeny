@@ -7,11 +7,11 @@
 #if !defined(FUSION_TUPLE_10032005_0806)
 #define FUSION_TUPLE_10032005_0806
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/tuple/tuple.hpp>
-#include <boost/fusion/tuple/make_tuple.hpp>
-#include <boost/fusion/tuple/tuple_tie.hpp>
-#include <boost/fusion/container/generation/ignore.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/tuple/tuple.hpp"
+#include "Utilogeny/lib/boost/fusion/tuple/make_tuple.hpp"
+#include "Utilogeny/lib/boost/fusion/tuple/tuple_tie.hpp"
+#include "Utilogeny/lib/boost/fusion/container/generation/ignore.hpp"
 
 #endif
 

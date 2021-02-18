@@ -6,8 +6,8 @@
 #ifndef BOOST_MP_IS_VARIABLE_PRECISION_HPP
 #define BOOST_MP_IS_VARIABLE_PRECISION_HPP
 
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/multiprecision/detail/number_base.hpp>
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/number_base.hpp"
 
 namespace boost { namespace multiprecision { namespace detail {
 

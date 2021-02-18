@@ -9,18 +9,18 @@
 #ifndef BOOST_TT_MAKE_SIGNED_HPP_INCLUDED
 #define BOOST_TT_MAKE_SIGNED_HPP_INCLUDED
 
-#include <boost/type_traits/conditional.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/is_signed.hpp>
-#include <boost/type_traits/is_unsigned.hpp>
-#include <boost/type_traits/is_enum.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/is_volatile.hpp>
-#include <boost/type_traits/add_const.hpp>
-#include <boost/type_traits/add_volatile.hpp>
-#include <boost/static_assert.hpp>
+#include "Utilogeny/lib/boost/type_traits/conditional.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_signed.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_unsigned.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_enum.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_same.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_const.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_volatile.hpp"
+#include "Utilogeny/lib/boost/type_traits/add_const.hpp"
+#include "Utilogeny/lib/boost/type_traits/add_volatile.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
 
 namespace boost {
 

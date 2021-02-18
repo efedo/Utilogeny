@@ -6,7 +6,7 @@
 #ifndef BOOST_MP_INT_FUNC_HPP
 #define BOOST_MP_INT_FUNC_HPP
 
-#include <boost/multiprecision/number.hpp>
+#include "Utilogeny/lib/boost/multiprecision/number.hpp"
 
 namespace boost { namespace multiprecision {
 

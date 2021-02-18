@@ -13,11 +13,11 @@
 #define BOOST_MATH_POW_HPP
 
 
-#include <boost/math/special_functions/math_fwd.hpp>
-#include <boost/math/policies/policy.hpp>
-#include <boost/math/policies/error_handling.hpp>
-#include <boost/math/tools/promotion.hpp>
-#include <boost/mpl/greater_equal.hpp>
+#include "Utilogeny/lib/boost/math/special_functions/math_fwd.hpp"
+#include "Utilogeny/lib/boost/math/policies/policy.hpp"
+#include "Utilogeny/lib/boost/math/policies/error_handling.hpp"
+#include "Utilogeny/lib/boost/math/tools/promotion.hpp"
+#include "Utilogeny/lib/boost/mpl/greater_equal.hpp"
 
 
 namespace boost {

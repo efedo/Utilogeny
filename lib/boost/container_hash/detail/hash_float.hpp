@@ -6,18 +6,18 @@
 #if !defined(BOOST_FUNCTIONAL_HASH_DETAIL_HASH_FLOAT_HEADER)
 #define BOOST_FUNCTIONAL_HASH_DETAIL_HASH_FLOAT_HEADER
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 #if defined(BOOST_HAS_PRAGMA_ONCE)
 #pragma once
 #endif
 
-#include <boost/container_hash/detail/float_functions.hpp>
-#include <boost/container_hash/detail/limits.hpp>
-#include <boost/core/enable_if.hpp>
-#include <boost/integer/static_log2.hpp>
-#include <boost/cstdint.hpp>
-#include <boost/assert.hpp>
-#include <boost/limits.hpp>
+#include "Utilogeny/lib/boost/container_hash/detail/float_functions.hpp"
+#include "Utilogeny/lib/boost/container_hash/detail/limits.hpp"
+#include "Utilogeny/lib/boost/core/enable_if.hpp"
+#include "Utilogeny/lib/boost/integer/static_log2.hpp"
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/limits.hpp"
 #include <cstring>
 
 #if defined(BOOST_MSVC)
@@ -197,7 +197,7 @@ namespace boost
 
 #if BOOST_HASH_USE_FPCLASSIFY
 
-#include <boost/config/no_tr1/cmath.hpp>
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp"
 
 namespace boost
 {

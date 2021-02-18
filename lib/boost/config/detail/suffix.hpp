@@ -543,7 +543,7 @@ namespace std{ using ::type_info; }
 // Helper macro BOOST_STRINGIZE:
 // Helper macro BOOST_JOIN:
 
-#include <boost/config/helper_macros.hpp>
+#include "Utilogeny/lib/boost/config/helper_macros.hpp"
 
 //
 // Set some default values for compiler/library/platform names.

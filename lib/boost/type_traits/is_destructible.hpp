@@ -10,15 +10,15 @@
 #define BOOST_TT_IS_DESTRUCTIBLE_HPP_INCLUDED
 
 #include <cstddef> // size_t
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/detail/workaround.hpp>
-#include <boost/type_traits/is_complete.hpp>
-#include <boost/static_assert.hpp>
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_complete.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
 
 #if !defined(BOOST_NO_CXX11_DECLTYPE) && !BOOST_WORKAROUND(BOOST_MSVC, < 1800)
 
-#include <boost/type_traits/detail/yes_no_type.hpp>
-#include <boost/type_traits/declval.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/yes_no_type.hpp"
+#include "Utilogeny/lib/boost/type_traits/declval.hpp"
 
 namespace boost{
 
@@ -41,8 +41,8 @@ namespace boost{
 
 #else
 
-#include <boost/type_traits/is_pod.hpp>
-#include <boost/type_traits/is_class.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_pod.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_class.hpp"
 
 namespace boost{
 

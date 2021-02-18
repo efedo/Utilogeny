@@ -12,20 +12,20 @@
 # pragma once
 #endif
 
-#include <boost/config.hpp>  // DEDUCED_TYPENAME, MSVC.
-#include <boost/detail/workaround.hpp>
-#include <boost/iostreams/categories.hpp>
-#include <boost/iostreams/detail/char_traits.hpp>
-#include <boost/iostreams/detail/dispatch.hpp>
-#include <boost/iostreams/detail/ios.hpp>  // streamsize.
-#include <boost/iostreams/detail/streambuf.hpp>
-#include <boost/iostreams/detail/wrap_unwrap.hpp>
-#include <boost/iostreams/operations_fwd.hpp>
-#include <boost/iostreams/traits.hpp>
-#include <boost/mpl/if.hpp>
+#include "Utilogeny/lib/boost/config.hpp"  // DEDUCED_TYPENAME, MSVC.
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/iostreams/categories.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/char_traits.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/dispatch.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/ios.hpp"  // streamsize.
+#include "Utilogeny/lib/boost/iostreams/detail/streambuf.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/wrap_unwrap.hpp"
+#include "Utilogeny/lib/boost/iostreams/operations_fwd.hpp"
+#include "Utilogeny/lib/boost/iostreams/traits.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
 
 // Must come last.
-#include <boost/iostreams/detail/config/disable_warnings.hpp>
+#include "Utilogeny/lib/boost/iostreams/detail/config/disable_warnings.hpp"
 
 namespace boost { namespace iostreams {
 
@@ -160,6 +160,6 @@ struct write_filter_impl<any_tag> {
 
 } } // End namespaces iostreams, boost.
 
-#include <boost/iostreams/detail/config/enable_warnings.hpp>
+#include "Utilogeny/lib/boost/iostreams/detail/config/enable_warnings.hpp"
 
 #endif // #ifndef BOOST_IOSTREAMS_WRITE_HPP_INCLUDED

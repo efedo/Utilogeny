@@ -8,7 +8,7 @@ Distributed under the Boost Software License, Version 1.0.
 #ifndef BOOST_ALIGN_DETAIL_IS_ALIGNMENT_HPP
 #define BOOST_ALIGN_DETAIL_IS_ALIGNMENT_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 #include <cstddef>
 
 namespace boost {

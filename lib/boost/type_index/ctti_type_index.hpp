@@ -18,14 +18,14 @@
 /// It is used in situations when typeid() method is not available or 
 /// BOOST_TYPE_INDEX_FORCE_NO_RTTI_COMPATIBILITY macro is defined.
 
-#include <boost/type_index/type_index_facade.hpp>
-#include <boost/type_index/detail/compile_time_type_info.hpp>
+#include "Utilogeny/lib/boost/type_index/type_index_facade.hpp"
+#include "Utilogeny/lib/boost/type_index/detail/compile_time_type_info.hpp"
 
 #include <cstring>
-#include <boost/container_hash/hash.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/remove_reference.hpp>
+#include "Utilogeny/lib/boost/container_hash/hash.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 # pragma once

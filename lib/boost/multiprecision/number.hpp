@@ -6,27 +6,27 @@
 #ifndef BOOST_MATH_EXTENDED_REAL_HPP
 #define BOOST_MATH_EXTENDED_REAL_HPP
 
-#include <boost/config.hpp>
-#include <boost/cstdint.hpp>
-#include <boost/mpl/max.hpp>
-#include <boost/mpl/plus.hpp>
-#include <boost/mpl/or.hpp>
-#include <boost/mpl/find_if.hpp>
-#include <boost/assert.hpp>
-#include <boost/type_traits/remove_pointer.hpp>
-#include <boost/type_traits/is_signed.hpp>
-#include <boost/type_traits/is_unsigned.hpp>
-#include <boost/type_traits/is_floating_point.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/is_complex.hpp>
-#include <boost/type_traits/make_unsigned.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/throw_exception.hpp>
-#include <boost/multiprecision/detail/precision.hpp>
-#include <boost/multiprecision/detail/generic_interconvert.hpp>
-#include <boost/multiprecision/detail/number_compare.hpp>
-#include <boost/multiprecision/traits/is_restricted_conversion.hpp>
-#include <boost/container_hash/hash.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/mpl/max.hpp"
+#include "Utilogeny/lib/boost/mpl/plus.hpp"
+#include "Utilogeny/lib/boost/mpl/or.hpp"
+#include "Utilogeny/lib/boost/mpl/find_if.hpp"
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_pointer.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_signed.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_unsigned.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_floating_point.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_complex.hpp"
+#include "Utilogeny/lib/boost/type_traits/make_unsigned.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/throw_exception.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/precision.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/generic_interconvert.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/number_compare.hpp"
+#include "Utilogeny/lib/boost/multiprecision/traits/is_restricted_conversion.hpp"
+#include "Utilogeny/lib/boost/container_hash/hash.hpp"
 #include <istream> // stream operators
 #include <cstdio>  // EOF
 #include <cctype>  // isspace
@@ -2231,6 +2231,6 @@ struct hash<boost::rational<boost::multiprecision::number<Backend, ExpressionTem
 
 #endif
 
-#include <boost/multiprecision/detail/ublas_interop.hpp>
+#include "Utilogeny/lib/boost/multiprecision/detail/ublas_interop.hpp"
 
 #endif

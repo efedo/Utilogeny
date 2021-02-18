@@ -14,9 +14,9 @@
 /// Not intended for inclusion from user's code.
 
 #include <cstring>
-#include <boost/config.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 # pragma once
@@ -47,9 +47,9 @@
 
 
 #if defined(BOOST_TYPE_INDEX_DOXYGEN_INVOKED)
-    /* Nothing to document. All the macro docs are moved to <boost/type_index.hpp> */
+    /* Nothing to document. All the macro docs are moved to "Utilogeny/lib/boost/type_index.hpp" */
 #elif defined(BOOST_TYPE_INDEX_CTTI_USER_DEFINED_PARSING)
-#   include <boost/preprocessor/facilities/expand.hpp>
+#   include "Utilogeny/lib/boost/preprocessor/facilities/expand.hpp"
     BOOST_PP_EXPAND( BOOST_TYPE_INDEX_REGISTER_CTTI_PARSING_PARAMS BOOST_TYPE_INDEX_CTTI_USER_DEFINED_PARSING )
 #elif defined(_MSC_VER) && !defined(__clang__) && defined (BOOST_NO_CXX11_NOEXCEPT)
     // sizeof("const char *__cdecl boost::detail::ctti<") - 1, sizeof(">::n(void)") - 1

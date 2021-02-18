@@ -15,16 +15,16 @@
 #define BOOST_ATOMIC_DETAIL_WAIT_OPS_WINDOWS_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/static_assert.hpp>
-#include <boost/memory_order.hpp>
-#include <boost/winapi/basic_types.hpp>
-#include <boost/winapi/wait_constants.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/link.hpp>
-#include <boost/atomic/detail/once_flag.hpp>
-#include <boost/atomic/detail/wait_operations_fwd.hpp>
-#include <boost/atomic/detail/wait_ops_generic.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/winapi/basic_types.hpp"
+#include "Utilogeny/lib/boost/winapi/wait_constants.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/link.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/once_flag.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/wait_operations_fwd.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/wait_ops_generic.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -145,6 +145,6 @@ struct wait_operations< Base, 8u, true, false > :
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_WAIT_OPS_WINDOWS_HPP_INCLUDED_

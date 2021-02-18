@@ -13,20 +13,20 @@
 #endif
 
 #include <algorithm>                             // min.
-#include <boost/assert.hpp>
+#include "Utilogeny/lib/boost/assert.hpp"
 #include <cstddef>                               // ptrdiff_t.
 #include <iosfwd>                                // streamsize, streamoff.
 #include <iterator>                              // iterator_traits.
-#include <boost/iostreams/categories.hpp>
-#include <boost/iostreams/detail/error.hpp>
-#include <boost/iostreams/positioning.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/throw_exception.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/core/enable_if.hpp>
+#include "Utilogeny/lib/boost/iostreams/categories.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/error.hpp"
+#include "Utilogeny/lib/boost/iostreams/positioning.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/throw_exception.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/core/enable_if.hpp"
 
 // Must come last.
-#include <boost/iostreams/detail/config/disable_warnings.hpp>  // MSVC.
+#include "Utilogeny/lib/boost/iostreams/detail/config/disable_warnings.hpp"  // MSVC.
 
 namespace boost { namespace iostreams { namespace detail {
 
@@ -182,6 +182,6 @@ struct range_adapter_impl<std::random_access_iterator_tag> {
 
 } } } // End namespaces detail, iostreams, boost.
 
-#include <boost/iostreams/detail/config/enable_warnings.hpp>  // MSVC.
+#include "Utilogeny/lib/boost/iostreams/detail/config/enable_warnings.hpp"  // MSVC.
 
 #endif // #ifndef BOOST_IOSTREAMS_DETAIL_RANGE_ADAPTER_HPP_INCLUDED //---------------//

@@ -15,7 +15,7 @@
 # ifndef BOOST_PREPROCESSOR_CONFIG_LIMITS_HPP
 # define BOOST_PREPROCESSOR_CONFIG_LIMITS_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # if defined(BOOST_PP_LIMIT_DIM)
 # undef BOOST_PP_LIMIT_DIM

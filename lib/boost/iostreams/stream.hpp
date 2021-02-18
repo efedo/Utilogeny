@@ -12,16 +12,16 @@
 # pragma once
 #endif
 
-#include <boost/iostreams/constants.hpp>
-#include <boost/iostreams/detail/char_traits.hpp>
-#include <boost/iostreams/detail/config/overload_resolution.hpp>
-#include <boost/iostreams/detail/forward.hpp>
-#include <boost/iostreams/detail/iostream.hpp>  // standard streams.
-#include <boost/iostreams/detail/select.hpp>
-#include <boost/iostreams/stream_buffer.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/utility/base_from_member.hpp>
+#include "Utilogeny/lib/boost/iostreams/constants.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/char_traits.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/config/overload_resolution.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/forward.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/iostream.hpp"  // standard streams.
+#include "Utilogeny/lib/boost/iostreams/detail/select.hpp"
+#include "Utilogeny/lib/boost/iostreams/stream_buffer.hpp"
+#include "Utilogeny/lib/boost/mpl/and.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/utility/base_from_member.hpp"
 
 namespace boost { namespace iostreams { namespace detail {
 
@@ -97,7 +97,7 @@ public:
 } } } // End namespaces detail, iostreams, boost.
 
 #ifdef BOOST_IOSTREAMS_BROKEN_OVERLOAD_RESOLUTION
-# include <boost/iostreams/detail/broken_overload_resolution/stream.hpp>
+# include "Utilogeny/lib/boost/iostreams/detail/broken_overload_resolution/stream.hpp"
 #else
 
 namespace boost { namespace iostreams {

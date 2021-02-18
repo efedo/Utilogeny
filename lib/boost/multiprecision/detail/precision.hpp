@@ -6,9 +6,9 @@
 #ifndef BOOST_MP_PRECISION_HPP
 #define BOOST_MP_PRECISION_HPP
 
-#include <boost/multiprecision/traits/is_variable_precision.hpp>
-#include <boost/multiprecision/detail/number_base.hpp>
-#include <boost/multiprecision/detail/digits.hpp>
+#include "Utilogeny/lib/boost/multiprecision/traits/is_variable_precision.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/number_base.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/digits.hpp"
 
 namespace boost { namespace multiprecision { namespace detail {
 

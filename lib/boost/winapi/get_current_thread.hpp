@@ -9,8 +9,8 @@
 #ifndef BOOST_WINAPI_GET_CURRENT_THREAD_HPP_INCLUDED_
 #define BOOST_WINAPI_GET_CURRENT_THREAD_HPP_INCLUDED_
 
-#include <boost/winapi/basic_types.hpp>
-#include <boost/winapi/detail/header.hpp>
+#include "Utilogeny/lib/boost/winapi/basic_types.hpp"
+#include "Utilogeny/lib/boost/winapi/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -29,6 +29,6 @@ using ::GetCurrentThread;
 }
 }
 
-#include <boost/winapi/detail/footer.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/footer.hpp"
 
 #endif // BOOST_WINAPI_GET_CURRENT_THREAD_HPP_INCLUDED_

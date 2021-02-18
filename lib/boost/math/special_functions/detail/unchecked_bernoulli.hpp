@@ -13,16 +13,16 @@
 
 #include <limits>
 #include <cmath>
-#include <boost/math/policies/error_handling.hpp>
-#include <boost/math/constants/constants.hpp>
-#include <boost/math/special_functions/math_fwd.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/type_traits/is_convertible.hpp>
+#include "Utilogeny/lib/boost/math/policies/error_handling.hpp"
+#include "Utilogeny/lib/boost/math/constants/constants.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/math_fwd.hpp"
+#include "Utilogeny/lib/boost/mpl/int.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
 
 #ifdef BOOST_MATH_HAVE_CONSTEXPR_TABLES
 #include <array>
 #else
-#include <boost/array.hpp>
+#include "Utilogeny/lib/boost/array.hpp"
 #endif
 
 

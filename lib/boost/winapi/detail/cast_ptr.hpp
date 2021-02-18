@@ -8,8 +8,8 @@
 #ifndef BOOST_WINAPI_DETAIL_CAST_PTR_HPP_INCLUDED_
 #define BOOST_WINAPI_DETAIL_CAST_PTR_HPP_INCLUDED_
 
-#include <boost/winapi/config.hpp>
-#include <boost/winapi/detail/header.hpp>
+#include "Utilogeny/lib/boost/winapi/config.hpp"
+#include "Utilogeny/lib/boost/winapi/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -35,6 +35,6 @@ public:
 }
 }
 
-#include <boost/winapi/detail/footer.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/footer.hpp"
 
 #endif // BOOST_WINAPI_DETAIL_CAST_PTR_HPP_INCLUDED_

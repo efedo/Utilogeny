@@ -8,8 +8,8 @@
 #ifndef BOOST_MP_DETAIL_BITSCAN_HPP
 #define BOOST_MP_DETAIL_BITSCAN_HPP
 
-#include <boost/predef/other/endian.h>
-#include <boost/cstdint.hpp>
+#include "Utilogeny/lib/boost/predef/other/endian.h"
+#include "Utilogeny/lib/boost/cstdint.hpp"
 
 #if (defined(BOOST_MSVC) || (defined(__clang__) && defined(__c2__)) || (defined(BOOST_INTEL) && defined(_MSC_VER))) && (defined(_M_IX86) || defined(_M_X64))
 #include <intrin.h>

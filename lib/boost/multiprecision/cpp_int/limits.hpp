@@ -8,7 +8,7 @@
 #ifndef BOOST_MP_CPP_INT_LIM_HPP
 #define BOOST_MP_CPP_INT_LIM_HPP
 
-#include <boost/multiprecision/traits/max_digits10.hpp>
+#include "Utilogeny/lib/boost/multiprecision/traits/max_digits10.hpp"
 
 namespace std {
 

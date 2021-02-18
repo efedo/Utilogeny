@@ -35,12 +35,12 @@
 
 #include <utility> // needed for the assignment from pair to tuple
 
-#include <boost/type_traits/cv_traits.hpp>
-#include <boost/type_traits/function_traits.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/utility/swap.hpp>
+#include "Utilogeny/lib/boost/type_traits/cv_traits.hpp"
+#include "Utilogeny/lib/boost/type_traits/function_traits.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/utility/swap.hpp"
 
-#include <boost/detail/workaround.hpp> // needed for BOOST_WORKAROUND
+#include "Utilogeny/lib/boost/detail/workaround.hpp" // needed for BOOST_WORKAROUND
 
 #if defined(BOOST_GCC) && (BOOST_GCC >= 40700)
 #pragma GCC diagnostic push

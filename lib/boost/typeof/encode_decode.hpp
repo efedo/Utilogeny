@@ -21,7 +21,7 @@
 #   define BOOST_TYPEOF_ENCODE_NS_QUALIFIER boost::type_of
 
 #   define BOOST_TYPEOF_TEXT "unnamed namespace is off"
-#   include <boost/typeof/message.hpp>
+#   include "Utilogeny/lib/boost/typeof/message.hpp"
 
 #endif
 

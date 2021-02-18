@@ -9,7 +9,7 @@
 #ifndef BOOST_TT_CONDITIONAL_HPP_INCLUDED
 #define BOOST_TT_CONDITIONAL_HPP_INCLUDED
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 namespace boost {
 

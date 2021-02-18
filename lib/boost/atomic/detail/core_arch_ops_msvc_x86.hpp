@@ -17,25 +17,25 @@
 #define BOOST_ATOMIC_DETAIL_CORE_ARCH_OPS_MSVC_X86_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/cstdint.hpp>
-#include <boost/memory_order.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/intptr.hpp>
-#include <boost/atomic/detail/interlocked.hpp>
-#include <boost/atomic/detail/storage_traits.hpp>
-#include <boost/atomic/detail/core_arch_operations_fwd.hpp>
-#include <boost/atomic/detail/type_traits/make_signed.hpp>
-#include <boost/atomic/detail/capabilities.hpp>
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/intptr.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/interlocked.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/storage_traits.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/core_arch_operations_fwd.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/make_signed.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/capabilities.hpp"
 #if defined(BOOST_ATOMIC_DETAIL_X86_HAS_CMPXCHG8B) || defined(BOOST_ATOMIC_DETAIL_X86_HAS_CMPXCHG16B)
-#include <boost/cstdint.hpp>
-#include <boost/atomic/detail/cas_based_exchange.hpp>
-#include <boost/atomic/detail/core_ops_cas_based.hpp>
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/cas_based_exchange.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/core_ops_cas_based.hpp"
 #endif
-#include <boost/atomic/detail/ops_msvc_common.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/ops_msvc_common.hpp"
 #if !defined(_M_IX86) && !(defined(BOOST_ATOMIC_INTERLOCKED_COMPARE_EXCHANGE8) && defined(BOOST_ATOMIC_INTERLOCKED_COMPARE_EXCHANGE16))
-#include <boost/atomic/detail/extending_cas_based_arithmetic.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/extending_cas_based_arithmetic.hpp"
 #endif
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -871,6 +871,6 @@ struct core_arch_operations< 16u, Signed, Interprocess > :
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_CORE_ARCH_OPS_MSVC_X86_HPP_INCLUDED_

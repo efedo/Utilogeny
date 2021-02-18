@@ -15,7 +15,7 @@
 #define BOOST_ATOMIC_DETAIL_FLOAT_SIZES_HPP_INCLUDED_
 
 #include <float.h>
-#include <boost/atomic/detail/config.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once

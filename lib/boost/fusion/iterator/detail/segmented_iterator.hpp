@@ -7,16 +7,16 @@
 #if !defined(BOOST_FUSION_SEGMENTED_ITERATOR_SEGMENTED_ITERATOR_HPP_INCLUDED)
 #define BOOST_FUSION_SEGMENTED_ITERATOR_SEGMENTED_ITERATOR_HPP_INCLUDED
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/fusion/sequence/intrinsic_fwd.hpp>
-#include <boost/fusion/iterator/iterator_facade.hpp>
-#include <boost/fusion/iterator/deref.hpp>
-#include <boost/fusion/iterator/deref_data.hpp>
-#include <boost/fusion/iterator/key_of.hpp>
-#include <boost/fusion/iterator/value_of.hpp>
-#include <boost/fusion/iterator/value_of_data.hpp>
-#include <boost/fusion/iterator/detail/segmented_equal_to.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic_fwd.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/iterator_facade.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/deref.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/deref_data.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/key_of.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/value_of.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/value_of_data.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/detail/segmented_equal_to.hpp"
 
 namespace boost { namespace fusion
 {

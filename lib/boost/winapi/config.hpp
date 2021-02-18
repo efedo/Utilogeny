@@ -9,8 +9,8 @@
 #ifndef BOOST_WINAPI_CONFIG_HPP_INCLUDED_
 #define BOOST_WINAPI_CONFIG_HPP_INCLUDED_
 
-#include <boost/predef/version_number.h>
-#include <boost/predef/platform.h>
+#include "Utilogeny/lib/boost/predef/version_number.h"
+#include "Utilogeny/lib/boost/predef/platform.h"
 #if defined(__CYGWIN__)
 // Cygwin 64 compiler does not define _WIN64 and instead defines it in a private header. We can't define _WIN64 ourselves because
 // the header defines the macro unconditionally and if the user includes both Boost.WinAPI and Cygwin WinAPI headers there will be conflict.
@@ -232,7 +232,7 @@
 #define BOOST_WINAPI_IMPORT_EXCEPT_WM BOOST_SYMBOL_IMPORT
 #endif
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once

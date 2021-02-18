@@ -10,8 +10,8 @@ or copy at http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_TT_DETAIL_DETECTOR_HPP_INCLUDED
 #define BOOST_TT_DETAIL_DETECTOR_HPP_INCLUDED
 
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/make_void.hpp>
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/type_traits/make_void.hpp"
 
 namespace boost {
 namespace detail {

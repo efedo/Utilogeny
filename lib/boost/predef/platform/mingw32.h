@@ -8,8 +8,8 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_PLAT_MINGW32_H
 #define BOOST_PREDEF_PLAT_MINGW32_H
 
-#include <boost/predef/version_number.h>
-#include <boost/predef/make.h>
+#include "Utilogeny/lib/boost/predef/version_number.h"
+#include "Utilogeny/lib/boost/predef/make.h"
 
 /* tag::reference[]
 = `BOOST_PLAT_MINGW32`
@@ -48,17 +48,17 @@ Version number available as major, minor, and patch.
 #       undef BOOST_PLAT_MINGW32
 #       define BOOST_PLAT_MINGW32 BOOST_PLAT_MINGW32_DETECTION
 #   endif
-#   include <boost/predef/detail/platform_detected.h>
+#   include "Utilogeny/lib/boost/predef/detail/platform_detected.h"
 #endif
 
 #define BOOST_PLAT_MINGW32_NAME "MinGW"
 
 #endif
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_PLAT_MINGW32,BOOST_PLAT_MINGW32_NAME)
 
 #ifdef BOOST_PLAT_MINGW32_EMULATED
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_PLAT_MINGW32_EMULATED,BOOST_PLAT_MINGW32_NAME)
 #endif

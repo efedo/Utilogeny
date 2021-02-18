@@ -14,7 +14,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/gcc.hpp>
+#include "Utilogeny/lib/boost/mpl/aux_/config/gcc.hpp"
 
 #if !defined(BOOST_MPL_CFG_HAS_TYPEOF) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE) \

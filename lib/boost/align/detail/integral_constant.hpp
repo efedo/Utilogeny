@@ -8,7 +8,7 @@ Distributed under the Boost Software License, Version 1.0.
 #ifndef BOOST_ALIGN_DETAIL_INTEGRAL_CONSTANT_HPP
 #define BOOST_ALIGN_DETAIL_INTEGRAL_CONSTANT_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 #if !defined(BOOST_NO_CXX11_HDR_TYPE_TRAITS)
 #include <type_traits>

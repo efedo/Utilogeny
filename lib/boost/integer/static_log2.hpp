@@ -16,8 +16,8 @@
 #ifndef BOOST_INTEGER_STATIC_LOG2_HPP
 #define BOOST_INTEGER_STATIC_LOG2_HPP
 
-#include <boost/config.hpp>
-#include <boost/integer_fwd.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/integer_fwd.hpp"
 
 namespace boost {
 

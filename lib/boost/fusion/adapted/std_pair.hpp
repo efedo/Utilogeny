@@ -10,8 +10,8 @@
 #ifndef BOOST_FUSION_ADAPTED_STD_PAIR_HPP
 #define BOOST_FUSION_ADAPTED_STD_PAIR_HPP
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/adapted/struct/adapt_struct.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/adapt_struct.hpp"
 #include <utility>
 
 BOOST_FUSION_ADAPT_TPL_STRUCT(

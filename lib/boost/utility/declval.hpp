@@ -8,6 +8,6 @@
 #ifndef BOOST_UTILITY_DECLVAL_HPP
 #define BOOST_UTILITY_DECLVAL_HPP
 
-#include <boost/type_traits/declval.hpp>
+#include "Utilogeny/lib/boost/type_traits/declval.hpp"
 
 #endif  // BOOST_UTILITY_DECLVAL_HPP

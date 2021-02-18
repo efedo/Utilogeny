@@ -19,39 +19,39 @@
 /// When typeid() is disabled or BOOST_TYPE_INDEX_FORCE_NO_RTTI_COMPATIBILITY macro
 /// is defined boost::typeindex::ctti is usually used instead of boost::typeindex::stl_type_index.
 
-#include <boost/type_index/type_index_facade.hpp>
+#include "Utilogeny/lib/boost/type_index/type_index_facade.hpp"
 
 // MSVC is capable of calling typeid(T) even when RTTI is off
 #if defined(BOOST_NO_RTTI) && !defined(BOOST_MSVC)
-#error "File boost/type_index/stl_type_index.ipp is not usable when typeid() is not available."
+#error "File Utilogeny/lib/boost/type_index/stl_type_index.ipp is not usable when typeid() is not available."
 #endif
 
 #include <typeinfo>
 #include <cstring>                                  // std::strcmp, std::strlen, std::strstr
 #include <stdexcept>
-#include <boost/static_assert.hpp>
-#include <boost/throw_exception.hpp>
-#include <boost/core/demangle.hpp>
-#include <boost/type_traits/conditional.hpp>
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/is_reference.hpp>
-#include <boost/type_traits/is_volatile.hpp>
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/remove_reference.hpp>
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/throw_exception.hpp"
+#include "Utilogeny/lib/boost/core/demangle.hpp"
+#include "Utilogeny/lib/boost/type_traits/conditional.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_const.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_reference.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_volatile.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
 
 #if (defined(_MSC_VER) && _MSC_VER > 1600) \
     || (defined(__GNUC__) && __GNUC__ == 4 && __GNUC_MINOR__ > 5 && defined(__GXX_EXPERIMENTAL_CXX0X__)) \
     || (defined(__GNUC__) && __GNUC__ > 4 && __cplusplus >= 201103)
 #   define BOOST_TYPE_INDEX_STD_TYPE_INDEX_HAS_HASH_CODE
 #else
-#   include <boost/container_hash/hash.hpp>
+#   include "Utilogeny/lib/boost/container_hash/hash.hpp"
 #endif
 
 #if (defined(__EDG_VERSION__) && __EDG_VERSION__ < 245) \
         || (defined(__sgi) && defined(_COMPILER_VERSION) && _COMPILER_VERSION <= 744)
-#   include <boost/type_traits/is_signed.hpp>
-#   include <boost/type_traits/make_signed.hpp>
-#   include <boost/type_traits/type_identity.hpp>
+#   include "Utilogeny/lib/boost/type_traits/is_signed.hpp"
+#   include "Utilogeny/lib/boost/type_traits/make_signed.hpp"
+#   include "Utilogeny/lib/boost/type_traits/type_identity.hpp"
 #endif
 
 #ifdef BOOST_HAS_PRAGMA_ONCE

@@ -14,8 +14,8 @@
 #
 # /* BOOST_PP_DETAIL_IS_MAXIMUM_NUMBER */
 #
-# include <boost/preprocessor/comparison/equal.hpp>
-# include <boost/preprocessor/arithmetic/detail/maximum_number.hpp>
+# include "Utilogeny/lib/boost/preprocessor/comparison/equal.hpp"
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/detail/maximum_number.hpp"
 #
 # define BOOST_PP_DETAIL_IS_MAXIMUM_NUMBER(x) BOOST_PP_EQUAL(x,BOOST_PP_DETAIL_MAXIMUM_NUMBER)
 #

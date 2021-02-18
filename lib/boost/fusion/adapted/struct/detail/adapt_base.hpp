@@ -11,34 +11,34 @@
 #ifndef BOOST_FUSION_ADAPTED_STRUCT_DETAIL_ADAPT_BASE_HPP
 #define BOOST_FUSION_ADAPTED_STRUCT_DETAIL_ADAPT_BASE_HPP
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/config.hpp>
-#include <boost/fusion/support/tag_of_fwd.hpp>
-#include <boost/fusion/adapted/struct/detail/adapt_auto.hpp>
-#include <boost/fusion/adapted/struct/detail/adapt_is_tpl.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/fusion/support/tag_of_fwd.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/adapt_auto.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/adapt_is_tpl.hpp"
 
-#include <boost/preprocessor/empty.hpp>
-#include <boost/preprocessor/stringize.hpp>
-#include <boost/preprocessor/control/if.hpp>
-#include <boost/preprocessor/seq/size.hpp>
-#include <boost/preprocessor/seq/for_each.hpp>
-#include <boost/preprocessor/seq/for_each_i.hpp>
-#include <boost/preprocessor/seq/enum.hpp>
-#include <boost/preprocessor/seq/seq.hpp>
-#include <boost/preprocessor/tuple/eat.hpp>
-#include <boost/preprocessor/tuple/elem.hpp>
-#include <boost/preprocessor/arithmetic/dec.hpp>
-#include <boost/preprocessor/comparison/less.hpp>
-#include <boost/preprocessor/logical/not.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/tag.hpp>
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/add_const.hpp>
-#include <boost/type_traits/add_reference.hpp>
+#include "Utilogeny/lib/boost/preprocessor/empty.hpp"
+#include "Utilogeny/lib/boost/preprocessor/stringize.hpp"
+#include "Utilogeny/lib/boost/preprocessor/control/if.hpp"
+#include "Utilogeny/lib/boost/preprocessor/seq/size.hpp"
+#include "Utilogeny/lib/boost/preprocessor/seq/for_each.hpp"
+#include "Utilogeny/lib/boost/preprocessor/seq/for_each_i.hpp"
+#include "Utilogeny/lib/boost/preprocessor/seq/enum.hpp"
+#include "Utilogeny/lib/boost/preprocessor/seq/seq.hpp"
+#include "Utilogeny/lib/boost/preprocessor/tuple/eat.hpp"
+#include "Utilogeny/lib/boost/preprocessor/tuple/elem.hpp"
+#include "Utilogeny/lib/boost/preprocessor/arithmetic/dec.hpp"
+#include "Utilogeny/lib/boost/preprocessor/comparison/less.hpp"
+#include "Utilogeny/lib/boost/preprocessor/logical/not.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/mpl/tag.hpp"
+#include "Utilogeny/lib/boost/mpl/eval_if.hpp"
+#include "Utilogeny/lib/boost/mpl/identity.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_const.hpp"
+#include "Utilogeny/lib/boost/type_traits/add_const.hpp"
+#include "Utilogeny/lib/boost/type_traits/add_reference.hpp"
 
-#include <boost/typeof/typeof.hpp>
+#include "Utilogeny/lib/boost/typeof/typeof.hpp"
 
 
 #define BOOST_FUSION_ADAPT_STRUCT_UNPACK_NAME_TEMPLATE_PARAMS(SEQ)              \

@@ -6,8 +6,8 @@
 //
 //  See http://www.boost.org/libs/type_traits for most recent version including documentation.
 
-#include <boost/config.hpp>
-#include <boost/type_traits/detail/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/type_traits/detail/config.hpp"
 
 // cannot include this header without getting warnings of the kind:
 // gcc:
@@ -33,11 +33,11 @@
 
 #if defined(BOOST_TT_HAS_ACCURATE_BINARY_OPERATOR_DETECTION)
 
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/make_void.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/is_void.hpp>
-#include <boost/type_traits/add_reference.hpp>
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/type_traits/make_void.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_void.hpp"
+#include "Utilogeny/lib/boost/type_traits/add_reference.hpp"
 #include <utility>
 
 namespace boost
@@ -82,20 +82,20 @@ namespace boost
 
 #else
 
-#include <boost/type_traits/detail/yes_no_type.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/is_base_of.hpp>
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/is_fundamental.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/is_pointer.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/is_void.hpp>
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/remove_pointer.hpp>
-#include <boost/type_traits/remove_reference.hpp>
-#include <boost/type_traits/detail/is_likely_lambda.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/yes_no_type.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_base_of.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_const.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_fundamental.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_pointer.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_same.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_void.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_pointer.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
+#include "Utilogeny/lib/boost/type_traits/detail/is_likely_lambda.hpp"
 
 namespace boost {
 namespace detail {

@@ -16,8 +16,8 @@
 #ifndef BOOST_ATOMIC_DETAIL_GCC_ARM_ASM_COMMON_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_GCC_ARM_ASM_COMMON_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/capabilities.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/capabilities.hpp"
 
 // A memory barrier is effected using a "co-processor 15" instruction,
 // though a separate assembler mnemonic is available for it in v7.

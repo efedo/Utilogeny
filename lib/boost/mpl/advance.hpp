@@ -14,18 +14,18 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/advance_fwd.hpp>
-#include <boost/mpl/less.hpp>
-#include <boost/mpl/negate.hpp>
-#include <boost/mpl/long.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/tag.hpp>
-#include <boost/mpl/apply_wrap.hpp>
-#include <boost/mpl/aux_/advance_forward.hpp>
-#include <boost/mpl/aux_/advance_backward.hpp>
-#include <boost/mpl/aux_/value_wknd.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/nttp_decl.hpp>
+#include "Utilogeny/lib/boost/mpl/advance_fwd.hpp"
+#include "Utilogeny/lib/boost/mpl/less.hpp"
+#include "Utilogeny/lib/boost/mpl/negate.hpp"
+#include "Utilogeny/lib/boost/mpl/long.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/tag.hpp"
+#include "Utilogeny/lib/boost/mpl/apply_wrap.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/advance_forward.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/advance_backward.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/value_wknd.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/na_spec.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/nttp_decl.hpp"
 
 namespace boost { namespace mpl {
 

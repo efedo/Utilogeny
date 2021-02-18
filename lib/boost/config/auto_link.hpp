@@ -6,7 +6,7 @@
  /*
   *   LOCATION:    see http://www.boost.org for most recent version.
   *   FILE         auto_link.hpp
-  *   VERSION      see <boost/version.hpp>
+  *   VERSION      see "Utilogeny/lib/boost/version.hpp"
   *   DESCRIPTION: Automatic library inclusion for Borland/Microsoft compilers.
   */
 
@@ -85,7 +85,7 @@ BOOST_LIB_SUFFIX:     Static/import libraries extension (".lib", ".a") for the c
 
 #ifdef __cplusplus
 #  ifndef BOOST_CONFIG_HPP
-#     include <boost/config.hpp>
+#     include "Utilogeny/lib/boost/config.hpp"
 #  endif
 #elif defined(_MSC_VER) && !defined(__MWERKS__) && !defined(__EDG_VERSION__)
 //
@@ -106,7 +106,7 @@ BOOST_LIB_SUFFIX:     Static/import libraries extension (".lib", ".a") for the c
     || (defined(BOOST_CLANG) && defined(BOOST_WINDOWS) && defined(_MSC_VER) && (__clang_major__ >= 4))
 
 #ifndef BOOST_VERSION_HPP
-#  include <boost/version.hpp>
+#  include "Utilogeny/lib/boost/version.hpp"
 #endif
 
 #ifndef BOOST_LIB_NAME

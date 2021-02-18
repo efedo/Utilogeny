@@ -5,15 +5,15 @@
 #ifndef BOOST_TYPEOF_REGISTER_FUNCTIONS_HPP_INCLUDED
 #define BOOST_TYPEOF_REGISTER_FUNCTIONS_HPP_INCLUDED
 
-#include <boost/preprocessor/repetition/enum.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/preprocessor/repetition/enum_trailing_params.hpp>
-#include <boost/preprocessor/cat.hpp>
-#include <boost/preprocessor/inc.hpp>
-#include <boost/preprocessor/dec.hpp>
-#include <boost/preprocessor/if.hpp>
-#include <boost/preprocessor/arithmetic/add.hpp>
-#include <boost/preprocessor/iteration/iterate.hpp>
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_params.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_trailing_params.hpp"
+#include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+#include "Utilogeny/lib/boost/preprocessor/inc.hpp"
+#include "Utilogeny/lib/boost/preprocessor/dec.hpp"
+#include "Utilogeny/lib/boost/preprocessor/if.hpp"
+#include "Utilogeny/lib/boost/preprocessor/arithmetic/add.hpp"
+#include "Utilogeny/lib/boost/preprocessor/iteration/iterate.hpp"
 
 #include BOOST_TYPEOF_INCREMENT_REGISTRATION_GROUP()
 
@@ -42,7 +42,7 @@ enum
 BOOST_TYPEOF_BEGIN_ENCODE_NS
 
 # define BOOST_PP_ITERATION_LIMITS (0, BOOST_TYPEOF_LIMIT_FUNCTION_ARITY)
-# define BOOST_PP_FILENAME_1 <boost/typeof/register_functions_iterate.hpp>
+# define BOOST_PP_FILENAME_1 "Utilogeny/lib/boost/typeof/register_functions_iterate.hpp"
 # include BOOST_PP_ITERATE()
 
 BOOST_TYPEOF_END_ENCODE_NS

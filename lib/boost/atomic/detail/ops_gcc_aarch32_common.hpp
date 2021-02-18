@@ -14,8 +14,8 @@
 #ifndef BOOST_ATOMIC_DETAIL_OPS_GCC_AARCH32_COMMON_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_OPS_GCC_AARCH32_COMMON_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/capabilities.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/capabilities.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once

@@ -6,21 +6,21 @@
 #ifndef BOOST_MATH_CPP_BIN_FLOAT_HPP
 #define BOOST_MATH_CPP_BIN_FLOAT_HPP
 
-#include <boost/multiprecision/cpp_int.hpp>
-#include <boost/multiprecision/integer.hpp>
-#include <boost/math/special_functions/trunc.hpp>
-#include <boost/multiprecision/detail/float_string_cvt.hpp>
-#include <boost/multiprecision/traits/max_digits10.hpp>
+#include "Utilogeny/lib/boost/multiprecision/cpp_int.hpp"
+#include "Utilogeny/lib/boost/multiprecision/integer.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/trunc.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/float_string_cvt.hpp"
+#include "Utilogeny/lib/boost/multiprecision/traits/max_digits10.hpp"
 
 //
 // Some includes we need from Boost.Math, since we rely on that library to provide these functions:
 //
-#include <boost/math/special_functions/asinh.hpp>
-#include <boost/math/special_functions/acosh.hpp>
-#include <boost/math/special_functions/atanh.hpp>
-#include <boost/math/special_functions/cbrt.hpp>
-#include <boost/math/special_functions/expm1.hpp>
-#include <boost/math/special_functions/gamma.hpp>
+#include "Utilogeny/lib/boost/math/special_functions/asinh.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/acosh.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/atanh.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/cbrt.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/expm1.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/gamma.hpp"
 
 #ifdef BOOST_HAS_FLOAT128
 #include <quadmath.h>
@@ -1852,8 +1852,8 @@ using boost::multiprecision::signbit;
 
 } // namespace boost
 
-#include <boost/multiprecision/cpp_bin_float/io.hpp>
-#include <boost/multiprecision/cpp_bin_float/transcendental.hpp>
+#include "Utilogeny/lib/boost/multiprecision/cpp_bin_float/io.hpp"
+#include "Utilogeny/lib/boost/multiprecision/cpp_bin_float/transcendental.hpp"
 
 namespace std {
 

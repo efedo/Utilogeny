@@ -12,15 +12,15 @@
 # pragma once
 #endif              
 
-#include <boost/config.hpp>                             // SFINAE, MSVC.
-#include <boost/detail/workaround.hpp>
-#include <boost/iostreams/detail/enable_if_stream.hpp>
-#include <boost/iostreams/traits_fwd.hpp>               // is_std_io.
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/ref.hpp>
+#include "Utilogeny/lib/boost/config.hpp"                             // SFINAE, MSVC.
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/enable_if_stream.hpp"
+#include "Utilogeny/lib/boost/iostreams/traits_fwd.hpp"               // is_std_io.
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/mpl/identity.hpp"
+#include "Utilogeny/lib/boost/mpl/eval_if.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/ref.hpp"
 
 namespace boost { namespace iostreams { namespace detail {
                     

@@ -14,11 +14,11 @@
 # ifndef BOOST_PREPROCESSOR_LIST_REVERSE_HPP
 # define BOOST_PREPROCESSOR_LIST_REVERSE_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_STRICT()
 #
-# include <boost/preprocessor/list/fold_left.hpp>
+# include "Utilogeny/lib/boost/preprocessor/list/fold_left.hpp"
 #
 # /* BOOST_PP_LIST_REVERSE */
 #
@@ -42,10 +42,10 @@
 #
 # else
 #
-# include <boost/preprocessor/control/iif.hpp>
-# include <boost/preprocessor/facilities/identity.hpp>
-# include <boost/preprocessor/list/adt.hpp>
-# include <boost/preprocessor/list/fold_left.hpp>
+# include "Utilogeny/lib/boost/preprocessor/control/iif.hpp"
+# include "Utilogeny/lib/boost/preprocessor/facilities/identity.hpp"
+# include "Utilogeny/lib/boost/preprocessor/list/adt.hpp"
+# include "Utilogeny/lib/boost/preprocessor/list/fold_left.hpp"
 #
 # /* BOOST_PP_LIST_REVERSE */
 #

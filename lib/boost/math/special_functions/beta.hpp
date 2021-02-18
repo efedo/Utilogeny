@@ -10,18 +10,18 @@
 #pragma once
 #endif
 
-#include <boost/math/special_functions/math_fwd.hpp>
-#include <boost/math/tools/config.hpp>
-#include <boost/math/special_functions/gamma.hpp>
-#include <boost/math/special_functions/binomial.hpp>
-#include <boost/math/special_functions/factorials.hpp>
-#include <boost/math/special_functions/erf.hpp>
-#include <boost/math/special_functions/log1p.hpp>
-#include <boost/math/special_functions/expm1.hpp>
-#include <boost/math/special_functions/trunc.hpp>
-#include <boost/math/tools/roots.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/config/no_tr1/cmath.hpp>
+#include "Utilogeny/lib/boost/math/special_functions/math_fwd.hpp"
+#include "Utilogeny/lib/boost/math/tools/config.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/gamma.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/binomial.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/factorials.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/erf.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/log1p.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/expm1.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/trunc.hpp"
+#include "Utilogeny/lib/boost/math/tools/roots.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp"
 
 namespace boost{ namespace math{
 
@@ -1589,7 +1589,7 @@ inline typename tools::promote_args<RT1, RT2, RT3>::type
 } // namespace math
 } // namespace boost
 
-#include <boost/math/special_functions/detail/ibeta_inverse.hpp>
-#include <boost/math/special_functions/detail/ibeta_inv_ab.hpp>
+#include "Utilogeny/lib/boost/math/special_functions/detail/ibeta_inverse.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/detail/ibeta_inv_ab.hpp"
 
 #endif // BOOST_MATH_SPECIAL_BETA_HPP

@@ -14,11 +14,11 @@
 #ifndef BOOST_ATOMIC_DETAIL_CAPS_GCC_ATOMIC_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_CAPS_GCC_ATOMIC_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/int_sizes.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/int_sizes.hpp"
 
 #if defined(BOOST_ATOMIC_DETAIL_CORE_ARCH_BACKEND_HEADER)
-#include BOOST_ATOMIC_DETAIL_CORE_ARCH_BACKEND_HEADER(boost/atomic/detail/caps_arch_)
+#include BOOST_ATOMIC_DETAIL_CORE_ARCH_BACKEND_HEADER(Utilogeny/lib/boost/atomic/detail/caps_arch_)
 #endif
 
 #ifdef BOOST_HAS_PRAGMA_ONCE

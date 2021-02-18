@@ -8,13 +8,13 @@
 #ifndef BOOST_IOSTREAMS_DETAIL_BOOL_TRAIT_DEF_HPP_INCLUDED
 #define BOOST_IOSTREAMS_DETAIL_BOOL_TRAIT_DEF_HPP_INCLUDED     
 
-#include <boost/config.hpp> // BOOST_STATIC_CONSTANT.
-#include <boost/iostreams/detail/template_params.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/preprocessor/cat.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/type_traits/detail/yes_no_type.hpp>
+#include "Utilogeny/lib/boost/config.hpp" // BOOST_STATIC_CONSTANT.
+#include "Utilogeny/lib/boost/iostreams/detail/template_params.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/lambda_support.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_params.hpp"
+#include "Utilogeny/lib/boost/type_traits/detail/yes_no_type.hpp"
  
 // 
 // Macro name: BOOST_IOSTREAMS_BOOL_TRAIT_DEF

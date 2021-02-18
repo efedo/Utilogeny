@@ -13,8 +13,8 @@
 #pragma once
 #endif
 
-#include <boost/type_traits/detail/config.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/config.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
 
 #if defined(BOOST_TT_HAS_ACCURATE_BINARY_OPERATOR_DETECTION)
 //
@@ -30,8 +30,8 @@ struct is_likely_stateless_lambda : public false_type {};
 #elif !defined(BOOST_NO_CXX11_LAMBDAS) && !defined(BOOST_NO_CXX11_DECLTYPE) && !defined(BOOST_NO_CXX11_TEMPLATE_ALIASES) && !BOOST_WORKAROUND(BOOST_MSVC, < 1900)\
          && !(BOOST_WORKAROUND(BOOST_MSVC, == 1900) && defined(__CLR_VER))
 
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/enable_if.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/type_traits/enable_if.hpp"
 
 namespace boost{
 

@@ -13,7 +13,7 @@
 //   31 Oct 01  use BOOST_HAS_LONG_LONG to check for "long long" (Jens M.)
 //   16 Apr 01  check LONGLONG_MAX when looking for "long long" (Jens Maurer)
 //   23 Jan 01  prefer "long" over "int" for int32_t and intmax_t (Jens Maurer)
-//   12 Nov 00  Merged <boost/stdint.h> (Jens Maurer)
+//   12 Nov 00  Merged "Utilogeny/lib/boost/stdint.h" (Jens Maurer)
 //   23 Sep 00  Added INTXX_C macro support (John Maddock).
 //   22 Sep 00  Better 64-bit support (John Maddock)
 //   29 Jun 00  Reimplement to avoid including stdint.h within namespace boost
@@ -33,11 +33,11 @@
 #  define __STDC_CONSTANT_MACROS
 #endif
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 //
 // For the following code we get several warnings along the lines of:
 //
-// boost/cstdint.hpp:428:35: error: use of C99 long long integer constant
+// Utilogeny/lib/boost/cstdint.hpp:428:35: error: use of C99 long long integer constant
 //
 // So we declare this a system header to suppress these warnings.
 // See also https://github.com/boostorg/config/issues/190
@@ -201,7 +201,7 @@ namespace boost {
 
 #else  // BOOST_HAS_STDINT_H
 
-# include <boost/limits.hpp> // implementation artifact; not part of interface
+# include "Utilogeny/lib/boost/limits.hpp" // implementation artifact; not part of interface
 # include <limits.h>         // needed for limits macros
 
 
@@ -226,7 +226,7 @@ namespace boost
      typedef unsigned char   uint_least8_t;
      typedef unsigned char   uint_fast8_t;
 # else
-#    error defaults not correct; you must hand modify boost/cstdint.hpp
+#    error defaults not correct; you must hand modify Utilogeny/lib/boost/cstdint.hpp
 # endif
 
 //  16-bit types  -----------------------------------------------------------//
@@ -265,7 +265,7 @@ namespace boost
      typedef unsigned short  uint_least16_t;
      typedef unsigned short  uint_fast16_t;
 # else
-#    error defaults not correct; you must hand modify boost/cstdint.hpp
+#    error defaults not correct; you must hand modify Utilogeny/lib/boost/cstdint.hpp
 # endif
 
 //  32-bit types  -----------------------------------------------------------//
@@ -300,7 +300,7 @@ namespace boost
       typedef unsigned __int32  uint_least32_t;
       typedef unsigned __int32  uint_fast32_t;
 # else
-#    error defaults not correct; you must hand modify boost/cstdint.hpp
+#    error defaults not correct; you must hand modify Utilogeny/lib/boost/cstdint.hpp
 # endif
 
 //  64-bit types + intmax_t and uintmax_t  ----------------------------------//
@@ -314,7 +314,7 @@ namespace boost
 #    elif (defined(ULLONG_MAX) && ULLONG_MAX == 18446744073709551615ULL) || (defined(ULONG_LONG_MAX) && ULONG_LONG_MAX == 18446744073709551615ULL) || (defined(ULONGLONG_MAX) && ULONGLONG_MAX == 18446744073709551615ULL)
                                                                  // 2**64 - 1
 #    else
-#       error defaults not correct; you must hand modify boost/cstdint.hpp
+#       error defaults not correct; you must hand modify Utilogeny/lib/boost/cstdint.hpp
 #    endif
 
      typedef  ::boost::long_long_type            intmax_t;
@@ -338,7 +338,7 @@ namespace boost
      typedef unsigned long        uint_least64_t;
      typedef unsigned long        uint_fast64_t;
 #    else
-#       error defaults not correct; you must hand modify boost/cstdint.hpp
+#       error defaults not correct; you must hand modify Utilogeny/lib/boost/cstdint.hpp
 #    endif
 # elif defined(__GNUC__) && defined(BOOST_HAS_LONG_LONG)
      __extension__ typedef long long            intmax_t;
@@ -517,7 +517,7 @@ INT#_C macros if they're not already defined (John Maddock).
 #       define INT64_C(value) value##LL
 #       define UINT64_C(value) value##uLL
 #    else
-#       error defaults not correct; you must hand modify boost/cstdint.hpp
+#       error defaults not correct; you must hand modify Utilogeny/lib/boost/cstdint.hpp
 #    endif
 #  elif ULONG_MAX != 0xffffffff
 
@@ -525,7 +525,7 @@ INT#_C macros if they're not already defined (John Maddock).
 #       define INT64_C(value) value##L
 #       define UINT64_C(value) value##uL
 #    else
-#       error defaults not correct; you must hand modify boost/cstdint.hpp
+#       error defaults not correct; you must hand modify Utilogeny/lib/boost/cstdint.hpp
 #    endif
 #  elif defined(BOOST_HAS_LONG_LONG)
      // Usual macros not defined, work things out for ourselves:
@@ -533,10 +533,10 @@ INT#_C macros if they're not already defined (John Maddock).
 #       define INT64_C(value) value##LL
 #       define UINT64_C(value) value##uLL
 #    else
-#       error defaults not correct; you must hand modify boost/cstdint.hpp
+#       error defaults not correct; you must hand modify Utilogeny/lib/boost/cstdint.hpp
 #    endif
 #  else
-#    error defaults not correct; you must hand modify boost/cstdint.hpp
+#    error defaults not correct; you must hand modify Utilogeny/lib/boost/cstdint.hpp
 #  endif
 
 #  ifdef BOOST_NO_INT64_T

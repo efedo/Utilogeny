@@ -17,11 +17,11 @@
 #define BOOST_ATOMIC_DETAIL_BITWISE_CAST_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/addressof.hpp>
-#include <boost/atomic/detail/string_ops.hpp>
-#include <boost/atomic/detail/type_traits/integral_constant.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/addressof.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/string_ops.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -82,6 +82,6 @@ BOOST_FORCEINLINE To bitwise_cast(From const& from) BOOST_NOEXCEPT
 #pragma GCC diagnostic pop
 #endif
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_BITWISE_CAST_HPP_INCLUDED_

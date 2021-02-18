@@ -11,15 +11,15 @@
 #ifndef BOOST_TT_IS_MEMBER_FUNCTION_POINTER_HPP_INCLUDED
 #define BOOST_TT_IS_MEMBER_FUNCTION_POINTER_HPP_INCLUDED
 
-#include <boost/type_traits/detail/config.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/config.hpp"
 
 #ifdef BOOST_TT_HAS_ASCCURATE_IS_FUNCTION
 
-#include <boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp"
 
 #else
 
-#include <boost/type_traits/detail/is_member_function_pointer_cxx_03.hpp>
+#include "Utilogeny/lib/boost/type_traits/detail/is_member_function_pointer_cxx_03.hpp"
 
 #endif
 

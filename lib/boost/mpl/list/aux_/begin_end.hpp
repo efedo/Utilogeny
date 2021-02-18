@@ -14,10 +14,10 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/begin_end_fwd.hpp>
-#include <boost/mpl/list/aux_/iterator.hpp>
-#include <boost/mpl/list/aux_/tag.hpp>
-#include <boost/mpl/list/aux_/item.hpp>
+#include "Utilogeny/lib/boost/mpl/begin_end_fwd.hpp"
+#include "Utilogeny/lib/boost/mpl/list/aux_/iterator.hpp"
+#include "Utilogeny/lib/boost/mpl/list/aux_/tag.hpp"
+#include "Utilogeny/lib/boost/mpl/list/aux_/item.hpp"
 
 namespace boost { namespace mpl {
 

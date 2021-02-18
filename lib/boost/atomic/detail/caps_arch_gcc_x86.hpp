@@ -16,7 +16,7 @@
 #ifndef BOOST_ATOMIC_DETAIL_CAPS_ARCH_GCC_X86_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_CAPS_ARCH_GCC_X86_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once

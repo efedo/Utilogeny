@@ -277,10 +277,10 @@
 // prefix and suffix headers:
 //
 #ifndef BOOST_ABI_PREFIX
-#  define BOOST_ABI_PREFIX "boost/config/abi/msvc_prefix.hpp"
+#  define BOOST_ABI_PREFIX "Utilogeny/lib/boost/config/abi/msvc_prefix.hpp"
 #endif
 #ifndef BOOST_ABI_SUFFIX
-#  define BOOST_ABI_SUFFIX "boost/config/abi/msvc_suffix.hpp"
+#  define BOOST_ABI_SUFFIX "Utilogeny/lib/boost/config/abi/msvc_suffix.hpp"
 #endif
 
 #ifndef BOOST_COMPILER
@@ -351,7 +351,7 @@
 #  define BOOST_COMPILER "Microsoft Visual C++ version " BOOST_STRINGIZE(BOOST_COMPILER_VERSION)
 #endif
 
-#include <boost/config/pragma_message.hpp>
+#include "Utilogeny/lib/boost/config/pragma_message.hpp"
 
 //
 // last known and checked version is 19.20.27508 (VC++ 2019 RC3):

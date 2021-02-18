@@ -7,22 +7,22 @@
 #ifndef FUSION_VECTOR_FORWARD_11052014_1626
 #define FUSION_VECTOR_FORWARD_11052014_1626
 
-#include <boost/config.hpp>
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/container/vector/detail/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/detail/config.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 // With no variadics, we will use the C++03 version
 ///////////////////////////////////////////////////////////////////////////////
 #if !defined(BOOST_FUSION_HAS_VARIADIC_VECTOR)
-# include <boost/fusion/container/vector/detail/cpp03/vector_fwd.hpp>
+# include "Utilogeny/lib/boost/fusion/container/vector/detail/cpp03/vector_fwd.hpp"
 #else
 
 ///////////////////////////////////////////////////////////////////////////////
 // C++11 interface
 ///////////////////////////////////////////////////////////////////////////////
-#include <boost/preprocessor/cat.hpp>
-#include <boost/preprocessor/repetition/repeat.hpp>
+#include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/repeat.hpp"
 
 namespace boost { namespace fusion
 {

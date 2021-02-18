@@ -12,13 +12,13 @@
 // Use of this header is discouraged and it will be deprecated.
 // Please include one or more of the headers below instead.
 
-#include <boost/utility/base_from_member.hpp>
-#include <boost/utility/binary.hpp>
-#include <boost/utility/identity_type.hpp>
+#include "Utilogeny/lib/boost/utility/base_from_member.hpp"
+#include "Utilogeny/lib/boost/utility/binary.hpp"
+#include "Utilogeny/lib/boost/utility/identity_type.hpp"
 
-#include <boost/core/addressof.hpp>
-#include <boost/core/enable_if.hpp>
-#include <boost/core/checked_delete.hpp>
-#include <boost/core/noncopyable.hpp>
+#include "Utilogeny/lib/boost/core/addressof.hpp"
+#include "Utilogeny/lib/boost/core/enable_if.hpp"
+#include "Utilogeny/lib/boost/core/checked_delete.hpp"
+#include "Utilogeny/lib/boost/core/noncopyable.hpp"
 
 #endif  // BOOST_UTILITY_HPP

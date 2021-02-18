@@ -14,9 +14,9 @@
 # pragma once
 #endif
 
-#include <boost/config.hpp>
-#include <boost/preprocessor/cat.hpp>
-#include <boost/mpl/has_xxx.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+#include "Utilogeny/lib/boost/mpl/has_xxx.hpp"
 
 #if !defined(BOOST_MPL_CFG_NO_HAS_XXX)
 

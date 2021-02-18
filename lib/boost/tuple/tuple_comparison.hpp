@@ -16,7 +16,7 @@
 #ifndef BOOST_TUPLE_COMPARISON_HPP
 #define BOOST_TUPLE_COMPARISON_HPP
 
-#include <boost/tuple/tuple.hpp>
+#include "Utilogeny/lib/boost/tuple/tuple.hpp"
 
 // -------------------------------------------------------------
 // equality and comparison operators

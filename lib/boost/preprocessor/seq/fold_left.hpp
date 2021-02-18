@@ -14,13 +14,13 @@
 # ifndef BOOST_PREPROCESSOR_SEQ_FOLD_LEFT_HPP
 # define BOOST_PREPROCESSOR_SEQ_FOLD_LEFT_HPP
 #
-# include <boost/preprocessor/arithmetic/dec.hpp>
-# include <boost/preprocessor/cat.hpp>
-# include <boost/preprocessor/control/if.hpp>
-# include <boost/preprocessor/debug/error.hpp>
-# include <boost/preprocessor/detail/auto_rec.hpp>
-# include <boost/preprocessor/seq/seq.hpp>
-# include <boost/preprocessor/seq/size.hpp>
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/dec.hpp"
+# include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+# include "Utilogeny/lib/boost/preprocessor/control/if.hpp"
+# include "Utilogeny/lib/boost/preprocessor/debug/error.hpp"
+# include "Utilogeny/lib/boost/preprocessor/detail/auto_rec.hpp"
+# include "Utilogeny/lib/boost/preprocessor/seq/seq.hpp"
+# include "Utilogeny/lib/boost/preprocessor/seq/size.hpp"
 #
 # /* BOOST_PP_SEQ_FOLD_LEFT */
 #
@@ -28,7 +28,7 @@
 #    define BOOST_PP_SEQ_FOLD_LEFT(op, state, seq) ...
 # endif
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_STRICT()
 #
@@ -1075,7 +1075,7 @@
 #
 # else
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # if BOOST_PP_LIMIT_SEQ == 256
 # define BOOST_PP_SEQ_FOLD_LEFT BOOST_PP_CAT(BOOST_PP_SEQ_FOLD_LEFT_, BOOST_PP_DEC(BOOST_PP_AUTO_REC(BOOST_PP_SEQ_FOLD_LEFT_P, 256)))
@@ -1107,14 +1107,14 @@
 # define BOOST_PP_SEQ_FOLD_LEFT_F(op, st, ss, sz) st
 #
 # if BOOST_PP_LIMIT_SEQ == 256
-# include <boost/preprocessor/seq/limits/fold_left_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/fold_left_256.hpp"
 # elif BOOST_PP_LIMIT_SEQ == 512
-# include <boost/preprocessor/seq/limits/fold_left_256.hpp>
-# include <boost/preprocessor/seq/limits/fold_left_512.hpp>
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/fold_left_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/fold_left_512.hpp"
 # elif BOOST_PP_LIMIT_SEQ == 1024
-# include <boost/preprocessor/seq/limits/fold_left_256.hpp>
-# include <boost/preprocessor/seq/limits/fold_left_512.hpp>
-# include <boost/preprocessor/seq/limits/fold_left_1024.hpp>
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/fold_left_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/fold_left_512.hpp"
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/fold_left_1024.hpp"
 # endif
 #
 # endif

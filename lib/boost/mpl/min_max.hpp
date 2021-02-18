@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/less.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
+#include "Utilogeny/lib/boost/mpl/less.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/na_spec.hpp"
 
 namespace boost { namespace mpl {
 

@@ -5,8 +5,8 @@
 #ifndef BOOST_TYPEOF_INT_ENCODING_HPP_INCLUDED
 #define BOOST_TYPEOF_INT_ENCODING_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/typeof/constant.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/typeof/constant.hpp"
 #include <cstddef> // for std::size_t
 
 namespace boost { namespace type_of {

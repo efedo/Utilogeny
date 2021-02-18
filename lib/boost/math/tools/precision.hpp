@@ -10,13 +10,13 @@
 #pragma once
 #endif
 
-#include <boost/limits.hpp>
-#include <boost/assert.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/math/policies/policy.hpp>
+#include "Utilogeny/lib/boost/limits.hpp"
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/mpl/int.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/math/policies/policy.hpp"
 
 // These two are for LDBL_MAN_DIG:
 #include <limits.h>
@@ -34,7 +34,7 @@ namespace tools
 
 // For example if the precision of RealType varies at runtime,
 // then numeric_limits support may not be appropriate,
-// see boost/math/tools/ntl.hpp  for examples like
+// see Utilogeny/lib/boost/math/tools/ntl.hpp  for examples like
 // template <> NTL::RR max_value<NTL::RR> ...
 // See  Conceptual Requirements for Real Number Types.
 

@@ -9,8 +9,8 @@
 #ifndef BOOST_TT_IS_FUNDAMENTAL_HPP_INCLUDED
 #define BOOST_TT_IS_FUNDAMENTAL_HPP_INCLUDED
 
-#include <boost/type_traits/is_arithmetic.hpp>
-#include <boost/type_traits/is_void.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_arithmetic.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_void.hpp"
 
 namespace boost {
 

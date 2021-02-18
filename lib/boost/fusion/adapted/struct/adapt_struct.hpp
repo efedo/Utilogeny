@@ -10,28 +10,28 @@
 #ifndef BOOST_FUSION_ADAPTED_STRUCT_ADAPT_STRUCT_HPP
 #define BOOST_FUSION_ADAPTED_STRUCT_ADAPT_STRUCT_HPP
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/preprocessor/config/config.hpp>
-#include <boost/preprocessor/cat.hpp>
-#include <boost/preprocessor/empty.hpp>
-#include <boost/preprocessor/control/iif.hpp>
-#include <boost/preprocessor/comparison/less.hpp>
-#include <boost/preprocessor/seq/seq.hpp>
-#include <boost/preprocessor/variadic/to_seq.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
+#include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+#include "Utilogeny/lib/boost/preprocessor/empty.hpp"
+#include "Utilogeny/lib/boost/preprocessor/control/iif.hpp"
+#include "Utilogeny/lib/boost/preprocessor/comparison/less.hpp"
+#include "Utilogeny/lib/boost/preprocessor/seq/seq.hpp"
+#include "Utilogeny/lib/boost/preprocessor/variadic/to_seq.hpp"
 
-#include <boost/fusion/adapted/struct/detail/extension.hpp>
-#include <boost/fusion/adapted/struct/detail/adapt_base.hpp>
-#include <boost/fusion/adapted/struct/detail/adapt_base_attr_filler.hpp>
-#include <boost/fusion/adapted/struct/detail/at_impl.hpp>
-#include <boost/fusion/adapted/struct/detail/is_view_impl.hpp>
-#include <boost/fusion/adapted/struct/detail/is_sequence_impl.hpp>
-#include <boost/fusion/adapted/struct/detail/value_at_impl.hpp>
-#include <boost/fusion/adapted/struct/detail/category_of_impl.hpp>
-#include <boost/fusion/adapted/struct/detail/size_impl.hpp>
-#include <boost/fusion/adapted/struct/detail/begin_impl.hpp>
-#include <boost/fusion/adapted/struct/detail/end_impl.hpp>
-#include <boost/fusion/adapted/struct/detail/value_of_impl.hpp>
-#include <boost/fusion/adapted/struct/detail/deref_impl.hpp>
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/extension.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/adapt_base.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/adapt_base_attr_filler.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/at_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/is_view_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/is_sequence_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/value_at_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/category_of_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/size_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/begin_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/end_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/value_of_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/deref_impl.hpp"
 
 #define BOOST_FUSION_ADAPT_STRUCT_C(                                            \
     TEMPLATE_PARAMS_SEQ, NAME_SEQ, IS_VIEW, I, ATTRIBUTE)                       \

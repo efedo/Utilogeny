@@ -15,7 +15,7 @@
 # ifndef BOOST_PREPROCESSOR_LOGICAL_BOOL_HPP
 # define BOOST_PREPROCESSOR_LOGICAL_BOOL_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # /* BOOST_PP_BOOL */
 #
@@ -290,17 +290,17 @@
 #
 # else
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # if BOOST_PP_LIMIT_MAG == 256
-# include <boost/preprocessor/logical/limits/bool_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/logical/limits/bool_256.hpp"
 # elif BOOST_PP_LIMIT_MAG == 512
-# include <boost/preprocessor/logical/limits/bool_256.hpp>
-# include <boost/preprocessor/logical/limits/bool_512.hpp>
+# include "Utilogeny/lib/boost/preprocessor/logical/limits/bool_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/logical/limits/bool_512.hpp"
 # elif BOOST_PP_LIMIT_MAG == 1024
-# include <boost/preprocessor/logical/limits/bool_256.hpp>
-# include <boost/preprocessor/logical/limits/bool_512.hpp>
-# include <boost/preprocessor/logical/limits/bool_1024.hpp>
+# include "Utilogeny/lib/boost/preprocessor/logical/limits/bool_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/logical/limits/bool_512.hpp"
+# include "Utilogeny/lib/boost/preprocessor/logical/limits/bool_1024.hpp"
 # else
 # error Incorrect value for the BOOST_PP_LIMIT_MAG limit
 # endif

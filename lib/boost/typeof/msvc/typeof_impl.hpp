@@ -9,11 +9,11 @@
 #ifndef BOOST_TYPEOF_MSVC_TYPEOF_IMPL_HPP_INCLUDED
 # define BOOST_TYPEOF_MSVC_TYPEOF_IMPL_HPP_INCLUDED
 
-# include <boost/config.hpp>
-# include <boost/config/workaround.hpp>
-# include <boost/typeof/constant.hpp>
-# include <boost/type_traits/enable_if.hpp>
-# include <boost/type_traits/is_function.hpp>
+# include "Utilogeny/lib/boost/config.hpp"
+# include "Utilogeny/lib/boost/config/workaround.hpp"
+# include "Utilogeny/lib/boost/typeof/constant.hpp"
+# include "Utilogeny/lib/boost/type_traits/enable_if.hpp"
+# include "Utilogeny/lib/boost/type_traits/is_function.hpp"
 
 # include <typeinfo>
 

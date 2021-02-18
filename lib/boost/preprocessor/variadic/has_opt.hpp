@@ -12,12 +12,12 @@
 # ifndef BOOST_PREPROCESSOR_VARIADIC_HAS_OPT_HPP
 # define BOOST_PREPROCESSOR_VARIADIC_HAS_OPT_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # /* BOOST_PP_VARIADIC_HAS_OPT */
 #
 # if defined(__cplusplus) && __cplusplus > 201703L
-# include <boost/preprocessor/variadic/detail/has_opt.hpp>
+# include "Utilogeny/lib/boost/preprocessor/variadic/detail/has_opt.hpp"
 # define BOOST_PP_VARIADIC_HAS_OPT() \
   BOOST_PP_VARIADIC_HAS_OPT_ELEM2(BOOST_PP_VARIADIC_HAS_OPT_FUNCTION(?),) \
 /**/

@@ -24,12 +24,12 @@
 #endif
 
 #include <vector>
-#include <boost/math/special_functions/detail/round_fwd.hpp>
-#include <boost/math/tools/promotion.hpp> // for argument promotion.
-#include <boost/math/policies/policy.hpp>
-#include <boost/mpl/comparison.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/config/no_tr1/complex.hpp>
+#include "Utilogeny/lib/boost/math/special_functions/detail/round_fwd.hpp"
+#include "Utilogeny/lib/boost/math/tools/promotion.hpp" // for argument promotion.
+#include "Utilogeny/lib/boost/math/policies/policy.hpp"
+#include "Utilogeny/lib/boost/mpl/comparison.hpp"
+#include "Utilogeny/lib/boost/utility/enable_if.hpp"
+#include "Utilogeny/lib/boost/config/no_tr1/complex.hpp"
 
 #define BOOST_NO_MACRO_EXPAND /**/
 

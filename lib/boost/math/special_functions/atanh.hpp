@@ -16,12 +16,12 @@
 #endif
 
 
-#include <boost/config/no_tr1/cmath.hpp>
-#include <boost/config.hpp>
-#include <boost/math/tools/precision.hpp>
-#include <boost/math/policies/error_handling.hpp>
-#include <boost/math/special_functions/math_fwd.hpp>
-#include <boost/math/special_functions/log1p.hpp>
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp"
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/math/tools/precision.hpp"
+#include "Utilogeny/lib/boost/math/policies/error_handling.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/math_fwd.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/log1p.hpp"
 
 // This is the inverse of the hyperbolic tangent function.
 

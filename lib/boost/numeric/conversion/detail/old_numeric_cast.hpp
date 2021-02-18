@@ -15,7 +15,7 @@
 //             wich can't compile the new version in /boost/numeric/conversion/cast.hpp
 //             (Fernando Cacciola)
 //  02 Apr 01  Removed BOOST_NO_LIMITS workarounds and included
-//             <boost/limits.hpp> instead (the workaround did not
+//             "Utilogeny/lib/boost/limits.hpp" instead (the workaround did not
 //             actually compile when BOOST_NO_LIMITS was defined in
 //             any case, so we loose nothing). (John Maddock)
 //  21 Jan 01  Undid a bug I introduced yesterday. numeric_cast<> never
@@ -23,7 +23,7 @@
 //             vc-stlport.
 //  20 Jan 01  Moved BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS to config.hpp.
 //             Removed unused BOOST_EXPLICIT_TARGET macro. Moved
-//             boost::detail::type to boost/type.hpp. Made it compile with
+//             boost::detail::type to Utilogeny/lib/boost/type.hpp. Made it compile with
 //             stock gcc again (Dave Abrahams)
 //  29 Nov 00  Remove nested namespace cast, cleanup spacing before Formal
 //             Review (Beman Dawes)
@@ -48,12 +48,12 @@
 #ifndef BOOST_OLD_NUMERIC_CAST_HPP
 #define BOOST_OLD_NUMERIC_CAST_HPP
 
-# include <boost/config.hpp>
+# include "Utilogeny/lib/boost/config.hpp"
 # include <cassert>
 # include <typeinfo>
-# include <boost/type.hpp>
-# include <boost/limits.hpp>
-# include <boost/numeric/conversion/converter_policies.hpp>
+# include "Utilogeny/lib/boost/type.hpp"
+# include "Utilogeny/lib/boost/limits.hpp"
+# include "Utilogeny/lib/boost/numeric/conversion/converter_policies.hpp"
 
 namespace boost
 {

@@ -6,16 +6,16 @@
 #ifndef BOOST_MATH_BIG_NUM_DEF_OPS
 #define BOOST_MATH_BIG_NUM_DEF_OPS
 
-#include <boost/math/policies/error_handling.hpp>
-#include <boost/multiprecision/detail/number_base.hpp>
-#include <boost/math/special_functions/fpclassify.hpp>
-#include <boost/math/special_functions/next.hpp>
-#include <boost/math/special_functions/hypot.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/mpl/front.hpp>
-#include <boost/mpl/fold.hpp>
-#include <boost/cstdint.hpp>
-#include <boost/type_traits/make_unsigned.hpp>
+#include "Utilogeny/lib/boost/math/policies/error_handling.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/number_base.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/fpclassify.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/next.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/hypot.hpp"
+#include "Utilogeny/lib/boost/utility/enable_if.hpp"
+#include "Utilogeny/lib/boost/mpl/front.hpp"
+#include "Utilogeny/lib/boost/mpl/fold.hpp"
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/type_traits/make_unsigned.hpp"
 #ifndef BOOST_NO_CXX17_HDR_STRING_VIEW
 #include <string_view>
 #endif
@@ -1871,9 +1871,9 @@ void BOOST_MP_CXX14_CONSTEXPR eval_set_imag(T&, const T&)
 // These functions are implemented in separate files, but expanded inline here,
 // DO NOT CHANGE THE ORDER OF THESE INCLUDES:
 //
-#include <boost/multiprecision/detail/functions/constants.hpp>
-#include <boost/multiprecision/detail/functions/pow.hpp>
-#include <boost/multiprecision/detail/functions/trig.hpp>
+#include "Utilogeny/lib/boost/multiprecision/detail/functions/constants.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/functions/pow.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/functions/trig.hpp"
 
 } // namespace default_ops
 
@@ -3696,11 +3696,11 @@ using boost::multiprecision::lcm;
 //
 // This has to come last of all:
 //
-#include <boost/multiprecision/detail/no_et_ops.hpp>
-#include <boost/multiprecision/detail/et_ops.hpp>
+#include "Utilogeny/lib/boost/multiprecision/detail/no_et_ops.hpp"
+#include "Utilogeny/lib/boost/multiprecision/detail/et_ops.hpp"
 //
 // min/max overloads:
 //
-#include <boost/multiprecision/detail/min_max.hpp>
+#include "Utilogeny/lib/boost/multiprecision/detail/min_max.hpp"
 
 #endif

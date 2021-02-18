@@ -8,7 +8,7 @@
 #endif
 
 //
-//  boost/detail/lwm_pthreads.hpp
+//  Utilogeny/lib/boost/detail/lwm_pthreads.hpp
 //
 //  Copyright (c) 2002 Peter Dimov and Multi Media Ltd.
 //
@@ -17,7 +17,7 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 //
 
-#include <boost/assert.hpp>
+#include "Utilogeny/lib/boost/assert.hpp"
 #include <pthread.h>
 
 namespace boost

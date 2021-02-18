@@ -16,13 +16,13 @@
 #ifndef BOOST_ATOMIC_DETAIL_ATOMIC_FLAG_IMPL_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_ATOMIC_FLAG_IMPL_HPP_INCLUDED_
 
-#include <boost/assert.hpp>
-#include <boost/memory_order.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/core_operations.hpp>
-#include <boost/atomic/detail/wait_operations.hpp>
-#include <boost/atomic/detail/aligned_variable.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/core_operations.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/wait_operations.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/aligned_variable.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -124,6 +124,6 @@ BOOST_CONSTEXPR_OR_CONST bool atomic_flag_impl< IsInterprocess >::always_has_nat
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_ATOMIC_FLAG_IMPL_HPP_INCLUDED_

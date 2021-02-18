@@ -8,8 +8,8 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_ARCHITECTURE_MIPS_H
 #define BOOST_PREDEF_ARCHITECTURE_MIPS_H
 
-#include <boost/predef/version_number.h>
-#include <boost/predef/make.h>
+#include "Utilogeny/lib/boost/predef/version_number.h"
+#include "Utilogeny/lib/boost/predef/make.h"
 
 /* tag::reference[]
 = `BOOST_ARCH_MIPS`
@@ -70,5 +70,5 @@ http://en.wikipedia.org/wiki/MIPS_architecture[MIPS] architecture.
 
 #endif
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_ARCH_MIPS,BOOST_ARCH_MIPS_NAME)

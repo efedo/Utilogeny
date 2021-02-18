@@ -9,12 +9,12 @@
 #ifndef BOOST_TT_IS_COMPLETE_HPP_INCLUDED
 #define BOOST_TT_IS_COMPLETE_HPP_INCLUDED
 
-#include <boost/type_traits/declval.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/remove_reference.hpp>
-#include <boost/type_traits/is_function.hpp>
-#include <boost/type_traits/detail/yes_no_type.hpp>
-#include <boost/config/workaround.hpp>
+#include "Utilogeny/lib/boost/type_traits/declval.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_function.hpp"
+#include "Utilogeny/lib/boost/type_traits/detail/yes_no_type.hpp"
+#include "Utilogeny/lib/boost/config/workaround.hpp"
 
 /*
  * CAUTION:

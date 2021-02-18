@@ -14,8 +14,8 @@
 # ifndef BOOST_PREPROCESSOR_SEQ_SIZE_HPP
 # define BOOST_PREPROCESSOR_SEQ_SIZE_HPP
 #
-# include <boost/preprocessor/cat.hpp>
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # if BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
 #    define BOOST_PP_SEQ_SIZE(seq) BOOST_PP_SEQ_SIZE_I((seq))
@@ -551,17 +551,17 @@
 #
 # else
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # if BOOST_PP_LIMIT_SEQ == 256
-# include <boost/preprocessor/seq/limits/size_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/size_256.hpp"
 # elif BOOST_PP_LIMIT_SEQ == 512
-# include <boost/preprocessor/seq/limits/size_256.hpp>
-# include <boost/preprocessor/seq/limits/size_512.hpp>
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/size_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/size_512.hpp"
 # elif BOOST_PP_LIMIT_SEQ == 1024
-# include <boost/preprocessor/seq/limits/size_256.hpp>
-# include <boost/preprocessor/seq/limits/size_512.hpp>
-# include <boost/preprocessor/seq/limits/size_1024.hpp>
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/size_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/size_512.hpp"
+# include "Utilogeny/lib/boost/preprocessor/seq/limits/size_1024.hpp"
 # else
 # error Incorrect value for the BOOST_PP_LIMIT_SEQ limit
 # endif

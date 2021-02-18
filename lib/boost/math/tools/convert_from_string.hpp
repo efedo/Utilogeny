@@ -10,9 +10,9 @@
 #pragma once
 #endif
 
-#include <boost/type_traits/is_constructible.hpp>
-#include <boost/type_traits/conditional.hpp>
-#include <boost/lexical_cast.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_constructible.hpp"
+#include "Utilogeny/lib/boost/type_traits/conditional.hpp"
+#include "Utilogeny/lib/boost/lexical_cast.hpp"
 
 namespace boost{ namespace math{ namespace tools{
 

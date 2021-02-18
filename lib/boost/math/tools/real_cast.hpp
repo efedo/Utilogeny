@@ -6,7 +6,7 @@
 #ifndef BOOST_MATH_TOOLS_REAL_CAST_HPP
 #define BOOST_MATH_TOOLS_REAL_CAST_HPP
 
-#include <boost/math/tools/config.hpp>
+#include "Utilogeny/lib/boost/math/tools/config.hpp"
 
 #ifdef _MSC_VER
 #pragma once

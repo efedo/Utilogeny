@@ -8,7 +8,7 @@ Distributed under the Boost Software License, Version 1.0.
 #ifndef BOOST_ALIGN_DETAIL_MIN_SIZE_HPP
 #define BOOST_ALIGN_DETAIL_MIN_SIZE_HPP
 
-#include <boost/align/detail/integral_constant.hpp>
+#include "Utilogeny/lib/boost/align/detail/integral_constant.hpp"
 #include <cstddef>
 
 namespace boost {

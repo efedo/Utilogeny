@@ -8,12 +8,12 @@ Distributed under the Boost Software License, Version 1.0.
 #ifndef BOOST_ALIGN_ALIGN_HPP
 #define BOOST_ALIGN_ALIGN_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 #if !defined(BOOST_NO_CXX11_STD_ALIGN) && !defined(BOOST_LIBSTDCXX_VERSION)
-#include <boost/align/detail/align_cxx11.hpp>
+#include "Utilogeny/lib/boost/align/detail/align_cxx11.hpp"
 #else
-#include <boost/align/detail/align.hpp>
+#include "Utilogeny/lib/boost/align/detail/align.hpp"
 #endif
 
 #endif

@@ -15,27 +15,27 @@
 #define BOOST_ATOMIC_DETAIL_ATOMIC_REF_IMPL_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/assert.hpp>
-#include <boost/memory_order.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/addressof.hpp>
-#include <boost/atomic/detail/storage_traits.hpp>
-#include <boost/atomic/detail/bitwise_cast.hpp>
-#include <boost/atomic/detail/core_operations.hpp>
-#include <boost/atomic/detail/wait_operations.hpp>
-#include <boost/atomic/detail/extra_operations.hpp>
-#include <boost/atomic/detail/core_operations_emulated.hpp>
-#include <boost/atomic/detail/memory_order_utils.hpp>
-#include <boost/atomic/detail/type_traits/is_signed.hpp>
-#include <boost/atomic/detail/type_traits/alignment_of.hpp>
-#include <boost/atomic/detail/type_traits/conditional.hpp>
-#include <boost/atomic/detail/type_traits/integral_constant.hpp>
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/addressof.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/storage_traits.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/bitwise_cast.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/core_operations.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/wait_operations.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/extra_operations.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/core_operations_emulated.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/memory_order_utils.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/is_signed.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/alignment_of.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/conditional.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/integral_constant.hpp"
 #if !defined(BOOST_ATOMIC_NO_FLOATING_POINT)
-#include <boost/atomic/detail/bitwise_fp_cast.hpp>
-#include <boost/atomic/detail/fp_operations.hpp>
-#include <boost/atomic/detail/extra_fp_operations.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/bitwise_fp_cast.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/fp_operations.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/extra_fp_operations.hpp"
 #endif
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -1121,6 +1121,6 @@ private:
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_ATOMIC_REF_IMPL_HPP_INCLUDED_

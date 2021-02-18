@@ -15,7 +15,7 @@
 # ifndef BOOST_PREPROCESSOR_ARITHMETIC_INC_HPP
 # define BOOST_PREPROCESSOR_ARITHMETIC_INC_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
 #
 # if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_STRICT()
 #
@@ -301,17 +301,17 @@
 #
 # define BOOST_PP_INC_I(x) BOOST_PP_INC_ ## x
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # if BOOST_PP_LIMIT_MAG == 256
-# include <boost/preprocessor/arithmetic/limits/inc_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/limits/inc_256.hpp"
 # elif BOOST_PP_LIMIT_MAG == 512
-# include <boost/preprocessor/arithmetic/limits/inc_256.hpp>
-# include <boost/preprocessor/arithmetic/limits/inc_512.hpp>
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/limits/inc_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/limits/inc_512.hpp"
 # elif BOOST_PP_LIMIT_MAG == 1024
-# include <boost/preprocessor/arithmetic/limits/inc_256.hpp>
-# include <boost/preprocessor/arithmetic/limits/inc_512.hpp>
-# include <boost/preprocessor/arithmetic/limits/inc_1024.hpp>
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/limits/inc_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/limits/inc_512.hpp"
+# include "Utilogeny/lib/boost/preprocessor/arithmetic/limits/inc_1024.hpp"
 # else
 # error Incorrect value for the BOOST_PP_LIMIT_MAG limit
 # endif

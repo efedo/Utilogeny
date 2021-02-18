@@ -9,13 +9,13 @@
 #if !defined(BOOST_FUSION_VECTOR50_FWD_HPP_INCLUDED)
 #define BOOST_FUSION_VECTOR50_FWD_HPP_INCLUDED
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/preprocessor/cat.hpp>
-#include <boost/preprocessor/iteration/iterate.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+#include "Utilogeny/lib/boost/preprocessor/iteration/iterate.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_params.hpp"
 
 #if !defined(BOOST_FUSION_DONT_USE_PREPROCESSED_FILES)
-#include <boost/fusion/container/vector/detail/cpp03/preprocessed/vector50_fwd.hpp>
+#include "Utilogeny/lib/boost/fusion/container/vector/detail/cpp03/preprocessed/vector50_fwd.hpp"
 #else
 #if defined(__WAVE__) && defined(BOOST_FUSION_CREATE_PREPROCESSED_FILES)
 #pragma wave option(preserve: 2, line: 0, output: "preprocessed/vector50_fwd.hpp")
@@ -38,7 +38,7 @@
 namespace boost { namespace fusion
 {
     // expand vector41 to vector50
-    #define BOOST_PP_FILENAME_1 <boost/fusion/container/vector/detail/cpp03/vector50_fwd.hpp>
+    #define BOOST_PP_FILENAME_1 "Utilogeny/lib/boost/fusion/container/vector/detail/cpp03/vector50_fwd.hpp"
     #define BOOST_PP_ITERATION_LIMITS (41, 50)
     #include BOOST_PP_ITERATE()
 }}

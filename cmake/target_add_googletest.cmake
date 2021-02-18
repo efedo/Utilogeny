@@ -1,10 +1,9 @@
-if(NOT GTEST_FOUND)
+if(NOT TARGET gtest)
 	enable_testing()
 	set(gtest_force_shared_crt ON "Use shared (DLL) run-time lib even when Google Test is built as static lib.")
 	set(BUILD_GMOCK FALSE)
 	set(INSTALL_GTEST FALSE)
 	add_subdirectory(${UTILOGENY_DIR}/lib/gtest ${CMAKE_BINARY_DIR}/lib/gtest)
-	set(GTEST_FOUND TRUE)
 endif()
 
 function(target_include_gtest target)

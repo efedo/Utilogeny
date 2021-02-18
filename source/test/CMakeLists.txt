@@ -10,6 +10,8 @@ add_executable(UtilogenyTest
 
 target_precompile_headers(UtilogenyTest
 	PRIVATE pch.h)
+	
+target_config_compiler(Qtilogeny)
 
 set_target_properties(UtilogenyTest PROPERTIES
             CXX_STANDARD ${OVERRIDE_CXX_STANDARD}

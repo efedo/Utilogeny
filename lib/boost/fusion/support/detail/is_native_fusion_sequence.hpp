@@ -7,11 +7,11 @@
 #ifndef BOOST_FUSION_IS_NATIVE_FUSION_SEQUENCE
 #define BOOST_FUSION_IS_NATIVE_FUSION_SEQUENCE
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/support/sequence_base.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/type_traits/is_complete.hpp>
-#include <boost/type_traits/is_convertible.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/support/sequence_base.hpp"
+#include "Utilogeny/lib/boost/mpl/and.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_complete.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
 
 namespace boost { namespace fusion { namespace detail
 {

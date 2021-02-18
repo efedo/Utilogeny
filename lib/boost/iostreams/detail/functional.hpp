@@ -4,7 +4,7 @@
  * 
  * See http://www.boost.org/libs/iostreams for documentation.
 
- * File:        boost/iostreams/detail/functional.hpp
+ * File:        Utilogeny/lib/boost/iostreams/detail/functional.hpp
  * Date:        Sun Dec 09 05:38:03 MST 2007
  * Copyright:   2007-2008 CodeRage, LLC
  * Author:      Jonathan Turkanis
@@ -21,8 +21,8 @@
 # pragma once
 #endif
 
-#include <boost/iostreams/close.hpp>
-#include <boost/iostreams/detail/ios.hpp> // BOOST_IOS
+#include "Utilogeny/lib/boost/iostreams/close.hpp"
+#include "Utilogeny/lib/boost/iostreams/detail/ios.hpp" // BOOST_IOS
 
 namespace boost { namespace iostreams { namespace detail {
 

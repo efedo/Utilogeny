@@ -11,14 +11,14 @@
 #ifndef BOOST_STRING_CASE_CONV_DETAIL_HPP
 #define BOOST_STRING_CASE_CONV_DETAIL_HPP
 
-#include <boost/algorithm/string/config.hpp>
+#include "Utilogeny/lib/boost/algorithm/string/config.hpp"
 #include <locale>
 #include <functional>
 
-#include <boost/iterator/transform_iterator.hpp>
-#include <boost/range/begin.hpp>
-#include <boost/range/end.hpp>
-#include <boost/type_traits/make_unsigned.hpp>
+#include "Utilogeny/lib/boost/iterator/transform_iterator.hpp"
+#include "Utilogeny/lib/boost/range/begin.hpp"
+#include "Utilogeny/lib/boost/range/end.hpp"
+#include "Utilogeny/lib/boost/type_traits/make_unsigned.hpp"
 
 namespace boost {
     namespace algorithm {

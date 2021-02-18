@@ -8,24 +8,24 @@
 
 //  Revision History
 //   22 Sep 01  Added value-based integer templates. (Daryle Walker)
-//   01 Apr 01  Modified to use new <boost/limits.hpp> header. (John Maddock)
+//   01 Apr 01  Modified to use new "Utilogeny/lib/boost/limits.hpp" header. (John Maddock)
 //   30 Jul 00  Add typename syntax fix (Jens Maurer)
 //   28 Aug 99  Initial version
 
 #ifndef BOOST_INTEGER_HPP
 #define BOOST_INTEGER_HPP
 
-#include <boost/integer_fwd.hpp>  // self include
+#include "Utilogeny/lib/boost/integer_fwd.hpp"  // self include
 
-#include <boost/integer_traits.hpp>  // for boost::::boost::integer_traits
-#include <boost/limits.hpp>          // for ::std::numeric_limits
-#include <boost/cstdint.hpp>         // for boost::int64_t and BOOST_NO_INTEGRAL_INT64_T
-#include <boost/static_assert.hpp>
+#include "Utilogeny/lib/boost/integer_traits.hpp"  // for boost::::boost::integer_traits
+#include "Utilogeny/lib/boost/limits.hpp"          // for ::std::numeric_limits
+#include "Utilogeny/lib/boost/cstdint.hpp"         // for boost::int64_t and BOOST_NO_INTEGRAL_INT64_T
+#include "Utilogeny/lib/boost/static_assert.hpp"
 
 //
 // We simply cannot include this header on gcc without getting copious warnings of the kind:
 //
-// boost/integer.hpp:77:30: warning: use of C99 long long integer constant
+// Utilogeny/lib/boost/integer.hpp:77:30: warning: use of C99 long long integer constant
 //
 // And yet there is no other reasonable implementation, so we declare this a system header
 // to suppress these warnings.

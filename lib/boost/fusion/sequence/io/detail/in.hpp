@@ -9,16 +9,16 @@
 #if !defined(FUSION_IN_05052005_0121)
 #define FUSION_IN_05052005_0121
 
-#include <boost/fusion/support/config.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
 #include <istream>
-#include <boost/fusion/sequence/io/detail/manip.hpp>
+#include "Utilogeny/lib/boost/fusion/sequence/io/detail/manip.hpp"
 
-#include <boost/mpl/bool.hpp>
-#include <boost/fusion/sequence/intrinsic/begin.hpp>
-#include <boost/fusion/sequence/intrinsic/end.hpp>
-#include <boost/fusion/iterator/deref.hpp>
-#include <boost/fusion/iterator/next.hpp>
-#include <boost/fusion/iterator/equal_to.hpp>
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/begin.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/end.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/deref.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/next.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/equal_to.hpp"
 
 namespace boost { namespace fusion { namespace detail
 {

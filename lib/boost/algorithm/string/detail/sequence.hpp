@@ -11,13 +11,13 @@
 #ifndef BOOST_STRING_DETAIL_SEQUENCE_HPP
 #define BOOST_STRING_DETAIL_SEQUENCE_HPP
 
-#include <boost/algorithm/string/config.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/logical.hpp>
-#include <boost/range/begin.hpp>
-#include <boost/range/end.hpp>
+#include "Utilogeny/lib/boost/algorithm/string/config.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/mpl/logical.hpp"
+#include "Utilogeny/lib/boost/range/begin.hpp"
+#include "Utilogeny/lib/boost/range/end.hpp"
 
-#include <boost/algorithm/string/sequence_traits.hpp>
+#include "Utilogeny/lib/boost/algorithm/string/sequence_traits.hpp"
 
 namespace boost {
     namespace algorithm {

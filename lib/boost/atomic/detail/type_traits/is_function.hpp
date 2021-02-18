@@ -14,11 +14,11 @@
 #ifndef BOOST_ATOMIC_DETAIL_TYPE_TRAITS_IS_FUNCTION_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_TYPE_TRAITS_IS_FUNCTION_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
 #if !defined(BOOST_ATOMIC_DETAIL_NO_CXX11_BASIC_HDR_TYPE_TRAITS)
 #include <type_traits>
 #else
-#include <boost/type_traits/is_function.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_function.hpp"
 #endif
 
 #ifdef BOOST_HAS_PRAGMA_ONCE

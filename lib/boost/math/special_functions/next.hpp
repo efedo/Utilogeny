@@ -9,14 +9,14 @@
 #ifdef _MSC_VER
 #pragma once
 #endif
-#include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/math/special_functions/math_fwd.hpp>
-#include <boost/math/policies/error_handling.hpp>
-#include <boost/math/special_functions/fpclassify.hpp>
-#include <boost/math/special_functions/sign.hpp>
-#include <boost/math/special_functions/trunc.hpp>
-#include <boost/math/tools/traits.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_same.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/math_fwd.hpp"
+#include "Utilogeny/lib/boost/math/policies/error_handling.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/fpclassify.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/sign.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/trunc.hpp"
+#include "Utilogeny/lib/boost/math/tools/traits.hpp"
 
 #include <float.h>
 

@@ -15,11 +15,11 @@
 # ifndef BOOST_PREPROCESSOR_REPETITION_REPEAT_HPP
 # define BOOST_PREPROCESSOR_REPETITION_REPEAT_HPP
 #
-# include <boost/preprocessor/cat.hpp>
-# include <boost/preprocessor/config/config.hpp>
-# include <boost/preprocessor/debug/error.hpp>
-# include <boost/preprocessor/detail/auto_rec.hpp>
-# include <boost/preprocessor/tuple/eat.hpp>
+# include "Utilogeny/lib/boost/preprocessor/cat.hpp"
+# include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
+# include "Utilogeny/lib/boost/preprocessor/debug/error.hpp"
+# include "Utilogeny/lib/boost/preprocessor/detail/auto_rec.hpp"
+# include "Utilogeny/lib/boost/preprocessor/tuple/eat.hpp"
 #
 # /* BOOST_PP_REPEAT */
 #
@@ -827,17 +827,17 @@
 #
 # else
 #
-# include <boost/preprocessor/config/limits.hpp>
+# include "Utilogeny/lib/boost/preprocessor/config/limits.hpp"
 #
 # if BOOST_PP_LIMIT_REPEAT == 256
-# include <boost/preprocessor/repetition/limits/repeat_256.hpp>
+# include "Utilogeny/lib/boost/preprocessor/repetition/limits/repeat_256.hpp"
 # elif BOOST_PP_LIMIT_REPEAT == 512
-# include <boost/preprocessor/repetition/limits/repeat_256.hpp>
-# include <boost/preprocessor/repetition/limits/repeat_512.hpp>
+# include "Utilogeny/lib/boost/preprocessor/repetition/limits/repeat_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/repetition/limits/repeat_512.hpp"
 # elif BOOST_PP_LIMIT_REPEAT == 1024
-# include <boost/preprocessor/repetition/limits/repeat_256.hpp>
-# include <boost/preprocessor/repetition/limits/repeat_512.hpp>
-# include <boost/preprocessor/repetition/limits/repeat_1024.hpp>
+# include "Utilogeny/lib/boost/preprocessor/repetition/limits/repeat_256.hpp"
+# include "Utilogeny/lib/boost/preprocessor/repetition/limits/repeat_512.hpp"
+# include "Utilogeny/lib/boost/preprocessor/repetition/limits/repeat_1024.hpp"
 # else
 # error Incorrect value for the BOOST_PP_LIMIT_REPEAT limit
 # endif

@@ -8,11 +8,11 @@
 #ifndef BOOST_IOSTREAMS_DETAIL_NON_BLOCKING_ADAPTER_HPP_INCLUDED
 #define BOOST_IOSTREAMS_DETAIL_NON_BLOCKING_ADAPTER_HPP_INCLUDED
 
-#include <boost/iostreams/detail/ios.hpp>  // streamsize, seekdir, openmode.
-#include <boost/iostreams/read.hpp>
-#include <boost/iostreams/seek.hpp>
-#include <boost/iostreams/traits.hpp>
-#include <boost/iostreams/write.hpp>
+#include "Utilogeny/lib/boost/iostreams/detail/ios.hpp"  // streamsize, seekdir, openmode.
+#include "Utilogeny/lib/boost/iostreams/read.hpp"
+#include "Utilogeny/lib/boost/iostreams/seek.hpp"
+#include "Utilogeny/lib/boost/iostreams/traits.hpp"
+#include "Utilogeny/lib/boost/iostreams/write.hpp"
 
 namespace boost { namespace iostreams {
 

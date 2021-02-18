@@ -6,7 +6,7 @@
 #ifndef BOOST_MATH_TOOLS_CXX03_WARN_HPP
 #define BOOST_MATH_TOOLS_CXX03_WARN_HPP
 
-#include <boost/config/pragma_message.hpp>
+#include "Utilogeny/lib/boost/config/pragma_message.hpp"
 
 #if defined(BOOST_NO_CXX11_NOEXCEPT)
 #  define BOOST_MATH_SHOW_CXX03_WARNING

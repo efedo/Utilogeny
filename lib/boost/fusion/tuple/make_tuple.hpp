@@ -7,23 +7,23 @@
 #ifndef FUSION_MAKE_TUPLE_14122014_0048
 #define FUSION_MAKE_TUPLE_14122014_0048
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/tuple/tuple_fwd.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/tuple/tuple_fwd.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 // With no variadics, we will use the C++03 version
 ///////////////////////////////////////////////////////////////////////////////
 #if !defined(BOOST_FUSION_HAS_VARIADIC_TUPLE)
-# include <boost/fusion/tuple/detail/make_tuple.hpp>
+# include "Utilogeny/lib/boost/fusion/tuple/detail/make_tuple.hpp"
 #else
 
 ///////////////////////////////////////////////////////////////////////////////
 // C++11 interface
 ///////////////////////////////////////////////////////////////////////////////
-#include <boost/fusion/support/detail/as_fusion_element.hpp>
-#include <boost/fusion/tuple/tuple.hpp>
-#include <boost/type_traits/remove_reference.hpp>
-#include <boost/type_traits/remove_const.hpp>
+#include "Utilogeny/lib/boost/fusion/support/detail/as_fusion_element.hpp"
+#include "Utilogeny/lib/boost/fusion/tuple/tuple.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_const.hpp"
 
 namespace boost { namespace fusion
 {

@@ -7,7 +7,7 @@
 #if !defined(FUSION_INCLUDE_TUPLE)
 #define FUSION_INCLUDE_TUPLE
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/tuple.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/tuple.hpp"
 
 #endif

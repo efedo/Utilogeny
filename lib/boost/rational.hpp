@@ -64,7 +64,7 @@
 #ifndef BOOST_RATIONAL_HPP
 #define BOOST_RATIONAL_HPP
 
-#include <boost/config.hpp>      // for BOOST_NO_STDC_NAMESPACE, BOOST_MSVC, etc
+#include "Utilogeny/lib/boost/config.hpp"      // for BOOST_NO_STDC_NAMESPACE, BOOST_MSVC, etc
 #ifndef BOOST_NO_IOSTREAM
 #include <iomanip>               // for std::setw
 #include <ios>                   // for std::noskipws, streamsize
@@ -76,18 +76,18 @@
 #include <stdexcept>             // for std::domain_error
 #include <string>                // for std::string implicit constructor
 #include <cstdlib>               // for std::abs
-#include <boost/call_traits.hpp> // for boost::call_traits
-#include <boost/detail/workaround.hpp> // for BOOST_WORKAROUND
-#include <boost/assert.hpp>      // for BOOST_ASSERT
-#include <boost/integer/common_factor_rt.hpp> // for boost::integer::gcd, lcm
+#include "Utilogeny/lib/boost/call_traits.hpp" // for boost::call_traits
+#include "Utilogeny/lib/boost/detail/workaround.hpp" // for BOOST_WORKAROUND
+#include "Utilogeny/lib/boost/assert.hpp"      // for BOOST_ASSERT
+#include "Utilogeny/lib/boost/integer/common_factor_rt.hpp" // for boost::integer::gcd, lcm
 #include <limits>                // for std::numeric_limits
-#include <boost/static_assert.hpp>  // for BOOST_STATIC_ASSERT
-#include <boost/throw_exception.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/is_class.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/is_array.hpp>
+#include "Utilogeny/lib/boost/static_assert.hpp"  // for BOOST_STATIC_ASSERT
+#include "Utilogeny/lib/boost/throw_exception.hpp"
+#include "Utilogeny/lib/boost/utility/enable_if.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_class.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_same.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_array.hpp"
 
 // Control whether depreciated GCD and LCM functions are included (default: yes)
 #ifndef BOOST_CONTROL_RATIONAL_HAS_GCD

@@ -8,8 +8,8 @@ Distributed under the Boost Software License, Version 1.0.
 #ifndef BOOST_CORE_NVP_HPP
 #define BOOST_CORE_NVP_HPP
 
-#include <boost/core/addressof.hpp>
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/core/addressof.hpp"
+#include "Utilogeny/lib/boost/config.hpp"
 
 namespace boost {
 namespace serialization {

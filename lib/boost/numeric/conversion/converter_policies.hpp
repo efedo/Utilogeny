@@ -13,14 +13,14 @@
 #include <functional>
 #include <typeinfo> // for std::bad_cast
 
-#include <boost/config.hpp>
-#include <boost/config/no_tr1/cmath.hpp> // for std::floor and std::ceil
-#include <boost/throw_exception.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp" // for std::floor and std::ceil
+#include "Utilogeny/lib/boost/throw_exception.hpp"
 
-#include "boost/type_traits/is_arithmetic.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_arithmetic.hpp"
 
-#include "boost/mpl/if.hpp"
-#include "boost/mpl/integral_c.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/integral_c.hpp"
 
 namespace boost { namespace numeric
 {

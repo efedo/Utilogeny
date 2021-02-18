@@ -7,8 +7,8 @@
 #if !defined(FUSION_VALUE_OF_IMPL_05052005_1128)
 #define FUSION_VALUE_OF_IMPL_05052005_1128
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/container/vector/detail/value_at_impl.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/detail/value_at_impl.hpp"
 
 namespace boost { namespace fusion
 {

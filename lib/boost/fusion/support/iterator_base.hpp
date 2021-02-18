@@ -7,8 +7,8 @@
 #if !defined(FUSION_ITERATOR_BASE_05042005_1008)
 #define FUSION_ITERATOR_BASE_05042005_1008
 
-#include <boost/config.hpp>
-#include <boost/fusion/support/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
 
 namespace boost { namespace fusion
 {

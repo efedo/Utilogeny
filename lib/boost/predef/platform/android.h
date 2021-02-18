@@ -8,8 +8,8 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_PLAT_ANDROID_H
 #define BOOST_PREDEF_PLAT_ANDROID_H
 
-#include <boost/predef/version_number.h>
-#include <boost/predef/make.h>
+#include "Utilogeny/lib/boost/predef/version_number.h"
+#include "Utilogeny/lib/boost/predef/make.h"
 
 /* tag::reference[]
 = `BOOST_PLAT_ANDROID`
@@ -33,12 +33,12 @@ http://en.wikipedia.org/wiki/Android_%28operating_system%29[Android] platform.
 
 #if BOOST_PLAT_ANDROID
 #   define BOOST_PLAT_ANDROID_AVAILABLE
-#   include <boost/predef/detail/platform_detected.h>
+#   include "Utilogeny/lib/boost/predef/detail/platform_detected.h"
 #endif
 
 #define BOOST_PLAT_ANDROID_NAME "Android"
 
 #endif
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_PLAT_ANDROID,BOOST_PLAT_ANDROID_NAME)

@@ -24,15 +24,15 @@
 #define BOOST_ATOMIC_DETAIL_CORE_OPS_WINDOWS_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/memory_order.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/interlocked.hpp>
-#include <boost/atomic/detail/storage_traits.hpp>
-#include <boost/atomic/detail/core_operations_fwd.hpp>
-#include <boost/atomic/detail/type_traits/make_signed.hpp>
-#include <boost/atomic/detail/ops_msvc_common.hpp>
-#include <boost/atomic/detail/extending_cas_based_arithmetic.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/interlocked.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/storage_traits.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/core_operations_fwd.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/type_traits/make_signed.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/ops_msvc_common.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/extending_cas_based_arithmetic.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -196,6 +196,6 @@ struct core_operations< 2u, Signed, Interprocess > :
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_CORE_OPS_WINDOWS_HPP_INCLUDED_

@@ -13,15 +13,15 @@
 #if !defined(BOOST_FUNCTIONAL_HASH_EXTENSIONS_HPP)
 #define BOOST_FUNCTIONAL_HASH_EXTENSIONS_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 #if defined(BOOST_HAS_PRAGMA_ONCE)
 #pragma once
 #endif
 
-#include <boost/container_hash/hash.hpp>
-#include <boost/detail/container_fwd.hpp>
-#include <boost/core/enable_if.hpp>
-#include <boost/static_assert.hpp>
+#include "Utilogeny/lib/boost/container_hash/hash.hpp"
+#include "Utilogeny/lib/boost/detail/container_fwd.hpp"
+#include "Utilogeny/lib/boost/core/enable_if.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
 
 #if !defined(BOOST_NO_CXX11_HDR_ARRAY)
 #   include <array>
@@ -34,7 +34,7 @@
 #include <memory>
 
 #if defined(BOOST_NO_FUNCTION_TEMPLATE_ORDERING)
-#include <boost/type_traits/is_array.hpp>
+#include "Utilogeny/lib/boost/type_traits/is_array.hpp"
 #endif
 
 namespace boost

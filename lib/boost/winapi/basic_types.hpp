@@ -9,7 +9,7 @@
 #ifndef BOOST_WINAPI_BASIC_TYPES_HPP_INCLUDED_
 #define BOOST_WINAPI_BASIC_TYPES_HPP_INCLUDED_
 
-#include <boost/winapi/config.hpp>
+#include "Utilogeny/lib/boost/winapi/config.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -38,7 +38,7 @@ typedef void* LPVOID;
 # error "Win32 functions not available"
 #endif
 
-#include <boost/winapi/detail/header.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/header.hpp"
 
 #if defined(_M_IX86) || defined(__i386__)
 #define BOOST_WINAPI_DETAIL_STDCALL __stdcall
@@ -269,6 +269,6 @@ typedef struct BOOST_MAY_ALIAS _SECURITY_ATTRIBUTES {
 }
 }
 
-#include <boost/winapi/detail/footer.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/footer.hpp"
 
 #endif // BOOST_WINAPI_BASIC_TYPES_HPP_INCLUDED_

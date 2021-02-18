@@ -8,8 +8,8 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_PLAT_MINGW64_H
 #define BOOST_PREDEF_PLAT_MINGW64_H
 
-#include <boost/predef/version_number.h>
-#include <boost/predef/make.h>
+#include "Utilogeny/lib/boost/predef/version_number.h"
+#include "Utilogeny/lib/boost/predef/make.h"
 
 /* tag::reference[]
 = `BOOST_PLAT_MINGW64`
@@ -48,17 +48,17 @@ Version number available as major, minor, and patch.
 #       undef BOOST_PLAT_MINGW64
 #       define BOOST_PLAT_MINGW64 BOOST_PLAT_MINGW64_DETECTION
 #   endif
-#   include <boost/predef/detail/platform_detected.h>
+#   include "Utilogeny/lib/boost/predef/detail/platform_detected.h"
 #endif
 
 #define BOOST_PLAT_MINGW64_NAME "MinGW-w64"
 
 #endif
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_PLAT_MINGW64,BOOST_PLAT_MINGW64_NAME)
 
 #ifdef BOOST_PLAT_MINGW64_EMULATED
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_PLAT_MINGW64_EMULATED,BOOST_PLAT_MINGW64_NAME)
 #endif

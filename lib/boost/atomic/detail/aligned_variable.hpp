@@ -14,12 +14,12 @@
 #ifndef BOOST_ATOMIC_DETAIL_ALIGNED_VARIABLE_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_ALIGNED_VARIABLE_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
 #if defined(BOOST_ATOMIC_DETAIL_NO_CXX11_ALIGNAS)
-#include <boost/config/helper_macros.hpp>
-#include <boost/type_traits/type_with_alignment.hpp>
+#include "Utilogeny/lib/boost/config/helper_macros.hpp"
+#include "Utilogeny/lib/boost/type_traits/type_with_alignment.hpp"
 #endif
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -52,6 +52,6 @@
 
 #endif // !defined(BOOST_ATOMIC_DETAIL_NO_CXX11_ALIGNAS)
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_ALIGNED_VARIABLE_HPP_INCLUDED_

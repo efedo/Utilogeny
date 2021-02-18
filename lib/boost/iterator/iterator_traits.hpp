@@ -5,7 +5,7 @@
 #ifndef ITERATOR_TRAITS_DWA200347_HPP
 # define ITERATOR_TRAITS_DWA200347_HPP
 
-# include <boost/detail/workaround.hpp>
+# include "Utilogeny/lib/boost/detail/workaround.hpp"
 
 #include <iterator>
 

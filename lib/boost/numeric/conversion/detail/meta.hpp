@@ -10,15 +10,15 @@
 #ifndef BOOST_NUMERIC_CONVERSION_DETAIL_META_FLC_12NOV2002_HPP
 #define BOOST_NUMERIC_CONVERSION_DETAIL_META_FLC_12NOV2002_HPP
 
-#include "boost/type_traits/remove_cv.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_cv.hpp"
 
-#include "boost/mpl/if.hpp"
-#include "boost/mpl/eval_if.hpp"
-#include "boost/mpl/equal_to.hpp"
-#include "boost/mpl/not.hpp"
-#include "boost/mpl/and.hpp"
-#include "boost/mpl/bool.hpp"
-#include "boost/mpl/identity.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/eval_if.hpp"
+#include "Utilogeny/lib/boost/mpl/equal_to.hpp"
+#include "Utilogeny/lib/boost/mpl/not.hpp"
+#include "Utilogeny/lib/boost/mpl/and.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/mpl/identity.hpp"
 
 namespace boost { namespace numeric { namespace convdetail
 {

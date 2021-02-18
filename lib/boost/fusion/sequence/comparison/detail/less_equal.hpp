@@ -8,12 +8,12 @@
 #if !defined(FUSION_LESS_EQUAL_05052005_1141)
 #define FUSION_LESS_EQUAL_05052005_1141
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/fusion/iterator/deref.hpp>
-#include <boost/fusion/iterator/next.hpp>
-#include <boost/fusion/iterator/equal_to.hpp>
-#include <boost/fusion/support/as_const.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/deref.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/next.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/equal_to.hpp"
+#include "Utilogeny/lib/boost/fusion/support/as_const.hpp"
 
 namespace boost { namespace fusion { namespace detail
 {

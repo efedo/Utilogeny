@@ -7,9 +7,9 @@
 #ifndef FUSION_VECTOR_CONFIG_11052014_1720
 #define FUSION_VECTOR_CONFIG_11052014_1720
 
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
-#include <boost/fusion/support/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
 
 #if (defined(BOOST_NO_CXX11_VARIADIC_TEMPLATES) \
   || defined(BOOST_NO_CXX11_RVALUE_REFERENCES) \

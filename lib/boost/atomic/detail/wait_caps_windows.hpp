@@ -14,9 +14,9 @@
 #ifndef BOOST_ATOMIC_DETAIL_WAIT_CAPS_WINDOWS_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_WAIT_CAPS_WINDOWS_HPP_INCLUDED_
 
-#include <boost/winapi/config.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/capabilities.hpp>
+#include "Utilogeny/lib/boost/winapi/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/capabilities.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once

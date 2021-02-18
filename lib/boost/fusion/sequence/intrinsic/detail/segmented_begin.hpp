@@ -7,14 +7,14 @@
 #if !defined(BOOST_FUSION_SEGMENTED_BEGIN_HPP_INCLUDED)
 #define BOOST_FUSION_SEGMENTED_BEGIN_HPP_INCLUDED
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/sequence/intrinsic/detail/segmented_begin_impl.hpp>
-#include <boost/fusion/iterator/segmented_iterator.hpp>
-#include <boost/fusion/view/iterator_range.hpp>
-#include <boost/fusion/sequence/intrinsic/begin.hpp>
-#include <boost/fusion/sequence/intrinsic/end.hpp>
-#include <boost/fusion/sequence/intrinsic/empty.hpp>
-#include <boost/fusion/container/list/cons.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/detail/segmented_begin_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/segmented_iterator.hpp"
+#include "Utilogeny/lib/boost/fusion/view/iterator_range.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/begin.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/end.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/empty.hpp"
+#include "Utilogeny/lib/boost/fusion/container/list/cons.hpp"
 
 namespace boost { namespace fusion { namespace detail
 {

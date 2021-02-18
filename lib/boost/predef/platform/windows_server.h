@@ -8,10 +8,10 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_PLAT_WINDOWS_SERVER_H
 #define BOOST_PREDEF_PLAT_WINDOWS_SERVER_H
 
-#include <boost/predef/make.h>
-#include <boost/predef/os/windows.h>
-#include <boost/predef/platform/windows_uwp.h>
-#include <boost/predef/version_number.h>
+#include "Utilogeny/lib/boost/predef/make.h"
+#include "Utilogeny/lib/boost/predef/os/windows.h"
+#include "Utilogeny/lib/boost/predef/platform/windows_uwp.h"
+#include "Utilogeny/lib/boost/predef/version_number.h"
 
 /* tag::reference[]
 = `BOOST_PLAT_WINDOWS_SERVER`
@@ -37,12 +37,12 @@ for Windows Server development.
  
 #if BOOST_PLAT_WINDOWS_SERVER
 #   define BOOST_PLAT_WINDOWS_SERVER_AVAILABLE
-#   include <boost/predef/detail/platform_detected.h>
+#   include "Utilogeny/lib/boost/predef/detail/platform_detected.h"
 #endif
 
 #define BOOST_PLAT_WINDOWS_SERVER_NAME "Windows Server"
 
 #endif
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_PLAT_WINDOWS_SERVER,BOOST_PLAT_WINDOWS_SERVER_NAME)

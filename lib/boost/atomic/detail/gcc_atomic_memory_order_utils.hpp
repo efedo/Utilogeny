@@ -14,9 +14,9 @@
 #ifndef BOOST_ATOMIC_DETAIL_GCC_ATOMIC_MEMORY_ORDER_UTILS_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_GCC_ATOMIC_MEMORY_ORDER_UTILS_HPP_INCLUDED_
 
-#include <boost/memory_order.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -61,6 +61,6 @@ BOOST_FORCEINLINE BOOST_CONSTEXPR int convert_memory_order_to_gcc(memory_order o
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_GCC_ATOMIC_MEMORY_ORDER_UTILS_HPP_INCLUDED_

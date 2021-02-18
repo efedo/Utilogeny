@@ -11,7 +11,7 @@
 #ifndef BOOST_STRING_TRIM_DETAIL_HPP
 #define BOOST_STRING_TRIM_DETAIL_HPP
 
-#include <boost/algorithm/string/config.hpp>
+#include "Utilogeny/lib/boost/algorithm/string/config.hpp"
 #include <iterator>
 
 namespace boost {

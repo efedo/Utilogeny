@@ -15,8 +15,8 @@
 #define BOOST_ATOMIC_DETAIL_CORE_OPERATIONS_EMULATED_FWD_HPP_INCLUDED_
 
 #include <cstddef>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -33,6 +33,6 @@ struct core_operations_emulated;
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_CORE_OPERATIONS_EMULATED_FWD_HPP_INCLUDED_

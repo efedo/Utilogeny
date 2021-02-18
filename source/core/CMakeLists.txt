@@ -76,6 +76,8 @@ add_library(UtilogenyCore STATIC
 
 target_precompile_headers(UtilogenyCore
 	PRIVATE precomp.h)
+	
+target_config_compiler(UtilogenyCore)
 
 set_target_properties(UtilogenyCore PROPERTIES
             CXX_STANDARD ${OVERRIDE_CXX_STANDARD}

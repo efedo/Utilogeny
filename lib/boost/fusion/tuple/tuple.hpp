@@ -7,28 +7,28 @@
 #ifndef FUSION_TUPLE_14122014_0102
 #define FUSION_TUPLE_14122014_0102
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/tuple/tuple_fwd.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/tuple/tuple_fwd.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 // With no variadics, we will use the C++03 version
 ///////////////////////////////////////////////////////////////////////////////
 #if !defined(BOOST_FUSION_HAS_VARIADIC_TUPLE)
-# include <boost/fusion/tuple/detail/tuple.hpp>
+# include "Utilogeny/lib/boost/fusion/tuple/detail/tuple.hpp"
 #else
 
 ///////////////////////////////////////////////////////////////////////////////
 // C++11 interface
 ///////////////////////////////////////////////////////////////////////////////
-#include <boost/core/enable_if.hpp>
-#include <boost/fusion/container/vector/vector.hpp>
-#include <boost/fusion/sequence/intrinsic/size.hpp>
-#include <boost/fusion/sequence/intrinsic/value_at.hpp>
-#include <boost/fusion/sequence/intrinsic/at.hpp>
-#include <boost/fusion/sequence/comparison.hpp>
-#include <boost/fusion/sequence/io.hpp>
-#include <boost/fusion/support/detail/and.hpp>
-#include <boost/type_traits/is_convertible.hpp>
+#include "Utilogeny/lib/boost/core/enable_if.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/vector.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/size.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/value_at.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/at.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/io.hpp"
+#include "Utilogeny/lib/boost/fusion/support/detail/and.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
 #include <utility>
 
 namespace boost { namespace fusion

@@ -15,12 +15,12 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/O1_size.hpp>
-#include <boost/mpl/lambda.hpp>
-#include <boost/mpl/aux_/iter_fold_impl.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
+#include "Utilogeny/lib/boost/mpl/begin_end.hpp"
+#include "Utilogeny/lib/boost/mpl/O1_size.hpp"
+#include "Utilogeny/lib/boost/mpl/lambda.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/iter_fold_impl.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/na_spec.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/lambda_support.hpp"
 
 namespace boost { namespace mpl {
 

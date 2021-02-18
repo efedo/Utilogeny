@@ -5,7 +5,7 @@
  *          http://www.boost.org/LICENSE_1_0.txt)
  */
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 #if !defined(BOOST_ATOMIC_ENABLE_WARNINGS)
 

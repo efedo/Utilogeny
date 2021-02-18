@@ -7,9 +7,9 @@
 #ifndef FUSION_TUPLE_FORWARD_14122014_0051
 #define FUSION_TUPLE_FORWARD_14122014_0051
 
-#include <boost/config.hpp>
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/container/vector/detail/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/detail/config.hpp"
 
 #if  !defined(BOOST_FUSION_HAS_VARIADIC_VECTOR) \
   || (defined(__WAVE__) && defined(BOOST_FUSION_CREATE_PREPROCESSED_FILES))
@@ -26,7 +26,7 @@
 // With no variadics, we will use the C++03 version
 ///////////////////////////////////////////////////////////////////////////////
 #if !defined(BOOST_FUSION_HAS_VARIADIC_TUPLE)
-# include <boost/fusion/tuple/detail/tuple_fwd.hpp>
+# include "Utilogeny/lib/boost/fusion/tuple/detail/tuple_fwd.hpp"
 #else
 
 ///////////////////////////////////////////////////////////////////////////////

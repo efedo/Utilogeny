@@ -13,19 +13,19 @@
 
 #include <cmath>
   #include <limits>
-  #include <boost/cstdint.hpp>
-  #include <boost/math/policies/policy.hpp>
-  #include <boost/math/special_functions/bernoulli.hpp>
-  #include <boost/math/special_functions/trunc.hpp>
-  #include <boost/math/special_functions/zeta.hpp>
-  #include <boost/math/special_functions/digamma.hpp>
-  #include <boost/math/special_functions/sin_pi.hpp>
-  #include <boost/math/special_functions/cos_pi.hpp>
-  #include <boost/math/special_functions/pow.hpp>
-  #include <boost/mpl/if.hpp>
-  #include <boost/mpl/int.hpp>
-  #include <boost/static_assert.hpp>
-  #include <boost/type_traits/is_convertible.hpp>
+  #include "Utilogeny/lib/boost/cstdint.hpp"
+  #include "Utilogeny/lib/boost/math/policies/policy.hpp"
+  #include "Utilogeny/lib/boost/math/special_functions/bernoulli.hpp"
+  #include "Utilogeny/lib/boost/math/special_functions/trunc.hpp"
+  #include "Utilogeny/lib/boost/math/special_functions/zeta.hpp"
+  #include "Utilogeny/lib/boost/math/special_functions/digamma.hpp"
+  #include "Utilogeny/lib/boost/math/special_functions/sin_pi.hpp"
+  #include "Utilogeny/lib/boost/math/special_functions/cos_pi.hpp"
+  #include "Utilogeny/lib/boost/math/special_functions/pow.hpp"
+  #include "Utilogeny/lib/boost/mpl/if.hpp"
+  #include "Utilogeny/lib/boost/mpl/int.hpp"
+  #include "Utilogeny/lib/boost/static_assert.hpp"
+  #include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
 
 #ifdef _MSC_VER
 #pragma once

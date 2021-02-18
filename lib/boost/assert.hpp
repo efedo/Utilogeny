@@ -1,5 +1,5 @@
 //
-//  boost/assert.hpp - BOOST_ASSERT(expr)
+//  Utilogeny/lib/boost/assert.hpp - BOOST_ASSERT(expr)
 //                     BOOST_ASSERT_MSG(expr, msg)
 //                     BOOST_VERIFY(expr)
 //                     BOOST_VERIFY_MSG(expr, msg)
@@ -41,8 +41,8 @@
 
 #elif defined(BOOST_ENABLE_ASSERT_HANDLER) || ( defined(BOOST_ENABLE_ASSERT_DEBUG_HANDLER) && !defined(NDEBUG) )
 
-#include <boost/config.hpp> // for BOOST_LIKELY
-#include <boost/current_function.hpp>
+#include "Utilogeny/lib/boost/config.hpp" // for BOOST_LIKELY
+#include "Utilogeny/lib/boost/current_function.hpp"
 
 namespace boost
 {

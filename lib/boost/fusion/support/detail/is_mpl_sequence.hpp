@@ -8,11 +8,11 @@
 #if !defined(FUSION_DETAIL_IS_MPL_SEQUENCE_29122006_1105)
 #define FUSION_DETAIL_IS_MPL_SEQUENCE_29122006_1105
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/support/detail/is_native_fusion_sequence.hpp>
-#include <boost/mpl/is_sequence.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/not.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/support/detail/is_native_fusion_sequence.hpp"
+#include "Utilogeny/lib/boost/mpl/is_sequence.hpp"
+#include "Utilogeny/lib/boost/mpl/and.hpp"
+#include "Utilogeny/lib/boost/mpl/not.hpp"
 
 namespace boost { namespace fusion { namespace detail
 {

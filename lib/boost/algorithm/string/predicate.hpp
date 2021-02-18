@@ -12,19 +12,19 @@
 #define BOOST_STRING_PREDICATE_HPP
 
 #include <iterator>
-#include <boost/algorithm/string/config.hpp>
-#include <boost/range/begin.hpp>
-#include <boost/range/end.hpp>
-#include <boost/range/iterator.hpp>
-#include <boost/range/const_iterator.hpp>
-#include <boost/range/as_literal.hpp>
-#include <boost/range/iterator_range_core.hpp>
+#include "Utilogeny/lib/boost/algorithm/string/config.hpp"
+#include "Utilogeny/lib/boost/range/begin.hpp"
+#include "Utilogeny/lib/boost/range/end.hpp"
+#include "Utilogeny/lib/boost/range/iterator.hpp"
+#include "Utilogeny/lib/boost/range/const_iterator.hpp"
+#include "Utilogeny/lib/boost/range/as_literal.hpp"
+#include "Utilogeny/lib/boost/range/iterator_range_core.hpp"
 
-#include <boost/algorithm/string/compare.hpp>
-#include <boost/algorithm/string/find.hpp>
-#include <boost/algorithm/string/detail/predicate.hpp>
+#include "Utilogeny/lib/boost/algorithm/string/compare.hpp"
+#include "Utilogeny/lib/boost/algorithm/string/find.hpp"
+#include "Utilogeny/lib/boost/algorithm/string/detail/predicate.hpp"
 
-/*! \file boost/algorithm/string/predicate.hpp
+/*! \file Utilogeny/lib/boost/algorithm/string/predicate.hpp
     Defines string-related predicates. 
     The predicates determine whether a substring is contained in the input string 
     under various conditions: a string starts with the substring, ends with the 

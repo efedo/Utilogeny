@@ -7,11 +7,11 @@
 #if !defined(BOOST_FUSION_SEGMENTED_SEQUENCE_HPP_INCLUDED)
 #define BOOST_FUSION_SEGMENTED_SEQUENCE_HPP_INCLUDED
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/type_traits/remove_reference.hpp>
-#include <boost/fusion/support/tag_of.hpp>
-#include <boost/fusion/sequence/intrinsic_fwd.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
+#include "Utilogeny/lib/boost/fusion/support/tag_of.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic_fwd.hpp"
 
 namespace boost { namespace fusion { namespace detail
 {

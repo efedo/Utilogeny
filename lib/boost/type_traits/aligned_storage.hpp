@@ -15,12 +15,12 @@
 
 #include <cstddef> // for std::size_t
 
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
-#include <boost/type_traits/alignment_of.hpp>
-#include <boost/type_traits/type_with_alignment.hpp>
-#include <boost/type_traits/is_pod.hpp>
-#include <boost/type_traits/conditional.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/type_traits/alignment_of.hpp"
+#include "Utilogeny/lib/boost/type_traits/type_with_alignment.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_pod.hpp"
+#include "Utilogeny/lib/boost/type_traits/conditional.hpp"
 
 namespace boost {
 

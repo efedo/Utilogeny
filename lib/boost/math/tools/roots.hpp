@@ -9,32 +9,32 @@
 #ifdef _MSC_VER
 #pragma once
 #endif
-#include <boost/math/tools/complex.hpp> // test for multiprecision types.
+#include "Utilogeny/lib/boost/math/tools/complex.hpp" // test for multiprecision types.
 
 #include <iostream>
 #include <utility>
-#include <boost/config/no_tr1/cmath.hpp>
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp"
 #include <stdexcept>
 
-#include <boost/math/tools/config.hpp>
-#include <boost/cstdint.hpp>
-#include <boost/assert.hpp>
-#include <boost/throw_exception.hpp>
-#include <boost/math/tools/cxx03_warn.hpp>
+#include "Utilogeny/lib/boost/math/tools/config.hpp"
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/throw_exception.hpp"
+#include "Utilogeny/lib/boost/math/tools/cxx03_warn.hpp"
 
 #ifdef BOOST_MSVC
 #pragma warning(push)
 #pragma warning(disable: 4512)
 #endif
-#include <boost/math/tools/tuple.hpp>
+#include "Utilogeny/lib/boost/math/tools/tuple.hpp"
 #ifdef BOOST_MSVC
 #pragma warning(pop)
 #endif
 
-#include <boost/math/special_functions/sign.hpp>
-#include <boost/math/special_functions/next.hpp>
-#include <boost/math/tools/toms748_solve.hpp>
-#include <boost/math/policies/error_handling.hpp>
+#include "Utilogeny/lib/boost/math/special_functions/sign.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/next.hpp"
+#include "Utilogeny/lib/boost/math/tools/toms748_solve.hpp"
+#include "Utilogeny/lib/boost/math/policies/error_handling.hpp"
 
 namespace boost {
 namespace math {

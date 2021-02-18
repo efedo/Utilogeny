@@ -7,39 +7,39 @@
 #ifndef FUSION_VECTOR_11052014_1625
 #define FUSION_VECTOR_11052014_1625
 
-#include <boost/config.hpp>
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/container/vector/detail/config.hpp>
-#include <boost/fusion/container/vector/vector_fwd.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/detail/config.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/vector_fwd.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 // Without variadics, we will use the PP version
 ///////////////////////////////////////////////////////////////////////////////
 #if !defined(BOOST_FUSION_HAS_VARIADIC_VECTOR)
-# include <boost/fusion/container/vector/detail/cpp03/vector.hpp>
+# include "Utilogeny/lib/boost/fusion/container/vector/detail/cpp03/vector.hpp"
 #else
 
 ///////////////////////////////////////////////////////////////////////////////
 // C++11 interface
 ///////////////////////////////////////////////////////////////////////////////
-#include <boost/fusion/support/sequence_base.hpp>
-#include <boost/fusion/support/is_sequence.hpp>
-#include <boost/fusion/support/detail/and.hpp>
-#include <boost/fusion/support/detail/index_sequence.hpp>
-#include <boost/fusion/container/vector/detail/at_impl.hpp>
-#include <boost/fusion/container/vector/detail/value_at_impl.hpp>
-#include <boost/fusion/container/vector/detail/begin_impl.hpp>
-#include <boost/fusion/container/vector/detail/end_impl.hpp>
-#include <boost/fusion/sequence/intrinsic/begin.hpp>
-#include <boost/fusion/sequence/intrinsic/size.hpp>
-#include <boost/fusion/iterator/advance.hpp>
-#include <boost/fusion/iterator/deref.hpp>
-#include <boost/core/enable_if.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/is_base_of.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/remove_reference.hpp>
+#include "Utilogeny/lib/boost/fusion/support/sequence_base.hpp"
+#include "Utilogeny/lib/boost/fusion/support/is_sequence.hpp"
+#include "Utilogeny/lib/boost/fusion/support/detail/and.hpp"
+#include "Utilogeny/lib/boost/fusion/support/detail/index_sequence.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/detail/at_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/detail/value_at_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/detail/begin_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/container/vector/detail/end_impl.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/begin.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/intrinsic/size.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/advance.hpp"
+#include "Utilogeny/lib/boost/fusion/iterator/deref.hpp"
+#include "Utilogeny/lib/boost/core/enable_if.hpp"
+#include "Utilogeny/lib/boost/mpl/int.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_base_of.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_convertible.hpp"
+#include "Utilogeny/lib/boost/type_traits/remove_reference.hpp"
 #include <cstddef>
 #include <utility>
 

@@ -7,20 +7,20 @@
 #ifndef FUSION_TUPLE_TIE_14122014_0115
 #define FUSION_TUPLE_TIE_14122014_0115
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/tuple/tuple_fwd.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/tuple/tuple_fwd.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 // With no variadics, we will use the C++03 version
 ///////////////////////////////////////////////////////////////////////////////
 #if !defined(BOOST_FUSION_HAS_VARIADIC_TUPLE)
-# include <boost/fusion/tuple/detail/tuple_tie.hpp>
+# include "Utilogeny/lib/boost/fusion/tuple/detail/tuple_tie.hpp"
 #else
 
 ///////////////////////////////////////////////////////////////////////////////
 // C++11 interface
 ///////////////////////////////////////////////////////////////////////////////
-#include <boost/fusion/tuple/tuple.hpp>
+#include "Utilogeny/lib/boost/fusion/tuple/tuple.hpp"
 
 namespace boost { namespace fusion
 {

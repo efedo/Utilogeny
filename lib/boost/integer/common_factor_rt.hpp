@@ -7,13 +7,13 @@
 #ifndef BOOST_INTEGER_COMMON_FACTOR_RT_HPP
 #define BOOST_INTEGER_COMMON_FACTOR_RT_HPP
 
-#include <boost/assert.hpp>
-#include <boost/core/enable_if.hpp>
+#include "Utilogeny/lib/boost/assert.hpp"
+#include "Utilogeny/lib/boost/core/enable_if.hpp"
 
-#include <boost/config.hpp>  // for BOOST_NESTED_TEMPLATE, etc.
-#include <boost/limits.hpp>  // for std::numeric_limits
+#include "Utilogeny/lib/boost/config.hpp"  // for BOOST_NESTED_TEMPLATE, etc.
+#include "Utilogeny/lib/boost/limits.hpp"  // for std::numeric_limits
 #include <climits>           // for CHAR_MIN
-#include <boost/detail/workaround.hpp>
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
 #include <iterator>
 #include <algorithm>
 #include <limits>

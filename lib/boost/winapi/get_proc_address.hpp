@@ -8,7 +8,7 @@
 #ifndef BOOST_WINAPI_GET_PROC_ADDRESS_HPP_INCLUDED_
 #define BOOST_WINAPI_GET_PROC_ADDRESS_HPP_INCLUDED_
 
-#include <boost/winapi/basic_types.hpp>
+#include "Utilogeny/lib/boost/winapi/basic_types.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -16,7 +16,7 @@
 
 #if BOOST_WINAPI_PARTITION_DESKTOP || BOOST_WINAPI_PARTITION_SYSTEM
 
-#include <boost/winapi/detail/header.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/header.hpp"
 
 #if !defined(BOOST_USE_WINDOWS_H)
 namespace boost { namespace winapi {
@@ -75,7 +75,7 @@ BOOST_FORCEINLINE FARPROC_ get_proc_address(HMODULE_ hModule, LPCSTR_ lpProcName
 } // namespace winapi
 } // namespace boost
 
-#include <boost/winapi/detail/footer.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/footer.hpp"
 
 #endif // BOOST_WINAPI_PARTITION_DESKTOP || BOOST_WINAPI_PARTITION_SYSTEM
 #endif // BOOST_WINAPI_GET_PROC_ADDRESS_HPP_INCLUDED_

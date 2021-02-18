@@ -18,7 +18,7 @@
 #ifndef BOOST_LEXICAL_CAST_DETAIL_CONVERTER_LEXICAL_STREAMS_HPP
 #define BOOST_LEXICAL_CAST_DETAIL_CONVERTER_LEXICAL_STREAMS_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #   pragma once
 #endif
@@ -32,12 +32,12 @@
 #include <string>
 #include <cstring>
 #include <cstdio>
-#include <boost/limits.hpp>
-#include <boost/type_traits/conditional.hpp>
-#include <boost/type_traits/is_pointer.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/detail/lcast_precision.hpp>
-#include <boost/detail/workaround.hpp>
+#include "Utilogeny/lib/boost/limits.hpp"
+#include "Utilogeny/lib/boost/type_traits/conditional.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_pointer.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/detail/lcast_precision.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
 
 #ifndef BOOST_NO_STD_LOCALE
 #   include <locale>
@@ -58,9 +58,9 @@
 #include <sstream>
 #endif
 
-#include <boost/lexical_cast/detail/lcast_char_constants.hpp>
-#include <boost/lexical_cast/detail/lcast_unsigned_converters.hpp>
-#include <boost/lexical_cast/detail/inf_nan.hpp>
+#include "Utilogeny/lib/boost/lexical_cast/detail/lcast_char_constants.hpp"
+#include "Utilogeny/lib/boost/lexical_cast/detail/lcast_unsigned_converters.hpp"
+#include "Utilogeny/lib/boost/lexical_cast/detail/inf_nan.hpp"
 
 #include <istream>
 
@@ -68,15 +68,15 @@
 #include <array>
 #endif
 
-#include <boost/array.hpp>
-#include <boost/type_traits/make_unsigned.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/is_float.hpp>
-#include <boost/range/iterator_range_core.hpp>
-#include <boost/container/container_fwd.hpp>
-#include <boost/integer.hpp>
-#include <boost/detail/basic_pointerbuf.hpp>
-#include <boost/noncopyable.hpp>
+#include "Utilogeny/lib/boost/array.hpp"
+#include "Utilogeny/lib/boost/type_traits/make_unsigned.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_integral.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_float.hpp"
+#include "Utilogeny/lib/boost/range/iterator_range_core.hpp"
+#include "Utilogeny/lib/boost/container/container_fwd.hpp"
+#include "Utilogeny/lib/boost/integer.hpp"
+#include "Utilogeny/lib/boost/detail/basic_pointerbuf.hpp"
+#include "Utilogeny/lib/boost/noncopyable.hpp"
 #ifndef BOOST_NO_CWCHAR
 #   include <cwchar>
 #endif

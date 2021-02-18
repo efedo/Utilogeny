@@ -8,7 +8,7 @@ Distributed under the Boost Software License, Version 1.0.
 #ifndef BOOST_TYPEOF_CONSTANT_HPP
 #define BOOST_TYPEOF_CONSTANT_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 namespace boost {
 namespace type_of {

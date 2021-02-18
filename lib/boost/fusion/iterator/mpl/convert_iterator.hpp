@@ -7,10 +7,10 @@
 #if !defined(FUSION_CONVERT_ITERATOR_05062005_1218)
 #define FUSION_CONVERT_ITERATOR_05062005_1218
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/support/is_iterator.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/bool.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/support/is_iterator.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
 
 namespace boost { namespace fusion
 {

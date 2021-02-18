@@ -8,12 +8,12 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_ENDIAN_H
 #define BOOST_PREDEF_ENDIAN_H
 
-#include <boost/predef/version_number.h>
-#include <boost/predef/make.h>
-#include <boost/predef/library/c/gnu.h>
-#include <boost/predef/os/macos.h>
-#include <boost/predef/os/bsd.h>
-#include <boost/predef/platform/android.h>
+#include "Utilogeny/lib/boost/predef/version_number.h"
+#include "Utilogeny/lib/boost/predef/make.h"
+#include "Utilogeny/lib/boost/predef/library/c/gnu.h"
+#include "Utilogeny/lib/boost/predef/os/macos.h"
+#include "Utilogeny/lib/boost/predef/os/bsd.h"
+#include "Utilogeny/lib/boost/predef/platform/android.h"
 
 /* tag::reference[]
 = `BOOST_ENDIAN_*`
@@ -139,7 +139,7 @@ information and acquired knowledge:
  */
 #if !BOOST_ENDIAN_BIG_BYTE && !BOOST_ENDIAN_BIG_WORD && \
     !BOOST_ENDIAN_LITTLE_BYTE && !BOOST_ENDIAN_LITTLE_WORD
-#   include <boost/predef/architecture.h>
+#   include "Utilogeny/lib/boost/predef/architecture.h"
 #   if BOOST_ARCH_M68K || \
         BOOST_ARCH_PARISC || \
         BOOST_ARCH_SPARC || \
@@ -163,7 +163,7 @@ information and acquired knowledge:
 #if !BOOST_ENDIAN_BIG_BYTE && !BOOST_ENDIAN_BIG_WORD && \
     !BOOST_ENDIAN_LITTLE_BYTE && !BOOST_ENDIAN_LITTLE_WORD
 #   if BOOST_ARCH_ARM
-#       include <boost/predef/os/windows.h>
+#       include "Utilogeny/lib/boost/predef/os/windows.h"
 #       if BOOST_OS_WINDOWS
 #           undef BOOST_ENDIAN_LITTLE_BYTE
 #           define BOOST_ENDIAN_LITTLE_BYTE BOOST_VERSION_NUMBER_AVAILABLE
@@ -191,14 +191,14 @@ information and acquired knowledge:
 
 #endif
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_ENDIAN_BIG_BYTE,BOOST_ENDIAN_BIG_BYTE_NAME)
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_ENDIAN_BIG_WORD,BOOST_ENDIAN_BIG_WORD_NAME)
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_ENDIAN_LITTLE_BYTE,BOOST_ENDIAN_LITTLE_BYTE_NAME)
 
-#include <boost/predef/detail/test.h>
+#include "Utilogeny/lib/boost/predef/detail/test.h"
 BOOST_PREDEF_DECLARE_TEST(BOOST_ENDIAN_LITTLE_WORD,BOOST_ENDIAN_LITTLE_WORD_NAME)

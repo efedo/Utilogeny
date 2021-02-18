@@ -8,11 +8,11 @@
 #if !defined(FUSION_MAKE_TUPLE_10032005_0843)
 #define FUSION_MAKE_TUPLE_10032005_0843
 
-#include <boost/preprocessor/iterate.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/preprocessor/repetition/enum_binary_params.hpp>
-#include <boost/fusion/tuple/detail/tuple.hpp>
-#include <boost/fusion/support/detail/as_fusion_element.hpp>
+#include "Utilogeny/lib/boost/preprocessor/iterate.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_params.hpp"
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum_binary_params.hpp"
+#include "Utilogeny/lib/boost/fusion/tuple/detail/tuple.hpp"
+#include "Utilogeny/lib/boost/fusion/support/detail/as_fusion_element.hpp"
 
 namespace boost { namespace fusion
 {
@@ -24,7 +24,7 @@ namespace boost { namespace fusion
 }}
 
 #if !defined(BOOST_FUSION_DONT_USE_PREPROCESSED_FILES)
-#include <boost/fusion/tuple/detail/preprocessed/make_tuple.hpp>
+#include "Utilogeny/lib/boost/fusion/tuple/detail/preprocessed/make_tuple.hpp"
 #else
 #if defined(__WAVE__) && defined(BOOST_FUSION_CREATE_PREPROCESSED_FILES)
 #pragma wave option(preserve: 2, line: 0, output: "preprocessed/make_tuple" FUSION_MAX_VECTOR_SIZE_STR ".hpp")
@@ -48,7 +48,7 @@ namespace boost { namespace fusion
 #define BOOST_FUSION_AS_FUSION_ELEMENT(z, n, data)                               \
     typename detail::as_fusion_element<BOOST_PP_CAT(T, n)>::type
 
-#define BOOST_PP_FILENAME_1 <boost/fusion/tuple/detail/make_tuple.hpp>
+#define BOOST_PP_FILENAME_1 "Utilogeny/lib/boost/fusion/tuple/detail/make_tuple.hpp"
 #define BOOST_PP_ITERATION_LIMITS (1, FUSION_MAX_VECTOR_SIZE)
 #include BOOST_PP_ITERATE()
 

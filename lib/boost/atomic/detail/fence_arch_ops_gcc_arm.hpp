@@ -14,12 +14,12 @@
 #ifndef BOOST_ATOMIC_DETAIL_FENCE_ARCH_OPS_GCC_ARM_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_FENCE_ARCH_OPS_GCC_ARM_HPP_INCLUDED_
 
-#include <boost/cstdint.hpp>
-#include <boost/memory_order.hpp>
-#include <boost/atomic/detail/config.hpp>
-#include <boost/atomic/detail/capabilities.hpp>
-#include <boost/atomic/detail/gcc_arm_asm_common.hpp>
-#include <boost/atomic/detail/header.hpp>
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/memory_order.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/capabilities.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/gcc_arm_asm_common.hpp"
+#include "Utilogeny/lib/boost/atomic/detail/header.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -85,6 +85,6 @@ typedef fence_arch_operations_gcc_arm fence_arch_operations;
 } // namespace atomics
 } // namespace boost
 
-#include <boost/atomic/detail/footer.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/footer.hpp"
 
 #endif // BOOST_ATOMIC_DETAIL_FENCE_ARCH_OPS_GCC_ARM_HPP_INCLUDED_

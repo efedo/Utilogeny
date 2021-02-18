@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/bool_fwd.hpp>
-#include <boost/mpl/integral_c_tag.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
+#include "Utilogeny/lib/boost/mpl/bool_fwd.hpp"
+#include "Utilogeny/lib/boost/mpl/integral_c_tag.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/static_constant.hpp"
 
 BOOST_MPL_AUX_ADL_BARRIER_NAMESPACE_OPEN
 

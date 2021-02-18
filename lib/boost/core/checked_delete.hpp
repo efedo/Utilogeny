@@ -7,10 +7,10 @@
 # pragma once
 #endif
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 //
-//  boost/checked_delete.hpp
+//  Utilogeny/lib/boost/checked_delete.hpp
 //
 //  Copyright (c) 2002, 2003 Peter Dimov
 //  Copyright (c) 2003 Daniel Frey

@@ -18,7 +18,7 @@
 #ifndef BOOST_LEXICAL_CAST_DETAIL_INF_NAN_HPP
 #define BOOST_LEXICAL_CAST_DETAIL_INF_NAN_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #   pragma once
 #endif
@@ -29,12 +29,12 @@
 
 #include <cstddef>
 #include <cstring>
-#include <boost/limits.hpp>
-#include <boost/detail/workaround.hpp>
-#include <boost/math/special_functions/sign.hpp>
-#include <boost/math/special_functions/fpclassify.hpp>
+#include "Utilogeny/lib/boost/limits.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/sign.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/fpclassify.hpp"
 
-#include <boost/lexical_cast/detail/lcast_char_constants.hpp>
+#include "Utilogeny/lib/boost/lexical_cast/detail/lcast_char_constants.hpp"
 
 namespace boost {
     namespace detail

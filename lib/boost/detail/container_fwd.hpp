@@ -13,8 +13,8 @@
 # pragma once
 #endif
 
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
 
 ////////////////////////////////////////////////////////////////////////////////
 //                                                                            //

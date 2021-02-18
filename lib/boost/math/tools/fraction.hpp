@@ -10,12 +10,12 @@
 #pragma once
 #endif
 
-#include <boost/config/no_tr1/cmath.hpp>
-#include <boost/cstdint.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/math/tools/precision.hpp>
-#include <boost/math/tools/complex.hpp>
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp"
+#include "Utilogeny/lib/boost/cstdint.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/math/tools/precision.hpp"
+#include "Utilogeny/lib/boost/math/tools/complex.hpp"
 
 namespace boost{ namespace math{ namespace tools{
 

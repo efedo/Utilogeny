@@ -9,7 +9,7 @@
 #if !defined(FUSION_IGNORE_07192005_0329)
 #define FUSION_IGNORE_07192005_0329
 
-#include <boost/fusion/support/config.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
 
 namespace boost { namespace fusion
 {

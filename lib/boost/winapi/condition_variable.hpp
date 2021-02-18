@@ -9,7 +9,7 @@
 #ifndef BOOST_WINAPI_CONDITION_VARIABLE_HPP_INCLUDED_
 #define BOOST_WINAPI_CONDITION_VARIABLE_HPP_INCLUDED_
 
-#include <boost/winapi/config.hpp>
+#include "Utilogeny/lib/boost/winapi/config.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -17,8 +17,8 @@
 
 #if BOOST_USE_WINAPI_VERSION >= BOOST_WINAPI_VERSION_WIN6
 
-#include <boost/winapi/basic_types.hpp>
-#include <boost/winapi/detail/header.hpp>
+#include "Utilogeny/lib/boost/winapi/basic_types.hpp"
+#include "Utilogeny/lib/boost/winapi/detail/header.hpp"
 
 #if !defined( BOOST_USE_WINDOWS_H )
 extern "C" {
@@ -116,7 +116,7 @@ BOOST_CONSTEXPR_OR_CONST ULONG_ condition_variable_lockmode_shared = CONDITION_V
 }
 }
 
-#include <boost/winapi/detail/footer.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/footer.hpp"
 
 #endif // BOOST_USE_WINAPI_VERSION >= BOOST_WINAPI_VERSION_WIN6
 

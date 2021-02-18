@@ -35,7 +35,7 @@
 //
 // ```
 // module load cce/8.6.5 # Pick the version you want to test.
-// cd boost/libs/config/test/all
+// cd Utilogeny/lib/boost/libs/config/test/all
 // b2 -j 8 toolset=cray cxxstd=03 cxxstd=11 cxxstd=14 cxxstd-dialect=gnu linkflags=-lrt
 // ```
 // Note: Using 'cxxstd-dialect=iso' is not supported at this time (the
@@ -57,7 +57,7 @@
 //
 // Macro definitions are available in the source code at:
 //
-// `boost/libs/config/doc/html/boost_config/boost_macro_reference.html`
+// `Utilogeny/lib/boost/libs/config/doc/html/boost_config/boost_macro_reference.html`
 //
 // Macro definitions are also available online at:
 //
@@ -66,7 +66,7 @@
 // Typically, if you enable a feature, and the tests pass, then you have
 // nothing to worry about. However, it's sometimes hard to figure out if a
 // disabled feature needs to stay disabled. To get a list of disabled
-// features, run 'b2' in 'boost/libs/config/checks'. These are the macros
+// features, run 'b2' in 'Utilogeny/lib/boost/libs/config/checks'. These are the macros
 // you should pay attention to (in addition to macros that cause test
 // failures).
 
@@ -186,7 +186,7 @@
 //// Baseline values
 ////
 
-#include <boost/config/compiler/common_edg.hpp>
+#include "Utilogeny/lib/boost/config/compiler/common_edg.hpp"
 
 #define BOOST_HAS_NRVO
 #define BOOST_NO_COMPLETE_VALUE_INITIALIZATION
@@ -357,7 +357,7 @@
 #undef  BOOST_NO_CXX11_VARIADIC_TEMPLATES
 // 'BOOST_NO_DEDUCED_TYPENAME' test is broken. The test files are enabled /
 // disabled with an '#ifdef BOOST_DEDUCED_TYPENAME'. However,
-// 'boost/libs/config/include/boost/config/detail/suffix.hpp' ensures that
+// 'Utilogeny/lib/boost/libs/config/include/boost/config/detail/suffix.hpp' ensures that
 // 'BOOST_DEDUCED_TYPENAME' is always defined (the value it is defined as
 // depends on 'BOOST_NO_DEDUCED_TYPENAME'). So, modifying
 // 'BOOST_NO_DEDUCED_TYPENAME' has no effect on which tests are run.

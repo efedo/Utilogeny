@@ -7,12 +7,12 @@
 #if !defined(FUSION_SEQUENCE_COMPARISON_10022005_0615)
 #define FUSION_SEQUENCE_COMPARISON_10022005_0615
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/fusion/sequence/comparison/equal_to.hpp>
-#include <boost/fusion/sequence/comparison/greater.hpp>
-#include <boost/fusion/sequence/comparison/greater_equal.hpp>
-#include <boost/fusion/sequence/comparison/less.hpp>
-#include <boost/fusion/sequence/comparison/less_equal.hpp>
-#include <boost/fusion/sequence/comparison/not_equal_to.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/equal_to.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/greater.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/greater_equal.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/less.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/less_equal.hpp"
+#include "Utilogeny/lib/boost/fusion/sequence/comparison/not_equal_to.hpp"
 
 #endif

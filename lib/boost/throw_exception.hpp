@@ -8,7 +8,7 @@
 #endif
 
 //
-//  boost/throw_exception.hpp
+//  Utilogeny/lib/boost/throw_exception.hpp
 //
 //  Copyright (c) 2002, 2018, 2019 Peter Dimov
 //  Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc.
@@ -20,9 +20,9 @@
 //  http://www.boost.org/libs/throw_exception
 //
 
-#include <boost/assert/source_location.hpp>
-#include <boost/config.hpp>
-#include <boost/config/workaround.hpp>
+#include "Utilogeny/lib/boost/assert/source_location.hpp"
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/config/workaround.hpp"
 #include <exception>
 
 #if !defined( BOOST_EXCEPTION_DISABLE ) && defined( BOOST_BORLANDC ) && BOOST_WORKAROUND( BOOST_BORLANDC, BOOST_TESTED_AT(0x593) )
@@ -70,7 +70,7 @@ template<class E> BOOST_NORETURN void throw_exception( E const & e, boost::sourc
 
 #else // !defined( BOOST_NO_EXCEPTIONS ) && !defined( BOOST_EXCEPTION_DISABLE )
 
-#include <boost/exception/exception.hpp>
+#include "Utilogeny/lib/boost/exception/exception.hpp"
 
 namespace boost
 {

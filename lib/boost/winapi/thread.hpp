@@ -9,9 +9,9 @@
 #ifndef BOOST_WINAPI_THREAD_HPP_INCLUDED_
 #define BOOST_WINAPI_THREAD_HPP_INCLUDED_
 
-#include <boost/winapi/basic_types.hpp>
-#include <boost/winapi/get_current_thread.hpp>
-#include <boost/winapi/get_current_thread_id.hpp>
+#include "Utilogeny/lib/boost/winapi/basic_types.hpp"
+#include "Utilogeny/lib/boost/winapi/get_current_thread.hpp"
+#include "Utilogeny/lib/boost/winapi/get_current_thread_id.hpp"
 
 #ifdef BOOST_HAS_PRAGMA_ONCE
 #pragma once
@@ -19,7 +19,7 @@
 
 #if BOOST_WINAPI_PARTITION_APP_SYSTEM
 
-#include <boost/winapi/detail/header.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/header.hpp"
 
 #if !defined( BOOST_USE_WINDOWS_H )
 extern "C" {
@@ -40,7 +40,7 @@ using ::SwitchToThread;
 }
 }
 
-#include <boost/winapi/detail/footer.hpp>
+#include "Utilogeny/lib/boost/winapi/detail/footer.hpp"
 
 #endif // BOOST_WINAPI_PARTITION_APP_SYSTEM
 #endif // BOOST_WINAPI_THREAD_HPP_INCLUDED_

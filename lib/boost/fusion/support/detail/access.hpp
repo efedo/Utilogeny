@@ -7,9 +7,9 @@
 #if !defined(FUSION_ACCESS_04182005_0737)
 #define FUSION_ACCESS_04182005_0737
 
-#include <boost/fusion/support/config.hpp>
-#include <boost/type_traits/add_const.hpp>
-#include <boost/type_traits/add_reference.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
+#include "Utilogeny/lib/boost/type_traits/add_const.hpp"
+#include "Utilogeny/lib/boost/type_traits/add_reference.hpp"
 
 namespace boost { namespace fusion { namespace detail
 {

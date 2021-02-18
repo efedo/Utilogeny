@@ -1,4 +1,8 @@
-cmake_minimum_required(VERSION 3.10) # CMP0083 NEW
+if(NOT OPTIMIZATION_COMPLETED)
+
+if(NOT OS_DETECTED)
+	include(${UTILOGENY_DIR}/cmake/detect_platform.cmake)
+endif()
 
 option(DISABLE_LTO "Disable link-time optimization (by default enabled in release mode)" OFF)
 
@@ -8,11 +12,13 @@ option(DISABLE_LTO "Disable link-time optimization (by default enabled in releas
 
 include(CheckCXXCompilerFlag)
 
+unset(CMAKE_EXTRA_CXX_FLAGS)
+
 function(add_flag_if_supported flag)
 	unset(COMPILER_${flag}_SUPPORTED CACHE)
 	CHECK_CXX_COMPILER_FLAG("${flag}" COMPILER_${flag}_SUPPORTED)
 	if (${COMPILER_${flag}_SUPPORTED})
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}")
+		set(CMAKE_EXTRA_CXX_FLAGS "${CMAKE_EXTRA_CXX_FLAGS} ${flag}" CACHE STRING "C++ flags" FORCE)
 		message(STATUS "Flag ${flag} ... set")
 	else()
 		message(STATUS "Flag ${flag} ... not supported")
@@ -21,39 +27,54 @@ endfunction()
 
 message(STATUS "Setting processor optimization flags")
 
+if(PLATFORM_COMPILER MATCHES "MSVC")
+
 # Native or AVX2 architecture
 add_flag_if_supported("/arch:AVX") #MSVC
 add_flag_if_supported("/arch:AVX2") #MSVC
-add_flag_if_supported("-march=native") #GCC, Clang
-
-add_flag_if_supported("-mfpmath=sse") # Not sure if this is still worthwhile, but just in case
 
 # Fast floats
-add_flag_if_supported("-ffast-math") #GCC, Clang
 add_flag_if_supported("/fp:fast") #MSVC
 
 # Disable run time type info
-add_flag_if_supported("-fno-rtti") #GCC, Clang
 add_flag_if_supported("/GR-") #MSVC
 
 # MultiProcessorCompilation
 add_flag_if_supported("/MP") #MSVC
 
-# Multi-threaded runtime
-add_flag_if_supported("/MTd") #MSVC
-
 # Auto-parallelizer
 add_flag_if_supported("/Qpar")
+
+else() # GCC, Clang, other LLVM
+
+# Native or AVX2 architecture
+add_flag_if_supported("-mfpmath=sse")  # Not sure if this is still worthwhile, but just in case
+add_flag_if_supported("-march=skylake") # GCC, Clang
+
+# Fast floats
+add_flag_if_supported("-ffast-math") #GCC, Clang
+
+# Disable run time type info
+add_flag_if_supported("-fno-rtti") #GCC, Clang
+
+endif()
+
+message(STATUS "Selecting optimization profile based on CMake build type: ${CMAKE_BUILD_TYPE}")
 	
-if(CMAKE_BUILD_TYPE MATCHES DEBUG)
+if(CMAKE_BUILD_TYPE MATCHES "Debug")
     message(STATUS "Implementing Debug optimization profile")
+	
+	if(PLATFORM_COMPILER MATCHES "MSVC")
 	
 	# Auto-parallelizer and vectorizer error messages
 	add_flag_if_supported("/Qpar-report:2")
 	add_flag_if_supported("/Qvec-report:2")
-	
+	else() # GCC, Clang, other LLVM
+	endif()
 else()
     message(STATUS "Implementing Release optimization profile")
+	
+	if(PLATFORM_COMPILER MATCHES "MSVC")
 	
 	# Maximize speed
 	add_flag_if_supported("/O2") #MSVC equivalent to /Og /Oi /Ot /Oy /Ob2 /GF /Gy
@@ -70,6 +91,8 @@ else()
 	
 	# Whole program optimization
 	add_flag_if_supported("/GL") #MSVC
+	else() # GCC, Clang, other LLVM
+	endif()
 endif()
 
 if(NOT DISABLE_LTO)
@@ -78,13 +101,18 @@ if(NOT DISABLE_LTO)
 	include(CheckIPOSupported)
 	check_ipo_supported(RESULT is_ipo_supported OUTPUT lto_error)
 	if(is_ipo_supported)
-		set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE ON)
-		set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELWITHDEBINFO ON)
-		set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_MINSIZEREL ON)
+		set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE ON CACHE BOOL "Inteprocedural optimization for release mode" FORCE)
+		set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELWITHDEBINFO ON CACHE BOOL "Inteprocedural optimization for relwithdebinfo mode" FORCE)
+		set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_MINSIZEREL ON CACHE BOOL "Inteprocedural optimization for debug mode" FORCE)
 	endif()
 		
 endif()
 
+set(OPTIMIZATION_COMPLETED ON CACHE INTERNAL "Whether compiler optimization has been completed" FORCE)
+
+else()
+	message(STATUS "Skipping compiler optimization, already optimization")
+endif()
 
 
 

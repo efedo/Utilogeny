@@ -1,4 +1,4 @@
-//  boost/memory_order.hpp
+//  Utilogeny/lib/boost/memory_order.hpp
 //
 //  Defines enum boost::memory_order per the C++0x working draft
 //
@@ -12,7 +12,7 @@
 #ifndef BOOST_MEMORY_ORDER_HPP_INCLUDED
 #define BOOST_MEMORY_ORDER_HPP_INCLUDED
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 #if defined(BOOST_HAS_PRAGMA_ONCE)
 # pragma once

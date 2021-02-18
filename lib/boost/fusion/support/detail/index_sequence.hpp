@@ -9,7 +9,7 @@
 #ifndef BOOST_FUSION_SUPPORT_DETAIL_INDEX_SEQUENCE_06232015_1038
 #define BOOST_FUSION_SUPPORT_DETAIL_INDEX_SEQUENCE_06232015_1038
 
-#include <boost/fusion/support/config.hpp>
+#include "Utilogeny/lib/boost/fusion/support/config.hpp"
 #include <cstddef>
 
 // GCC5 has O(logN) implementation, see https://gcc.gnu.org/PR66059 .

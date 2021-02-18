@@ -8,22 +8,22 @@
 #ifndef BOOST_FUSION_ADAPTED_STRUCT_DETAIL_ADAPT_BASE_ATTR_FILLER_HPP
 #define BOOST_FUSION_ADAPTED_STRUCT_DETAIL_ADAPT_BASE_ATTR_FILLER_HPP
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
-#include <boost/fusion/adapted/struct/detail/adapt_auto.hpp>
-#include <boost/fusion/adapted/struct/detail/preprocessor/is_seq.hpp>
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/adapt_auto.hpp"
+#include "Utilogeny/lib/boost/fusion/adapted/struct/detail/preprocessor/is_seq.hpp"
 
-#include <boost/mpl/aux_/preprocessor/token_equal.hpp>
+#include "Utilogeny/lib/boost/mpl/aux_/preprocessor/token_equal.hpp"
 
-#include <boost/preprocessor/config/config.hpp>
-#include <boost/preprocessor/control/iif.hpp>
-#include <boost/preprocessor/control/expr_iif.hpp>
-#include <boost/preprocessor/logical/compl.hpp>
-#include <boost/preprocessor/tuple/elem.hpp>
-#include <boost/preprocessor/seq/for_each.hpp>
-#include <boost/preprocessor/seq/push_front.hpp>
-#include <boost/preprocessor/facilities/expand.hpp>
-#include <boost/preprocessor/facilities/is_empty.hpp>
+#include "Utilogeny/lib/boost/preprocessor/config/config.hpp"
+#include "Utilogeny/lib/boost/preprocessor/control/iif.hpp"
+#include "Utilogeny/lib/boost/preprocessor/control/expr_iif.hpp"
+#include "Utilogeny/lib/boost/preprocessor/logical/compl.hpp"
+#include "Utilogeny/lib/boost/preprocessor/tuple/elem.hpp"
+#include "Utilogeny/lib/boost/preprocessor/seq/for_each.hpp"
+#include "Utilogeny/lib/boost/preprocessor/seq/push_front.hpp"
+#include "Utilogeny/lib/boost/preprocessor/facilities/expand.hpp"
+#include "Utilogeny/lib/boost/preprocessor/facilities/is_empty.hpp"
 
 
 #define BOOST_FUSION_ADAPT_STRUCT_FILLER_0(X, Y)                                \

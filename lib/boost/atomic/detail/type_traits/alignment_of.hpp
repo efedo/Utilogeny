@@ -14,7 +14,7 @@
 #ifndef BOOST_ATOMIC_DETAIL_TYPE_TRAITS_ALIGNMENT_OF_HPP_INCLUDED_
 #define BOOST_ATOMIC_DETAIL_TYPE_TRAITS_ALIGNMENT_OF_HPP_INCLUDED_
 
-#include <boost/atomic/detail/config.hpp>
+#include "Utilogeny/lib/boost/atomic/detail/config.hpp"
 
 #if defined(BOOST_ATOMIC_DETAIL_NO_CXX11_BASIC_HDR_TYPE_TRAITS) ||\
     (defined(BOOST_GCC) && (BOOST_GCC+0) < 80100) ||\
@@ -27,7 +27,7 @@
 #if !defined(BOOST_ATOMIC_DETAIL_NO_CXX11_STD_ALIGNMENT_OF)
 #include <type_traits>
 #else
-#include <boost/type_traits/alignment_of.hpp>
+#include "Utilogeny/lib/boost/type_traits/alignment_of.hpp"
 #endif
 
 #ifdef BOOST_HAS_PRAGMA_ONCE

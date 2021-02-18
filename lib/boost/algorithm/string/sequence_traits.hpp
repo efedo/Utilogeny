@@ -11,9 +11,9 @@
 #ifndef BOOST_STRING_SEQUENCE_TRAITS_HPP
 #define BOOST_STRING_SEQUENCE_TRAITS_HPP
 
-#include <boost/config.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/algorithm/string/yes_no_type.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
+#include "Utilogeny/lib/boost/mpl/bool.hpp"
+#include "Utilogeny/lib/boost/algorithm/string/yes_no_type.hpp"
 
 /*! \file
     Traits defined in this header are used by various algorithms to achieve
@@ -26,8 +26,8 @@
     Due to a language restriction, it is not currently possible to define specializations for
     stl containers without including the corresponding header. To decrease the overhead
     needed by this inclusion, user can selectively include a specialization
-    header for a specific container. They are located in boost/algorithm/string/stl
-    directory. Alternatively she can include boost/algorithm/string/std_collection_traits.hpp
+    header for a specific container. They are located in Utilogeny/lib/boost/algorithm/string/stl
+    directory. Alternatively she can include Utilogeny/lib/boost/algorithm/string/std_collection_traits.hpp
     header which contains specializations for all stl containers.
 */
 

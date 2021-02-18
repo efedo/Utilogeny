@@ -6,12 +6,12 @@
 #ifndef BOOST_TYPEOF_TYPEOF_IMPL_HPP_INCLUDED
 #define BOOST_TYPEOF_TYPEOF_IMPL_HPP_INCLUDED
 
-#include <boost/preprocessor/repetition/enum.hpp>
-#include <boost/typeof/constant.hpp>
-#include <boost/typeof/encode_decode.hpp>
-#include <boost/typeof/vector.hpp>
-#include <boost/type_traits/enable_if.hpp>
-#include <boost/type_traits/is_function.hpp>
+#include "Utilogeny/lib/boost/preprocessor/repetition/enum.hpp"
+#include "Utilogeny/lib/boost/typeof/constant.hpp"
+#include "Utilogeny/lib/boost/typeof/encode_decode.hpp"
+#include "Utilogeny/lib/boost/typeof/vector.hpp"
+#include "Utilogeny/lib/boost/type_traits/enable_if.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_function.hpp"
 #include <cstddef> // for std::size_t
 
 #define BOOST_TYPEOF_VECTOR(n) BOOST_PP_CAT(boost::type_of::vector, n)

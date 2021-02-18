@@ -10,7 +10,7 @@
 #ifndef BOOST_MP_CPP_INT_MUL_HPP
 #define BOOST_MP_CPP_INT_MUL_HPP
 
-#include <boost/multiprecision/integer.hpp>
+#include "Utilogeny/lib/boost/multiprecision/integer.hpp"
 
 namespace boost { namespace multiprecision { namespace backends {
 

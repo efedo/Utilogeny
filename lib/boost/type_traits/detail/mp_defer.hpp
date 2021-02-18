@@ -9,8 +9,8 @@
 //  http://www.boost.org/LICENSE_1_0.txt
 //
 
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/conditional.hpp>
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
+#include "Utilogeny/lib/boost/type_traits/conditional.hpp"
 
 namespace boost
 {

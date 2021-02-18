@@ -10,12 +10,12 @@
 #pragma once
 #endif
 
-#include <boost/math/special_functions/math_fwd.hpp>
-#include <boost/config/no_tr1/cmath.hpp>
-#include <boost/math/tools/config.hpp>
-#include <boost/math/special_functions/trunc.hpp>
-#include <boost/math/tools/promotion.hpp>
-#include <boost/math/constants/constants.hpp>
+#include "Utilogeny/lib/boost/math/special_functions/math_fwd.hpp"
+#include "Utilogeny/lib/boost/config/no_tr1/cmath.hpp"
+#include "Utilogeny/lib/boost/math/tools/config.hpp"
+#include "Utilogeny/lib/boost/math/special_functions/trunc.hpp"
+#include "Utilogeny/lib/boost/math/tools/promotion.hpp"
+#include "Utilogeny/lib/boost/math/constants/constants.hpp"
 
 namespace boost{ namespace math{ namespace detail{
 

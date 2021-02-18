@@ -5,9 +5,9 @@
 
 #ifndef BOOST_MATH_TUPLE_HPP_INCLUDED
 #  define BOOST_MATH_TUPLE_HPP_INCLUDED
-#  include <boost/config.hpp>
-#  include <boost/detail/workaround.hpp>
-#  include <boost/math/tools/cxx03_warn.hpp>
+#  include "Utilogeny/lib/boost/config.hpp"
+#  include "Utilogeny/lib/boost/detail/workaround.hpp"
+#  include "Utilogeny/lib/boost/math/tools/cxx03_warn.hpp"
 
 #if !defined(BOOST_NO_CXX11_HDR_TUPLE) && !BOOST_WORKAROUND(BOOST_GCC_VERSION, < 40500)
 
@@ -31,9 +31,9 @@ using ::std::tuple_element;
 
 #elif (defined(BOOST_BORLANDC) && (BOOST_BORLANDC <= 0x600)) || defined(__IBMCPP__)
 
-#include <boost/tuple/tuple.hpp>
-#include <boost/tuple/tuple_comparison.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include "Utilogeny/lib/boost/tuple/tuple.hpp"
+#include "Utilogeny/lib/boost/tuple/tuple_comparison.hpp"
+#include "Utilogeny/lib/boost/type_traits/integral_constant.hpp"
 
 namespace boost{ namespace math{
 
@@ -66,8 +66,8 @@ using ::boost::get;
 
 #else
 
-#include <boost/fusion/include/tuple.hpp>
-#include <boost/fusion/include/std_pair.hpp>
+#include "Utilogeny/lib/boost/fusion/include/tuple.hpp"
+#include "Utilogeny/lib/boost/fusion/include/std_pair.hpp"
 
 namespace boost{ namespace math{
 

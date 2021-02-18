@@ -8,12 +8,12 @@
 #ifndef BOOST_TT_TYPE_WITH_ALIGNMENT_INCLUDED
 #define BOOST_TT_TYPE_WITH_ALIGNMENT_INCLUDED
 
-#include <boost/type_traits/alignment_of.hpp>
-#include <boost/type_traits/is_pod.hpp>
-#include <boost/static_assert.hpp>
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/type_traits/alignment_of.hpp"
+#include "Utilogeny/lib/boost/type_traits/is_pod.hpp"
+#include "Utilogeny/lib/boost/static_assert.hpp"
+#include "Utilogeny/lib/boost/config.hpp"
 #include <cstddef> // size_t
-#include <boost/detail/workaround.hpp>
+#include "Utilogeny/lib/boost/detail/workaround.hpp"
 
 #ifdef BOOST_MSVC
 #   pragma warning(push)
@@ -21,7 +21,7 @@
 #endif
 
 #ifdef _MSC_VER
-#include <boost/type_traits/conditional.hpp>
+#include "Utilogeny/lib/boost/type_traits/conditional.hpp"
 #endif
 
 namespace boost {

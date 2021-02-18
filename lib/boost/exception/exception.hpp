@@ -6,7 +6,7 @@
 #ifndef BOOST_EXCEPTION_274DA366004E11DCB1DDFE2E56D89593
 #define BOOST_EXCEPTION_274DA366004E11DCB1DDFE2E56D89593
 
-#include <boost/config.hpp>
+#include "Utilogeny/lib/boost/config.hpp"
 
 #ifdef BOOST_EXCEPTION_MINI_BOOST
 #include  <memory>

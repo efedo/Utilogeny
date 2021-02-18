@@ -15,23 +15,23 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/back_inserter.hpp>
-#include <boost/mpl/front_inserter.hpp>
-#include <boost/mpl/push_back.hpp>
-#include <boost/mpl/push_front.hpp>
-#include <boost/mpl/back_inserter.hpp>
-#include <boost/mpl/front_inserter.hpp>
-#include <boost/mpl/clear.hpp>
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/aux_/na.hpp>
-#include <boost/mpl/aux_/common_name_wknd.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/preprocessor/params.hpp>
-#include <boost/mpl/aux_/preprocessor/default_params.hpp>
-#include <boost/mpl/aux_/config/ctps.hpp>
+#include "Utilogeny/lib/boost/mpl/back_inserter.hpp"
+#include "Utilogeny/lib/boost/mpl/front_inserter.hpp"
+#include "Utilogeny/lib/boost/mpl/push_back.hpp"
+#include "Utilogeny/lib/boost/mpl/push_front.hpp"
+#include "Utilogeny/lib/boost/mpl/back_inserter.hpp"
+#include "Utilogeny/lib/boost/mpl/front_inserter.hpp"
+#include "Utilogeny/lib/boost/mpl/clear.hpp"
+#include "Utilogeny/lib/boost/mpl/eval_if.hpp"
+#include "Utilogeny/lib/boost/mpl/if.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/na.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/common_name_wknd.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/na_spec.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/preprocessor/params.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/preprocessor/default_params.hpp"
+#include "Utilogeny/lib/boost/mpl/aux_/config/ctps.hpp"
 
-#include <boost/preprocessor/arithmetic/dec.hpp>
+#include "Utilogeny/lib/boost/preprocessor/arithmetic/dec.hpp"
 
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
 
