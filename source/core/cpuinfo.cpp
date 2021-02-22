@@ -2,72 +2,77 @@
 
 #include "Utilogeny/source/core/precomp.h"
 #include "Utilogeny/source/core/cpuinfo.h"
-
+#include "Utilogeny/source/core/console/termcolor.h"
 
 // Initialize static member data
 const InstructionSet::InstructionSet_Internal InstructionSet::CPU_Rep;
 
+void printCPUinstruction(std::string feature, bool is_supported) {
+	std::cout << std::left << std::setw(20) << std::setfill('.') << feature;
+	if (is_supported) {
+		std::cout << termcolor::bright_green << " supported\n";
+	}
+	else {
+		std::cout << termcolor::bright_red << " not supported\n";
+	}
+	std::cout << termcolor::reset;
+}
+
 // Print out supported instruction set extensions
 void printCPUinfo()
 {
-	auto& outstream = std::cout;
+	std::cout << "CPU vendor: " << InstructionSet::Vendor() << std::endl;
+	std::cout << "CPU model: " << InstructionSet::Brand() << std::endl;
 
-	auto support_message = [&outstream](std::string isa_feature, bool is_supported) {
-		outstream << isa_feature << (is_supported ? " supported" : " not supported") << std::endl;
-	};
-
-	std::cout << InstructionSet::Vendor() << std::endl;
-	std::cout << InstructionSet::Brand() << std::endl;
-
-	support_message("3DNOW", InstructionSet::_3DNOW());
-	support_message("3DNOWEXT", InstructionSet::_3DNOWEXT());
-	support_message("ABM", InstructionSet::ABM());
-	support_message("ADX", InstructionSet::ADX());
-	support_message("AES", InstructionSet::AES());
-	support_message("AVX", InstructionSet::AVX());
-	support_message("AVX2", InstructionSet::AVX2());
-	support_message("AVX512CD", InstructionSet::AVX512CD());
-	support_message("AVX512ER", InstructionSet::AVX512ER());
-	support_message("AVX512F", InstructionSet::AVX512F());
-	support_message("AVX512PF", InstructionSet::AVX512PF());
-	support_message("BMI1", InstructionSet::BMI1());
-	support_message("BMI2", InstructionSet::BMI2());
-	support_message("CLFSH", InstructionSet::CLFSH());
-	support_message("CMPXCHG16B", InstructionSet::CMPXCHG16B());
-	support_message("CX8", InstructionSet::CX8());
-	support_message("ERMS", InstructionSet::ERMS());
-	support_message("F16C", InstructionSet::F16C());
-	support_message("FMA", InstructionSet::FMA());
-	support_message("FSGSBASE", InstructionSet::FSGSBASE());
-	support_message("FXSR", InstructionSet::FXSR());
-	support_message("HLE", InstructionSet::HLE());
-	support_message("INVPCID", InstructionSet::INVPCID());
-	support_message("LAHF", InstructionSet::LAHF());
-	support_message("LZCNT", InstructionSet::LZCNT());
-	support_message("MMX", InstructionSet::MMX());
-	support_message("MMXEXT", InstructionSet::MMXEXT());
-	support_message("MONITOR", InstructionSet::MONITOR());
-	support_message("MOVBE", InstructionSet::MOVBE());
-	support_message("MSR", InstructionSet::MSR());
-	support_message("OSXSAVE", InstructionSet::OSXSAVE());
-	support_message("PCLMULQDQ", InstructionSet::PCLMULQDQ());
-	support_message("POPCNT", InstructionSet::POPCNT());
-	support_message("PREFETCHWT1", InstructionSet::PREFETCHWT1());
-	support_message("RDRAND", InstructionSet::RDRAND());
-	support_message("RDSEED", InstructionSet::RDSEED());
-	support_message("RDTSCP", InstructionSet::RDTSCP());
-	support_message("RTM", InstructionSet::RTM());
-	support_message("SEP", InstructionSet::SEP());
-	support_message("SHA", InstructionSet::SHA());
-	support_message("SSE", InstructionSet::SSE());
-	support_message("SSE2", InstructionSet::SSE2());
-	support_message("SSE3", InstructionSet::SSE3());
-	support_message("SSE4.1", InstructionSet::SSE41());
-	support_message("SSE4.2", InstructionSet::SSE42());
-	support_message("SSE4a", InstructionSet::SSE4a());
-	support_message("SSSE3", InstructionSet::SSSE3());
-	support_message("SYSCALL", InstructionSet::SYSCALL());
-	support_message("TBM", InstructionSet::TBM());
-	support_message("XOP", InstructionSet::XOP());
-	support_message("XSAVE", InstructionSet::XSAVE());
+	printCPUinstruction("3DNOW", InstructionSet::_3DNOW());
+	printCPUinstruction("3DNOWEXT", InstructionSet::_3DNOWEXT());
+	printCPUinstruction("ABM", InstructionSet::ABM());
+	printCPUinstruction("ADX", InstructionSet::ADX());
+	printCPUinstruction("AES", InstructionSet::AES());
+	printCPUinstruction("AVX", InstructionSet::AVX());
+	printCPUinstruction("AVX2", InstructionSet::AVX2());
+	printCPUinstruction("AVX512CD", InstructionSet::AVX512CD());
+	printCPUinstruction("AVX512ER", InstructionSet::AVX512ER());
+	printCPUinstruction("AVX512F", InstructionSet::AVX512F());
+	printCPUinstruction("AVX512PF", InstructionSet::AVX512PF());
+	printCPUinstruction("BMI1", InstructionSet::BMI1());
+	printCPUinstruction("BMI2", InstructionSet::BMI2());
+	printCPUinstruction("CLFSH", InstructionSet::CLFSH());
+	printCPUinstruction("CMPXCHG16B", InstructionSet::CMPXCHG16B());
+	printCPUinstruction("CX8", InstructionSet::CX8());
+	printCPUinstruction("ERMS", InstructionSet::ERMS());
+	printCPUinstruction("F16C", InstructionSet::F16C());
+	printCPUinstruction("FMA", InstructionSet::FMA());
+	printCPUinstruction("FSGSBASE", InstructionSet::FSGSBASE());
+	printCPUinstruction("FXSR", InstructionSet::FXSR());
+	printCPUinstruction("HLE", InstructionSet::HLE());
+	printCPUinstruction("INVPCID", InstructionSet::INVPCID());
+	printCPUinstruction("LAHF", InstructionSet::LAHF());
+	printCPUinstruction("LZCNT", InstructionSet::LZCNT());
+	printCPUinstruction("MMX", InstructionSet::MMX());
+	printCPUinstruction("MMXEXT", InstructionSet::MMXEXT());
+	printCPUinstruction("MONITOR", InstructionSet::MONITOR());
+	printCPUinstruction("MOVBE", InstructionSet::MOVBE());
+	printCPUinstruction("MSR", InstructionSet::MSR());
+	printCPUinstruction("OSXSAVE", InstructionSet::OSXSAVE());
+	printCPUinstruction("PCLMULQDQ", InstructionSet::PCLMULQDQ());
+	printCPUinstruction("POPCNT", InstructionSet::POPCNT());
+	printCPUinstruction("PREFETCHWT1", InstructionSet::PREFETCHWT1());
+	printCPUinstruction("RDRAND", InstructionSet::RDRAND());
+	printCPUinstruction("RDSEED", InstructionSet::RDSEED());
+	printCPUinstruction("RDTSCP", InstructionSet::RDTSCP());
+	printCPUinstruction("RTM", InstructionSet::RTM());
+	printCPUinstruction("SEP", InstructionSet::SEP());
+	printCPUinstruction("SHA", InstructionSet::SHA());
+	printCPUinstruction("SSE", InstructionSet::SSE());
+	printCPUinstruction("SSE2", InstructionSet::SSE2());
+	printCPUinstruction("SSE3", InstructionSet::SSE3());
+	printCPUinstruction("SSE4.1", InstructionSet::SSE41());
+	printCPUinstruction("SSE4.2", InstructionSet::SSE42());
+	printCPUinstruction("SSE4a", InstructionSet::SSE4a());
+	printCPUinstruction("SSSE3", InstructionSet::SSSE3());
+	printCPUinstruction("SYSCALL", InstructionSet::SYSCALL());
+	printCPUinstruction("TBM", InstructionSet::TBM());
+	printCPUinstruction("XOP", InstructionSet::XOP());
+	printCPUinstruction("XSAVE", InstructionSet::XSAVE());
 }

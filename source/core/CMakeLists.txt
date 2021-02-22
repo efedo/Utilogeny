@@ -1,6 +1,13 @@
+# Copyright 2021 Eric Fedosejevs
+#
+
 cmake_minimum_required(VERSION 3.10)
 
+include(${UTILOGENY_DIR}/cmake/target_add_SDL.cmake)
+include(${UTILOGENY_DIR}/cmake/target_add_soloud.cmake)
+
 add_library(UtilogenyCore STATIC
+
     besthitmap.h
     commandcontroller/commandcontroller.cpp
     commandcontroller/commandcontroller.h
@@ -9,6 +16,7 @@ add_library(UtilogenyCore STATIC
     commandcontroller/consolecontroller.cpp
     commandcontroller/consolecontroller.h
     commandcontroller/typedefs.h
+	console/termcolor.h
     constable.h
     cpuinfo.cpp
     cpuinfo.h
@@ -18,6 +26,7 @@ add_library(UtilogenyCore STATIC
     exceptions.h
     md5.cpp
     md5.h
+	platform.h
     precomp.cpp
     precomp.h
     randomnumbers.cpp
@@ -72,7 +81,26 @@ add_library(UtilogenyCore STATIC
     utilogeny.cpp
     utilogeny.h
     version.h
- "platform.h")
+	string/string.h
+	sdl/freeserf/audio.cc
+	sdl/freeserf/audio.h
+	sdl/freeserf/audio-sdlmixer.cc
+	sdl/freeserf/audio-sdlmixer.h
+	sdl/freeserf/data.cc
+	sdl/freeserf/data.h
+	sdl/freeserf/event_loop.cc
+	sdl/freeserf/event_loop.h
+	sdl/freeserf/event_loop-sdl.cc
+	sdl/freeserf/event_loop-sdl.h
+	sdl/freeserf/gfx.cc
+	sdl/freeserf/gfx.h
+	sdl/freeserf/sprite-file-sdl.cc
+	sdl/freeserf/sprite-file.h
+	sdl/freeserf/video.cc
+	sdl/freeserf/video.h
+	sdl/freeserf/video-sdl.cc
+	sdl/freeserf/video-sdl.h
+	)
 
 target_precompile_headers(UtilogenyCore
 	PRIVATE precomp.h)
@@ -83,3 +111,8 @@ set_target_properties(UtilogenyCore PROPERTIES
             CXX_STANDARD ${OVERRIDE_CXX_STANDARD}
             CXX_EXTENSIONS OFF
             )
+
+target_include_soloud(UtilogenyCore)
+target_link_tbb(UtilogenyCore)
+target_link_sdl2(UtilogenyCore)
+target_include_sdl2(UtilogenyCore)

@@ -1,5 +1,7 @@
 #pragma once
 
+#define NOMINMAX // Pre-emptively prevent min/max macro pollution in case windows.h gets included somewhere
+
 // Standard library
 #include <algorithm>
 #include <array>
@@ -61,6 +63,8 @@
 #include "Utilogeny/lib/boost/math/distributions/fisher_f.hpp"
 #include "Utilogeny/lib/boost/math/distributions/students_t.hpp"
 #include "Utilogeny/lib/boost/multiprecision/cpp_bin_float.hpp"
+
+// Platform header
 #include "Utilogeny/source/core/platform.h"
 
 // Macros and headers required by re2

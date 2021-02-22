@@ -33,60 +33,57 @@ cException::cException()
 cException::cException(const std::string & tmpDesc, const std::string & tmpFile, int tmpLine, std::thread::id tmpID, const cException * const tmpNestedPtr)
 	: description(tmpDesc), file(tmpFile), line(tmpLine), threadID(tmpID) 
 {
-	if (tmpNestedPtr) {
-		nestedExceptionPtr = new cException(tmpNestedPtr);
-	}
+	if (tmpNestedPtr) { nestedExceptionPtr = new cException(tmpNestedPtr); }
 }
-
-cException::cException(const char * const tmpDesc, const char* const tmpFile, int tmpLine, std::thread::id tmpID, const cException * const tmpNestedPtr)
-	: cException(std::string(tmpDesc), tmpFile, tmpLine, tmpID, tmpNestedPtr)
-{}
 
 cException::cException(const std::string & tmpDesc, const std::string & tmpFile, int tmpLine, std::thread::id tmpID, const cException & tmpNestedPtr)
 	: cException(tmpDesc, tmpFile, tmpLine, tmpID, (cException *)(&tmpNestedPtr))
 {}
 
-cException::cException(const char * const tmpDesc, const char * const tmpFile, int tmpLine, std::thread::id tmpID, const cException & tmpNestedPtr)
-	: cException(std::string(tmpDesc), tmpFile, tmpLine, tmpID, tmpNestedPtr)
-{}
-
 cException::cException(const std::string & tmpDesc, const cException * const tmpNestedPtr) 
 : description(tmpDesc)
 {
-	if (tmpNestedPtr) {
-		nestedExceptionPtr = new cException(tmpNestedPtr);
-	}
+	if (tmpNestedPtr) { nestedExceptionPtr = new cException(tmpNestedPtr); }
 }
 
 cException::cException(const std::string & tmpDesc, const cException & tmpNestedPtr)
-	: cException(tmpDesc, (cException*)&tmpNestedPtr)
-{}
-
-cException::cException(const char * const tmpDesc, const cException * const tmpNestedPtr)
-: cException(std::string(tmpDesc), tmpNestedPtr)
-{}
-
-cException::cException(const char * const tmpDesc, const cException & tmpNestedPtr)
 : cException(tmpDesc, (cException*)&tmpNestedPtr)
 {}
 
-//cException::cException(const std::string& tmpDesc, const char* tmpFile, int tmpLine, std::thread::id tmpID, const cException& tmpNestedPtr)
-//	: cException(tmpDesc, tmpFile, tmpLine, tmpID, (cException *)(&tmpNestedPtr))
-//{}
-
-
 // needs to create a new exception object with nested exception based on std::exception
 cException::cException(const std::exception & e)
-	: description(e.what()), nestedExceptionPtr(0)
+: description(e.what()), nestedExceptionPtr(0)
 {}
 
 cException::cException(const std::string & tmpStr, const std::exception& e)
-	: description(e.what()), nestedExceptionPtr(new cException(e))
+: description(e.what()), nestedExceptionPtr(new cException(e))
 {}
 
-cException::cException(const char * const tmpStrPtr, const std::exception& e)
+
+/////
+// Const char variants, nothing special
+////
+
+cException::cException(const char* const tmpDesc, const char* const tmpFile, int tmpLine, std::thread::id tmpID, const cException* const tmpNestedPtr)
+	: cException(std::string(tmpDesc), tmpFile, tmpLine, tmpID, tmpNestedPtr)
+{}
+
+cException::cException(const char* const tmpDesc, const char* const tmpFile, int tmpLine, std::thread::id tmpID, const cException& tmpNestedPtr)
+	: cException(std::string(tmpDesc), tmpFile, tmpLine, tmpID, tmpNestedPtr)
+{}
+
+cException::cException(const char* const tmpDesc, const cException* const tmpNestedPtr)
+	: cException(std::string(tmpDesc), tmpNestedPtr)
+{}
+
+cException::cException(const char* const tmpDesc, const cException& tmpNestedPtr)
+	: cException(tmpDesc, (cException*)&tmpNestedPtr)
+{}
+
+cException::cException(const char* const tmpStrPtr, const std::exception& e)
 	: cException(std::string(tmpStrPtr), e)
 {}
+
 
 
 // needs to delete all nested exceptions

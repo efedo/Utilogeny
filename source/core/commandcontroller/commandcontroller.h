@@ -6,6 +6,7 @@
 #include "Utilogeny/source/core/precomp.h"
 //#include "source/core/globals.h"
 #include "Utilogeny/source/core/commandcontroller/commandqueue.h"
+#include "Utilogeny/source/core/console/termcolor.h"
 
 //namespace nn {
 //	class cNNCommandManager;
@@ -24,7 +25,10 @@ public:
 	// Change from function pointer to member function
 	void run(const std::vector<std::string> &);
 	std::string description;
-	void help();
+	virtual void printhelp() { // Eventually allow overrides with custom help functions
+		std::cout << termcolor::bold << termcolor::blue << termcolor::on_bright_white << keyword << termcolor::reset << "\n";
+		std::cout << description << "\n";
+	}
 };
 
 class cSetting {
@@ -34,7 +38,10 @@ public:
 	cSetting(const std::string &, bool(*)(cQueuedCommand &, bool));
 	cSetting(const std::string &, bool(*)(cQueuedCommand &, bool), const std::string &);
 	std::string description;
-	void help();
+	virtual void printhelp() { // Eventually allow overrides with custom help functions
+		std::cout << termcolor::bold << termcolor::blue << termcolor::on_bright_white << keyword << termcolor::reset << "\n";
+		std::cout << description << "\n";
+	}
 };
 
 class cCommandController {
@@ -64,6 +71,7 @@ public:
 	// Interaction
 	void printCommands(); // Prints a list of commands
 	void printSettings(); // Prints a list of commands
+	void printItemHelp(std::string); // Prints help for a specific command or settings
 	void changeSetting(cQueuedCommand &); // Proc setting
 
 	// Queue commands
@@ -86,13 +94,6 @@ private:
 
 	static cCommandController* myInstance;
 
-	//void initCommandsStartupOnly(); // Fill startup command list
-	//void initCommandsPostData(); // Fill post-startup command list
-	//void initCommandsAlwaysAvailable(); // Fill post-startup command list
-	//void initSettingsStartupOnly(); // Fill post-startup command list
-	//void initSettingsPostDataOnly(); // Fill post-startup command list
-	//void initSettingsAlwaysAvailable(); // Fill post-startup command list
-
 	void commandConsoleLoop(); // User command loop
 	void commandProcLoop(); // Command processing loop
 
@@ -107,7 +108,4 @@ private:
 	std::thread * commandProcessLoopThread;
 
 	cCommandQueue queuedCmds;
-
 };
-
-//Test

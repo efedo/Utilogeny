@@ -140,141 +140,6 @@ void cCommandController::clearCommandsSettings() {
 	_settings.clear();
 }
 
-
-//// Fill command/settings lists
-//void cCommandController::initStartup() {
-//	clearCommandsSettings();
-//	initCommandsAlwaysAvailable();
-//	initSettingsAlwaysAvailable();
-//	initCommandsStartupOnly();
-//	initSettingsStartupOnly();
-//}
-//
-//void cCommandController::initPostData() {
-//	clearCommandsSettings();
-//	initCommandsAlwaysAvailable();
-//	initSettingsAlwaysAvailable();
-//	initCommandsPostData();
-//	initSettingsPostDataOnly();
-//}
-
-//// Fill startup command list
-//void cCommandController::initCommandsStartupOnly() {
-//	addCommand("load", &commands::load);
-//
-//	addCommand("badrun", &commands::badrun);
-//	addCommand("goodrun", &commands::goodrun);
-//	addCommand("remruns", &commands::remruns);
-//	addCommand("gathersalmon", &commands::gathersalmon);
-//	addCommand("combinetabs", &commands::combinetabs);
-//}
-//
-//void cCommandController::initCommandsPostData() {
-//	addCommand("close", &commands::close);
-//	addCommand("find", &commands::find);
-//	addCommand("findrun", &commands::findrun);
-//
-//	// Name genes, assign gene settings
-//	addCommand("goi", &commands::goi);
-//	addCommand("trp", &commands::trp);
-//	addCommand("group", &commands::group);
-//
-//	addCommand("geneinfo", &commands::geneinfo);
-//	addCommand("groupinfo", &commands::groupinfo);
-//	addCommand("listgois", &commands::listgois);
-//	addCommand("listgroups", &commands::listgroups);
-//	addCommand("runinfo", &commands::runinfo);
-//	addCommand("rundiff", &commands::rundiff);
-//	addCommand("syn", &commands::syn);
-//	addCommand("validate", &commands::validate);
-//
-//	// Comprehensive regression functions
-//	addCommand("reg", &commands::reg);
-//	addCommand("minireg", &commands::minireg);
-//
-//	// Pairwise analysis functions
-//	addCommand("plot", &commands::plot);
-//	addCommand("hill", &commands::hill);
-//	addCommand("lin", &commands::lin);
-//
-//	// Correlation graph/cache commands
-//
-//	addCommand("correlgraph", &commands::correlgraph);
-//	addCommand("correlgraphgois", &commands::correlgraphgois);
-//	addCommand("precomp", &commands::precomp);
-//
-//	// Learning commands
-//	addCommand("learn", &commands::learn);
-//	addCommand("learnrem", &commands::learnrem);
-//	addCommand("learnadd", &commands::learnadd);
-//	addCommand("learnreset", &commands::learnreset);
-//	addCommand("learndesc", &commands::learndesc);
-//
-//	// Print info commands
-//	addCommand("printruns", &commands::printRunTable);
-//
-//	// Run info commands
-//	addCommand("findclosest", &commands::closestRuns);
-//
-//	// Benchmarking commands
-//	addCommand("bm_pearsoncsv", &commands::printPearsonCSV);
-//
-//	// Memory info commands
-//	addCommand("meminfo", &commands::printMemInfo);
-//}
-//
-//// Fill list with commands that are always available
-//void cCommandController::initCommandsAlwaysAvailable() {
-//	addCommand("exit", &commands::smoothexitargs);
-//	addCommand("help", &commands::help);
-//	addCommand("set", &commands::set);
-//	addCommand("echo", &commands::echo);
-//	addCommand("pause", &commands::pause);
-//	addCommand("script", &commands::script);
-//	addCommand("log", &commands::log);
-////	addCommand("weitest", &commands::weitest);
-//
-//	#ifndef RNASEE_FINALRELEASE
-//	addCommand("testphysics", &commands::testphysics);
-//
-//	// Add appropriate neural network commands
-//	nn::cNNCommandManager::setAppropriateCommands();
-//	#endif //RNASEE_FINALRELEASE
-//
-//}
-//
-//// Fill startup settings list
-//void cCommandController::initSettingsStartupOnly() {
-//	addSetting("datasource", &commands::cmdsettings::datasource);
-//
-//	addSetting("renorm_maxiters", &commands::cmdsettings::renorm_maxiters);
-//
-//	addSetting("warn_lowgenes", &commands::cmdsettings::warnLowGeneProp);
-//	addSetting("warn_allgenes", &commands::cmdsettings::warnAllGeneProp);
-//	addSetting("warn_scale", &commands::cmdsettings::warnScaleFactor);
-//	addSetting("warn_housekeepingprop", &commands::cmdsettings::warnHousekeepingProp);
-//	addSetting("warn_housekeepingdev", &commands::cmdsettings::warnHousekeepingDev);
-//	addSetting("badruntreatment", &commands::cmdsettings::badRunTreatment);
-//
-//	addSetting("run_clustering", &commands::cmdsettings::runClustering);
-////	addSetting("calc_expected", &commands::cmdsettings::calcExpectationCorrected);
-//}
-//
-//// Fill post-startup settings list
-//void cCommandController::initSettingsPostDataOnly() {
-////	addSetting("mutimportance", &commands::settings::reg_mutualimportance);
-//	addSetting("nl_miniiters", &commands::cmdsettings::nl_miniiters);
-//	addSetting("nl_fulliters", &commands::cmdsettings::nl_fulliters);
-//	addSetting("nl_talky", &commands::cmdsettings::nl_talky);
-//
-//	addSetting("correl_damping", &commands::cmdsettings::correlnet_importancedamping);
-//	addSetting("deftrp", &commands::cmdsettings::deftrp);
-//}
-//
-//void cCommandController::initSettingsAlwaysAvailable() {
-//
-//}
-
 void cCommandController::addCommand(std::string tmpCommandString, 
 	void(*tmpFunc)(cQueuedCommand &)) {
 	_commands.emplace(tmpCommandString, cCommand(tmpCommandString, tmpFunc));
@@ -327,6 +192,19 @@ void cCommandController::printSettings() {
 	std::cout << "Available settings are currently as follows:" << std::endl;
 	for (std::map<std::string, cSetting>::iterator it = _settings.begin(); it != _settings.end(); ++it) {
 		std::cout << '\t' << it->first << std::endl;
+	}
+}
+
+// Prints help for a specific command or settings
+void cCommandController::printItemHelp(std::string keyword) {
+	if (_commands.count(keyword)) {
+		_commands.at(keyword).printhelp();
+	}
+	else if (_settings.count(keyword)) {
+		_settings.at(keyword).printhelp();
+	}
+	else {
+		std::cout << "Command or setting \"" << keyword << "\" does not exist.\n";
 	}
 }
 

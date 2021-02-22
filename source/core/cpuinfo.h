@@ -4,7 +4,7 @@
 #pragma once
 #include "Utilogeny/source/core/precomp.h"
 
-// Derived from CPUID example by Microsoft https://docs.microsoft.com/en-us/cpp/intrinsics/cpuid-cpuidex?view=msvc-160
+// Adapted from CPUID example by Microsoft https://docs.microsoft.com/en-us/cpp/intrinsics/cpuid-cpuidex?view=msvc-160
 
 class InstructionSet
 {
@@ -12,6 +12,8 @@ class InstructionSet
 	class InstructionSet_Internal;
 
 public:
+	static bool haveCPUinfo() { return CPU_Rep.haveCPUinfo; }
+
 	// getters
 	static std::string Vendor(void) { return CPU_Rep.vendor_; }
 	static std::string Brand(void) { return CPU_Rep.brand_; }
@@ -169,9 +171,13 @@ private:
 				memcpy(brand + 32, extdata_[4].data(), sizeof(cpui));
 				brand_ = brand;
 			}
+
+			haveCPUinfo = true;
+
 			#endif // COMPILER_MSVC
 		};
 
+		bool haveCPUinfo = false;
 		int nIds_;
 		int nExIds_;
 		std::string vendor_;

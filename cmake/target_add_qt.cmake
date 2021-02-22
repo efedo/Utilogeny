@@ -1,3 +1,5 @@
+include(${UTILOGENY_DIR}/cmake/target_deploy_lib.cmake)
+
 function(target_link_qt target)
 
 	find_package(Qt MODULE)
@@ -13,7 +15,7 @@ function(target_link_qt target)
 	target_link_libraries(${target} ${QT5_TARGETS})
 
 	# Install required DLLs
-	if(OS_REALLY_WINDOWS) # If Windows, might as well use WinDeployQt
+	if(OS_WINDOWS2) # If Windows, might as well use WinDeployQt
 	
 	 	set(CMAKE_INSTALL_UCRT_LIBRARIES TRUE) # installs UCRT libraries when installing system libraries (below)
 	
@@ -41,7 +43,7 @@ function(target_link_qt target)
 		
 		message(STATUS "Windows Qt installation successfully set up for target ${target} via WinDeployQt.exe")
 		
-	elseif(OS_REALLY_APPLE) # If Apple, might as well use MacDeployQt
+	elseif(OS_APPLE2) # If Apple, might as well use MacDeployQt
 		get_target_property(_qmake_executable Qt5::qmake IMPORTED_LOCATION)
 		get_filename_component(_qt_bin_dir "${_qmake_executable}" DIRECTORY)
 		find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${_qt_bin_dir}")
@@ -56,7 +58,7 @@ function(target_link_qt target)
 		)
 
 		# Qt file installation during installation
-		set(QT_TARGET_EXE_PATH ${CMAKE_INSTALL_PREFIX}/bin/$<TARGET_FILE:${target}>)	
+		set(QT_TARGET_EXE_PATH ${CMAKE_INSTALL_PREFIX}/bin/$<TARGET_FILE:${target}>)
 		install(CODE "
 			execute_process(
 				COMMAND ${MACDEPLOYQT_EXECUTABLE} ${QT_TARGET_EXE_PATH} -always-overwrite
@@ -66,21 +68,27 @@ function(target_link_qt target)
 		message(STATUS "MacOS Qt installation successfully set up for target ${target} via MacDeployQt.exe")
 		
 	else()
+	
+		# https://github.com/probonopd/linuxdeployqt
+	
+		message(STATUS "Deploying Qt manually (should not occur on Windows or MacOS). Good luck!")
 		foreach(QT_LIBRARIES_REQUIRED ${QT_LIBRARIES_REQUIRED})
 		
-			# Qt file installation during build
-			add_custom_command(TARGET ${target} POST_BUILD
-				COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::${QT_LIBRARIES_REQUIRED}> $<TARGET_FILE_DIR:${target}>
-				COMMENT "Deploying Qt manually..."
-			)
+			target_deploy_libraries(${target} ${QT_LIBRARIES_REQUIRED})
+					
+			# # Qt file library deployment during build
+			# add_custom_command(TARGET ${target} POST_BUILD
+				# COMMAND ${CMAKE_COMMAND} -E copy_if_different \"$<TARGET_FILE:Qt5::${QT_LIBRARIES_REQUIRED}>\" \"$<TARGET_FILE_DIR:${target}>\"
+				# COMMENT "Deploying Qt manually..."
+			# )
 			
-			# Qt file installation during installation
-			install(CODE "
-				execute_process(
-					COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt5::${QT_LIBRARIES_REQUIRED}> ${CMAKE_INSTALL_PREFIX}/bin>
-					COMMENT \"Deploying Qt manually...\"
-				)
-			")
+			# # Qt file library deployment during installation
+			# install(CODE "
+				# execute_process(
+					# COMMAND ${CMAKE_COMMAND} -E copy_if_different \"$<TARGET_FILE:Qt5::${QT_LIBRARIES_REQUIRED}>\" \"${CMAKE_INSTALL_PREFIX}/bin>\"
+					# COMMENT \"Deploying Qt manually...\"
+				# )
+			# ")
 			
 		endforeach()
 		message(STATUS "Non-Windows post-build installation set up for target ${target} (should work for most platforms)")

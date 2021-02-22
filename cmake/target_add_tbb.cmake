@@ -1,26 +1,15 @@
-include(${UTILOGENY_DIR}/cmake/target_config_compiler.cmake)
+# Copyright 2021 Eric Fedosejevs
+#
 
-if(NOT((TARGET TBB) OR (TARGET TBB::tbb)))
-	message(STATUS "Will build TBB in ${CMAKE_BINARY_DIR}/lib/tbb.")
-	set(TBB_TEST OFF)
-	add_subdirectory(${UTILOGENY_DIR}/lib/tbb ${CMAKE_BINARY_DIR}/lib/tbb)
-	set(TBB_INCLUDE_DIR ${UTILOGENY_DIR}/lib/tbb/include)
-endif()
+include(${UTILOGENY_DIR}/cmake/find_install_package.cmake)
+include(${UTILOGENY_DIR}/cmake/target_deploy_lib.cmake)
+
+find_install_package(FIND_PACKAGE_NAME "TBB" POSSIBLE_TARGETS "TBB;TBB::tbb")
 
 function(target_include_tbb target)
-	target_include_directories(${target} PRIVATE ${TBB_INCLUDE_DIR})
+	target_include_lib(${target} ${TBB_TARGET})
 endfunction()
 
 function(target_link_tbb target)
-	target_include_tbb(${target})
-	cmake_policy(SET CMP0079 NEW) # Allows linking to targets built externally
-	if (TARGET TBB)
-		message(STATUS "Linking TBB to ${target}.")
-		target_link_libraries(${target} TBB)
-	elseif(TARGET TBB::tbb)
-		message(STATUS "Linking TBB to ${target}.")
-		target_link_libraries(${target} TBB::tbb)
-	else()
-		message(FATAL_ERROR "Do not have TBB.")
-	endif()
+	target_link_deploy_lib(${target} ${TBB_TARGET})
 endfunction()

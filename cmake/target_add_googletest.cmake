@@ -1,20 +1,19 @@
-if(NOT TARGET gtest)
-	enable_testing()
-	set(gtest_force_shared_crt ON "Use shared (DLL) run-time lib even when Google Test is built as static lib.")
-	set(BUILD_GMOCK FALSE)
-	set(INSTALL_GTEST FALSE)
-	add_subdirectory(${UTILOGENY_DIR}/lib/gtest ${CMAKE_BINARY_DIR}/lib/gtest)
-endif()
+# Copyright 2021 Eric Fedosejevs
+#
+
+include(${UTILOGENY_DIR}/cmake/find_install_package.cmake)
+include(${UTILOGENY_DIR}/cmake/target_deploy_lib.cmake)
+
+find_install_package(FIND_PACKAGE_NAME "GTest" POSSIBLE_TARGETS "GTest::gtest;GTest::gtest_main")
 
 function(target_include_gtest target)
-	target_include_directories(${target} PRIVATE ${UTILOGENY_DIR}/lib/googletest-master/googletest/include)
+	target_include_lib(${target} ${GTest_TARGET})
 endfunction()
 
 function(target_link_gtest target)
-	target_include_gtest(${target})
-	if (TARGET gtest)
-		message(STATUS "Google test found. Linking ${target} to Google test.")
-		target_link_libraries(${target} gtest gtest_main)
+	target_link_deploy_lib(${target} ${GTest_TARGET})
+	if (TARGET GTest::gtest)
+		target_link_libraries(${target} GTest::gtest GTest::gtest_main) # also need to link in Google test main
 	else()
 		message(FATAL_ERROR "Do not have Google test.")
 	endif()

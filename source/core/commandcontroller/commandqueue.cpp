@@ -111,22 +111,6 @@ bool cCommandQueue::isCommandComplete(const tCommandNum & tmpCmd) const {
 	}
 }
 
-//bool cCommandQueue::isCommandExit(const tCommandNum& tmpCmd) const {
-//	if (tmpCmd <= _lastCompletedCommand) {
-//
-//
-//
-//
-//
-//
-//
-//
-//	}
-//	else {
-//		return false;
-//	}
-//}
-
 /// Checks if a command is waiting on another
 bool cCommandQueue::isDeferred(const tCommandNum & tmpCmd) const {
 	if (defCompletion.byWaitingCmd.count(tmpCmd)) {

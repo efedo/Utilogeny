@@ -22,20 +22,18 @@ public:
 	cException(const std::exception&);
 
 	// Create new exceptions with nested
+	cException(const std::string &,		const std::string &,	int, std::thread::id,	const cException * const = 0);
+	cException(const std::string &,		const std::string &,	int, std::thread::id,	const cException &);
+	cException(const std::string &,														const cException * const = 0);
+	cException(const std::string &,														const cException &);
+	cException(const std::string &,														const std::exception &);
 
-	cException(const std::string &, const std::string &, int, std::thread::id, const cException * const = 0);
-	cException(const char * const, const char * const, int, std::thread::id, const cException * const = 0);
-	cException(const std::string &, const std::string &, int, std::thread::id, const cException &);
-	cException(const char * const, const char * const, int, std::thread::id, const cException &);
-
-	cException(const std::string &, const cException * const = 0);
-	cException(const std::string &, const cException &);
-
-	cException(const char* const, const cException * const = 0);
-	cException(const char* const, const cException &);
-
-	cException(const std::string &, const std::exception &);
-	cException(const char * const, const std::exception &);
+	// Const char variants
+	cException(const char* const, const char* const, int, std::thread::id, const cException* const = 0);
+	cException(const char* const, const char* const, int, std::thread::id, const cException&);
+	cException(const char* const, const cException* const = 0);
+	cException(const char* const, const cException&);
+	cException(const char* const, const std::exception&);
 
 	// Destructor
 	~cException(); // needs to delete all nested exceptions
@@ -57,23 +55,22 @@ private:
 	static std::recursive_mutex* consoleOutMutex;
 };
 
-#define throwl(arg)					throw cException(arg, __FILE__, __LINE__, std::this_thread::get_id());
-#define throwl_overridden			throwl("Virtual member should have been overridden")
-#define throwl_unimplemented		throwl("Not yet implemented")
-#define throwl_deprecated			throwl("Deprecated code")
+#define throwl(arg)						throw cException(arg, __FILE__, __LINE__, std::this_thread::get_id());
+#define throwl_overridden				throwl("Virtual member should have been overridden")
+#define throwl_unimplemented			throwl("Not yet implemented")
+#define throwl_deprecated				throwl("Deprecated code")
 #define throwl_if_null(arg)				if (!arg) throwl("Pointer was null")
 
 #define _NEST(arg, exc)					cException(arg, __FILE__, __LINE__, std::this_thread::get_id(), exc)
 #define _NEST_RETHROW(arg, exc)			throw _NEST(arg, exc);
 #define _PRINT_EXCEPTION(exc)			std::lock_guard<std::recursive_mutex> lock(Utilogeny::consoleOutMutex); std::cerr << "\nException caught by " << __FILE__ << ":" << __LINE__ << " (thread " << std::this_thread::get_id() << ")\n\n";	_print_exception_func(exc); std::cerr << "\n";
 
-#define TRY								try{
-#define RETHROW(arg)					try { throw; } catch (const std::exception& e) { _NEST_RETHROW(arg, new cException(e)) } catch (const cException& e) { _NEST_RETHROW(arg, &e) } catch (...) { _NEST_RETHROW(arg, new cException()) }
-#define CATCH_VOCAL_RETHROW(arg)		} catch (...) { try { RETHROW(arg) } catch (const cException& e) { _PRINT_EXCEPTION(e); throw e; } catch (...) { } }
-#define CATCH_RETHROW(arg)				} catch (...) { try { RETHROW(arg) } catch (const cException& e) {                      throw e; } catch (...) { } }
-#define CATCH_VOCAL(arg)				} catch (...) { try { RETHROW(arg) } catch (const cException& e) { _PRINT_EXCEPTION(e);		     } catch (...) { } }
-
-#define terminate_line(arg)				try{ throwl(arg); CATCH_VOCAL("Terminating due to exception in destructor.\n"); terminate();
+//#define TRY							try{
+#define rethrow(arg)					try { throw; } catch (const std::exception& e) { _NEST_RETHROW(arg, new cException(e)) } catch (const cException& e) { _NEST_RETHROW(arg, &e) } catch (...) { _NEST_RETHROW(arg, new cException()) }
+#define catch_vocal_rethrow(arg)		catch (...) { try { rethrow(arg) } catch (const cException& e) { _PRINT_EXCEPTION(e); throw e; } catch (...) { } }
+#define catch_rethrow(arg)				catch (...) { try { rethrow(arg) } catch (const cException& e) {                      throw e; } catch (...) { } }
+#define catch_vocal(arg)				catch (...) { try { rethrow(arg) } catch (const cException& e) { _PRINT_EXCEPTION(e);		     } catch (...) { } }
+#define terminate_line(arg)				try{ throwl(arg); } catch_vocal("Terminating due to exception in destructor.\n"); terminate();
 
 class cExceptionRemoveBadRuns {
 public:
