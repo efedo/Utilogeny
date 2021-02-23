@@ -1,1 +1,1 @@
-git submodule add https://github.com/jarikomppa/soloud.git lib/extern/soloud
+git submodule add https://github.com/jarikomppa/soloud.git lib/soloud

@@ -23,7 +23,7 @@ void launchSDLwindow() {
     //event_loop.add_handler(&interface);
 
     /* Start game loop */
-    event_loop.run();
+    //event_loop.run();
 
     //event_loop.del_handler(&interface);
 

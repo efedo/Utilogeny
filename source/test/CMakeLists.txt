@@ -1,12 +1,12 @@
 # Copyright 2021 Eric Fedosejevs
 #
 
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 
+include(${UTILOGENY_DIR}/cmake/target_add_tbb.cmake)
 include(${UTILOGENY_DIR}/cmake/target_add_googletest.cmake)
 include(${UTILOGENY_DIR}/cmake/target_add_SDL.cmake)
 include(${UTILOGENY_DIR}/cmake/target_add_soloud.cmake)
-
 
 add_executable(UtilogenyTest
 	pch.cpp

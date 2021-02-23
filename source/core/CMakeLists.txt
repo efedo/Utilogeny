@@ -1,13 +1,15 @@
 # Copyright 2021 Eric Fedosejevs
 #
 
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 
 include(${UTILOGENY_DIR}/cmake/target_add_SDL.cmake)
 include(${UTILOGENY_DIR}/cmake/target_add_soloud.cmake)
+include(${UTILOGENY_DIR}/cmake/target_add_tbb.cmake)
 
 add_library(UtilogenyCore STATIC
-
+	audio/audio_test.cpp
+	audio/audio_test.h
     besthitmap.h
     commandcontroller/commandcontroller.cpp
     commandcontroller/commandcontroller.h
@@ -113,6 +115,5 @@ set_target_properties(UtilogenyCore PROPERTIES
             )
 
 target_include_soloud(UtilogenyCore)
-target_link_tbb(UtilogenyCore)
-target_link_sdl2(UtilogenyCore)
+target_include_tbb(UtilogenyCore)
 target_include_sdl2(UtilogenyCore)

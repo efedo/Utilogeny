@@ -39,7 +39,7 @@ function(target_config_compiler target)
 		message(FATAL_ERROR "Compiler not detected.")
 	endif()
 	
-	message(STATUS "Adding the following compiler definitions to target ${target}: ${${target}AdditionalDefinitions}")
+	message(STATUS "${target}: Adding compiler definitions: ${${target}AdditionalDefinitions}")
 	target_compile_definitions(${target} PUBLIC ${${target}AdditionalDefinitions})
 	
 endfunction()
