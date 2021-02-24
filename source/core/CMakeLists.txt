@@ -3,7 +3,7 @@
 
 cmake_minimum_required(VERSION 3.15)
 
-include(${UTILOGENY_DIR}/cmake/target_add_SDL.cmake)
+include(${UTILOGENY_DIR}/cmake/target_add_sdl.cmake)
 include(${UTILOGENY_DIR}/cmake/target_add_soloud.cmake)
 include(${UTILOGENY_DIR}/cmake/target_add_tbb.cmake)
 

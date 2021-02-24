@@ -16,7 +16,9 @@ cmake_policy(SET CMP0087 NEW)			# Allow use of generator expressions in install 
 set(CMAKE_POLICY_DEFAULT_CMP0087 NEW)
 
 set(OVERRIDE_CXX_STANDARD "17" CACHE STRING "C++ standard")
-message(STATUS "Set CXX_STANDARD to: ${OVERRIDE_CXX_STANDARD}")
+set(CMAKE_CXX_STANDARD ${OVERRIDE_CXX_STANDARD})
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+#message(STATUS "Set CXX_STANDARD to: ${OVERRIDE_CXX_STANDARD}")
 
 macro(pre_project_boilerplate)
     cmake_parse_arguments(

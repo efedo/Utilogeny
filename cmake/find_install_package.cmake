@@ -80,33 +80,63 @@ function(select_PREFERRED_PKG_MANAGER)
 	endif()
 endfunction()
 
-function(find_install_package)
+macro(find_install_package)
     cmake_parse_arguments(
         PARSED_ARGS # prefix of output variables
-        "" # list of names of the boolean arguments (only defined ones will be true)
+        "INCLUDES_NOT_REQUIRED" # list of names of the boolean arguments (only defined ones will be true)
         "PACKAGE_NAME;VCPKG_NAME;CONAN_NAME;GIT_REPOSITORY" # list of names of mono-valued arguments
-        "POSSIBLE_TARGETS" # list of names of multi-valued arguments (output variables are lists)
+        "COMPONENTS;REQUIRED_TARGETS" # list of names of multi-valued arguments (output variables are lists)
         ${ARGN} # arguments of the function to parse, here we take the all original ones
     )
-	
+	# note: if it remains unparsed arguments, here, they can be found in variable PARSED_ARGS_UNPARSED_ARGUMENTS
+		
 	if(PARSED_ARGS_UNPARSED_ARGUMENTS)
-		MESSAGE(FATAL_ERROR "find_install_package was called with invalid argument(s): ${PARSED_ARGS_UNPARSED_ARGUMENTS}") 
+		MESSAGE(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: find_install_package was called with invalid argument(s): ${PARSED_ARGS_UNPARSED_ARGUMENTS}") 
 	endif()
-	
-    # note: if it remains unparsed arguments, here, they can be found in variable PARSED_ARGS_UNPARSED_ARGUMENTS
+
     if(NOT PARSED_ARGS_PACKAGE_NAME)
-        message(FATAL_ERROR "You must provide a find_package name")
+        message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: find_install_package called without a PACKAGE_NAME")
     endif()
 	
-	# Already have target for package
-	if(${PARSED_ARGS_PACKAGE_NAME}_TARGET)
-		if(TARGET ${${PARSED_ARGS_PACKAGE_NAME}_TARGET})
+	# Already have targets for package
+	if(${PARSED_ARGS_PACKAGE_NAME}_TARGETS)
+	
+		unset(UNDEFINED_REQUIRED_TARGET)
+		unset(MISSING_REQUIRED_LIST_TARGET)
+		foreach(REQUIRED_TARGET ${PARSED_ARGS_REQUIRED_TARGETS})
+			# Check that all required targets are defined
+			if(NOT TARGET ${REQUIRED_TARGET})
+				list(APPEND UNDEFINED_REQUIRED_TARGET ${REQUIRED_TARGET})
+			endif()
+			
+			# Check that all targets are in existing target list
+			unset(MISSING_LIST_TARGET)
+			list(FIND ${PARSED_ARGS_PACKAGE_NAME}_TARGETS ${REQUIRED_TARGET} MISSING_LIST_TARGET)
+			
+			if(MISSING_LIST_TARGET)
+				#message(STATUS "MISSING_LIST_TARGET: ${MISSING_LIST_TARGET}")
+				list(APPEND MISSING_REQUIRED_LIST_TARGET ${REQUIRED_TARGET})
+			endif()
+		endforeach()
+		
+		if(MISSING_REQUIRED_LIST_TARGET)
+			message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: configuring package ${PARSED_ARGS_PACKAGE_NAME}")
+		elseif(UNDEFINED_REQUIRED_TARGET)
+			message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: configuring package ${PARSED_ARGS_PACKAGE_NAME}")
+			#message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: 		       required targets: ${PARSED_ARGS_REQUIRED_TARGETS}")
+			#message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: 		previous listed targets: ${${PARSED_ARGS_PACKAGE_NAME}_TARGETS}")
+			#message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: 		 missing listed targets: ${MISSING_REQUIRED_LIST_TARGET}")
+			#message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: 			  undefined targets: ${UNDEFINED_REQUIRED_TARGET}")	
+		else()
+			message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: skipping package ${PARSED_ARGS_PACKAGE_NAME}, already adequately configured") #: ${PARSED_ARGS_REQUIRED_TARGETS}")
 			return()
 		endif()
+	else()
+		message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: configuring package ${PARSED_ARGS_PACKAGE_NAME}")
 	endif()
 	
-	if(NOT PARSED_ARGS_POSSIBLE_TARGETS)
-		set(PARSED_ARGS_POSSIBLE_TARGETS ${PARSED_ARGS_PACKAGE_NAME})
+	if(NOT PARSED_ARGS_REQUIRED_TARGETS)
+		set(PARSED_ARGS_REQUIRED_TARGETS ${PARSED_ARGS_PACKAGE_NAME})
     endif()
 	
 	if(NOT PARSED_ARGS_VCPKG_NAME)
@@ -118,7 +148,11 @@ function(find_install_package)
     endif()
 	
 	# Try to find existing package or install via vcpkg/conan
-	find_package(${PARSED_ARGS_PACKAGE_NAME} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
+	if(PARSED_ARGS_COMPONENTS)
+		find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
+	else()
+		find_package(${PARSED_ARGS_PACKAGE_NAME} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
+	endif()
 	
 	# Install the package otherwise
 	if(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND)
@@ -147,52 +181,115 @@ function(find_install_package)
 				git_clone(${PARSED_ARGS_PACKAGE_NAME} ${PARSED_ARGS_GIT_REPOSITORY})		
 			endif()
 		else()
-			message(FATAL_ERROR "No package manager selected or Git repository provided to retrieve package: ${PARSED_ARGS_PACKAGE_NAME}")
+			message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: No package manager selected or Git repository provided to retrieve package: ${PARSED_ARGS_PACKAGE_NAME}")
 		endif()
-		find_package(${PARSED_ARGS_PACKAGE_NAME} CONFIG) #removed required since you provide a more information error message below
+		find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} CONFIG) #removed required since you provide a more information error message below
 	endif()
 	
 	if(${PARSED_ARGS_PACKAGE_NAME}_FOUND)
 		#message(STATUS "Found installed package: ${PARSED_ARGS_PACKAGE_NAME}")
 	else()
-		message(FATAL_ERROR "Could not find package ${PARSED_ARGS_PACKAGE_NAME} even after attempting installation.")
+		message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Could not find package ${PARSED_ARGS_PACKAGE_NAME} even after attempting installation.")
 	endif()
 	
-	# Find target
-	foreach(POSSIBLE_TARGET ${PARSED_ARGS_POSSIBLE_TARGETS})
-		if(TARGET ${POSSIBLE_TARGET})
-			message(STATUS "Found target ${POSSIBLE_TARGET} for package ${PARSED_ARGS_PACKAGE_NAME}")
-			get_target_property(TARGET_INCLUDE_DIRECTORIES ${POSSIBLE_TARGET} INCLUDE_DIRECTORIES)
-			get_target_property(TARGET_INTERFACE_INCLUDE_DIRECTORIES ${POSSIBLE_TARGET} INTERFACE_INCLUDE_DIRECTORIES)
-			get_target_property(TARGET_INTERFACE_SYSTEM_INCLUDE_DIRECTORIES ${POSSIBLE_TARGET} INTERFACE_SYSTEM_INCLUDE_DIRECTORIES)
+	# Find target and collate include directories
+	unset(FOUND_INCLUDE_DIR)
+	set(FOUND_INCLUDE_DIR)
+	
+	# Check for common include directory storage variables and manually collate all possible include directories
+	# (This is necessary in cases where imported targets to do correctly set target include directories,
+	# which is unfortunately quite common)
+	
+	# For example:
+	
+	# Automatically tries singular and plural
+	# Original and upper case
+	macro(add_possible_include_dir DIR_VAR)
+		if(${DIR_VAR})
+			#message(STATUS "Adding include dirs from ${DIR_VAR}: ${${DIR_VAR}}")
+			list(APPEND FOUND_INCLUDE_DIR ${${DIR_VAR}})
+		endif()
+		if(${DIR_VAR}S)
+			#message(STATUS "Adding include dirs from ${DIR_VAR}S: ${${DIR_VAR}S}")
+			list(APPEND FOUND_INCLUDE_DIR ${${DIR_VAR}})
+		endif()
+		STRING(TOUPPER "${DIR_VAR}" CAPS_DIR_VAR)
+		if(${CAPS_DIR_VAR})
+			#message(STATUS "Adding include dirs from ${CAPS_DIR_VAR}: ${${CAPS_DIR_VAR}}")
+			list(APPEND FOUND_INCLUDE_DIR ${${CAPS_DIR_VAR}})
+		endif()
+		if(${CAPS_DIR_VAR}S)
+			#message(STATUS "Adding include dirs from ${CAPS_DIR_VAR}S: ${${CAPS_DIR_VAR}S}")
+			list(APPEND FOUND_INCLUDE_DIR ${${CAPS_DIR_VAR}})
+		endif()
+	endmacro()
+		
+	# Grab possible package-wide include directories
+	# Package_INCLUDE_DIR(S) e.g. Qt5_INCLUDE_DIR(S)
+	add_possible_include_dir("${PARSED_ARGS_PACKAGE_NAME}_INCLUDE_DIR")
+
+	# Grab possible module-specific include directories
+	# PackageNameModule e.g. Qt5Core_INCLUDE_DIR(S)
+	# PackageName_Module e.g. Qt5_Core_INCLUDE_DIR(S)
+	# PackageName::Module e.g. Qt5::Core_INCLUDE_DIR(S)
+	foreach(COMPONENT ${PARSED_ARGS_COMPONENTS})
+		add_possible_include_dir("${PARSED_ARGS_PACKAGE_NAME}${COMPONENT}_INCLUDE_DIR")
+		add_possible_include_dir("${PARSED_ARGS_PACKAGE_NAME}_${COMPONENT}_INCLUDE_DIR")
+		add_possible_include_dir("${PARSED_ARGS_PACKAGE_NAME}::${COMPONENT}_INCLUDE_DIR")
+	endforeach()
+	
+	# Check that all required targets are present and
+	# grab possible target-specific include directories
+	# (necessary in cases where target name does not match module name)
+	
+	unset(TMP_PACKAGE_TARGETS)
+	unset(FOUND_INCLUDE_DIR)
+	foreach(REQUIRED_TARGET ${PARSED_ARGS_REQUIRED_TARGETS})
+		if(TARGET ${REQUIRED_TARGET})
+			#message(STATUS "Found target ${REQUIRED_TARGET} for package ${PARSED_ARGS_PACKAGE_NAME}")
+			list(APPEND TMP_PACKAGE_TARGETS ${REQUIRED_TARGET})
 			
-			if(TARGET_INCLUDE_DIRECTORIES)
-				list(APPEND FOUND_INCLUDE_DIR ${TARGET_INCLUDE_DIRECTORIES})
-			endif()
+			# Check target property include directories
 			
-			if(TARGET_INTERFACE_INCLUDE_DIRECTORIES)
-				list(APPEND FOUND_INCLUDE_DIR ${TARGET_INTERFACE_INCLUDE_DIRECTORIES})
-			endif()
+			macro(add_target_property_include_dir property)
+				get_target_property(TARGET_INCLUDE_DIRECTORIES ${REQUIRED_TARGET} ${property})
+				if(TARGET_INCLUDE_DIRECTORIES)
+					#message(STATUS "Adding include dirs from property ${property}: ${TARGET_INCLUDE_DIRECTORIES}")
+					list(APPEND FOUND_INCLUDE_DIR ${TARGET_INCLUDE_DIRECTORIES})
+				endif()
+			endmacro()
 			
-			if(TARGET_INTERFACE_SYSTEM_INCLUDE_DIRECTORIES)
-				list(APPEND FOUND_INCLUDE_DIR ${TARGET_INTERFACE_SYSTEM_INCLUDE_DIRECTORIES})
-			endif()
-			if (FOUND_INCLUDE_DIR)
-				#message(STATUS "Found possible corresponding include directories: ${FOUND_INCLUDE_DIR}")
-				set(${POSSIBLE_TARGET}_INCLUDE_DIR "${FOUND_INCLUDE_DIR}" CACHE STRING "Include directory for target ${POSSIBLE_TARGET}" FORCE )
-				#set(${POSSIBLE_TARGET}_INCLUDE_DIR "${FOUND_INCLUDE_DIR}" CACHE INTERNAL "Include directory for target ${POSSIBLE_TARGET}" FORCE )		
-				#message(STATUS "Set ${POSSIBLE_TARGET}_INCLUDE_DIR to ${${POSSIBLE_TARGET}_INCLUDE_DIR}")
-			endif()
-			#set(${PARSED_ARGS_PACKAGE_NAME}_TARGET "${POSSIBLE_TARGET}" CACHE STRING "Target for package ${PARSED_ARGS_PACKAGE_NAME}" FORCE )
-			#set(${PARSED_ARGS_PACKAGE_NAME}_TARGET "${POSSIBLE_TARGET}" CACHE INTERNAL "Target for package ${PARSED_ARGS_PACKAGE_NAME}" FORCE )
-			#message(STATUS "Set ${PARSED_ARGS_PACKAGE_NAME}_TARGET to ${${PARSED_ARGS_PACKAGE_NAME}_TARGET}")
-			#set(${PARSED_ARGS_PACKAGE_NAME}_TARGET "${POSSIBLE_TARGET}") # To detect whether find_install has been run in current parent scope
-			set(${PARSED_ARGS_PACKAGE_NAME}_TARGET "${POSSIBLE_TARGET}") # To detect whether find_install has been run in current parent scope
-			set(${PARSED_ARGS_PACKAGE_NAME}_TARGET "${POSSIBLE_TARGET}" PARENT_SCOPE) # To detect whether find_install has been run in current parent scope
-			message(STATUS "Set ${PARSED_ARGS_PACKAGE_NAME}_TARGET to ${${PARSED_ARGS_PACKAGE_NAME}_TARGET}")
-			return()
+			add_target_property_include_dir("INCLUDE_DIRECTORIES")
+			add_target_property_include_dir("INTERFACE_INCLUDE_DIRECTORIES")
+			add_target_property_include_dir("INTERFACE_SYSTEM_INCLUDE_DIRECTORIES")			
+			
+			
+			# Grab possible target-specific include directories
+			# Target e.g. Qt5::Core_INCLUDE_DIR(S)			
+			add_possible_include_dir("${TARGET}_INCLUDE_DIR")
+		
+		else()
+			message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Missing target ${REQUIRED_TARGET}")
 		endif()
 	endforeach()
 	
-	message(FATAL_ERROR "Do not have valid target for found package ${PARSED_ARGS_PACKAGE_NAME} (checked possible targets: ${PARSED_ARGS_POSSIBLE_TARGETS}).")
-endfunction()
+	if(TMP_PACKAGE_TARGETS)
+		set(${PARSED_ARGS_PACKAGE_NAME}_TARGETS ${TMP_PACKAGE_TARGETS} CACHE INTERNAL "" FORCE)
+		message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Set ${PARSED_ARGS_PACKAGE_NAME}_TARGETS to ${${PARSED_ARGS_PACKAGE_NAME}_TARGETS}")
+	else()
+		message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: No targets found for package ${PARSED_ARGS_PACKAGE_NAME}")
+	endif()
+	
+	if(FOUND_INCLUDE_DIR)
+		unset(${PARSED_ARGS_PACKAGE_NAME}_NO_INCLUDE_DIRS)
+		set(${PARSED_ARGS_PACKAGE_NAME}_INCLUDE_DIRS ${FOUND_INCLUDE_DIR} CACHE INTERNAL "" FORCE)
+		#message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Set ${PARSED_ARGS_PACKAGE_NAME}_INCLUDE_DIRS")
+		message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Set ${PARSED_ARGS_PACKAGE_NAME}_INCLUDE_DIRS to ${${PARSED_ARGS_PACKAGE_NAME}_INCLUDE_DIRS}")
+	else()
+		if(PARSED_ARGS_INCLUDES_NOT_REQUIRED)
+			set(${PARSED_ARGS_PACKAGE_NAME}_NO_INCLUDE_DIRS "TRUE" CACHE INTERNAL "" FORCE)
+		else()
+			message(WARNING "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: No include directories found for package ${PARSED_ARGS_PACKAGE_NAME}")
+		endif()
+	endif()	
+endmacro()
