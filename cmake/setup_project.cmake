@@ -8,10 +8,12 @@ cmake_minimum_required(VERSION 3.15)
 
 cmake_policy(SET CMP0048 NEW)
 set(CMAKE_POLICY_DEFAULT_CMP0048 NEW)
-cmake_policy(SET CMP0077 NEW)
-set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 cmake_policy(SET CMP0069 NEW)
 set(CMAKE_POLICY_DEFAULT_CMP0069 NEW)
+cmake_policy(SET CMP0077 NEW)
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
+cmake_policy(SET CMP0079 NEW)
+set(CMAKE_POLICY_DEFAULT_CMP0079 NEW)
 cmake_policy(SET CMP0087 NEW)			# Allow use of generator expressions in install codes/scripts
 set(CMAKE_POLICY_DEFAULT_CMP0087 NEW)
 

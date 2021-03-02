@@ -1,7 +1,7 @@
 include(${UTILOGENY_DIR}/cmake/git_submodule.cmake)
 
 option(ENABLE_VCPKG "Enable vcpkg for automatic dependency retrieval" ON)
-option(ENABLE_CONAN "Enable conan for automatic dependency retrieval" ON)
+option(ENABLE_CONAN "Enable conan for automatic dependency retrieval" OFF)
 
 if(ENABLE_VCPKG)
 	include(${UTILOGENY_DIR}/cmake/AutoVcpkg.cmake)
@@ -22,10 +22,11 @@ if(ENABLE_CONAN)
 	endif()
 	
 	function(install_package_conan packages)
+		message(WARNING "Conan package installation not yet tested!")
 		foreach(package ${packages})
 			message(STATUS "Will install missing dependent package \"${package}\" via conan. Please be patient") 
 			conan_cmake_run(REQUIRES Catch2/2.6.0@catchorg/stable BASIC_SETUP ${package})
-			add_dependencies(conan_dependencies ${package})
+			add_dependencies(${package} conan_dependencies)
 		endforeach()
 	endfunction()
 endif()
@@ -62,7 +63,7 @@ function(select_PREFERRED_PKG_MANAGER)
 		endif()
 	endif()
 
-	#conan enabled and have conan
+	# conan enabled and have conan
 	if(ENABLE_CONAN AND NOT PREFERRED_PKG_MANAGER)
 		if(ALREADY_HAVE_CONAN)
 			set(PREFERRED_PKG_MANAGER "conan" CACHE STRING "Selected package manager" FORCE)
@@ -135,60 +136,139 @@ macro(find_install_package)
 		message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: configuring package ${PARSED_ARGS_PACKAGE_NAME}")
 	endif()
 	
-	if(NOT PARSED_ARGS_REQUIRED_TARGETS)
-		set(PARSED_ARGS_REQUIRED_TARGETS ${PARSED_ARGS_PACKAGE_NAME})
-    endif()
+	#if(NOT PARSED_ARGS_REQUIRED_TARGETS)
+	#	set(PARSED_ARGS_REQUIRED_TARGETS ${PARSED_ARGS_PACKAGE_NAME})
+    #endif()
 	
-	if(NOT PARSED_ARGS_VCPKG_NAME)
-		set(PARSED_ARGS_VCPKG_NAME ${PARSED_ARGS_PACKAGE_NAME})
-    endif()
+	# if(NOT PARSED_ARGS_VCPKG_NAME)
+		# set(PARSED_ARGS_VCPKG_NAME ${PARSED_ARGS_PACKAGE_NAME})
+    # endif()
 	
-	if(NOT PARSED_ARGS_CONAN_NAME)
-		set(PARSED_ARGS_CONAN_NAME ${PARSED_ARGS_PACKAGE_NAME})
-    endif()
+	# if(NOT PARSED_ARGS_CONAN_NAME)
+		# set(PARSED_ARGS_CONAN_NAME ${PARSED_ARGS_PACKAGE_NAME})
+    # endif()
+	
+	# Set up some extra find_package hints
+	# e.g.
+	# project/lib/package
+	# project/lib/extern/package
+	# project/../lib/package
+	
+	unset(EXTRA_PATH_HINTS)
+	set(EXTRA_PATH_HINTS)
+	list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/../lib/")
+	list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/../lib/${PARSED_ARGS_PACKAGE_NAME}/")
+	list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/../lib/${PARSED_ARGS_PACKAGE_NAME}/cmake/")
+	list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/lib/")
+	list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/lib/${PARSED_ARGS_PACKAGE_NAME}/")
+	list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/lib/${PARSED_ARGS_PACKAGE_NAME}/cmake/")
+	list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/lib/extern/")
+	list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/lib/extern/${PARSED_ARGS_PACKAGE_NAME}/")
+	list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/lib/extern/${PARSED_ARGS_PACKAGE_NAME}/cmake/")
+
+	# if it's a git repo, check for folders named after repo
+	# since git can supply either a folder or .git repo, need to handle both cases		
+	if (PARSED_ARGS_GIT_REPOSITORY)	
+		# Get git archive name
+		unset(GIT_ARCHIVE_NAME)
+		unset(GIT_REPO_EXTENSION)
+		get_filename_component(GIT_REPO_EXTENSION "${PARSED_ARGS_GIT_REPOSITORY}" EXT)
+		if(GIT_REPO_EXTENSION)
+			get_filename_component(GIT_ARCHIVE_NAME "${PARSED_ARGS_GIT_REPOSITORY}" NAME_WE)
+		else()
+			# turn directory into file to get final directory name (stupid way to do it but no better way until cmake 3.19?
+			get_filename_component(GIT_FOLDER_NO_TRAILING "${PARSED_ARGS_GIT_REPOSITORY}" DIRECTORY)
+			get_filename_component(GIT_ARCHIVE_NAME "${GIT_FOLDER_NO_TRAILING}.dummy" NAME_WE)	
+		endif()
+		
+		list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/../lib/${GIT_ARCHIVE_NAME}/")
+		list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/../lib/${GIT_ARCHIVE_NAME}/cmake/")
+		list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/lib/${GIT_ARCHIVE_NAME}/")
+		list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/lib/${GIT_ARCHIVE_NAME}/cmake/")
+		list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/lib/extern/${GIT_ARCHIVE_NAME}/")
+		list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/lib/extern/${GIT_ARCHIVE_NAME}/cmake/")
+	endif()
 	
 	# Try to find existing package or install via vcpkg/conan
 	if(PARSED_ARGS_COMPONENTS)
-		find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
+		find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} HINTS ${EXTRA_PATH_HINTS} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
 	else()
-		find_package(${PARSED_ARGS_PACKAGE_NAME} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
+		find_package(${PARSED_ARGS_PACKAGE_NAME} HINTS ${EXTRA_PATH_HINTS} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
 	endif()
+	
+	message(STATUS "Git repo: ${PARSED_ARGS_GIT_REPOSITORY}")
 	
 	# Install the package otherwise
 	if(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND)
 		select_PREFERRED_PKG_MANAGER()
 		unset(INSTALL_OPTION_FOUND)
+		unset(INSTALL_OPTION_GIT)
+		
 		#try preferred package manager first
 		if(PREFERRED_PKG_MANAGER MATCHES "vcpkg")
-			if (NOT PARSED_ARGS_VCPKG_NAME MATCHES "none") # first choice vcpkg
+			if (PARSED_ARGS_VCPKG_NAME AND (NOT PARSED_ARGS_VCPKG_NAME MATCHES "none")) # first choice vcpkg
 				install_package_vcpkg(${PARSED_ARGS_VCPKG_NAME})
-				set(INSTALL_OPTION_FOUND)
-			elseif(NOT PARSED_ARGS_CONAN_NAME MATCHES "none") # second choice conan
+				set(INSTALL_OPTION_FOUND "TRUE")
+			elseif(PARSED_ARGS_CONAN_NAME AND (NOT PARSED_ARGS_CONAN_NAME MATCHES "none")) # second choice conan
 				install_package_conan(${PARSED_ARGS_CONAN_NAME})
-				set(INSTALL_OPTION_FOUND)
+				set(INSTALL_OPTION_FOUND "TRUE")
 			endif()
-		elseif((NOT INSTALL_OPTION_FOUND) AND (PREFERRED_PKG_MANAGER MATCHES "conan"))
-			if(NOT PARSED_ARGS_CONAN_NAME MATCHES "none") # first choice conan
-				install_package_conan(${PARSED_ARGS_CONAN_NAME})
-				set(INSTALL_OPTION_FOUND)
-			elseif(NOT PARSED_ARGS_VCPKG_NAME MATCHES "none") # second choice vcpkg
-				install_package_vcpkg(${PARSED_ARGS_VCPKG_NAME})
-				set(INSTALL_OPTION_FOUND)
-			endif()
-		elseif(NOT INSTALL_OPTION_FOUND)
-			# try git installation instead
-			if(PARSED_ARGS_GIT_REPOSITORY)
-				git_clone(${PARSED_ARGS_PACKAGE_NAME} ${PARSED_ARGS_GIT_REPOSITORY})		
-			endif()
-		else()
-			message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: No package manager selected or Git repository provided to retrieve package: ${PARSED_ARGS_PACKAGE_NAME}")
 		endif()
-		find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} CONFIG) #removed required since you provide a more information error message below
+		
+		# try second preference package manager next
+		if((NOT INSTALL_OPTION_FOUND) AND (PREFERRED_PKG_MANAGER MATCHES "conan"))
+			if(PARSED_ARGS_CONAN_NAME AND (NOT PARSED_ARGS_CONAN_NAME MATCHES "none")) # first choice conan
+				install_package_conan(${PARSED_ARGS_CONAN_NAME})
+				set(INSTALL_OPTION_FOUND "TRUE")
+			elseif(PARSED_ARGS_VCPKG_NAME AND (NOT PARSED_ARGS_VCPKG_NAME MATCHES "none")) # second choice vcpkg
+				install_package_vcpkg(${PARSED_ARGS_VCPKG_NAME})
+				set(INSTALL_OPTION_FOUND "TRUE")
+			endif()
+		endif()
+		
+		# try git archive download finally
+		if(NOT INSTALL_OPTION_FOUND)		
+			# try git installation instead
+			message(STATUS "No vcpkg or conan package provided, attempting retrieval of git archive: ${PARSED_ARGS_GIT_REPOSITORY}")
+			if(PARSED_ARGS_GIT_REPOSITORY AND (NOT PARSED_ARGS_GIT_REPOSITORY MATCHES "none"))
+				git_clone("${PARSED_ARGS_PACKAGE_NAME}" "${PARSED_ARGS_GIT_REPOSITORY}")
+				set(INSTALL_OPTION_FOUND "TRUE")
+				set(INSTALL_OPTION_GIT "TRUE")
+			endif()
+		endif()
+		
+		if(NOT INSTALL_OPTION_FOUND)
+			message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Unable to retrieve package (from vcpkg, conan, or git): ${PARSED_ARGS_PACKAGE_NAME}")
+		endif()
+		
+		find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} HINTS ${EXTRA_PATH_HINTS} CONFIG) #removed required since you provide a more information error message below
 	endif()
 	
 	if(${PARSED_ARGS_PACKAGE_NAME}_FOUND)
 		#message(STATUS "Found installed package: ${PARSED_ARGS_PACKAGE_NAME}")
 	else()
+		# Check if it could have been cloned via git and try to just add the corresponding subdirectory manually
+		# (for libraries without a proper find module)
+
+		#macro to check for CMakeLists.txt file
+		unset(GIT_CMAKELISTS_LOC)
+		macro(set_cmake_lists_loc folder)	
+			if((NOT GIT_CMAKELISTS_LOC) AND (EXISTS "${folder}/${PARSED_ARGS_PACKAGE_NAME}/CMakeLists.txt"))
+				set(GIT_CMAKELISTS_LOC "${folder}/${PARSED_ARGS_PACKAGE_NAME}/")
+			elseif((NOT GIT_CMAKELISTS_LOC) AND (GIT_ARCHIVE_NAME) AND (EXISTS "${folder}/${GIT_ARCHIVE_NAME}/CMakeLists.txt"))
+				set(GIT_CMAKELISTS_LOC "${folder}/${GIT_ARCHIVE_NAME}/")
+			endif()
+		endmacro()
+		
+		#locations to check
+		set_cmake_lists_loc("${PROJECT_SOURCE_DIR}/lib/extern")
+		set_cmake_lists_loc("${PROJECT_SOURCE_DIR}/lib")
+		set_cmake_lists_loc("${PROJECT_SOURCE_DIR}/../lib")
+		
+		message(FATAL_ERROR "Could have maybe manually added archive for package ${PARSED_ARGS_PACKAGE_NAME} but not yet implemented")		
+	endif()	
+	
+	if(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND)
 		message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Could not find package ${PARSED_ARGS_PACKAGE_NAME} even after attempting installation.")
 	endif()
 	
@@ -244,34 +324,45 @@ macro(find_install_package)
 	
 	unset(TMP_PACKAGE_TARGETS)
 	unset(FOUND_INCLUDE_DIR)
-	foreach(REQUIRED_TARGET ${PARSED_ARGS_REQUIRED_TARGETS})
-		if(TARGET ${REQUIRED_TARGET})
-			#message(STATUS "Found target ${REQUIRED_TARGET} for package ${PARSED_ARGS_PACKAGE_NAME}")
-			list(APPEND TMP_PACKAGE_TARGETS ${REQUIRED_TARGET})
+	if(PARSED_ARGS_REQUIRED_TARGETS)
+		foreach(REQUIRED_TARGET ${PARSED_ARGS_REQUIRED_TARGETS})
+			if(TARGET ${REQUIRED_TARGET})
+				#message(STATUS "Found target ${REQUIRED_TARGET} for package ${PARSED_ARGS_PACKAGE_NAME}")
+				list(APPEND TMP_PACKAGE_TARGETS ${REQUIRED_TARGET})
 			
-			# Check target property include directories
+				# Check target property include directories
 			
-			macro(add_target_property_include_dir property)
-				get_target_property(TARGET_INCLUDE_DIRECTORIES ${REQUIRED_TARGET} ${property})
-				if(TARGET_INCLUDE_DIRECTORIES)
-					#message(STATUS "Adding include dirs from property ${property}: ${TARGET_INCLUDE_DIRECTORIES}")
-					list(APPEND FOUND_INCLUDE_DIR ${TARGET_INCLUDE_DIRECTORIES})
+				macro(add_target_property_include_dir property)
+
+					get_target_property(TARGET_INCLUDE_DIRECTORIES ${REQUIRED_TARGET} ${property})
+					if(TARGET_INCLUDE_DIRECTORIES)
+						#message(STATUS "Adding include dirs from property ${property}: ${TARGET_INCLUDE_DIRECTORIES}")
+						list(APPEND FOUND_INCLUDE_DIR ${TARGET_INCLUDE_DIRECTORIES})
+					endif()
+				endmacro()
+			
+				# STATIC_LIBRARY, MODULE_LIBRARY, SHARED_LIBRARY, OBJECT_LIBRARY, INTERFACE_LIBRARY, EXECUTABLE
+				get_target_property(type ${REQUIRED_TARGET} TYPE)
+
+				# if (${REQUIRED_TARGET} STREQUAL "Corrade::Containers")
+					# message("Corrade containers target type: ${type}")
+				# endif()
+
+				if (NOT(${type} STREQUAL "INTERFACE_LIBRARY"))
+					add_target_property_include_dir("INCLUDE_DIRECTORIES")
 				endif()
-			endmacro()
+				add_target_property_include_dir("INTERFACE_INCLUDE_DIRECTORIES")
+				add_target_property_include_dir("INTERFACE_SYSTEM_INCLUDE_DIRECTORIES")				
 			
-			add_target_property_include_dir("INCLUDE_DIRECTORIES")
-			add_target_property_include_dir("INTERFACE_INCLUDE_DIRECTORIES")
-			add_target_property_include_dir("INTERFACE_SYSTEM_INCLUDE_DIRECTORIES")			
-			
-			
-			# Grab possible target-specific include directories
-			# Target e.g. Qt5::Core_INCLUDE_DIR(S)			
-			add_possible_include_dir("${TARGET}_INCLUDE_DIR")
+				# Grab possible target-specific include directories
+				# Target e.g. Qt5::Core_INCLUDE_DIR(S)			
+				add_possible_include_dir("${TARGET}_INCLUDE_DIR")
 		
-		else()
-			message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Missing target ${REQUIRED_TARGET}")
-		endif()
-	endforeach()
+			else()
+				message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Missing target ${REQUIRED_TARGET}")
+			endif()
+		endforeach()
+	endif()
 	
 	if(TMP_PACKAGE_TARGETS)
 		set(${PARSED_ARGS_PACKAGE_NAME}_TARGETS ${TMP_PACKAGE_TARGETS} CACHE INTERNAL "" FORCE)

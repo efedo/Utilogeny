@@ -4,7 +4,8 @@ endif()
 
 find_package(Git)
 if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
-# Update submodules as needed
+
+	# Update submodules as needed
     option(GIT_SUBMODULE "Check submodules during build" ON)
     if(GIT_SUBMODULE)
         message(STATUS "Git submodules updating")
@@ -17,8 +18,9 @@ if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
     endif()
 	
 	function(git_clone submodulename submodulelocation)
-		if(submodule AND submodulename)
-			execute_process(COMMAND ${GIT_EXECUTABLE} clone \"${submodulelocation}\" \"${PROJECT_SOURCE_DIR}/lib/extern/${submodulename}\"
+		if(submodulename AND submodulelocation)
+			set(GIT_CLONE_PATH "${PROJECT_SOURCE_DIR}/lib/extern/" CACHE INTERNAL "")
+			execute_process(COMMAND ${GIT_EXECUTABLE} clone "${submodulelocation}" "${GIT_CLONE_PATH}${submodulename}/"
 							WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 							RESULT_VARIABLE GIT_SUBMOD_RESULT)
 			if(NOT GIT_SUBMOD_RESULT EQUAL "0")
