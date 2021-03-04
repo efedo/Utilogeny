@@ -104,7 +104,7 @@ add_library(UtilogenyCore STATIC
 	sdl/freeserf/video.h
 	sdl/freeserf/video-sdl.cc
 	sdl/freeserf/video-sdl.h
-	)
+	 "properties/property_old_variant.h" "properties/property_container.h" "properties/property_new_variant.h")
 
 target_precompile_headers(UtilogenyCore
 	PRIVATE precomp.h)

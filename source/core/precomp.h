@@ -84,6 +84,3 @@
 #elif defined(COMPILER_GCC) || defined(COMPILER_CLANG) || defined(COMPILER_LLVM)
 #include "cpuid.h"
 #endif
-
-// Pretty formatting for info messages in Gtest
-#define GTEST_INFOMSG std::cerr << "\033[0;32m[----------] [ INFO ] \033[0m"

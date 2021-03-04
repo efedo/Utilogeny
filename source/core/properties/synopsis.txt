@@ -1,0 +1,77 @@
+
+// {
+//    Dog max;
+// }
+//
+// equivalent to:
+//
+// entities.add(Dog) -> max;
+// entities.destroy(max);
+
+
+// Dog & buster = entities.add(Dog, "Buster")
+
+// Scene park;													// Create a new Scene called park
+// park.display();												// Shows the scene "park" on main screen
+//    synonymous with mainscreen.displayscene(park);
+//
+//
+// Dog & spot = park.create(Dog, "Spot"));						// Makes a new named Dog called Spot and adds it to park
+//	  synonymous with park.create(Dog, "Spot") -> spot;			// syn
+
+// Dog roofus;
+// scene.include(roofus, "Roofus");								// Includes Roofus in scene
+// 
+// C++: spot.bark() / park.get("Spot").bark()					// Makes Spot bark
+// Script: Spot.bark()
+//
+// park.remove()												// Removes from park but does not destroy
+// park.destroy()												// Removes from park and destroys
+//
+// Scene storage;			// Create a new Scene called storage
+// storage.grab("Spot");	// Grabs dog named Spot
+
+
+
+// C++
+//
+// entities.add("Spot", Dog) // Makes a new named Dog called Spot
+// actors.add("Max", Dog) // Makes a new named Dog called Max
+//    synonymous with entities.actors.add("Max", Dog)
+//    n.b. probably cannot create unnamed entities in this manner (would be dangling)
+// Dog anonymous // Makes a new unnamed Dog (unnamed in script space)
+// Dog roofus("Roofus") // Makes a new named Dog called Roofus
+// actors.add("Felix", Cat) // Makes a new named Cat called Felix
+//    synonymous with entities.actors.add("Felix", Cat)
+// players.add(Dog) // ERROR, Dog is not a player type
+//    synonymous with entities.actors.players.add(Dog)
+
+// Script
+
+// C++
+// actors.get("Spot").bark() // Gets Spot to bark
+//    synonymous with entities.actors.get("Spot").bark()
+// 
+
+// Synopsis
+//
+// Built-in properties
+// (higher performance)
+//
+// dog.bark.freq = 5;
+// dog.property("bark").property("freq") = 5;
+// int blah1 = dog.property("bark").property("freq");
+// string blah2 = dog.property("bark").property("freq"); // ERROR not string compatible
+// int blah3 = dog.bark.freq; 
+// dog.remove_property("bark_freq") ERROR cannot remove built-in property
+
+// Add-on properties
+//
+// dog = animal;
+// dog.add_property<PropertyGroup>("bark");
+// dog.property("bark").add_property("freq"); // nested property
+// int blah = dog.property("bark").property("freq");
+// string blah = dog.property("bark").property("freq"); // ERROR not string compatible
+// dog.remove_property("bark") OKAY removed from this dog
+// cat = dog; // clone dog, including properties
+
