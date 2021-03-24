@@ -117,7 +117,7 @@ function(target_link_deploy_lib)
 	message(STATUS "${bin_target}: Linking and deploying ${lib_target}")
 	
 	# Linking
-	target_link_libraries(${bin_target} ${lib_target})
+	target_link_libraries(${bin_target} PUBLIC ${lib_target})
 	
 	# Library target deployment during build
 	foreach(REQUIRED_TARGET ${lib_target})

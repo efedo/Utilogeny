@@ -30,5 +30,5 @@ target_link_tbb(UtilogenyTest)
 target_link_sdl2(UtilogenyTest)
 target_link_gtest(UtilogenyTest)
 
-target_link_libraries(UtilogenyTest UtilogenyCore)
+target_link_libraries(UtilogenyTest PUBLIC UtilogenyCore)
 

@@ -27,39 +27,58 @@
 TEST(PropertyTests, StackPropertyTest) {
 
 	bool test = true;
-	PropertyNewVariant testprop = registerStackNewProperty(test);
+	Property testprop = registerStackProperty(test);
 
 	// Check initialization with unregistered type (should fail)
 	cerr_off();
 	class UnknownClassA {} unkcla;
-	PropertyNewVariant unkclpn = registerStackNewProperty(unkcla);
+	Property unkclpn = registerStackProperty(unkcla);
 	cerr_on();
 	EXPECT_EQ(unkclpn.getTypeString(), "invalid");
 
 	// Check initialization with built-in types
 	bool stack_bool = true;
-	PropertyNewVariant prop_bool = registerStackNewProperty(stack_bool);
+	Property prop_bool = registerStackProperty(stack_bool);
 	// Note that some compilers treat bool as an int
 	EXPECT_TRUE((prop_bool.getTypeString() == "bool") || (prop_bool.getTypeString() == "int"));
 	EXPECT_TRUE(prop_bool == true); // implicit value operator
+	EXPECT_TRUE(true == prop_bool); // implicit value operator
 	EXPECT_EQ(prop_bool.getVal<bool>(), true); // explicit value return
+	//EXPECT_TRUE(prop_bool == prop_bool); // explicit value return
 
-	Property test1 = getDynamicProperty<bool>();
+	int stack_int = 4525;
+	Property prop_int = registerStackProperty(stack_int);
+	EXPECT_TRUE(prop_int.getTypeString() == "int");
+	EXPECT_TRUE(prop_int == 4525); // implicit value operator
+	EXPECT_TRUE(4525 == prop_int); // implicit value operator
+	EXPECT_EQ(prop_int.getVal<int>(), 4525); // explicit value return
+	//EXPECT_TRUE(prop_int == prop_int); // explicit value return
+	//EXPECT_FALSE(prop_bool == prop_int); // explicit value return
 
-	//Property prop_int = makeProperty<int>(4525);
-	//EXPECT_EQ(prop_int.getTypeString(), "int");
-	//EXPECT_TRUE(prop_int == 4525); // implicit value operator
-	//EXPECT_EQ(prop_int.getVal<int>(), 4525); // explicit value return
+	float stack_float = -418.144f;
+	Property prop_float = registerStackProperty(stack_float);
+	EXPECT_TRUE(prop_float.getTypeString() == "float");
+	EXPECT_TRUE(prop_float == -418.144f); // implicit value operator
+	EXPECT_TRUE(-418.144f == prop_float); // implicit value operator
+	EXPECT_EQ(prop_float.getVal<float>(), -418.144f); // explicit value return
+	//EXPECT_TRUE(prop_float == prop_float); // explicit value return
+	//EXPECT_FALSE(prop_float == prop_bool); // explicit value return
+	//EXPECT_FALSE(prop_float == prop_int); // explicit value return
 
-	//Property prop_float = makeProperty<float>(-418.144f);
-	//EXPECT_EQ(prop_float.getTypeString(), "float");
-	//EXPECT_TRUE(prop_float == -418.144f); // implicit value operator
-	//EXPECT_EQ(prop_float.getVal<float>(), -418.144f); // explicit value return
-
-	//Property prop_double = makeProperty<double>(-418.144371920);
-	//EXPECT_EQ(prop_double.getTypeString(), "double");
-	//EXPECT_TRUE(prop_double == -418.144371920); // implicit value operator
-	//EXPECT_EQ(prop_double.getVal<double>(), -418.144371920); // explicit value return
+	double stack_double = -418.144371920;
+	Property prop_double = registerStackProperty(stack_double);
+	EXPECT_TRUE(prop_double.getTypeString() == "double");
+	EXPECT_TRUE(prop_double == -418.144371920); // implicit value operator
+	EXPECT_TRUE(-418.144371920 == prop_double); // implicit value operator
+	//EXPECT_TRUE(-417.144371920 > prop_double); // implicit value operator
+	//EXPECT_TRUE(-419.144371920 < prop_double); // implicit value operator
+	//EXPECT_TRUE(prop_double < -417.144371920); // implicit value operator
+	//EXPECT_TRUE(prop_double > -419.144371920); // implicit value operator
+	EXPECT_EQ(prop_double.getVal<double>(), -418.144371920); // explicit value return
+	//EXPECT_TRUE(prop_double == prop_double); // explicit value return
+	//EXPECT_FALSE(prop_double == prop_float); // explicit value return
+	//EXPECT_FALSE(prop_double == prop_bool); // explicit value return
+	//EXPECT_FALSE(prop_double == prop_int); // explicit value return
 
 	//int x = 5;
 	//double y = 6.5;

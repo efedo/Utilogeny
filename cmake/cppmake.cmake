@@ -185,15 +185,19 @@ macro(_if)
 
 endmacro()
 
-_bool(blah false)
-#_bool(blah2 crazy)
-_set(blah true)
+macro(test_cppmake)
 
-_int(blah2 5)
-#_int(blah3 h)
-#set(blah2 "fhele")
-_set(blah2 7)
-#_int(blah6 f3j21)
+	_bool(blah false)
+	#_bool(blah2 crazy)
+	_set(blah true)
 
-_list(mylist string)
-#_list(myotherlist randomtype)
+	_int(blah2 5)
+	#_int(blah3 h)
+	#set(blah2 "fhele")
+	_set(blah2 7)
+	#_int(blah6 f3j21)
+
+	_list(mylist string)
+	#_list(myotherlist randomtype)
+
+endmacro()

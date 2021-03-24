@@ -15,7 +15,7 @@ function(target_link_soloud target)
 	if(NOT TARGET soloud)
 		set(SOLOUD_BUILD_DEMOS OFF)
 		file(REMOVE "${UTILOGENY_DIR}/lib/soloud/contrib/cmake/FindSDL2.cmake") # delete obsolete SDL2 find if it exists, which screws up debug vs. release dll linking
-		add_subdirectory("${UTILOGENY_DIR}/lib/soloud/contrib" "${CMAKE_BINARY_DIR}/lib")
+		add_subdirectory("${UTILOGENY_DIR}/lib/soloud/contrib" "${CMAKE_BINARY_DIR}/lib/soloud")
 		target_include_sdl2(soloud)
 	endif()
 	target_include_soloud(${target})

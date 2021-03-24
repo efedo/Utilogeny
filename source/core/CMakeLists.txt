@@ -31,7 +31,7 @@ add_library(UtilogenyCore STATIC
 	platform.h
     precomp.cpp
     precomp.h
-	properties/property.cpp
+	"properties/property_container.cpp"
 	properties/property.h
     randomnumbers.cpp
     randomnumbers.h

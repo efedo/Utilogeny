@@ -15,7 +15,7 @@
 #include <iomanip>
 #include <type_traits>
 
-class PropertyContainer;
+class PropertyContainer {};
 
 class PropertyNewVariant {
 public:
@@ -28,7 +28,7 @@ public:
 	struct DynamicValue {
 		DynamicValue(tpType* newloc) : location(newloc) {}
 		static constexpr bool isDynamic() { return true; }
-		using ContainedType = tpType;
+		using ContainedType = std::decay_t<tpType>;
 		tpType* location;
 	};
 
@@ -36,11 +36,9 @@ public:
 	struct StaticValue {
 		StaticValue(tpType* newloc) : location(newloc) {}
 		static constexpr bool isDynamic() { return false; }
-		using ContainedType = tpType;
+		using ContainedType = std::decay_t<tpType>;
 		tpType* location;
 	};
-
-	//using prop_var_t = std::variant<InvalidType, bool *, int *, float *, double *, std::string *>; //AnyContainer
 
 	using prop_var_t = std::variant<
 		UninitializedType,
@@ -59,6 +57,21 @@ public:
 		DynamicValue<PropertyContainer>
 	>;
 
+	~PropertyNewVariant() {
+		std::visit([&](auto&& arg) {
+			using T = std::decay_t<decltype(arg)>;
+			if constexpr (!(std::is_same_v<T, InvalidType>) && !(std::is_same_v<T, UninitializedType>)) {
+				if (T::isDynamic()) {
+					if (arg.location) {
+						delete arg.location;
+						arg.location = 0;
+						val = UninitializedType();
+					}
+				}
+			}
+		}, val);
+	}
+
 	std::string getTypeString() {
 		return _getVarTypeName(val);
 	}
@@ -69,12 +82,15 @@ public:
 
 	PropertyNewVariant& operator=(const PropertyNewVariant& rhs)
 	{
-		if (val.index() == rhs.val.index()) {
-			val = rhs.val;
-		}
-		else {
-			std::cerr << "Property assignment error: Property of type '" << _getVarTypeName(rhs.val) << "' cannot be copied to existing PropertyNewVariant of type '" << _getVarTypeName(val) << "'\n";
-		}
+		std::visit([&](auto&& arg) {
+			using T = std::decay_t<decltype(arg)>;
+			if constexpr (!(std::is_same_v<T, InvalidType>) && !(std::is_same_v<T, UninitializedType>) && !(std::is_same_v<T, PropertyContainer>)) {
+				using TC = T::ContainedType;
+				if (arg.location) {
+					this->operator=(*(TC*)(arg.location));
+				}
+			}
+		}, rhs.val);
 		return *this;
 	}
 
@@ -83,20 +99,16 @@ public:
 	{
 		// https://en.cppreference.com/w/cpp/utility/variant/visit
 		// Check that rhs is convertible to current type
+		tpPropertyNewVariantType test = rhs;
 		std::visit([&](auto&& arg) {
 			using T = std::decay_t<decltype(arg)>;
-			if constexpr (std::is_same_v<T, InvalidType>) {
-				return "invalid";
-			}
-			else if constexpr (std::is_same_v<T, UninitializedType>) {
-				return "uninitialized";
-			}
-			else {
+			if constexpr (!(std::is_same_v<T, InvalidType>) && !(std::is_same_v<T, UninitializedType>) && !(std::is_same_v<T, PropertyContainer>)) {
 				using TC = T::ContainedType;
-
 				// Override to prevent implicit conversion of floating point to integer types
 				if constexpr (std::is_convertible_v<tpPropertyNewVariantType, TC> && !(std::is_floating_point_v<tpPropertyNewVariantType> && std::is_integral_v<TC>)) {
-					val = (TC)(rhs);
+					//*(arg.location) = test;
+					//(T::ContainedType)(test);
+					//*(arg.location) = (T::ContainedType)(rhs);
 				}
 				else {
 					std::cerr << "Property assignment error: Value of type '" << _getTypeName<tpPropertyNewVariantType>() <<
@@ -104,8 +116,6 @@ public:
 				}
 			}
 		}, val);
-
-		//std::cout << "PropertyNewVariant now set to '" << _getVarTypeName(val) << "' with value '" << _getVarTypeVal(val) << "'\n";
 		return *this;
 	}
 
@@ -117,16 +127,25 @@ public:
 	template <class tpPropertyNewVariantType>
 	tpPropertyNewVariantType getVal() const {
 		tpPropertyNewVariantType returnval;
+		// https://en.cppreference.com/w/cpp/utility/variant/visit
+		// Check that rhs is convertible to current type
 		std::visit([&](auto&& arg) {
 			using T = std::decay_t<decltype(arg)>;
-			// Override to prevent implicit conversion of floating point to integer types
-			if constexpr (std::is_convertible_v<T, tpPropertyNewVariantType>) {
-				returnval = (tpPropertyNewVariantType)(std::get<T>(val));
+			if constexpr (!(std::is_same_v<T, InvalidType>) && !(std::is_same_v<T, UninitializedType>))
+			{
+				using TC = T::ContainedType;
+				if constexpr (std::is_same_v<PropertyContainer, TC>) {
+					//returnval = *arg.location;
+				}
+				else {
+					// Override to prevent implicit conversion of floating point to integer types
+					if constexpr (std::is_convertible_v<tpPropertyNewVariantType, TC> && !(std::is_floating_point_v<tpPropertyNewVariantType> && std::is_integral_v<TC>)) {
+						//val = 0;// (TC)(rhs);
+						returnval = (TC)(*arg.location);
+					}
+				}
 			}
-			else {
-				std::cerr << "PropertyNewVariant value not convertible to desired type!\n";
-			}
-			}, val);
+		}, val);
 		return returnval;
 	}
 
@@ -137,33 +156,45 @@ public:
 
 	template <class tpPropertyNewVariantType>
 	friend bool operator==(const tpPropertyNewVariantType& lhs, const PropertyNewVariant& rhs) {
-		return (lhs == rhs.getVal<tpPropertyNewVariantType>());
+		return operator==(rhs, lhs);
 	}
 
 	friend bool operator==(const PropertyNewVariant& lhs, const PropertyNewVariant& rhs) {
 		bool returnval;
 		std::visit([&](auto&& argl) {
 			using Tl = std::decay_t<decltype(argl)>;
-			std::visit([&](auto&& argr) {
-				using Tr = std::decay_t<decltype(argr)>;
-				if constexpr (std::is_same_v<Tl, const PropertyNewVariant::InvalidType>) {
-					if constexpr (std::is_same_v<Tr, const PropertyNewVariant::InvalidType>) {
-						returnval = true; // both invalid
-					}
-					else {
-						returnval = false; // one invalid
-					}
-				}
-				else {
-					if constexpr (std::is_same_v<Tr, const PropertyNewVariant::InvalidType>) {
-						returnval = false;
-					}
-					else {
-						//returnval = ((std::get<Tl>(lhs.val)) == (std::get<Tr>(rhs.val)));
-					}
-				}
+			if constexpr (
+				(std::is_same_v<Tl, PropertyNewVariant::InvalidType>) ||
+				(std::is_same_v<Tl, PropertyNewVariant::UninitializedType>)
+				) {
+				returnval = false; // one invalid
+			}
+			else {
+				//using Tlc = std::decay_t<Tl::ContainedType>;
+				std::visit([&](auto&& argr) {
+					using Tr = std::decay_t<decltype(argr)>;
+						if constexpr (
+							(std::is_same_v<Tr, PropertyNewVariant::InvalidType>) ||
+							(std::is_same_v<Tr, PropertyNewVariant::UninitializedType>)
+							) {
+				//			returnval = false; // one invalid
+						}
+						else {
+							//using Trc = std::decay_t<Tr::ContainedType>;
+							//else if constexpr ((std::is_convertible_v<Trc, Tlc>)) {// || (std::is_convertible_v<Tlc, Trc>)) {
+							std::cout << "Lhs: " << PropertyNewVariant::_getContainerizedTypeName<Tl>() << " Rhs: " << PropertyNewVariant::_getContainerizedTypeName<Tl>() << "\n";
+							if constexpr ((std::is_same_v<Tl::ContainedType, PropertyContainer>) || (std::is_same_v<Tr::ContainedType, PropertyContainer>)) {
+								returnval = false;
+							} else if constexpr (std::is_convertible_v<Tr::ContainedType, Tl::ContainedType>) {
+								Tl::ContainedType lhsval = *argl.location;
+								Tr::ContainedType rhsval = *argr.location;
+								returnval = (lhsval == rhsval);
+							}
+						}
 				}, rhs.val);
-			}, lhs.val);
+			}
+		}, lhs.val);
+		return returnval;
 	}
 
 	template <class tpPropertyNewVariantType>
@@ -173,7 +204,7 @@ public:
 
 	template <class tpPropertyNewVariantType>
 	friend bool operator>(const tpPropertyNewVariantType& lhs, const PropertyNewVariant& rhs) {
-		return (lhs > rhs.getVal<tpPropertyNewVariantType>());
+		return operator<(rhs, lhs);
 	}
 
 	template <class tpPropertyNewVariantType>
@@ -183,7 +214,7 @@ public:
 
 	template <class tpPropertyNewVariantType>
 	friend bool operator<(const tpPropertyNewVariantType& lhs, const PropertyNewVariant& rhs) {
-		return (lhs < rhs.getVal<tpPropertyNewVariantType>());
+		return operator>(rhs, lhs);
 	}
 
 	//template <class tpPropertyNewVariantType>
@@ -268,14 +299,14 @@ private:
 
 	template <class TC>
 	static constexpr std::string _getTypeName() {
-		if      constexpr (std::is_same_v<TC, bool               >) return "int";
-		else if constexpr (std::is_same_v<TC, int                >) return "int";
-		else if constexpr (std::is_same_v<TC, long               >) return "long";
-		else if constexpr (std::is_same_v<TC, float              >) return "float";
-		else if constexpr (std::is_same_v<TC, double             >) return "double";
-		else if constexpr (std::is_same_v<TC, std::string        >) return "string";
-		else if constexpr (std::is_same_v<TC, PropertyContainer  >) return "Property container";
-		else													   return "unknown type";
+		if      constexpr (std::is_same_v<TC, bool               >) { return "int"; }
+		else if constexpr (std::is_same_v<TC, int                >) { return "int"; }
+		else if constexpr (std::is_same_v<TC, long               >) { return "long"; }
+		else if constexpr (std::is_same_v<TC, float              >) { return "float"; }
+		else if constexpr (std::is_same_v<TC, double             >) { return "double"; }
+		else if constexpr (std::is_same_v<TC, std::string        >) { return "string"; }
+		else if constexpr (std::is_same_v<TC, PropertyContainer  >) { return "property container"; }
+		else { return "unknown type"; }
 	}
 
 	template <class T>

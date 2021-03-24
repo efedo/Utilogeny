@@ -20,7 +20,7 @@ function(target_config_compiler target)
 		message(FATAL_ERROR "Memory architecture not detected.")
 	endif()
 	
-	if(PLATFORM_COMPILER)	
+	if(PLATFORM_COMPILER)
 		string(TOUPPER ${PLATFORM_COMPILER} PLATFORM_COMPILER_UPPER)
 		string(TOUPPER ${CMAKE_CXX_COMPILER_ID} CMAKE_CXX_COMPILER_ID_UPPER)
 		
@@ -38,8 +38,9 @@ function(target_config_compiler target)
 	else()
 		message(FATAL_ERROR "Compiler not detected.")
 	endif()
-	
-	message(STATUS "${target}: Adding compiler definitions: ${${target}AdditionalDefinitions}")
+	if(PRINT_INCLUDE_TARGET_DIRS)
+		message(STATUS "${target}: Adding compiler definitions: ${${target}AdditionalDefinitions}")
+	endif()
 	target_compile_definitions(${target} PUBLIC ${${target}AdditionalDefinitions})
 	
 endfunction()
