@@ -1,0 +1,9 @@
+Libraries that provide console formatting:
+
+ncurses (*nix only, GPL) https://invisible-island.net/ncurses
+PDcurses (cross-platform, may be dead, license unclear) https://github.com/wmcbrine/PDCurses
+Termcolor (BSD 3-clause, new) https://github.com/ikalnytskyi/termcolor
+Rang (Unlicense, may be dead) https://github.com/agauniyal/rang
+
+Note: for Rang, had to change OS_XYZ macros to avoid macro collisions
+Using termcolor for now, may merge a little bit of rang code and then remove the latter
