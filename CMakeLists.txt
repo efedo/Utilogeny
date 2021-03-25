@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 3.15)
 
 # These are temporary and will be replaced with find_package eventually
-set(UTILOGENY_DIR "${CMAKE_CURRENT_SOURCE_DIR}" CACHE STRING "Path to Utilogeny" FORCE)
+set(UTILOGENY_DIR "${CMAKE_CURRENT_SOURCE_DIR}" CACHE STRING "Path to Utilogeny")
 include(${UTILOGENY_DIR}/cmake/setup_project.cmake)
 
 pre_project_boilerplate(NAME "Utilogeny")
