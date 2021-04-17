@@ -29,33 +29,33 @@ message(STATUS "Setting processor optimization flags")
 
 if(PLATFORM_COMPILER MATCHES "MSVC")
 
-# Native or AVX2 architecture
-add_flag_if_supported("/arch:AVX") #MSVC
-add_flag_if_supported("/arch:AVX2") #MSVC
+	# Native or AVX2 architecture
+	add_flag_if_supported("/arch:AVX") #MSVC
+	add_flag_if_supported("/arch:AVX2") #MSVC
 
-# Fast floats
-add_flag_if_supported("/fp:fast") #MSVC
+	# Fast floats
+	add_flag_if_supported("/fp:fast") #MSVC
 
-# Disable run time type info
-add_flag_if_supported("/GR-") #MSVC
+	# Disable run time type info
+	#add_flag_if_supported("/GR-") #MSVC
 
-# MultiProcessorCompilation
-add_flag_if_supported("/MP") #MSVC
+	# MultiProcessorCompilation
+	add_flag_if_supported("/MP") #MSVC
 
-# Auto-parallelizer
-add_flag_if_supported("/Qpar")
+	# Auto-parallelizer
+	add_flag_if_supported("/Qpar")
 
 else() # GCC, Clang, other LLVM
 
-# Native or AVX2 architecture
-add_flag_if_supported("-mfpmath=sse")  # Not sure if this is still worthwhile, but just in case
-add_flag_if_supported("-march=skylake") # GCC, Clang
+	# Native or AVX2 architecture
+	add_flag_if_supported("-mfpmath=sse")  # Not sure if this is still worthwhile, but just in case
+	add_flag_if_supported("-march=skylake") # GCC, Clang
 
-# Fast floats
-add_flag_if_supported("-ffast-math") #GCC, Clang
+	# Fast floats
+	add_flag_if_supported("-ffast-math") #GCC, Clang
 
-# Disable run time type info
-add_flag_if_supported("-fno-rtti") #GCC, Clang
+	# Disable run time type info
+	#add_flag_if_supported("-fno-rtti") #GCC, Clang
 
 endif()
 

@@ -1,7 +1,10 @@
+cmake_minimum_required(VERSION 3.11) # 3.11 for fetch_content
+
 include(${UTILOGENY_DIR}/cmake/git_submodule.cmake)
 
 option(ENABLE_VCPKG "Enable vcpkg for automatic dependency retrieval" ON)
 option(ENABLE_CONAN "Enable conan for automatic dependency retrieval" OFF)
+option(ENABLE_GIT "Enable git for automatic dependency retrieval" ON)
 
 if(ENABLE_VCPKG)
 	include(${UTILOGENY_DIR}/cmake/AutoVcpkg.cmake)
@@ -22,13 +25,52 @@ if(ENABLE_CONAN)
 	endif()
 	
 	function(install_package_conan packages)
-		message(WARNING "Conan package installation not yet tested!")
+		message(FATAL_ERROR "Conan package installation not currently working!")
 		foreach(package ${packages})
 			message(STATUS "Will install missing dependent package \"${package}\" via conan. Please be patient") 
 			conan_cmake_run(REQUIRES Catch2/2.6.0@catchorg/stable BASIC_SETUP ${package})
 			add_dependencies(${package} conan_dependencies)
 		endforeach()
 	endfunction()
+endif()
+
+if(ENABLE_GIT)
+	macro(install_package_git)
+		message(STATUS "No vcpkg or conan package provided, attempting retrieval of git archive: ${PARSED_ARGS_GIT_REPOSITORY}")
+		if(PARSED_ARGS_GIT_REPOSITORY AND (NOT PARSED_ARGS_GIT_REPOSITORY MATCHES "none"))
+		
+			#git_clone("${PARSED_ARGS_PACKAGE_NAME}" "${repo}")
+
+			#if (PARSED_ARGS_BUILD_GIT)
+				# Include build step (for projects that need to be pre-built)		
+				set(build_file "${CMAKE_BINARY_DIR}/cmake/${PARSED_ARGS_PACKAGE_NAME}_build.cmake")
+				configure_file("build_external.cmake" "${build_file}")
+									
+				message(STATUS "Installing ${PARSED_ARGS_PACKAGE_NAME} via Git")
+									
+				# Configure external project
+				execute_process(
+					COMMAND ${CMAKE_COMMAND} ${build_file}
+					WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/lib/${PARSED_ARGS_PACKAGE_NAME}
+				)
+
+				# Build external project
+				execute_process(
+					COMMAND ${CMAKE_COMMAND} --build ${build_file}
+				)
+			# else()
+				# # Exclude build (just download)
+				# include(FetchContent)
+				# FetchContent_Populate(
+					# ${PARSED_ARGS_PACKAGE_NAME}                             # Recommendation: Stick close to the original name.
+					# GIT_REPOSITORY 	${PARSED_ARGS_GIT_REPOSITORY}
+					# #SOURCE_DIR     xxxlib              						# (Relative) path within in the build directory.
+				# )
+		
+			# endif()
+
+		endif()
+	endmacro()
 endif()
 
 # Prefer whichever of vcpkg and conan is already installed
@@ -41,7 +83,7 @@ function(select_PREFERRED_PKG_MANAGER)
 	if(CMAKE_TOOLCHAIN_FILE)
 		get_filename_component(VCPKG_TOOLCHAIN_PATH ${CMAKE_TOOLCHAIN_FILE} NAME)
 		if (VCPKG_TOOLCHAIN_PATH MATCHES "vcpkg.cmake")
-			message(STATUS "Found existing vcpkg installation")
+			message(STATUS "Found existing vcpkg installation: ${CMAKE_TOOLCHAIN_FILE}")
 			set(ALREADY_HAVE_VCPKG)
 		else()
 			message(STATUS "Did not find existing vcpkg installation")
@@ -86,7 +128,7 @@ macro(find_install_package)
         PARSED_ARGS # prefix of output variables
         "INCLUDES_NOT_REQUIRED" # list of names of the boolean arguments (only defined ones will be true)
         "PACKAGE_NAME;VCPKG_NAME;CONAN_NAME;GIT_REPOSITORY" # list of names of mono-valued arguments
-        "COMPONENTS;REQUIRED_TARGETS" # list of names of multi-valued arguments (output variables are lists)
+        "COMPONENTS;REQUIRED_TARGETS;SEARCH_HINTS" # list of names of multi-valued arguments (output variables are lists)
         ${ARGN} # arguments of the function to parse, here we take the all original ones
     )
 	# note: if it remains unparsed arguments, here, they can be found in variable PARSED_ARGS_UNPARSED_ARGUMENTS
@@ -190,6 +232,10 @@ macro(find_install_package)
 	endif()
 	
 	# Try to find existing package or install via vcpkg/conan
+	if(PARSED_ARGS_SEARCH_HINTS)
+		list(APPEND EXTRA_PATH_HINTS "${PARSED_ARGS_SEARCH_HINTS}")
+		message(STATUS "Added hint to search path for ${PARSED_ARGS_PACKAGE_NAME}: ${PARSED_ARGS_SEARCH_HINTS}")
+	endif()
 	if(PARSED_ARGS_COMPONENTS)
 		find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} HINTS ${EXTRA_PATH_HINTS} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
 	else()
@@ -227,11 +273,10 @@ macro(find_install_package)
 		endif()
 		
 		# try git archive download finally
-		if(NOT INSTALL_OPTION_FOUND)		
-			# try git installation instead
-			message(STATUS "No vcpkg or conan package provided, attempting retrieval of git archive: ${PARSED_ARGS_GIT_REPOSITORY}")
-			if(PARSED_ARGS_GIT_REPOSITORY AND (NOT PARSED_ARGS_GIT_REPOSITORY MATCHES "none"))
-				git_clone("${PARSED_ARGS_PACKAGE_NAME}" "${PARSED_ARGS_GIT_REPOSITORY}")
+		if(NOT INSTALL_OPTION_FOUND)
+			if(PARSED_ARGS_GIT_REPOSITORY)
+				# try git installation instead
+				install_package_git(${PARSED_ARGS_GIT_REPOSITORY})
 				set(INSTALL_OPTION_FOUND "TRUE")
 				set(INSTALL_OPTION_GIT "TRUE")
 			endif()

@@ -31,24 +31,7 @@ macro(target_include_qt)
 	# Theoretically automoc should take care of this, but just in case....
 	set_property(TARGET ${PARSED_ARGS_TARGET} PROPERTY AUTOMOC TRUE)
 	set_property(TARGET ${PARSED_ARGS_TARGET} PROPERTY AUTOUIC TRUE)
-	set_property(TARGET ${PARSED_ARGS_TARGET} PROPERTY AUTORCC TRUE)
-	
-	#target_include_directories(${PARSED_ARGS_TARGET} PRIVATE ${QT5_INCLUDE_DIRS})
-	
-	#Extra Qt include dirs since Qt CMake target config is rather buggered
-	
-	# set(THIS_TARGET_INCLUDE_DIRS ${QT5_INCLUDE_DIRS})
-	# list(APPEND THIS_TARGET_INCLUDE_DIRS ${QT5_INCLUDE_DIR})	
-	# foreach(QT_LIBRARIES_REQUIRED ${QT_LIBRARIES_REQUIRED})
-		# if(NOT Qt5${QT_LIBRARIES_REQUIRED}_INCLUDE_DIRS)
-			# message(FATAL_ERROR "Qt5 include dir not supplied: Qt5${QT_LIBRARIES_REQUIRED}_INCLUDE_DIRS")
-		# endif()
-		# list(APPEND THIS_TARGET_INCLUDE_DIRS ${Qt5${QT_LIBRARIES_REQUIRED}_INCLUDE_DIRS})		
-		# add_dependencies(${PARSED_ARGS_TARGET} "Qt5::${QT_LIBRARIES_REQUIRED}")		
-	# endforeach()
-	# target_include_directories(${PARSED_ARGS_TARGET} PRIVATE ${THIS_TARGET_INCLUDE_DIRS})
-	# message(STATUS "Adding Qt include dependencies to ${PARSED_ARGS_TARGET}: ${THIS_TARGET_INCLUDE_DIRS}")	
-	
+	set_property(TARGET ${PARSED_ARGS_TARGET} PROPERTY AUTORCC TRUE)	
 endmacro()
 
 macro(target_link_qt)
@@ -129,23 +112,8 @@ macro(target_link_qt)
 		# https://github.com/probonopd/linuxdeployqt
 	
 		message(STATUS "Deploying Qt manually (should not occur on Windows or MacOS). Good luck!")
-		foreach(QT_LIBRARIES_REQUIRED ${QT_LIBRARIES_REQUIRED})
-			target_link_deploy_lib(TARGET ${PARSED_ARGS_TARGET} LINK_TARGET "Qt5::${QT_LIBRARIES_REQUIRED}")
-				
-			# # Qt file library deployment during build
-			# add_custom_command(TARGET ${PARSED_ARGS_TARGET} POST_BUILD
-				# COMMAND ${CMAKE_COMMAND} -E copy_if_different \"$<TARGET_FILE:Qt5::${QT_LIBRARIES_REQUIRED}>\" \"$<TARGET_FILE_DIR:${PARSED_ARGS_TARGET}>\"
-				# COMMENT "Deploying Qt manually..."
-			# )
-			
-			# # Qt file library deployment during installation
-			# install(CODE "
-				# execute_process(
-					# COMMAND ${CMAKE_COMMAND} -E copy_if_different \"$<TARGET_FILE:Qt5::${QT_LIBRARIES_REQUIRED}>\" \"${CMAKE_INSTALL_PREFIX}/bin>\"
-					# COMMENT \"Deploying Qt manually...\"
-				# )
-			# ")
-			
+		foreach(LIBRARY_REQUIRED ${PARSED_ARGS_COMPONENTS})
+			target_link_deploy_lib(LINK_TARGET ${PARSED_ARGS_TARGET} PACKAGE_TARGETS "Qt5::${LIBRARY_REQUIRED}")			
 		endforeach()
 		message(STATUS "Non-Windows post-build installation set up for target ${PARSED_ARGS_TARGET} (should work for most platforms)")
 	endif()	

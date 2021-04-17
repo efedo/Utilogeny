@@ -65,7 +65,7 @@ macro(post_project_boilerplate)
 	# Remove default RTTI
 	string(REPLACE "/GR" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})				  
 
-	include(${UTILOGENY_DIR}/cmake/optimization.cmake)
+	#include(${UTILOGENY_DIR}/cmake/optimization.cmake)
 	include(${UTILOGENY_DIR}/cmake/target_config_compiler.cmake)
 
 	include_directories("..") # All include paths will be relative to parent directory

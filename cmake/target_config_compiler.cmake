@@ -41,7 +41,6 @@ function(target_config_compiler target)
 	if(PRINT_INCLUDE_TARGET_DIRS)
 		message(STATUS "${target}: Adding compiler definitions: ${${target}AdditionalDefinitions}")
 	endif()
-	target_compile_definitions(${target} PUBLIC ${${target}AdditionalDefinitions})
-	
+	target_compile_definitions(${target} PUBLIC ${${target}AdditionalDefinitions})	
 endfunction()
 

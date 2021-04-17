@@ -65,7 +65,6 @@ private:
 #define _NEST_RETHROW(arg, exc)			throw _NEST(arg, exc);
 #define _PRINT_EXCEPTION(exc)			std::lock_guard<std::recursive_mutex> lock(Utilogeny::consoleOutMutex); std::cerr << "\nException caught by " << __FILE__ << ":" << __LINE__ << " (thread " << std::this_thread::get_id() << ")\n\n";	_print_exception_func(exc); std::cerr << "\n";
 
-//#define TRY							try{
 #define rethrow(arg)					try { throw; } catch (const std::exception& e) { _NEST_RETHROW(arg, new cException(e)) } catch (const cException& e) { _NEST_RETHROW(arg, &e) } catch (...) { _NEST_RETHROW(arg, new cException()) }
 #define catch_vocal_rethrow(arg)		catch (...) { try { rethrow(arg) } catch (const cException& e) { _PRINT_EXCEPTION(e); throw e; } catch (...) { } }
 #define catch_rethrow(arg)				catch (...) { try { rethrow(arg) } catch (const cException& e) {                      throw e; } catch (...) { } }

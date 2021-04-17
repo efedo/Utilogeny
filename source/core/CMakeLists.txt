@@ -31,7 +31,7 @@ add_library(UtilogenyCore STATIC
 	platform.h
     precomp.cpp
     precomp.h
-	"properties/property_container.cpp"
+	properties/property_container.cpp
 	properties/property.h
     randomnumbers.cpp
     randomnumbers.h
@@ -86,25 +86,10 @@ add_library(UtilogenyCore STATIC
     utilogeny.h
     version.h
 	string/string.h
-	sdl/freeserf/audio.cc
-	sdl/freeserf/audio.h
-	sdl/freeserf/audio-sdlmixer.cc
-	sdl/freeserf/audio-sdlmixer.h
-	sdl/freeserf/data.cc
-	sdl/freeserf/data.h
-	sdl/freeserf/event_loop.cc
-	sdl/freeserf/event_loop.h
-	sdl/freeserf/event_loop-sdl.cc
-	sdl/freeserf/event_loop-sdl.h
-	sdl/freeserf/gfx.cc
-	sdl/freeserf/gfx.h
-	sdl/freeserf/sprite-file-sdl.cc
-	sdl/freeserf/sprite-file.h
-	sdl/freeserf/video.cc
-	sdl/freeserf/video.h
-	sdl/freeserf/video-sdl.cc
-	sdl/freeserf/video-sdl.h
-	 "properties/property_old_variant.h" "properties/property_container.h" "properties/property_new_variant.h" "platform.cpp")
+	properties/property_old_variant.h
+	properties/property_container.h
+	properties/property_new_variant.h
+	platform.cpp "audio/audio_backend_generic.h" "audio/audio_backend_soloud.h")
 
 target_precompile_headers(UtilogenyCore
 	PRIVATE precomp.h)
