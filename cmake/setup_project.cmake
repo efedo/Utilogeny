@@ -48,7 +48,7 @@ macro(pre_project_boilerplate)
 	
 	string(TOUPPER ${PARSED_ARGS_NAME} CAPS_NAME)
 
-	message(STATUS "Configuring project ${PARSED_ARGS_NAME} in ${CMAKE_CURRENT_SOURCE_DIR}")
+	message(STATUS "Configuring project ${PARSED_ARGS_NAME} in ${CMAKE_CURRENT_SOURCE_DIR} (pre-project boilerplate)")
 	
 	set(${CAPS_NAME}_DIR CACHE STRING "${CMAKE_CURRENT_SOURCE_DIR}")
 		
@@ -56,6 +56,16 @@ macro(pre_project_boilerplate)
 endmacro()
 
 macro(post_project_boilerplate)
+
+    cmake_parse_arguments(
+        PARSED_ARGS # prefix of output variables
+        "" # list of names of the boolean arguments (only defined ones will be true)
+        "NAME" # list of names of mono-valued arguments
+        "" # list of names of multi-valued arguments (output variables are lists)
+        ${ARGN} # arguments of the function to parse, here we take the all original ones
+    )
+
+	message(STATUS "Applying post-project boilerplate to project ${PARSED_ARGS_NAME} in ${CMAKE_CURRENT_SOURCE_DIR}")
 
 	if(NOT UTILOGENY_DIR)
 		message(FATAL_ERROR "Did not supply Utilogeny directory") # For now needs to be manually set

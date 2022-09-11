@@ -1,9 +1,16 @@
-cmake_minimum_required(VERSION 3.11) # 3.11 for fetch_content
+cmake_minimum_required(VERSION 3.11) # 3.11 for fetch_content, 3.24 for dependency providers
 
-include(${UTILOGENY_DIR}/cmake/git_submodule.cmake)
+# No longer using submodules, too messy
+# include(${UTILOGENY_DIR}/cmake/git_submodule.cmake)
+
+# maybe update this to use FetchContent with dependency providers instead of my homemade version
+# if it ever puts projects in proper namespaces and does not expose all private targets
+# See https://cmake.org/cmake/help/latest/command/cmake_language.html#dependency-providers
+# People seem to not like FetchContent for large projects due to namespace collisions:
+# https://www.reddit.com/r/cpp/comments/wjzyfd/cmake_324_has_support_for_dependency_providers/
 
 option(ENABLE_VCPKG "Enable vcpkg for automatic dependency retrieval" ON)
-option(ENABLE_CONAN "Enable conan for automatic dependency retrieval" OFF)
+option(ENABLE_CONAN "Enable conan for automatic dependency retrieval" ON)
 option(ENABLE_GIT "Enable git for automatic dependency retrieval" ON)
 
 if(ENABLE_VCPKG)
@@ -18,6 +25,7 @@ if(ENABLE_VCPKG)
 endif()
 
 if(ENABLE_CONAN)
+# See here for update: https://github.com/conan-io/cmake-conan
 	include(${UTILOGENY_DIR}/cmake/conan.cmake)
 	
 	if(NOT TARGET conan_dependencies)
@@ -35,6 +43,7 @@ if(ENABLE_CONAN)
 endif()
 
 if(ENABLE_GIT)
+# Clean this up based on https://github.com/adobe/lagrange/tree/72f9a5447b6803245d43a37a18b76e59c16fbda8/cmake/recipes/external
 	macro(install_package_git)
 		message(STATUS "No vcpkg or conan package provided, attempting retrieval of git archive: ${PARSED_ARGS_GIT_REPOSITORY}")
 		if(PARSED_ARGS_GIT_REPOSITORY AND (NOT PARSED_ARGS_GIT_REPOSITORY MATCHES "none"))
@@ -76,9 +85,15 @@ endif()
 # Prefer whichever of vcpkg and conan is already installed
 # Otherwise prefer vcpkg
 function(select_PREFERRED_PKG_MANAGER)
+
+	message(STATUS "Selecting preferred package manager")
+
 	if(PREFERRED_PKG_MANAGER)
+		message(STATUS "Preferred package manager is: ${PREFERRED_PKG_MANAGER} ")
 		return()
 	endif()
+
+	message(STATUS "CMAKE toolchain file: ${CMAKE_TOOLCHAIN_FILE} ")
 
 	if(CMAKE_TOOLCHAIN_FILE)
 		get_filename_component(VCPKG_TOOLCHAIN_PATH ${CMAKE_TOOLCHAIN_FILE} NAME)
@@ -88,6 +103,8 @@ function(select_PREFERRED_PKG_MANAGER)
 		else()
 			message(STATUS "Did not find existing vcpkg installation")
 		endif()
+	else()
+		message(STATUS "Did not find vcpkg toolchain file")
 	endif()
 
 	find_program(CONAN conan)
@@ -140,62 +157,18 @@ macro(find_install_package)
     if(NOT PARSED_ARGS_PACKAGE_NAME)
         message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: find_install_package called without a PACKAGE_NAME")
     endif()
-	
-	# Already have targets for package
-	if(${PARSED_ARGS_PACKAGE_NAME}_TARGETS)
-	
-		unset(UNDEFINED_REQUIRED_TARGET)
-		unset(MISSING_REQUIRED_LIST_TARGET)
-		foreach(REQUIRED_TARGET ${PARSED_ARGS_REQUIRED_TARGETS})
-			# Check that all required targets are defined
-			if(NOT TARGET ${REQUIRED_TARGET})
-				list(APPEND UNDEFINED_REQUIRED_TARGET ${REQUIRED_TARGET})
-			endif()
-			
-			# Check that all targets are in existing target list
-			unset(MISSING_LIST_TARGET)
-			list(FIND ${PARSED_ARGS_PACKAGE_NAME}_TARGETS ${REQUIRED_TARGET} MISSING_LIST_TARGET)
-			
-			if(MISSING_LIST_TARGET)
-				#message(STATUS "MISSING_LIST_TARGET: ${MISSING_LIST_TARGET}")
-				list(APPEND MISSING_REQUIRED_LIST_TARGET ${REQUIRED_TARGET})
-			endif()
-		endforeach()
-		
-		if(MISSING_REQUIRED_LIST_TARGET)
-			message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: configuring package ${PARSED_ARGS_PACKAGE_NAME}")
-		elseif(UNDEFINED_REQUIRED_TARGET)
-			message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: configuring package ${PARSED_ARGS_PACKAGE_NAME}")
-			#message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: 		       required targets: ${PARSED_ARGS_REQUIRED_TARGETS}")
-			#message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: 		previous listed targets: ${${PARSED_ARGS_PACKAGE_NAME}_TARGETS}")
-			#message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: 		 missing listed targets: ${MISSING_REQUIRED_LIST_TARGET}")
-			#message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: 			  undefined targets: ${UNDEFINED_REQUIRED_TARGET}")	
-		else()
-			message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: skipping package ${PARSED_ARGS_PACKAGE_NAME}, already adequately configured") #: ${PARSED_ARGS_REQUIRED_TARGETS}")
-			return()
-		endif()
-	else()
-		message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: configuring package ${PARSED_ARGS_PACKAGE_NAME}")
+
+	message(STATUS "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: finding package ${PARSED_ARGS_PACKAGE_NAME}")
+
+	if(NOT PARSED_ARGS_VCPKG_NAME AND NOT PARSED_ARGS_CONAN_NAME AND NOT PARSED_ARGS_GIT_REPOSITORY)
+		message(FATAL_ERROR "Not provided a valid vcpkg or conan package name or git repository")
 	endif()
-	
-	#if(NOT PARSED_ARGS_REQUIRED_TARGETS)
-	#	set(PARSED_ARGS_REQUIRED_TARGETS ${PARSED_ARGS_PACKAGE_NAME})
-    #endif()
-	
-	# if(NOT PARSED_ARGS_VCPKG_NAME)
-		# set(PARSED_ARGS_VCPKG_NAME ${PARSED_ARGS_PACKAGE_NAME})
-    # endif()
-	
-	# if(NOT PARSED_ARGS_CONAN_NAME)
-		# set(PARSED_ARGS_CONAN_NAME ${PARSED_ARGS_PACKAGE_NAME})
-    # endif()
 	
 	# Set up some extra find_package hints
 	# e.g.
 	# project/lib/package
 	# project/lib/extern/package
 	# project/../lib/package
-	
 	unset(EXTRA_PATH_HINTS)
 	set(EXTRA_PATH_HINTS)
 	list(APPEND EXTRA_PATH_HINTS "${PROJECT_SOURCE_DIR}/../lib/")
@@ -238,82 +211,62 @@ macro(find_install_package)
 	endif()
 	if(PARSED_ARGS_COMPONENTS)
 		find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} HINTS ${EXTRA_PATH_HINTS} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
-	else()
-		find_package(${PARSED_ARGS_PACKAGE_NAME} HINTS ${EXTRA_PATH_HINTS} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
+	#else()
+	#	find_package(${PARSED_ARGS_PACKAGE_NAME} HINTS ${EXTRA_PATH_HINTS} CONFIG) #removed required at this point, since if missing you want it to install rather than fail
 	endif()
-	
-	#message(STATUS "Git repo: ${PARSED_ARGS_GIT_REPOSITORY}")
 	
 	# Install the package otherwise
 	if(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND)
 		select_PREFERRED_PKG_MANAGER()
-		unset(INSTALL_OPTION_FOUND)
-		unset(INSTALL_OPTION_GIT)
-		
-		#try preferred package manager first
+
+		# prefer vcpkg
 		if(PREFERRED_PKG_MANAGER MATCHES "vcpkg")
 			if (PARSED_ARGS_VCPKG_NAME AND (NOT PARSED_ARGS_VCPKG_NAME MATCHES "none")) # first choice vcpkg
+				message(STATUS "Retrieving with first choice package manager (vcpkg)")
 				install_package_vcpkg(${PARSED_ARGS_VCPKG_NAME})
-				set(INSTALL_OPTION_FOUND "TRUE")
-			elseif(PARSED_ARGS_CONAN_NAME AND (NOT PARSED_ARGS_CONAN_NAME MATCHES "none")) # second choice conan
+				find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} HINTS ${EXTRA_PATH_HINTS} CONFIG)
+				if(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND)
+					message(WARNING "Retrieval via vcpkg failed")
+				endif()
+			elseif(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND AND PARSED_ARGS_CONAN_NAME AND (NOT PARSED_ARGS_CONAN_NAME MATCHES "none")) # second choice conan
+				message(STATUS "Retrieving with second choice package manager (conan)")
 				install_package_conan(${PARSED_ARGS_CONAN_NAME})
-				set(INSTALL_OPTION_FOUND "TRUE")
+				find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} HINTS ${EXTRA_PATH_HINTS} CONFIG)
+				if(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND)
+					message(WARNING "Retrieval via conan failed")
+				endif()
 			endif()
-		endif()
-		
-		# try second preference package manager next
-		if((NOT INSTALL_OPTION_FOUND) AND (PREFERRED_PKG_MANAGER MATCHES "conan"))
+		elseif(PREFERRED_PKG_MANAGER MATCHES "conan")
 			if(PARSED_ARGS_CONAN_NAME AND (NOT PARSED_ARGS_CONAN_NAME MATCHES "none")) # first choice conan
+				message(STATUS "Retrieving with first choice package manager (conan)")
 				install_package_conan(${PARSED_ARGS_CONAN_NAME})
-				set(INSTALL_OPTION_FOUND "TRUE")
-			elseif(PARSED_ARGS_VCPKG_NAME AND (NOT PARSED_ARGS_VCPKG_NAME MATCHES "none")) # second choice vcpkg
+				find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} HINTS ${EXTRA_PATH_HINTS} CONFIG)
+				if(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND)
+					message(WARNING "Retrieval via vcpkg failed")
+				endif()
+			elseif(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND AND PARSED_ARGS_VCPKG_NAME AND (NOT PARSED_ARGS_VCPKG_NAME MATCHES "none")) # second choice vcpkg
+				message(STATUS "Retrieving with second choice package manager (vcpkg)")
 				install_package_vcpkg(${PARSED_ARGS_VCPKG_NAME})
-				set(INSTALL_OPTION_FOUND "TRUE")
+				find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} HINTS ${EXTRA_PATH_HINTS} CONFIG)
+				if(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND)
+					message(WARNING "Retrieval via conan failed")
+				endif()
 			endif()
-		endif()
-		
-		# try git archive download finally
-		if(NOT INSTALL_OPTION_FOUND)
-			if(PARSED_ARGS_GIT_REPOSITORY)
-				# try git installation instead
-				install_package_git(${PARSED_ARGS_GIT_REPOSITORY})
-				set(INSTALL_OPTION_FOUND "TRUE")
-				set(INSTALL_OPTION_GIT "TRUE")
+		elseif(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND AND PARSED_ARGS_GIT_REPOSITORY AND (NOT PARSED_ARGS_GIT_REPOSITORY MATCHES "none"))
+			message(STATUS "No conan or vcpkg package name supplied, trying git")
+			install_package_git(${PARSED_ARGS_GIT_REPOSITORY})
+			find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} HINTS ${EXTRA_PATH_HINTS} CONFIG)
+			if(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND)
+				message(WARNING "Retrieval via git failed")
 			endif()
+		else()
+			message(FATAL_ERROR "No valid package/repository supplied, should have been stopped at function start")
 		endif()
-		
-		if(NOT INSTALL_OPTION_FOUND)
-			message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Unable to retrieve package (from vcpkg, conan, or git): ${PARSED_ARGS_PACKAGE_NAME}")
-		endif()
-		
-		find_package(${PARSED_ARGS_PACKAGE_NAME} COMPONENTS ${PARSED_ARGS_COMPONENTS} HINTS ${EXTRA_PATH_HINTS} CONFIG) #removed required since you provide a more information error message below
 	endif()
 	
 	if(${PARSED_ARGS_PACKAGE_NAME}_FOUND)
-		#message(STATUS "Found installed package: ${PARSED_ARGS_PACKAGE_NAME}")
+		message(STATUS "Found installed package: ${PARSED_ARGS_PACKAGE_NAME}")
 	else()
-		# Check if it could have been cloned via git and try to just add the corresponding subdirectory manually
-		# (for libraries without a proper find module)
-
-		#macro to check for CMakeLists.txt file
-		unset(GIT_CMAKELISTS_LOC)
-		macro(set_cmake_lists_loc folder)	
-			if((NOT GIT_CMAKELISTS_LOC) AND (EXISTS "${folder}/${PARSED_ARGS_PACKAGE_NAME}/CMakeLists.txt"))
-				set(GIT_CMAKELISTS_LOC "${folder}/${PARSED_ARGS_PACKAGE_NAME}/")
-			elseif((NOT GIT_CMAKELISTS_LOC) AND (GIT_ARCHIVE_NAME) AND (EXISTS "${folder}/${GIT_ARCHIVE_NAME}/CMakeLists.txt"))
-				set(GIT_CMAKELISTS_LOC "${folder}/${GIT_ARCHIVE_NAME}/")
-			endif()
-		endmacro()
-		
-		#locations to check
-		set_cmake_lists_loc("${PROJECT_SOURCE_DIR}/lib/extern")
-		set_cmake_lists_loc("${PROJECT_SOURCE_DIR}/lib")
-		set_cmake_lists_loc("${PROJECT_SOURCE_DIR}/../lib")
-		
-		message(FATAL_ERROR "Could have maybe manually added archive for package ${PARSED_ARGS_PACKAGE_NAME} but not yet implemented")		
-	endif()	
-	
-	if(NOT ${PARSED_ARGS_PACKAGE_NAME}_FOUND)
 		message(FATAL_ERROR "${CMAKE_PROJECT_NAME}/${PROJECT_NAME}: Could not find package ${PARSED_ARGS_PACKAGE_NAME} even after attempting installation.")
 	endif()
 	

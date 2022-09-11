@@ -26,6 +26,9 @@
 # Modified to also look in toolchain file directory (which is supplied as an argument to CMAKE by MSVC)
 # e.g. C:/Programming/lib/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
+# May want to update based on:
+# https://github.com/REGoth-project/Automate-VCPKG/blob/master/automate-vcpkg.cmake
+
 set(AUTO_VCPKG_GIT_REPOSITORY "https://github.com/Microsoft/vcpkg.git")
 if (DEFINED AUTO_VCPKG_GIT_TAG)
     set(USE_AUTO_VCPKG_GIT_TAG "GIT_TAG ${AUTO_VCPKG_GIT_TAG}")
@@ -36,6 +39,7 @@ function (vcpkg_setroot)
         return()
     endif ()
     set(AUTO_VCPKG_ROOT "${CMAKE_BINARY_DIR}/vcpkg" CACHE STRING "")
+    file(MAKE_DIRECTORY ${AUTO_VCPKG_ROOT})
     set(ENV{VCPKG_ROOT} "${AUTO_VCPKG_ROOT}")
     message(STATUS "AutoVcpkg: using vcpkg root ${AUTO_VCPKG_ROOT}")
 endfunction()

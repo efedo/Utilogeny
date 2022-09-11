@@ -24,7 +24,7 @@ macro(check_include_link_args)
 		set(lib_target ${PARSED_ARGS_PACKAGE_TARGETS})
 	endif()
 	
-	#message("targets1: ${lib_target}!")
+	message("targets: ${lib_target}!")
 	
 	if(PARSED_ARGS_PACKAGE_NAME)
 		if(NOT ${PARSED_ARGS_PACKAGE_NAME}_TARGETS)

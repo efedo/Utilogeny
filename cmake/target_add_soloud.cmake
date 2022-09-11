@@ -1,7 +1,7 @@
 # Copyright 2021 Eric Fedosejevs
 #
 
-include(${UTILOGENY_DIR}/cmake/git_submodule.cmake)
+#include(${UTILOGENY_DIR}/cmake/git_submodule.cmake)
 include(${UTILOGENY_DIR}/cmake/find_install_package.cmake)
 include(${UTILOGENY_DIR}/cmake/target_deploy_lib.cmake)
 include(${UTILOGENY_DIR}/cmake/target_add_sdl.cmake)

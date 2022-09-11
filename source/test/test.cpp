@@ -10,7 +10,7 @@ TEST(TestCaseName, TestName) {
 //TEST(SdlTests, SdlLaunchTest) {
 //	launchSDLwindow();
 //}
-//
-//TEST(SoLoudTests, SoLoudInitTest) {
-//	audio_test();
-//}
+
+TEST(SoLoudTests, SoLoudInitTest) {
+	audio_test();
+}
