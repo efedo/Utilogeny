@@ -1,3 +1,5 @@
+Consider using this instead: https://github.com/skypjack/entt 
+used in minecraft, vcpkg
 
 // {
 //    Dog max;
@@ -75,3 +77,5 @@
 // dog.remove_property("bark") OKAY removed from this dog
 // cat = dog; // clone dog, including properties
 
+Create stack property:
+Property smelliness<int>;

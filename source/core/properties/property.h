@@ -14,8 +14,8 @@ public:
 
 	enum class PropertyStatusEnum : uint8_t {
 		t_uninitialized = 0,
-		t_static = 1,
-		t_dynamic = 2
+		t_stack = 1,
+		t_heap = 2
 	};
 
 	enum class PropertyTypeEnum : uint8_t {
@@ -28,19 +28,19 @@ public:
 	};
 
 	~Property() {
-		if ((status == PropertyStatusEnum::t_dynamic) && location) delete location;
+		if ((status == PropertyStatusEnum::t_heap) && location) delete location;
 		location = 0;
-		status = PropertyStatusEnum::t_dynamic;
+		status = PropertyStatusEnum::t_uninitialized;
 		ptype = PropertyTypeEnum::t_invalid;
 	}
 
 	Property& operator=(Property& rhs) {
 		if (&rhs == this) return *this;
 		
-		if ((status == PropertyStatusEnum::t_static) ||
-			(status == PropertyStatusEnum::t_dynamic)) {
-			if ((rhs.status == PropertyStatusEnum::t_static) ||
-				(rhs.status == PropertyStatusEnum::t_dynamic))
+		if ((status == PropertyStatusEnum::t_stack) ||
+			(status == PropertyStatusEnum::t_heap)) {
+			if ((rhs.status == PropertyStatusEnum::t_stack) ||
+				(rhs.status == PropertyStatusEnum::t_heap))
 			{
 				switch (rhs.ptype) {
 				case PropertyTypeEnum::t_bool:
@@ -85,7 +85,7 @@ public:
 		return *this;
 	}
 
-	Property(Property& rhs) {
+	Property(const Property& rhs) {
 		if (rhs.status == PropertyStatusEnum::t_static)
 		{
 			// copy other property's contents
@@ -282,5 +282,6 @@ template <class tpPropertyType>
 Property getDynamicProperty(const tpPropertyType & val) {
 	Property dynprop;
 	dynprop.init<tpPropertyType>(new tpPropertyType(val));
-	return std::move(dynprop);
+	//return std::move(dynprop);
+	return dynprop;
 }

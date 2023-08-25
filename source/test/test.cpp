@@ -1,6 +1,6 @@
 #include "Utilogeny/source/test/pch.h"
 #include "Utilogeny/source/core/audio/audio_test.h"
-#include "Utilogeny/source/core/properties/property.h"
+//#include "Utilogeny/source/core/properties/property.h"
 
 TEST(TestCaseName, TestName) {
   EXPECT_EQ(1, 1);

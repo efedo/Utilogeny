@@ -2,13 +2,15 @@
 #
 
 macro(check_include_link_args)
-	#message(STATUS "PARSED_ARGS_PACKAGE_NAME: ${PARSED_ARGS_PACKAGE_NAME}")
-	#message(STATUS "PARSED_ARGS_PACKAGE_TARGETS: ${PARSED_ARGS_PACKAGE_TARGETS}")
+	message(STATUS "Package name: ${PARSED_ARGS_PACKAGE_NAME}")
+	if(${PARSED_ARGS_PACKAGE_TARGETS})
+		message(STATUS "Explicit package targets: ${PARSED_ARGS_PACKAGE_TARGETS}")
+	endif()
 
 	if(NOT PARSED_ARGS_LINK_TARGET) # Need to specify a link target
-		message(FATAL_ERROR "target_link_deploy or target_include not supplied target by ${CMAKE_CURRENT_LIST_FILE}")
-	elseif((NOT PARSED_ARGS_PACKAGE_NAME) AND (NOT PARSED_ARGS_PACKAGE_TARGETS))
-		message(FATAL_ERROR "target_link_deploy or target_include not supplied link package name or package target by ${CMAKE_CURRENT_LIST_FILE}")
+		message(FATAL_ERROR "target_link_deploy or target_include not supplied link target for package ${PARSED_ARGS_PACKAGE_NAME}")
+	elseif(NOT PARSED_ARGS_PACKAGE_NAME)
+		message(FATAL_ERROR "target_link_deploy or target_include not supplied link package name")
 	endif()
 
 	cmake_policy(SET CMP0079 NEW) # Allows linking to targets built externally
@@ -24,8 +26,6 @@ macro(check_include_link_args)
 		set(lib_target ${PARSED_ARGS_PACKAGE_TARGETS})
 	endif()
 	
-	message("targets: ${lib_target}!")
-	
 	if(PARSED_ARGS_PACKAGE_NAME)
 		if(NOT ${PARSED_ARGS_PACKAGE_NAME}_TARGETS)
 			message(FATAL_ERROR "${PARSED_ARGS_PACKAGE_NAME}_TARGETS is not defined in the current scope. Did you forget to include target_add_*.cmake in the current CMakeLists.txt file (${CMAKE_CURRENT_LIST_FILE})?")
@@ -35,7 +35,7 @@ macro(check_include_link_args)
 		endif()
 	endif()
 	
-	#message("targets2: ${lib_target}!")
+	message(STATUS "All package targets: ${lib_target}")
 	
 	foreach(REQUIRED_TARGET ${lib_target})
 		if(NOT(TARGET ${REQUIRED_TARGET}))
@@ -108,14 +108,11 @@ function(target_link_deploy_lib)
 	
 	#message(STATUS "PARSED_ARGS_PACKAGE_NAME: ${PARSED_ARGS_PACKAGE_NAME}")
 	check_include_link_args()
-	
-	# if(PARSED_ARGS_PACKAGE_NAME)
-		# target_include_lib(LINK_TARGET ${PARSED_ARGS_LINK_TARGET} PACKAGE_NAME ${PARSED_ARGS_PACKAGE_NAME})
-	# elseif(PARSED_ARGS_PACKAGE_TARGETS)
-		# target_include_lib(LINK_TARGET ${PARSED_ARGS_LINK_TARGET} PACKAGE_TARGETS ${PARSED_ARGS_PACKAGE_TARGETS})
-	# else()
-		# message(FATAL_ERROR "check_include_link_args failed to detect incorrrect link arguments!")
-	# endif()
+
+	if (NOT lib_target)
+		message("Targets were: " ${lib_target})
+		message(FATAL_ERROR "target_link_deploy or target_include not supplied package targets for package ${PARSED_ARGS_PACKAGE_NAME}")
+	endif()
 	
 	message(STATUS "${bin_target}: Linking and deploying ${lib_target}")
 	
@@ -129,9 +126,12 @@ function(target_link_deploy_lib)
 		
 		if (NOT(${target_type} STREQUAL "INTERFACE_LIBRARY"))
 		
-			#message(STATUS "Required link target: ${REQUIRED_TARGET}")
+			message(STATUS "Required link target: ${REQUIRED_TARGET}")
 			add_custom_command(TARGET ${bin_target} POST_BUILD
 				COMMAND ${CMAKE_COMMAND} -E copy \"$<TARGET_FILE:${REQUIRED_TARGET}>\" \"$<TARGET_FILE_DIR:${bin_target}>\"
+			)
+			add_custom_command(TARGET ${bin_target} POST_BUILD
+				COMMAND ${CMAKE_COMMAND} -E echo \"Should have copied $<TARGET_FILE:${REQUIRED_TARGET}>\ to \"$<TARGET_FILE_DIR:${bin_target}>\"
 			)
 			
 			# Library target deployment during installation

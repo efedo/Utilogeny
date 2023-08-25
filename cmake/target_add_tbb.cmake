@@ -11,5 +11,5 @@ endfunction()
 
 function(target_link_tbb target)
 	target_include_tbb(${target})
-	target_link_deploy_lib(LINK_TARGET ${target} PACKAGE_NAME "TBB")
+	target_link_deploy_lib(LINK_TARGET ${target} PACKAGE_NAME "TBB" PACKAGE_TARGETS "TBB::tbb")
 endfunction()

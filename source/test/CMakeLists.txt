@@ -9,7 +9,7 @@ include(${UTILOGENY_DIR}/cmake/target_add_SDL.cmake)
 include(${UTILOGENY_DIR}/cmake/target_add_soloud.cmake)
 
 add_executable(UtilogenyTest
-	../core/properties/property_test.cpp
+	#../core/properties/property_test.cpp
 	pch.cpp
 	pch.h
 	test.cpp

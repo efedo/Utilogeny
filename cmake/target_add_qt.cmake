@@ -20,13 +20,13 @@ macro(target_include_qt)
 		message(FATAL_ERROR "target_include_qt() or target_link_qt() not supplied valid arguments")
 	endif()
 
-	unset(QT5_REQUIRED_TARGETS)
+	unset(QT6_REQUIRED_TARGETS)
 	foreach(REQUIRED_COMPONENT ${PARSED_ARGS_COMPONENTS})
-		list(APPEND QT5_REQUIRED_TARGETS "Qt5::${REQUIRED_COMPONENT}")
+		list(APPEND QT6_REQUIRED_TARGETS "Qt6::${REQUIRED_COMPONENT}")
 	endforeach()
 
-	find_install_package(PACKAGE_NAME "Qt5" COMPONENTS "${PARSED_ARGS_COMPONENTS}" REQUIRED_TARGETS "${QT5_REQUIRED_TARGETS}")
-	target_include_lib(LINK_TARGET ${PARSED_ARGS_TARGET} PACKAGE_NAME "Qt5")
+	find_install_package(PACKAGE_NAME "Qt6" VCPKG_NAME "Qt6" COMPONENTS "${PARSED_ARGS_COMPONENTS}" REQUIRED_TARGETS "${QT6_REQUIRED_TARGETS}")
+	target_include_lib(LINK_TARGET ${PARSED_ARGS_TARGET} PACKAGE_NAME "Qt6")
 	
 	# Theoretically automoc should take care of this, but just in case....
 	set_property(TARGET ${PARSED_ARGS_TARGET} PROPERTY AUTOMOC TRUE)
@@ -45,11 +45,11 @@ macro(target_link_qt)
     )
 	
 	foreach(REQUIRED_COMPONENT ${PARSED_ARGS_COMPONENTS})
-		list(APPEND QT5_TARGETS "Qt5::${REQUIRED_COMPONENT}")
+		list(APPEND QT6_TARGETS "Qt6::${REQUIRED_COMPONENT}")
 	endforeach()
 	
 	target_include_qt(TARGET ${PARSED_ARGS_TARGET} COMPONENTS ${PARSED_ARGS_COMPONENTS})
-	target_link_deploy_lib(LINK_TARGET ${PARSED_ARGS_TARGET} PACKAGE_NAME "Qt5")
+	target_link_deploy_lib(LINK_TARGET ${PARSED_ARGS_TARGET} PACKAGE_NAME "Qt6")
 	
 	# Theoretically automoc should take care of this, but just in case....
 	set_property(TARGET ${PARSED_ARGS_TARGET} PROPERTY AUTOMOC TRUE)
@@ -61,7 +61,7 @@ macro(target_link_qt)
 	
 	 	set(CMAKE_INSTALL_UCRT_LIBRARIES TRUE) # installs UCRT libraries when installing system libraries (below)
 	
-		get_target_property(_qmake_executable Qt5::qmake IMPORTED_LOCATION)
+		get_target_property(_qmake_executable Qt6::qmake IMPORTED_LOCATION)
 		get_filename_component(_qt_bin_dir "${_qmake_executable}" DIRECTORY)
 		find_program(WINDEPLOYQT_EXECUTABLE windeployqt HINTS "${_qt_bin_dir}")
 		if (NOT WINDEPLOYQT_EXECUTABLE)
@@ -86,7 +86,7 @@ macro(target_link_qt)
 		message(STATUS "Windows Qt installation successfully set up for target ${PARSED_ARGS_TARGET} via WinDeployQt.exe")
 		
 	elseif(CMAKE_OS MATCHES "MACOS") # If Apple, might as well use MacDeployQt
-		get_target_property(_qmake_executable Qt5::qmake IMPORTED_LOCATION)
+		get_target_property(_qmake_executable Qt6::qmake IMPORTED_LOCATION)
 		get_filename_component(_qt_bin_dir "${_qmake_executable}" DIRECTORY)
 		find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${_qt_bin_dir}")
 		if (NOT MACDEPLOYQT_EXECUTABLE)
@@ -113,7 +113,7 @@ macro(target_link_qt)
 	
 		message(STATUS "Deploying Qt manually (should not occur on Windows or MacOS). Good luck!")
 		foreach(LIBRARY_REQUIRED ${PARSED_ARGS_COMPONENTS})
-			target_link_deploy_lib(LINK_TARGET ${PARSED_ARGS_TARGET} PACKAGE_TARGETS "Qt5::${LIBRARY_REQUIRED}")			
+			target_link_deploy_lib(LINK_TARGET ${PARSED_ARGS_TARGET} PACKAGE_TARGETS "Qt6::${LIBRARY_REQUIRED}")			
 		endforeach()
 		message(STATUS "Non-Windows post-build installation set up for target ${PARSED_ARGS_TARGET} (should work for most platforms)")
 	endif()	

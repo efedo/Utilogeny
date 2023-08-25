@@ -8,6 +8,8 @@ include(CMakeDependentOption)
 option(UTILOGENY_QT "Build with Qt" ON)
 option(UTILOGENY_TEST "Build with Qt" ON)
 
+set(OVERRIDE_CXX_STANDARD 20)
+
 # These are temporary and will be replaced with find_package eventually
 set(UTILOGENY_DIR "${CMAKE_CURRENT_SOURCE_DIR}" CACHE STRING "Path to Utilogeny")
 include(${UTILOGENY_DIR}/cmake/setup_project.cmake)
