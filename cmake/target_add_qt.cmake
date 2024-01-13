@@ -1,5 +1,6 @@
-# Copyright 2021 Eric Fedosejevs
-#
+# Copyright 2021-2023 Eric Fedosejevs
+# Version 2023-12-11
+# - Removed vcpkg retrieval and added qt_standard_project_setup()
 
 include(${UTILOGENY_DIR}/cmake/find_install_package.cmake)
 include(${UTILOGENY_DIR}/cmake/target_deploy_lib.cmake)
@@ -25,7 +26,9 @@ macro(target_include_qt)
 		list(APPEND QT6_REQUIRED_TARGETS "Qt6::${REQUIRED_COMPONENT}")
 	endforeach()
 
-	find_install_package(PACKAGE_NAME "Qt6" VCPKG_NAME "Qt6" COMPONENTS "${PARSED_ARGS_COMPONENTS}" REQUIRED_TARGETS "${QT6_REQUIRED_TARGETS}")
+	find_install_package(PACKAGE_NAME "Qt6" COMPONENTS "${PARSED_ARGS_COMPONENTS}" REQUIRED_TARGETS "${QT6_REQUIRED_TARGETS}")
+	qt_standard_project_setup() # qt6 addition
+
 	target_include_lib(LINK_TARGET ${PARSED_ARGS_TARGET} PACKAGE_NAME "Qt6")
 	
 	# Theoretically automoc should take care of this, but just in case....
@@ -63,15 +66,20 @@ macro(target_link_qt)
 	
 		get_target_property(_qmake_executable Qt6::qmake IMPORTED_LOCATION)
 		get_filename_component(_qt_bin_dir "${_qmake_executable}" DIRECTORY)
-		find_program(WINDEPLOYQT_EXECUTABLE windeployqt HINTS "${_qt_bin_dir}")
-		if (NOT WINDEPLOYQT_EXECUTABLE)
+		message(STATUS "Qt bin dir: ${_qt_bin_dir}")
+		#find_program(WINDEPLOYQT_EXECUTABLE windeployqt HINTS "${_qt_bin_dir}")
+		set(WINDEPLOYQT_EXECUTABLE "${_qt_bin_dir}/windeployqt6.exe")
+		if (WINDEPLOYQT_EXECUTABLE)
+			message(STATUS "WinDeployQt found: ${WINDEPLOYQT_EXECUTABLE}")
+		else()
 			message(FATAL_ERROR "WinDeployQt not found")
 		endif()
 		
 		# Qt file installation during build
 		add_custom_command(TARGET ${PARSED_ARGS_TARGET} POST_BUILD
-			COMMAND ${WINDEPLOYQT_EXECUTABLE} $<TARGET_FILE:${PARSED_ARGS_TARGET}> --verbose 2
 			COMMENT "Deploying Qt via WinDeployQt (post-build)..."
+			#--qmake "${_qmake_executable}" 
+			COMMAND ${WINDEPLOYQT_EXECUTABLE} $<TARGET_FILE:${PARSED_ARGS_TARGET}> --verbose 2
 		)
 		
 		# Qt file installation during installation

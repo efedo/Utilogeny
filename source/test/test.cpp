@@ -1,5 +1,5 @@
 #include "Utilogeny/source/test/pch.h"
-#include "Utilogeny/source/core/audio/audio_test.h"
+//#include "Utilogeny/source/core/audio/audio_test.h"
 //#include "Utilogeny/source/core/properties/property.h"
 
 TEST(TestCaseName, TestName) {
@@ -11,6 +11,6 @@ TEST(TestCaseName, TestName) {
 //	launchSDLwindow();
 //}
 
-TEST(SoLoudTests, SoLoudInitTest) {
-	audio_test();
-}
+//TEST(SoLoudTests, SoLoudInitTest) {
+//	audio_test();
+//}

@@ -9,7 +9,7 @@ public:
 	cMersenneTwister();
 	// Note that these are not so cheap because they create a new distribution with each call
 	std::string randomHexString(unsigned int);
-	unsigned int randomUInt(const unsigned int& = 0, const unsigned int & = std::numeric_limits<unsigned int>::max());
+	unsigned int randomUInt(const unsigned int = 0, const unsigned int = std::numeric_limits<int>::max());
 	float randomFloat(const float &, const float &);
 	double randomDouble(const double &, const double &);
 	float randomFloatNormalDist(const float&, const float&);

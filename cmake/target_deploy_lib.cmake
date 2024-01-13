@@ -1,5 +1,5 @@
-# Copyright 2021 Eric Fedosejevs
-#
+# Copyright 2021-2023 Eric Fedosejevs
+# Version 2023-12-11
 
 macro(check_include_link_args)
 	message(STATUS "Package name: ${PARSED_ARGS_PACKAGE_NAME}")

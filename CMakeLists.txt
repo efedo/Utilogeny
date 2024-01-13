@@ -5,8 +5,9 @@ cmake_minimum_required(VERSION 3.15)
 
 include(CMakeDependentOption)
 
-option(UTILOGENY_QT "Build with Qt" ON)
-option(UTILOGENY_TEST "Build with Qt" ON)
+option(UTILOGENY_QT "Build with Qt" OFF)
+option(UTILOGENY_TEST "Build with test support" ON)
+option(UTILOGENY_AUDIO "Enable Utiligeny audio support." OFF)
 
 set(OVERRIDE_CXX_STANDARD 20)
 

@@ -38,12 +38,18 @@ void cDataFile::_procBytes(char * varPtr, const std::size_t & size) {
 
 
 void cDataFile::_getBytes(char * varPtr, const std::size_t & size) {
+	#ifdef DEBUG
+	if (!fstreamPtr) throwl("File stream pointer is null");
+    #endif //DEBUG
 	fstreamPtr->read(varPtr, size);
 	if (fstreamPtr->fail()) throwl("File read failed");
 }
 
 // Print variable
 void cDataFile::_printBytes(const char * varPtr, const std::size_t & size) {
+	#ifdef DEBUG
+	if (!fstreamPtr) throwl("File stream pointer is null");
+	#endif //DEBUG
 	fstreamPtr->write(varPtr, size);
 	if (fstreamPtr->fail()) throwl("File write failed");
 }
@@ -109,9 +115,8 @@ void cDataFileMonolithic::_procFile() {
 }
 
 void cDataFile::procCStr(char * var, const std::size_t & fileCStrSize) {
-
 	// Enforces null-termination of C-strings being saved
-	if (var[fileCStrSize - 1]) {
+	if (_isWriting && var[fileCStrSize - 1]) {
 		var[fileCStrSize - 1] = 0;
 		std::string tmpErr = "Tried to write a non-null-terminated C-str: " + fileCStrSize;
 		throwl(tmpErr);
@@ -143,19 +148,17 @@ void cDataFile::_procStrFLen(std::string & var, const std::size_t & fileCStrSize
 
 		// Process the c string string
 		try {
-
 			procCStr(tmpCStr, fileCStrSize);
-
 		} catch_rethrow("Failed to output C-string to file");
-
 	}
 	else {
 
 		// Make sure the var string is of sufficient length
-		var.resize(fileCStrSize - 1);
+		//var.resize(fileCStrSize - 1);
+		//var.reserve(fileCStrSize - 1);
 
 		// Get a C-str pointer
-		char * tmpCStr = &var[0];// new char[fileCStrSize];
+		char * tmpCStr = new char[fileCStrSize]; // &var[0];
 
 		// Fill it with data
 		try {
@@ -170,6 +173,8 @@ void cDataFile::_procStrFLen(std::string & var, const std::size_t & fileCStrSize
 			tmpCStr[fileCStrSize - 1] = 0;
 			std::cerr << "Loaded string was not null-terminated; null-terminating string: \"" << fileCStrSize << "\"\n";
 		}
+
+		var = tmpCStr;
 	}
 }
 

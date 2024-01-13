@@ -1,3 +1,6 @@
+# Copyright 2021-2023 Eric Fedosejevs
+# Version 2023-12-11
+
 cmake_minimum_required(VERSION 3.11) # 3.11 for fetch_content, 3.24 for dependency providers
 
 # No longer using submodules, too messy

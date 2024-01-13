@@ -3,13 +3,14 @@
 
 cmake_minimum_required(VERSION 3.15)
 
-include(${UTILOGENY_DIR}/cmake/target_add_sdl.cmake)
-include(${UTILOGENY_DIR}/cmake/target_add_soloud.cmake)
 include(${UTILOGENY_DIR}/cmake/target_add_tbb.cmake)
 
-add_library(UtilogenyCore STATIC
-	audio/audio_test.cpp
-	audio/audio_test.h
+if(UTILOGENY_AUDIO)
+    include(${UTILOGENY_DIR}/cmake/target_add_sdl.cmake)
+    include(${UTILOGENY_DIR}/cmake/target_add_soloud.cmake)
+endif()
+
+set(SOURCES
     besthitmap.h
     commandcontroller/commandcontroller.cpp
     commandcontroller/commandcontroller.h
@@ -85,11 +86,21 @@ add_library(UtilogenyCore STATIC
     utilogeny.cpp
     utilogeny.h
     version.h
-	string/string.h
 	properties/property_old_variant.h
 	properties/property_container.h
 	properties/property_new_variant.h
-	platform.cpp "audio/audio_backend_generic.h" "audio/audio_backend_soloud.h")
+	platform.cpp )
+
+if(UTILOGENY_AUDIO)
+    set(SOURCES ${SOURCES}
+        "audio/audio_backend_generic.h"
+        "audio/audio_backend_soloud.h"
+        "audio/audio_backend_generic.h" 
+        "audio/audio_backend_soloud.h"
+    )
+endif()
+
+add_library(UtilogenyCore STATIC ${SOURCES})
 
 target_precompile_headers(UtilogenyCore
 	PRIVATE precomp.h)
@@ -100,7 +111,8 @@ set_target_properties(UtilogenyCore PROPERTIES
             CXX_STANDARD ${OVERRIDE_CXX_STANDARD}
             CXX_EXTENSIONS OFF
             )
-
-target_include_soloud(UtilogenyCore)
+if(UTILOGENY_AUDIO)
+    target_include_soloud(UtilogenyCore)
+    target_include_sdl2(UtilogenyCore)
+endif()
 target_include_tbb(UtilogenyCore)
-target_include_sdl2(UtilogenyCore)

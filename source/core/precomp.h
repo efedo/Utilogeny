@@ -73,6 +73,10 @@
 #define WINVER _WIN32_WINNT_WIN10 // Windows 10
 #endif //WINVER
 
+#ifdef _DEBUG // For MSVC
+#define DEBUG
+#endif
+
 #ifdef OS_MACOS
 #include <TargetConditionals.h> // Required by re2 for Apple support
 #endif

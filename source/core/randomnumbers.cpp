@@ -33,7 +33,7 @@ int cMersenneTwister::randomCheaperInt(const int & min, const int & max) {
 	return distribution(cheaprng);
 }
 
-unsigned int cMersenneTwister::randomUInt(const unsigned int& min, const unsigned int& max) {
+unsigned int cMersenneTwister::randomUInt(const unsigned int min, const unsigned int max) {
 	std::uniform_int_distribution<unsigned int> distribution(min, max);
 	return distribution(rng);
 }
