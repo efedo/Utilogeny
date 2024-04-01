@@ -3,13 +3,6 @@
 
 cmake_minimum_required(VERSION 3.15)
 
-include(${UTILOGENY_DIR}/cmake/target_add_tbb.cmake)
-
-if(UTILOGENY_AUDIO)
-    include(${UTILOGENY_DIR}/cmake/target_add_sdl.cmake)
-    include(${UTILOGENY_DIR}/cmake/target_add_soloud.cmake)
-endif()
-
 set(SOURCES
     besthitmap.h
     commandcontroller/commandcontroller.cpp
@@ -89,15 +82,37 @@ set(SOURCES
 	properties/property_old_variant.h
 	properties/property_container.h
 	properties/property_new_variant.h
-	platform.cpp )
+	platform.cpp
+)
 
 if(UTILOGENY_AUDIO)
-    set(SOURCES ${SOURCES}
+    include(${UTILOGENY_DIR}/cmake/target_add_sdl.cmake)
+    include(${UTILOGENY_DIR}/cmake/target_add_soloud.cmake)
+    set(SOURCES 
+        ${SOURCES}
         "audio/audio_backend_generic.h"
         "audio/audio_backend_soloud.h"
         "audio/audio_backend_generic.h" 
         "audio/audio_backend_soloud.h"
     )
+endif()
+
+if(UTILOGENY_GTEST)
+    include(${UTILOGENY_DIR}/lib/gtest/CMakeLists.txt)
+    set(LINK_LIBS ${LINK_LIBS} "gtest_main")
+    set(INCLUDE_DIRS ${INCLUDE_DIRS} ${googletest_SOURCE_DIR}/googletest/include)
+endif()
+
+if(UTILOGENY_TBB)
+    include(${UTILOGENY_DIR}/lib/tbb/CMakeLists.txt)
+    set(LINK_LIBS ${LINK_LIBS} "TBB::tbb")
+    set(INCLUDE_DIRS ${INCLUDE_DIRS} ${tbb_SOURCE_DIR}/include)
+endif()
+
+if(UTILOGENY_SPDLOG)
+    include(${UTILOGENY_DIR}/lib/spdlog/CMakeLists.txt)
+    set(LINK_LIBS ${LINK_LIBS} "spdlog")
+    set(INCLUDE_DIRS ${INCLUDE_DIRS} ${spdlog_SOURCE_DIR}/include)
 endif()
 
 add_library(UtilogenyCore STATIC ${SOURCES})
@@ -111,8 +126,11 @@ set_target_properties(UtilogenyCore PROPERTIES
             CXX_STANDARD ${OVERRIDE_CXX_STANDARD}
             CXX_EXTENSIONS OFF
             )
+
 if(UTILOGENY_AUDIO)
     target_include_soloud(UtilogenyCore)
     target_include_sdl2(UtilogenyCore)
 endif()
-target_include_tbb(UtilogenyCore)
+
+target_link_libraries(UtilogenyCore PUBLIC ${LINK_LIBS})
+target_include_directories(UtilogenyCore PUBLIC ${INCLUDE_DIRS})

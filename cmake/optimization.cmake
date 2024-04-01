@@ -32,6 +32,7 @@ if(PLATFORM_COMPILER MATCHES "MSVC")
 	# Native or AVX2 architecture
 	add_flag_if_supported("/arch:AVX") #MSVC
 	add_flag_if_supported("/arch:AVX2") #MSVC
+	add_flag_if_supported("/arch:AVX512") #MSVC
 
 	# Fast floats
 	add_flag_if_supported("/fp:fast") #MSVC
@@ -63,34 +64,31 @@ message(STATUS "Selecting optimization profile based on CMake build type: ${CMAK
 	
 if(CMAKE_BUILD_TYPE MATCHES "Debug")
     message(STATUS "Implementing Debug optimization profile")
-	
 	if(PLATFORM_COMPILER MATCHES "MSVC")
-	
-	# Auto-parallelizer and vectorizer error messages
-	add_flag_if_supported("/Qpar-report:2")
-	add_flag_if_supported("/Qvec-report:2")
+		# Auto-parallelizer and vectorizer error messages
+		add_flag_if_supported("/Qpar-report:2")
+		add_flag_if_supported("/Qvec-report:2")
 	else() # GCC, Clang, other LLVM
 	endif()
 else()
     message(STATUS "Implementing Release optimization profile")
-	
 	if(PLATFORM_COMPILER MATCHES "MSVC")
+		# Maximize speed
+		add_flag_if_supported("/O2") #MSVC equivalent to /Og /Oi /Ot /Oy /Ob2 /GF /Gy
+		add_flag_if_supported("/Og")
+		add_flag_if_supported("/Oi")
+		add_flag_if_supported("/Ot")
+		add_flag_if_supported("/Oy")
+		add_flag_if_supported("/Ob2")
+		add_flag_if_supported("/GF")
+		add_flag_if_supported("/Gy")
 	
-	# Maximize speed
-	add_flag_if_supported("/O2") #MSVC equivalent to /Og /Oi /Ot /Oy /Ob2 /GF /Gy
-	add_flag_if_supported("/Oi")
-	add_flag_if_supported("/Ot")
-	add_flag_if_supported("/Oy")
-	add_flag_if_supported("/Ob2")
-	add_flag_if_supported("/GF")
-	add_flag_if_supported("/Gy")
+		# Disable SDL and GS buffer security checks
+		add_flag_if_supported("/sdl-") #MSVC
+		add_flag_if_supported("/GS-") #MSVC
 	
-	# Disable SDL and GS buffer security checks
-	add_flag_if_supported("/sdl-") #MSVC
-	add_flag_if_supported("/GS-") #MSVC
-	
-	# Whole program optimization
-	add_flag_if_supported("/GL") #MSVC
+		# Whole program optimization
+		add_flag_if_supported("/GL") #MSVC
 	else() # GCC, Clang, other LLVM
 	endif()
 endif()

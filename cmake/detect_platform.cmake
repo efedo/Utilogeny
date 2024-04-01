@@ -3,6 +3,7 @@ if(NOT OS_DETECTED)
 message(STATUS "Detecting OS")
 
 # Detect target OS
+# CMAKE_SYSTEM_NAME is "The name of the operating system for which CMake is to build"
 if(CMAKE_SYSTEM_NAME MATCHES "Windows")
 	# WIN32 is TRUE on Windows, including Cygwin
 	if(WIN32)

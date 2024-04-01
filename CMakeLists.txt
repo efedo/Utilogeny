@@ -1,13 +1,17 @@
-# Copyright 2021 Eric Fedosejevs
+# Copyright 2021-24 Eric Fedosejevs
 #
 
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.24)
 
 include(CMakeDependentOption)
 
+#option(UTILOGENY_TBB "Build with TBB" OFF)
+set(UTILOGENY_TBB ON)
 option(UTILOGENY_QT "Build with Qt" OFF)
+option(UTILOGENY_GTEST "Build with Google test" ON)
 option(UTILOGENY_TEST "Build with test support" ON)
 option(UTILOGENY_AUDIO "Enable Utiligeny audio support." OFF)
+option(UTILOGENY_SPDLOG "Enable Utiligeny spdlog support." ON)
 
 set(OVERRIDE_CXX_STANDARD 20)
 
@@ -34,6 +38,9 @@ if(UTILOGENY_QT)
 endif()
 
 if(UTILOGENY_TEST)
+	if(NOT UTILOGENY_GTEST)
+		message(FATAL_ERROR "Utilogeny tests require Google test (must set UTILOGENY_GTEST)")
+	endif()
 	add_subdirectory(source/test)
 	install(TARGETS UtilogenyTest DESTINATION bin)
 endif()

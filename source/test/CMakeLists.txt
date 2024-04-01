@@ -3,9 +3,6 @@
 
 cmake_minimum_required(VERSION 3.15)
 
-include(${UTILOGENY_DIR}/cmake/target_add_tbb.cmake)
-include(${UTILOGENY_DIR}/cmake/target_add_googletest.cmake)
-
 if(UTILOGENY_AUDIO)
 	include(${UTILOGENY_DIR}/cmake/target_add_SDL.cmake)
 	include(${UTILOGENY_DIR}/cmake/target_add_soloud.cmake)
@@ -32,8 +29,5 @@ if(UTILOGENY_AUDIO)
 	target_link_soloud(UtilogenyTest)
 	target_link_sdl2(UtilogenyTest)
 endif()
-target_link_tbb(UtilogenyTest)
-target_link_gtest(UtilogenyTest)
 
 target_link_libraries(UtilogenyTest PUBLIC UtilogenyCore)
-
