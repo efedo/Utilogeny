@@ -1,0 +1,57 @@
+Reactor pattern versus actor pattern?
+Each actor has own event loop versus some shared?
+- Actor model copies data instead of using mutexes?
+
+Considerations: 
+- C++
+- Interthread at least
+- Low overhead
+- Thread safe
+- Ideally also supports TCP for expandability
+
+dasynq
+- no Windows support
+
+libuv/uvw
+- https://github.com/skypjack/uvw
+
+CAF: the C++ Actor Framework
+https://github.com/actor-framework/actor-framework
+https://www.actor-framework.org/
+
+nanomsg ++
+https://github.com/nanomsg/nanomsg
+https://github.com/achille-roussel/nanomsgxx
+- successor to ZeroMQ by same creator
+
+https://github.com/userver-framework/userver
+
+Cpp Server
+https://github.com/chronoxor/CppServer
+
+ZeroMQ +-
+https://en.wikipedia.org/wiki/ZeroMQ
+https://github.com/zeromq/libzmq
+- License issue: MPL
+- Comparison with nanomsg: https://nanomsg.org/documentation-zeromq.html
+
+Boost ASIO
+https://www.boost.org/doc/libs/1_83_0/doc/html/boost_asio.html
+
+
+
+libevent
+- C only
+- only partially thread safe
+
+libev
+- C only
+- https://metacpan.org/dist/EV/view/libev/ev.pod
+
+Seastar
+- Trend-following, produces illegible code (i.e. https://github.com/scylladb/seastar/blob/master/doc/mini-tutorial.md)
+
+
+Mostly focused on networking:
+Crow, RESTinio, Boost.Beast, cpp-httplib, http_backend, Pistache, RestBed, served, proxygen, Simple-Web-Server, drogon, oat++.
+cpprestsdk

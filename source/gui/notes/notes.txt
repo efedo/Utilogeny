@@ -1,0 +1,7 @@
+Mesa has several software rendering libraries:
+https://en.wikipedia.org/wiki/Mesa_(computer_graphics)#Software_renderer
+swrast, softpipe, & LLVMpipe
+
+https://nlguillemot.wordpress.com/2016/07/10/rasterizer-notes/
+
+zauonlok's renderer has nice clean window-creation code for win/osx/lin

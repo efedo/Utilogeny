@@ -5,10 +5,10 @@ cmake_minimum_required(VERSION 3.24)
 
 include(CMakeDependentOption)
 
-#option(UTILOGENY_TBB "Build with TBB" OFF)
-set(UTILOGENY_TBB ON)
-option(UTILOGENY_QT "Build with Qt" OFF)
-option(UTILOGENY_GTEST "Build with Google test" ON)
+option(UTILOGENY_TBB "Build with TBB" ON)
+option(UTILOGENY_GUI "Build Utilogeny GUI library" OFF)
+option(UTILOGENY_PHYSICS "Build Utilogeny physics library" ON)
+option(UTILOGENY_GTEST "Build with Google test" ON) # So that dependent packages can use Gtest without running Utilogeny test suite
 option(UTILOGENY_TEST "Build with test support" ON)
 option(UTILOGENY_AUDIO "Enable Utiligeny audio support." OFF)
 option(UTILOGENY_SPDLOG "Enable Utiligeny spdlog support." ON)
@@ -32,9 +32,19 @@ post_project_boilerplate(NAME "Utilogeny")
 add_subdirectory(source/core)
 install(TARGETS UtilogenyCore DESTINATION lib)
 
-if(UTILOGENY_QT)
-	add_subdirectory(source/qt)
-	install(TARGETS Qtilogeny DESTINATION lib)
+#if(UTILOGENY_QT)
+#	add_subdirectory(source/qt)
+#	install(TARGETS Qtilogeny DESTINATION lib)
+#endif()
+
+if(UTILOGENY_GUI)
+	add_subdirectory(source/gui)
+	install(TARGETS UtilogenyGUI DESTINATION lib)
+endif()
+
+if(UTILOGENY_PHYSICS)
+	add_subdirectory(source/physics)
+	install(TARGETS UtilogenyPhysics DESTINATION lib)
 endif()
 
 if(UTILOGENY_TEST)

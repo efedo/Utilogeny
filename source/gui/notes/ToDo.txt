@@ -1,0 +1,2 @@
+- Synchronize capitalization of Bgfx/Glfw
+- Either settle on exceptions or spd for critical errors

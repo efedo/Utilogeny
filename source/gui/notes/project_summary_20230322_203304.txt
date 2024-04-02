@@ -1,0 +1,420 @@
+
+*****
+File: D:\Programming\NewWidgetLibrary\CMakeLists.txt
+Project: MyWidgetToolkit
+Dependency (find_package): SDL2
+Dependency (find_package): GLFW
+Dependency (find_package): OpenGL
+Dependency (find_package): GLEW
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\ExtendedException.cpp
+#include "ExtendedException.h"
+#include <sstream>
+ExtendedException::ExtendedException(const std::string& message, const char* file, int line) { ... }
+const char* ExtendedException::what() { ... }
+const char* ExtendedException::getFile() { ... }
+int ExtendedException::getLine() { ... }
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\ExtendedException.h
+#pragma once
+#include <exception>
+#include <string>
+class ExtendedException : public std::exception {
+public:
+    ExtendedException(const std::string& message, const char* file, int line);
+    const char* what() const noexcept override;
+    const char* getFile() const noexcept;
+    int getLine() const noexcept;
+private:
+    std::string errorMessage;
+    std::string errorFile;
+    int errorLine;
+};
+#define THROW_EXTENDED_EXCEPTION(msg) throw ExtendedException(msg, __FILE__, __LINE__)
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\main.cpp
+#define SDL_MAIN_HANDLED
+#include "window/SDLWindow.h"
+#include "window/GLFWWindow.h"
+#include "ExtendedException.h"
+#include <iostream>
+int main() { ... }
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\event\event.h
+#pragma once
+#include <cstdint>
+class Event {
+public:
+    enum class Type : uint8_t {
+        None,
+        Quit,
+        WindowResize,
+        MouseButtonDown,
+        MouseButtonUp,
+        MouseMotion,
+        MouseWheel,
+        KeyDown,
+        KeyUp,
+        TextInput
+    };
+    struct WindowResizeEvent {
+        int width;
+        int height;
+    };
+    struct MouseButtonEvent {
+        int x;
+        int y;
+        uint8_t button;
+    };
+    struct MouseMotionEvent {
+        int x;
+        int y;
+        int xrel;
+        int yrel;
+    };
+    struct MouseWheelEvent {
+        int x;
+        int y;
+    };
+    struct KeyEvent {
+        uint32_t keycode;
+        uint16_t scancode;
+        uint16_t mod;
+    };
+    struct TextInputEvent {
+        char text[32];
+    };
+    Event() { ... }
+    Type type;
+    union {
+        WindowResizeEvent windowResize;
+        MouseButtonEvent mouseButton;
+        MouseMotionEvent mouseMotion;
+        MouseWheelEvent mouseWheel;
+        KeyEvent key;
+        TextInputEvent textInput;
+    };
+};
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\renderer\BgfxRenderer.cpp
+
+#include "BGFXRenderer.h"
+#include <bgfx/bgfx.h>
+#include <bgfx/platform.h>
+#include "../Window.h"
+void BGFXRenderer::initialize() {
+    bgfx::PlatformData pd{};
+    const WindowingSystem windowsys = window->getWindowingSystem();
+    if (windowsys == WindowingSystem::SDL) { ... }
+    else if (windowsys == WindowingSystem::GLFW) { ... }
+    bgfx::setPlatformData(pd);
+    bgfx::init();
+    bgfx::setViewClear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303030ff, 1.0f, 0);
+}
+void BGFXRenderer::clear() { ... }
+void BGFXRenderer::render() { ... }
+void BGFXRenderer::swapBuffers(Window* window) { ... }
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\renderer\BgfxRenderer.h
+
+#pragma once
+#include "Renderer.h"
+class BGFXRenderer : public Renderer {
+public:
+    virtual void initialize() override;
+    virtual void clear() override;
+    virtual void render() override;
+    virtual void swapBuffers(Window* window) override;
+};
+
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\renderer\OpenGLRenderer.cpp
+
+#include "OpenGLRenderer.h"
+#include <SDL_opengl.h>
+#include <SDL.h>
+#include <GLFW/glfw3.h>
+#include <GL/glew.h>
+#include "../window/Window.h"
+#include <iostream>
+void OpenGLRenderer::initialize() { ... }
+void OpenGLRenderer::clear() { ... }
+void OpenGLRenderer::render() { ... }
+void OpenGLRenderer::swapBuffers(Window* window) { ... }
+void OpenGLRenderer::setDrawColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a) { ... }
+void OpenGLRenderer::fillRect(const Rect& rect) { ... }
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\renderer\OpenGLRenderer.h
+
+#pragma once
+#include "Renderer.h"
+class OpenGLRenderer : public Renderer {
+public:
+    virtual void initialize() override;
+    virtual void clear() override;
+    virtual void render() override;
+    virtual void swapBuffers(Window* window) override;
+    virtual void setDrawColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a) override;
+    virtual void fillRect(const Rect& rect) override;
+};
+
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\renderer\Renderer.h
+
+#pragma once
+#include <cstdint>
+class Window;
+class Event;
+class Renderer {
+public:
+    struct Rect {
+        int x, y, w, h;
+    };
+    virtual ~Renderer() = default;
+    virtual void initialize() = 0;
+    virtual void clear() = 0;
+    virtual void render() = 0;
+    virtual void swapBuffers(Window* window) = 0;
+    virtual void setDrawColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a) = 0;
+    virtual void fillRect(const Rect& rect) = 0;
+};
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\widget\widget.cpp
+#include "widget.h"
+void Button::handleEvent(const Event& event) { ... }
+void Button::render() { ... }
+bool Button::isInside(int x, int y) { ... }
+
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\widget\widget.h
+#pragma once
+#include <string>
+#include <functional>
+#include "../renderer/Renderer.h"
+#include "../event/Event.h"
+class Widget {
+public:
+    Widget(Renderer& renderer, int x, int y, int width, int height)
+        : renderer{ renderer }, rect{ x, y, width, height } {}
+    virtual ~Widget() = default;
+    virtual void handleEvent(const Event& event) = 0;
+    virtual void render() = 0;
+protected:
+    Renderer& renderer;
+    Renderer::Rect rect;
+};
+class Button : public Widget {
+public:
+    Button(Renderer& renderer, int x, int y, int width, int height, const std::string& text, std::function<void()> onClick)
+        : Widget(renderer, x, y, width, height), text{ text }, onClick{ onClick } {}
+    void handleEvent(const Event& event) override;
+    void render() override;
+private:
+    bool isInside(int x, int y);
+    std::string text;
+    std::function<void()> onClick;
+};
+
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\GLFWWindow.cpp
+#include "GLFWWindow.h"
+#include "GLFWWindowImpl.h"
+GLFWWindow::GLFWWindow(const std::string& title, int width, int height) { ... }
+void GLFWWindow::mainLoop() { ... }
+bool GLFWWindow::processEvents() { ... }
+WindowingSystem GLFWWindow::getWindowingSystem() { ... }
+std::unique_ptr<WindowImpl> GLFWWindow::createImpl() { ... }
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\GLFWWindow.h
+#pragma once
+#include <string>
+#include "Window.h"
+#include <GLFW/glfw3.h>
+class GLFWWindowImpl;
+class GLFWWindow : public Window {
+public:
+    GLFWWindow(const std::string& title, int width, int height);
+    virtual void mainLoop() override;
+    bool processEvents() override;
+    WindowingSystem getWindowingSystem() const override;
+protected:
+    virtual std::unique_ptr<WindowImpl> createImpl();
+};
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\GLFWWindowImpl.cpp
+#include "GLFWWindowImpl.h"
+#include "../ExtendedException.h"
+GLFWWindowImpl::GLFWWindowImpl(const std::string& title, int width, int height) { ... }
+GLFWWindowImpl::~GLFWWindowImpl() { ... }
+void* GLFWWindowImpl::getWindow() { ... }
+void GLFWWindowImpl::setTitle(const std::string& title) { ... }
+void GLFWWindowImpl::setSize(int width, int height) { ... }
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\GLFWWindowImpl.h
+#pragma once
+#include <string>
+#include <GLFW/glfw3.h>
+#include "WindowImpl.h"
+class GLFWWindowImpl : public WindowImpl {
+public:
+    GLFWWindowImpl(const std::string& title, int width, int height);
+    virtual ~GLFWWindowImpl();
+    bool processEvent(Event& event) override;
+    void* getWindow() const override;
+    virtual void setTitle(const std::string& title) override;
+    virtual void setSize(int width, int height) override;
+private:
+    GLFWwindow* m_window;
+};
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\SDLWindow.cpp
+#include "SDLWindow.h"
+#include "SDLWindowImpl.h"
+#include "../ExtendedException.h"
+#include "SDL_opengl.h"
+SDLWindow::SDLWindow(const std::string& title, int width, int height) { ... }
+void SDLWindow::mainLoop() { ... }
+bool SDLWindow::processEvents() { ... }
+WindowingSystem SDLWindow::getWindowingSystem() { ... }
+std::unique_ptr<WindowImpl> SDLWindow::createImpl() { ... }
+
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\SDLWindow.h
+#pragma once
+#include "Window.h"
+class SDLWindowImpl;
+class SDLWindow : public Window {
+public:
+    SDLWindow(const std::string& title, int width, int height);
+    void mainLoop() override;
+    bool processEvents() override;
+    WindowingSystem getWindowingSystem() const override;
+protected:
+    std::unique_ptr<WindowImpl> createImpl();
+};
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\SDLWindowImpl.cpp
+#include "SDLWindowImpl.h"
+#include "../ExtendedException.h"
+#include <iostream>
+#define SDL_MAIN_HANDLED
+#include <SDL.h>
+SDLWindowImpl::SDLWindowImpl(const std::string& title, int width, int height) { ... }
+SDLWindowImpl::~SDLWindowImpl() { ... }
+bool SDLWindowImpl::processEvent(Event& event) { ... }
+void* SDLWindowImpl::getWindow() { ... }
+void SDLWindowImpl::setTitle(const std::string& title) { ... }
+void SDLWindowImpl::setSize(int width, int height) { ... }
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\SDLWindowImpl.h
+#pragma once
+#include "WindowImpl.h"
+#include <SDL.h>
+class SDLWindowImpl : public WindowImpl {
+public:
+    SDLWindowImpl(const std::string& title, int width, int height);
+    ~SDLWindowImpl();
+    bool processEvent(Event& event) override;
+    void* getWindow() const override;
+    void setTitle(const std::string& title) override;
+    void setSize(int width, int height) override;
+private:
+    SDL_Window* m_window;
+    SDL_GLContext m_glContext;
+};
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\Window.cpp
+﻿#include "Window.h"
+#include "WindowImpl.h"
+#include "../renderer/OpenGLRenderer.h"
+Window::Window(const std::string& title, int width, int height) { ... }
+Window::~Window() { ... }
+void Window::setTitle(const std::string& title) { ... }
+void Window::setSize(int width, int height) { ... }
+void* Window::getNativeWindow() { ... }
+std::string Window::getTitle() { ... }
+int Window::getWidth() { ... }
+int Window::getHeight() { ... }
+
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\Window.h
+﻿#pragma once
+#include <string>
+#include <memory>
+#include "WindowingSystem.h"
+#include "../renderer/Renderer.h"
+#include "../event/event.h"
+class WindowImpl;
+class Window {
+public:
+    Window(const std::string& title, int width, int height);
+    virtual ~Window();
+    Window(const Window&) = delete;
+    Window& operator=(const Window&) = delete;
+    virtual void mainLoop() = 0;
+    virtual bool processEvents() = 0;
+    void setTitle(const std::string& title);
+    void setSize(int width, int height);
+    virtual WindowingSystem getWindowingSystem() const = 0;
+    void* getNativeWindow() const;
+    std::string getTitle() const;
+    int getWidth() const;
+    int getHeight() const;
+protected:
+    std::string m_title;
+    int m_width;
+    int m_height;
+    std::unique_ptr<WindowImpl> m_impl;
+    std::unique_ptr<Renderer> m_renderer;
+};
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\WindowImpl.cpp
+#include "WindowImpl.h"
+WindowImpl::WindowImpl(const std::string& title, int width, int height) { ... }
+WindowImpl::~WindowImpl() { ... }
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\WindowImpl.h
+#pragma once
+#include <string>
+#include "../event/event.h"
+class WindowImpl {
+public:
+    WindowImpl(const std::string& title, int width, int height);
+    virtual ~WindowImpl();
+    virtual bool processEvent(Event& event) = 0;
+    virtual void* getWindow() const = 0;
+    virtual void setTitle(const std::string& title) = 0;
+    virtual void setSize(int width, int height) = 0;
+protected:
+    std::string m_title;
+    int m_width;
+    int m_height;
+};
+
+*****
+File: D:\Programming\NewWidgetLibrary\source\window\WindowingSystem.h
+#pragma once
+enum class WindowingSystem : int { SDL = 1, GLFW = 2 };
