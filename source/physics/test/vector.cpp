@@ -1,5 +1,5 @@
-#include "pch.h"
-#include "Utilogeny/source/physics/core/physics/vector/vector.h"
+#include "precomp.h"
+#include "Utilogeny/source/physics/lib/vector/vector.h"
 
 TEST(Physics, Vector) {
 

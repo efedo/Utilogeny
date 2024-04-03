@@ -1,7 +1,7 @@
 # Copyright 2021-24 Eric Fedosejevs
 #
 
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.25)
 
 include(CMakeDependentOption)
 
@@ -30,29 +30,19 @@ project(Utilogeny VERSION 0.2
 post_project_boilerplate(NAME "Utilogeny")
 
 add_subdirectory(source/core)
-install(TARGETS UtilogenyCore DESTINATION lib)
-
-#if(UTILOGENY_QT)
-#	add_subdirectory(source/qt)
-#	install(TARGETS Qtilogeny DESTINATION lib)
-#endif()
 
 if(UTILOGENY_GUI)
 	add_subdirectory(source/gui)
-	install(TARGETS UtilogenyGUI DESTINATION lib)
 endif()
 
 if(UTILOGENY_PHYSICS)
 	add_subdirectory(source/physics)
-	install(TARGETS UtilogenyPhysics DESTINATION lib)
 endif()
 
 if(UTILOGENY_TEST)
 	if(NOT UTILOGENY_GTEST)
 		message(FATAL_ERROR "Utilogeny tests require Google test (must set UTILOGENY_GTEST)")
 	endif()
-	add_subdirectory(source/test)
-	install(TARGETS UtilogenyTest DESTINATION bin)
 endif()
 
 

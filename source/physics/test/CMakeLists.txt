@@ -1,19 +1,14 @@
-cmake_minimum_required(VERSION 3.10)
-
-#include(${UTILOGENY_DIR}/cmake/target_add_googletest.cmake)
-#include(${UTILOGENY_DIR}/cmake/target_add_tbb.cmake)
-
-set(OVERRIDE_CXX_STANDARD 20)
+cmake_minimum_required(VERSION 3.25)
 
 add_executable(UtilogenyPhysicsTest
-	pch.cpp
-	pch.h
+	precomp.cpp
+	precomp.h
 	test.cpp
     vector.cpp
 	)
 
 target_precompile_headers(UtilogenyPhysicsTest
-	PRIVATE pch.h)
+	PRIVATE precomp.h)
 	
 target_config_compiler(UtilogenyPhysicsTest)
 

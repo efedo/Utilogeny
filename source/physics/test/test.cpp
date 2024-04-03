@@ -1,6 +1,6 @@
-#include "pch.h"
-#include "Utilogeny/source/physics/core/unitlib/units.h"
-#include "Utilogeny/source/physics/core/physics/universe/generators.h"
+#include "precomp.h"
+#include "Utilogeny/source/physics/lib/unitlib/units.h"
+#include "Utilogeny/source/physics/lib/universe/generators.h"
 
 TEST(UnitLib, Core) {
 	units::Length mylength;
