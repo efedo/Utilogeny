@@ -3,7 +3,7 @@ include(FetchContent)
 FetchContent_Declare(
     googletest
     GIT_REPOSITORY https://github.com/google/googletest.git
-    GIT_TAG release-1.12.1  # Specify the commit, tag, or branch you want to use
+    GIT_TAG release-1.17.0  # Specify the commit, tag, or branch you want to use
 )
 
 #set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
